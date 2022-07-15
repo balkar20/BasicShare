@@ -1,0 +1,36 @@
+version: '3.4'
+
+networks:
+  webapp1-dev:
+    driver: bridge
+
+services:
+  webapp1:
+    image: webapp1:latest
+    depends_on:
+      - "postgres_image"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    environment:
+      DB_CONNECTION_STRING: "host=postgres_image;port=5432;database=blogdb;username=bloguser;password=bloguser"
+    networks:
+      - webapp1-dev
+  
+  postgres_image:
+    image: postgres:latest
+    ports:
+      - "5432"
+    restart: always
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "bloguser"
+      POSTGRES_PASSWORD: "bloguser"
+      POSTGRES_DB: "blogdb"
+    networks:
+      - webapp1-dev
+volumes:
+  db_volume:
