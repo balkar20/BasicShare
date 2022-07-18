@@ -10,11 +10,13 @@ public class ApiDbContext : DbContext
     {
         
     }
-    public DbSet<Product> Blogs { get; set; }
+    public DbSet<Product> Products { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
         new BlogMap(modelBuilder.Entity<Product>());
-        modelBuilder.Entity<Product>().HasData(new Product { Id = 1, Description = "Desc", Title = "Tit"});
+        modelBuilder.Entity<Product>().HasData(new Product { Id = 1, Description = "Desc", Name = "Tit" });
+        //base.OnModelCreating(modelBuilder);
+        //Database.EnsureCreated();
+        //Database.Migrate();
     }
 }

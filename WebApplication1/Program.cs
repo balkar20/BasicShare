@@ -15,16 +15,22 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
     options.UseNpgsql(
         connectionString
     ));
+
+
 builder.Services.AddEndpointDefinitions(typeof(Dodo));
-//builder.Services.AddSingleton<IBlogService, BlogService>();
 
 var app = builder.Build();
+//var dbContext = app.Services.GetService<ApiDbContext>();
+//dbContext?.Database.EnsureCreated();
+//dbContext?.Database.Migrate();
 
 app.UseEndpointDefinitions();
+//using (var serviceScope = app.Services.GetRequiredService<IServiceScopeFactory>().CreateScope())
+//{
+//    var context = serviceScope.ServiceProvider.GetService <ApiDbContext>();
+//    context.Database.Migrate();
+//}
 
-// var dbContext = app.Services.GetService<ApiDbContext>();
-// dbContext?.Database.EnsureCreated();
-// dbContext?.Database.Migrate();
 
 // app.MapGet("/blogs", ([FromServicesAttribute]  IBlogService blogService) => blogService.GetBlogs());
 

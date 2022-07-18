@@ -14,6 +14,6 @@ public class BlogService: IBlogService
 
     public IEnumerable<Product> GetBlogs()
     {
-        return _apiDbContext.Blogs.ToList();
+        return _apiDbContext.Products.ToList();
     }
 }
