@@ -1,4 +1,4 @@
-using Db.Entities;
+using Core.Base.DataBase.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -7,7 +7,7 @@ namespace Db.Maps;
 #pragma warning disable CS1591
 public class ProductMap
 {
-    public ProductMap(EntityTypeBuilder<Product> entityBuilder)
+    public ProductMap(EntityTypeBuilder<ProductEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.ToTable("product");

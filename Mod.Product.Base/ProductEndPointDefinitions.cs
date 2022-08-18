@@ -1,6 +1,4 @@
-using System.Net;
-
-namespace ModProduct;
+namespace Mod.Product.Base;
 
 public class ProductEndPointDefinitions
 {

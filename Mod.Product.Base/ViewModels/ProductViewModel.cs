@@ -1,8 +1,6 @@
-﻿using Db.Interfaces;
+namespace Mod.Product.Base.ViewModels;
 
-namespace ModProduct.Models;
-
-public class Product : IEntity
+public class ProductViewModel
 {
     public long Id { get; set; }
     public string Title { get; set; }

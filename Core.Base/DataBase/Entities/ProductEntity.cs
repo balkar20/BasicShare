@@ -1,8 +1,8 @@
-﻿using Db.Interfaces;
+﻿using Core.Base.DataBase.Interfaces;
 
-namespace Db.Entities;
+namespace Core.Base.DataBase.Entities;
 
-public class Product: IEntity
+public class ProductEntity: IEntity
 {
     public long Id { get; set; }
     public string Name { get; set; }

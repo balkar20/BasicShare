@@ -1,4 +1,4 @@
-using Db.Entities;
+using Core.Base.DataBase.Entities;
 using Db.Maps;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,11 +11,11 @@ public class ApiDbContext : DbContext
     {
         
     }
-    public DbSet<Product> Products { get; set; }
+    public DbSet<ProductEntity> Products { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        new ProductMap(modelBuilder.Entity<Product>());
-        modelBuilder.Entity<Product>().HasData(new Product { Id = 1, Description = "Desc", Name = "Tit" });
+        new ProductMap(modelBuilder.Entity<ProductEntity>());
+        modelBuilder.Entity<ProductEntity>().HasData(new ProductEntity { Id = 1, Description = "Desc", Name = "Tit" });
         //base.OnModelCreating(modelBuilder);
         //Database.EnsureCreated();
         //Database.Migrate();

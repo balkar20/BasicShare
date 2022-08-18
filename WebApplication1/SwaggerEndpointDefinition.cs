@@ -1,5 +1,3 @@
-using Microsoft.OpenApi.Models;
-
 namespace WebApplication1;
 
 // public class SwaggerEndpointDefinition: IEndpointDefinition
