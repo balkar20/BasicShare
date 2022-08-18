@@ -10,7 +10,6 @@
     <ItemGroup>
       <ProjectReference Include="..\Db\Db.csproj" />
       <ProjectReference Include="..\Mod.Product.Base\Mod.Product.Base.csproj" />
-      <ProjectReference Include="..\Sevices\Sevices.csproj" />
     </ItemGroup>
 
     <ItemGroup>
