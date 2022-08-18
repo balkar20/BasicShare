@@ -1,21 +1,31 @@
 using Db;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ModProduct.Handlers;
+using ModProduct.Queries;
 using Sevices;
 
 namespace WebApplication1;
 
 public class EndpointDefinition : IEndpointDefinition
 {
+    private readonly IMediator _mediator;
+
+    public EndpointDefinition(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+    
     public void DefineEndpoints(WebApplication app)
     {
         app.MapGet("/", () => "Hello World2!");
-        app.MapGet("/blogs", ([FromServices]  IBlogService blogService) => blogService.GetBlogs());
+        app.MapGet("/products", (IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
+        // app.MapGet("/blogs", ([FromServices]   blogService) => blogService.GetBlogs());
     }
     
     public void DefineServices(IServiceCollection services)
     {
         services.AddScoped<IBlogService, BlogService>();
-
     }
 }

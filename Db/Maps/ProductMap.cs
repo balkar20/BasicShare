@@ -1,12 +1,13 @@
+using Db.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Db.Maps;
 
 #pragma warning disable CS1591
-public class BlogMap
+public class ProductMap
 {
-    public BlogMap(EntityTypeBuilder<Product> entityBuilder)
+    public ProductMap(EntityTypeBuilder<Product> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
         entityBuilder.ToTable("product");

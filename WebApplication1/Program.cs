@@ -1,6 +1,8 @@
 using Db;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ModProduct.Queries;
 using Sevices;
 using WebApplication1;
 using WebApplication1.Extensions;
@@ -16,7 +18,7 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
         connectionString
     ));
 
-
+builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
 builder.Services.AddEndpointDefinitions(typeof(Dodo));
 
 var app = builder.Build();

@@ -1,10 +1,10 @@
 ﻿using Db.Interfaces;
 
-namespace ModProduct.Models;
+namespace Db.Entities;
 
-public class Product : IEntity
+public class Product: IEntity
 {
     public long Id { get; set; }
-    public string Title { get; set; }
+    public string Name { get; set; }
     public string Description { get; set; }
 }

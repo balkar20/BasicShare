@@ -7,8 +7,15 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Interfaces" />
       <Folder Include="Services" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR" Version="10.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Db\Db.csproj" />
     </ItemGroup>
 
 </Project>

@@ -9,10 +9,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Db\Db.csproj" />
+      <ProjectReference Include="..\ModProduct\ModProduct.csproj" />
       <ProjectReference Include="..\Sevices\Sevices.csproj" />
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.2" />
       <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.2" />
     </ItemGroup>
