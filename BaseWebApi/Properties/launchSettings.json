@@ -8,7 +8,7 @@
     }
   },
   "profiles": {
-    "WebApplication1": {
+    "BaseWebApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

@@ -1,4 +1,5 @@
 using AutoMapper;
+using Core.Base.DataBase.Entities;
 using MediatR;
 using Mod.Product.Base.Models;
 using Mod.Product.Base.Queries;
@@ -18,6 +19,7 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Li
     }
     public async Task<List<ProductModel>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
-        return _productRepository.GetAll().ToList();
+        var products = await _productRepository.GetAllAsync<ProductEntity>(o => o.OrderBy(j => j.Description), null, null, null);
+        return products.ToList();
     }
 }

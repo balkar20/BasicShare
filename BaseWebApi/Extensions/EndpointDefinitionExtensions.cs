@@ -1,4 +1,4 @@
-namespace WebApplication1.Extensions;
+namespace Apps.BaseWebApi.Extensions;
 
 public static class EndpointDefinitionExtensions
 {

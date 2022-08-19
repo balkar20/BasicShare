@@ -3,8 +3,8 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Mod.Product.Base.Queries;
 using Serilog;
-using WebApplication1;
-using WebApplication1.Extensions;
+using Apps.BaseWebApi;
+using Apps.BaseWebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 

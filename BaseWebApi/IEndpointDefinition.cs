@@ -1,4 +1,4 @@
-namespace WebApplication1;
+namespace Apps.BaseWebApi;
 
 public interface IEndpointDefinition
 {

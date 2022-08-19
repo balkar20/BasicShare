@@ -1,12 +1,4 @@
-using MediatR;
-using Microsoft.AspNetCore.Mvc;
-using Mod.Product.Base.Commands;
-using Mod.Product.Base.Models;
-using Mod.Product.Base.Queries;
-using Mod.Product.Base.Repositories;
-
-
-namespace WebApplication1;
+﻿namespace Apps.BaseWebApi;
 
 public class EndpointDefinition : IEndpointDefinition
 {

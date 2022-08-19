@@ -1,4 +1,4 @@
-namespace WebApplication1;
+namespace Apps.BaseWebApi;
 
 // public class SwaggerEndpointDefinition: IEndpointDefinition
 // {
@@ -7,13 +7,13 @@ namespace WebApplication1;
 //         services.AddSwaggerGen(c =>
 //         {
 //             services.AddEndpointsApiExplorer();
-//             c.SwaggerDoc("v1", new OpenApiInfo() { Title = "WebApplication1", Version = "v1" });
+//             c.SwaggerDoc("v1", new OpenApiInfo() { Title = "BaseWebApi", Version = "v1" });
 //         });
 //     }
 //
 //     public void DefineEndpoints(WebApplication app)
 //     {
 //         app.UseSwagger();
-//         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "WebApplication1"));
+//         app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BaseWebApi"));
 //     }
 // }
