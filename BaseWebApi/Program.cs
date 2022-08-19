@@ -8,7 +8,6 @@ using Apps.BaseWebApi.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// var connectionString = Environment.GetEnvironmentVariable("DB_CONNECTION_STRING");
 var connectionString = builder.Configuration.GetConnectionString("ProductDb");
 
 builder.Services.AddDbContext<ApiDbContext>(options =>
@@ -18,6 +17,11 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
+});
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
 builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);

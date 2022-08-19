@@ -9,32 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2654b05f-95bf-400d-82a6-132e8e3ba320" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Mod.Product.Base/Commands/UpdateProductCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Mod.Product.Base/Handlers/UpdateProductCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/indexLayout.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Db/ApiDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Db/ApiDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interfaces/IRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/IRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Interfaces/Interfaces.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Interfaces/Interfaces.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mod.Product.Base/Handlers/GetAllProductsQueryHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Mod.Product.Base/Handlers/GetAllProductsQueryHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mod.Product.Web/Class1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Mod.Product.Web/ProductEndpointDefinition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/GenericRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Services/GenericRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1.sln" beforeDir="false" afterPath="$PROJECT_DIR$/StartupToolTemplate.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/Dodo.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/EndpointDefinition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/Extensions/EndpointDefinitionExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/IEndpointDefinition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/Program.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/Properties/launchSettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/SwaggerEndpointDefinition.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/WebApplication1.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/appsettings.Development.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/appsettings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApplication1/scratch.yml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/BaseWebApi/Notes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.WebApplication1/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseWebApi/BaseWebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/BaseWebApi/BaseWebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseWebApi/EndpointDefinition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BaseWebApi/EndpointDefinition.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseWebApi/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/BaseWebApi/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BaseWebApi/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/BaseWebApi/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +26,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5e89c891bbcc4eaba85a9fa3da9c805a3adc98/14/6045e844/IOrderedQueryable`1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/16e25228933e538de5a14ae5e3d114183c20ccac95fcf8478e3c6dcf6e4a2/IRequestHandler.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5330988bfaacf93f15e30f9b3dd6018a768f89da3b38d874fda77299c62164/DbContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Train/BasicShare/BaseWebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/Train/BasicShare/BaseWebApi/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/Train/BasicShare/Db/ApiDbContext.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Mod.Product.Base/Commands/CreateProductCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Mod.Product.Base/Handlers/CreateProductCommandHandler.cs" root0="FORCE_HIGHLIGHTING" />
@@ -159,7 +141,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660812773184</updated>
       <workItem from="1660812822715" duration="2154000" />
-      <workItem from="1660817593075" duration="36536000" />
+      <workItem from="1660817593075" duration="39977000" />
     </task>
     <task id="LOCAL-00001" summary="refactor and add mapper">
       <created>1660842314799</created>
