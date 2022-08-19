@@ -14,7 +14,8 @@ public class EndpointDefinition : IEndpointDefinition
 {
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("/", () => "Hello World2!");
+
+        app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/products", ([FromServices]IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
         app.MapGet("api/products", ([FromServices]IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
         app.MapPost("api/products", ([FromServices]IMediator _mediator, [FromBody] ProductModel product) => _mediator.Send(new CreateProductCommand(product)));
@@ -26,12 +27,13 @@ public class EndpointDefinition : IEndpointDefinition
         services.AddScoped<IProductRepository, ProductRepository>();
     }
 
-    // private void SetEndPoint<TModel>(string url, WebApplication app, TModel model, Func<RouteHandlerBuilder, IEndpointRouteBuilder, RouteTemplate, Delegate> map)
-    // {
-    //      // IMediator _mediator;
-    //      // IDistributedCache _cache;
-    //      
-    //      app.MapGet(url, ([FromServices]IMediator _mediator, [FromServices]IDistributedCache _distributedCace) => _mediator.Send(new GetAllProductsQuery()));
-    //      
-    // }
+    //private void SetRequestEndPoint<TModel, TRequest>(string url, WebApplication app, TModel model, IRequest<TRequest> request, Func<RouteHandlerBuilder, IEndpointRouteBuilder, RouteTemplate, Action<IMediator>> map)
+    //    where TModel : class, new()
+    //{
+    //    // IMediator _mediator;
+    //    // IDistributedCache _cache;
+
+    //    map(url, ([FromServices] IMediator _mediator, [FromServices] IDistributedCache _distributedCace) => _mediator.Send(request));
+
+    //}
 }

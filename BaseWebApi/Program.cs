@@ -25,7 +25,7 @@ builder.Services.AddStackExchangeRedisCache(options =>
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
 builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
-builder.Services.AddEndpointDefinitions(typeof(Dodo));
+builder.Services.AddEndpointDefinitions(typeof(EndpointDefinition));
 builder.Host.UseSerilog((ctx, lc) => lc
     .WriteTo.Console()
     .WriteTo.Seq("http://localhost:5341"));
