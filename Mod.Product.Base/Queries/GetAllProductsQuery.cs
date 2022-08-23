@@ -1,5 +1,5 @@
 using MediatR;
-using Mod.Product.Base.Models;
+using ModProduct.Models;
 
 namespace Mod.Product.Base.Queries;
 

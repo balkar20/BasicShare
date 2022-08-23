@@ -8,17 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Services" />
-    </ItemGroup>
-
-    <ItemGroup>
       <PackageReference Include="MediatR" Version="10.0.1" />
     </ItemGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Core.Base\Core.Base.csproj" />
       <ProjectReference Include="..\Db\Db.csproj" />
-      <ProjectReference Include="..\Services\Services.csproj" />
+      <ProjectReference Include="..\Mod.Product.Interfaces\Mod.Product.Interfaces.csproj" />
     </ItemGroup>
 
 </Project>

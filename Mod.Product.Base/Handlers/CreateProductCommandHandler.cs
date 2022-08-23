@@ -1,7 +1,7 @@
 using MediatR;
 using Mod.Product.Base.Commands;
-using Mod.Product.Base.Models;
-using Mod.Product.Base.Repositories;
+using Mod.Product.Interfaces;
+using ModProduct.Models;
 
 namespace Mod.Product.Base.Handlers;
 

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.452
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "admin", "admin", "{588205D4-3A30-4DA4-849D-C7422C396DAA}"
 EndProject
@@ -57,7 +57,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skoruba.Duende.IdentityServ
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skoruba.Duende.IdentityServer.Shared.Configuration", "src\Skoruba.Duende.IdentityServer.Shared.Configuration\Skoruba.Duende.IdentityServer.Shared.Configuration.csproj", "{D49A2D61-AEEB-457C-B3BA-D1322EB2F4EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skoruba.Duende.IdentityServer.Admin.Api.UnitTests", "tests\Skoruba.Duende.IdentityServer.Admin.Api.UnitTests\Skoruba.Duende.IdentityServer.Admin.Api.UnitTests.csproj", "{976197B1-8657-4A14-8083-F933073BC550}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skoruba.Duende.IdentityServer.Admin.Api.UnitTests", "tests\Skoruba.Duende.IdentityServer.Admin.Api.UnitTests\Skoruba.Duende.IdentityServer.Admin.Api.UnitTests.csproj", "{976197B1-8657-4A14-8083-F933073BC550}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +69,7 @@ Global
 		{E3713598-3375-4E81-9EC7-58DC090789BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3713598-3375-4E81-9EC7-58DC090789BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3713598-3375-4E81-9EC7-58DC090789BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3713598-3375-4E81-9EC7-58DC090789BD}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{BFF10ECC-B02A-4660-A82B-AADFDE0C0EBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BFF10ECC-B02A-4660-A82B-AADFDE0C0EBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFF10ECC-B02A-4660-A82B-AADFDE0C0EBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -89,6 +90,7 @@ Global
 		{72F17B1A-88D9-47FD-AA35-1C700E51CD0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72F17B1A-88D9-47FD-AA35-1C700E51CD0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72F17B1A-88D9-47FD-AA35-1C700E51CD0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72F17B1A-88D9-47FD-AA35-1C700E51CD0E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{2FAECDE3-8D21-4C36-BFF1-3F7C1A56F0D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FAECDE3-8D21-4C36-BFF1-3F7C1A56F0D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FAECDE3-8D21-4C36-BFF1-3F7C1A56F0D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -109,6 +111,7 @@ Global
 		{8F112368-2E45-4C3A-922E-85AB6056F559}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F112368-2E45-4C3A-922E-85AB6056F559}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F112368-2E45-4C3A-922E-85AB6056F559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F112368-2E45-4C3A-922E-85AB6056F559}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 		{E18F8C70-7448-4039-9D78-1369D7F498EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E18F8C70-7448-4039-9D78-1369D7F498EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E18F8C70-7448-4039-9D78-1369D7F498EF}.Release|Any CPU.ActiveCfg = Release|Any CPU

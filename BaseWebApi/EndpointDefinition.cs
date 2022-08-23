@@ -1,11 +1,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Routing.Template;
-using Microsoft.Extensions.Caching.Distributed;
 using Mod.Product.Base.Commands;
-using Mod.Product.Base.Models;
 using Mod.Product.Base.Queries;
 using Mod.Product.Base.Repositories;
+using Mod.Product.Interfaces;
+using ModProduct.Models;
 
 
 namespace Apps.BaseWebApi;
@@ -14,7 +13,6 @@ public class EndpointDefinition : IEndpointDefinition
 {
     public void DefineEndpoints(WebApplication app)
     {
-
         app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/products", ([FromServices]IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
         app.MapGet("api/products", ([FromServices]IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
@@ -25,6 +23,7 @@ public class EndpointDefinition : IEndpointDefinition
     public void DefineServices(IServiceCollection services)
     {
         services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IProductService, ProductService>();
     }
 
     //private void SetRequestEndPoint<TModel, TRequest>(string url, WebApplication app, TModel model, IRequest<TRequest> request, Func<RouteHandlerBuilder, IEndpointRouteBuilder, RouteTemplate, Action<IMediator>> map)

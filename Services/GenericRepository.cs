@@ -21,7 +21,7 @@ public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> w
 
     public IEnumerable<TModel> GetAll() => _table.Select(_mapper.Map<TModel>);
     
-    public virtual async Task<IEnumerable<TModel>> GetAllAsync<TEntity>(
+    public virtual async Task<IEnumerable<TModel>> GetAllMappedToModelAsync<TEntity>(
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
         string includeProperties,
         int? skip = null,

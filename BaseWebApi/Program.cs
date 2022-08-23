@@ -5,11 +5,15 @@ using Mod.Product.Base.Queries;
 using Serilog;
 using Apps.BaseWebApi;
 using Apps.BaseWebApi.Extensions;
+using Core.Base.Configuration;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+
+
+IConfiguration Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var connectionString = builder.Configuration.GetConnectionString("ProductDb");
-
 builder.Services.AddDbContext<ApiDbContext>(options =>
     options.UseNpgsql(
         connectionString
@@ -17,6 +21,19 @@ builder.Services.AddDbContext<ApiDbContext>(options =>
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.Configure<ProductApiConfiguration>(
+    builder.Configuration.GetSection(ProductApiConfiguration.AuthConfiguration));
+
+ProductApiConfiguration productApiConfiguration = builder.Configuration.GetSection(ProductApiConfiguration.AuthConfiguration).Get<ProductApiConfiguration>();
+// builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+//     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
+//     {
+//         options.Authority = productApiConfiguration.IdentityServerBaseUrl;
+//         options.RequireHttpsMetadata = productApiConfiguration.RequireHttpsMetadata;
+//         options.Audience = productApiConfiguration.OidcApiName;
+//     });
+
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {

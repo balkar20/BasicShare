@@ -1,10 +1,9 @@
 using Core.Base.DataBase.Entities;
 using Infrastructure.Interfaces;
-using Mod.Product.Base.Models;
+using ModProduct.Models;
 
-namespace Mod.Product.Base.Repositories;
+namespace Mod.Product.Interfaces;
 
 public interface IProductRepository: IRepository<ProductEntity, ProductModel>
 {
-    
 }
