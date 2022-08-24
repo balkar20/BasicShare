@@ -1,4 +1,5 @@
 using Apps.BaseWebApi.Extensions;
+using Apps.BaseWebApi.Middlewares;
 using Core.Base.Configuration;
 using Db;
 using MediatR;
@@ -14,7 +15,8 @@ public static class StartupHelper
     {
         app.UseSwagger();
         app.UseSwaggerUI();
-
+        
+        app.UseMiddleware<ErrorHandlerMiddleware>();
         app.UseEndpointDefinitions();
         app.Run();
     }
@@ -32,6 +34,8 @@ public static class StartupHelper
 
         builder.Services.Configure<ProductApiConfiguration>(
             builder.Configuration.GetSection(ProductApiConfiguration.AuthConfiguration));
+        builder.Services.Configure<AppConfiguration>(
+            builder.Configuration.GetSection(AppConfiguration.HostConfiguration));
 
         ProductApiConfiguration productApiConfiguration = builder.Configuration.GetSection(ProductApiConfiguration.AuthConfiguration).Get<ProductApiConfiguration>();
         // builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -50,6 +54,7 @@ public static class StartupHelper
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
         builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
+        
         builder.Services.AddEndpointDefinitions(typeof(EndpointDefinition));
         builder.Host.UseSerilog((ctx, lc) => lc
             .WriteTo.Console()

@@ -4,13 +4,14 @@ using Core.Base.DataBase.Interfaces;
 using Db;
 using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Distributed;
 
 public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity,new()
     where TModel : class,new()
 {
     protected readonly ApiDbContext _context;
     protected readonly IMapper _mapper;
-    private DbSet<TEntity> _table = null;
+    private DbSet<TEntity> _table;
 
     public GenericRepository(ApiDbContext customDbContext, IMapper mapper)
     {
@@ -19,8 +20,6 @@ public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> w
         _table = _context.Set<TEntity>();
     }
 
-    public IEnumerable<TModel> GetAll() => _table.Select(_mapper.Map<TModel>);
-    
     public virtual async Task<IEnumerable<TModel>> GetAllMappedToModelAsync<TEntity>(
         Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
         string includeProperties,
@@ -33,9 +32,13 @@ public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> w
         return qury.Select(_mapper.Map<TModel>);
     }
 
-    public TModel GetById(long id) => _mapper.Map<TModel>(_table.Find(id));
+    public virtual async Task<TModel> GetByIdASync(long id)
+    {
+        var model = await _table.FindAsync(id);
+        return _mapper.Map<TModel>(model);
+    }
 
-    public async Task<TModel> AddAsync(TModel model)
+    public virtual async Task<TModel> AddAsync(TModel model)
     {
         ArgumentNullException.ThrowIfNull(model);
  
@@ -46,7 +49,7 @@ public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> w
     }
     
     
-    public virtual async Task<TModel> Update(TModel model)
+    public virtual async Task<TModel> UpdateAsync(TModel model)
     {
         TEntity entity = _mapper.Map<TEntity>(model);
         _context.Set<TEntity>().Attach(entity);

@@ -1,5 +1,6 @@
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Mod.Product.Interfaces;
 using ModProduct.Models;
@@ -7,13 +8,16 @@ using Serilog;
 
 namespace Mod.Product.Base.Repositories;
 
-public class ProductService : IProductService
+public class ProductService: IProductService
 {
     private readonly IProductRepository _repository;
     private readonly ILogger _logger;
     private readonly ProductApiConfiguration _configuration;
 
-    public ProductService(IProductRepository repository, ILogger logger, IOptions<ProductApiConfiguration> options)
+    public ProductService(
+        ILogger logger,
+        IOptions<ProductApiConfiguration> options,
+        IProductRepository repository)
     {
         _repository = repository;
         _logger = logger;

@@ -13,6 +13,6 @@ public class UpdateProductCommandHandler: IRequestHandler<UpdateProductCommand, 
 
     public async Task<ProductModel> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
     {
-        return await _productRepository.Update(request.Product);
+        return await _productRepository.UpdateAsync(request.Product);
     }
 }
