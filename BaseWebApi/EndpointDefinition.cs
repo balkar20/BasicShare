@@ -15,7 +15,6 @@ public class EndpointDefinition : IEndpointDefinition
     {
         app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/products", ([FromServices]IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
-        app.MapGet("api/products", ([FromServices]IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
         app.MapPost("api/products", ([FromServices]IMediator _mediator, [FromBody] ProductModel product) => _mediator.Send(new CreateProductCommand(product)));
         app.MapPut("api/products", ([FromServices]IMediator _mediator, [FromBody] ProductModel product) => _mediator.Send(new UpdateProductCommand(product)));
     }

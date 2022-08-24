@@ -12,9 +12,10 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Li
     private readonly IProductRepository _productRepository;
     private readonly IProductService _productService;
 
-    public GetAllProductsQueryHandler(IProductRepository productRepository)
+    public GetAllProductsQueryHandler(IProductRepository productRepository, IProductService productService)
     {
         _productRepository = productRepository;
+        _productService = productService;
     }
     
     public async Task<List<ProductModel>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
