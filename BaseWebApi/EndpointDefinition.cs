@@ -4,6 +4,7 @@ using Mod.Product.Base.Commands;
 using Mod.Product.Base.Queries;
 using Mod.Product.Base.Repositories;
 using Mod.Product.Interfaces;
+using Mod.Product.Services;
 using ModProduct.Models;
 
 

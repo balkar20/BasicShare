@@ -1,6 +1,6 @@
-﻿namespace ModProduct.Models;
+﻿namespace Mod.Order.Models;
 
-public class ProductModel
+public class OrderModel
 {
     public long Id { get; set; }
     public string? Name { get; set; }

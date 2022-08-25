@@ -1,6 +1,6 @@
-namespace Mod.Product.Base.ViewModels;
+namespace Mod.Order.Base.ViewModels;
 
-public class ProductViewModel
+public class OrderViewModel
 {
     public long Id { get; set; }
     public string? Title { get; set; }

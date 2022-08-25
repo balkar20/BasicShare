@@ -1,6 +1,6 @@
 namespace Core.Base.Configuration;
 
-public class ProductApiConfiguration
+public class OrderApiConfiguration
 {
     public const string AuthConfiguration = "AuthConfiguration";
     

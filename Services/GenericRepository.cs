@@ -21,8 +21,8 @@ public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> w
     }
 
     public virtual async Task<IEnumerable<TModel>> GetAllMappedToModelAsync<TEntity>(
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
-        string includeProperties,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy,
+        string? includeProperties,
         int? skip = null,
         int? take = null)
         where TEntity : class, IEntity
@@ -61,9 +61,9 @@ public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> w
     #region Private methods
     
     protected virtual IQueryable<TEntity> GetQueryable<TEntity>(
-        Expression<Func<TEntity, bool>> filter = null,
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
-        string includeProperties = null,
+        Expression<Func<TEntity, bool>>? filter = null,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
+        string? includeProperties = null,
         int? skip = null,
         int? take = null)
         where TEntity : class, IEntity

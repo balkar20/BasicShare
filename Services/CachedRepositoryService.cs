@@ -31,8 +31,8 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
     }
 
     public override async  Task<IEnumerable<TModel>> GetAllMappedToModelAsync<TEntity>(
-        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy,
-        string includeProperties,
+        Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy,
+        string? includeProperties,
         int? skip = null,
         int? take = null)
     {
@@ -48,7 +48,7 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
         {
             // If the data is found in the cache, encode and deserialize cached data.
             cachedDataString = Encoding.UTF8.GetString(cachedData);
-            modelData = JsonSerializer.Deserialize<IEnumerable<TModel>>(cachedDataString);
+            modelData = JsonSerializer.Deserialize<IEnumerable<TModel>>(cachedDataString) ?? throw new InvalidOperationException();
         }
         else
         {
@@ -98,7 +98,7 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
         {
             // If the data is found in the cache, encode and deserialize cached data.
             cachedDataString = Encoding.UTF8.GetString(cachedData);
-            modelData = JsonSerializer.Deserialize<TModel>(cachedDataString);
+            modelData = JsonSerializer.Deserialize<TModel>(cachedDataString) ?? throw new InvalidOperationException();
         }
         else
         {

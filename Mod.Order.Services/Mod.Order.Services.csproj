@@ -7,8 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Mod.Product.Interfaces\Mod.Product.Interfaces.csproj" />
-      <ProjectReference Include="..\ModProduct.Models\ModProduct.Models.csproj" />
+      <ProjectReference Include="..\Mod.Order.Interfaces\Mod.Order.Interfaces.csproj" />
+      <ProjectReference Include="..\Mod.Order.Models\Mod.Order.Models.csproj" />
       <ProjectReference Include="..\Services\Services.csproj" />
     </ItemGroup>
 
