@@ -12,14 +12,20 @@ namespace Apps.BaseWebApi;
 
 public class EndpointDefinition : IEndpointDefinition
 {
+    
+
     public void DefineEndpoints(WebApplication app)
     {
         app.MapGet("/", () => "Startup Tool Template");
-        app.MapGet("api/products", ([FromServices]IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
-        app.MapPost("api/products", ([FromServices]IMediator _mediator, [FromBody] ProductModel product) => _mediator.Send(new CreateProductCommand(product)));
-        app.MapPut("api/products", ([FromServices]IMediator _mediator, [FromBody] ProductModel product) => _mediator.Send(new UpdateProductCommand(product)));
+        app.MapGet("api/products", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
+        app.MapPost("api/products",
+            ([FromServices] IMediator _mediator, [FromBody] ProductModel product) =>
+                _mediator.Send(new CreateProductCommand(product)));
+        app.MapPut("api/products",
+            ([FromServices] IMediator _mediator, [FromBody] ProductModel product) =>
+                _mediator.Send(new UpdateProductCommand(product)));
     }
-    
+
     public void DefineServices(IServiceCollection services)
     {
         services.AddScoped<IProductRepository, ProductRepository>();

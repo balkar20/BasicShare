@@ -8,6 +8,7 @@ namespace Mod.Product.Base.Handlers;
 public class CreateProductCommandHandler: IRequestHandler<CreateProductCommand, ProductModel>
 {
     private readonly IProductRepository _productRepository;
+
     public CreateProductCommandHandler(IProductRepository productRepository) => _productRepository = productRepository;
     
     public async Task<ProductModel> Handle(CreateProductCommand request, CancellationToken cancellationToken)

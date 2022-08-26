@@ -1,17 +1,17 @@
 using MediatR;
 using Mod.Order.Base.Commands;
 using Mod.Order.Interfaces;
-using ModOrder.Models;
+using Mod.Order.Models;
 
 namespace Mod.Order.Base.Handlers;
 
 public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, OrderModel>
 {
-    private readonly IOrderRepository _OrderRepository;
-    public CreateOrderCommandHandler(IOrderRepository OrderRepository) => _OrderRepository = OrderRepository;
+    private readonly IOrderRepository _orderRepository;
+    public CreateOrderCommandHandler(IOrderRepository orderRepository) => _orderRepository = orderRepository;
     
     public async Task<OrderModel> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
-        return await _OrderRepository.AddAsync(request.Order);
+        return await _orderRepository.AddAsync(request.Order);
     }
 }

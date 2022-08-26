@@ -1,3 +1,5 @@
+// using MediatR;
+
 using MediatR;
 using ModProduct.Models;
 
