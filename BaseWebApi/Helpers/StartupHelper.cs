@@ -55,7 +55,8 @@ public static class StartupHelper
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
         builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
         
-        builder.Services.AddEndpointDefinitions(typeof(EndpointDefinition));
+        builder.Services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
+        // builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));?????
         builder.Host.UseSerilog((ctx, lc) => lc
             .WriteTo.Console()
             .WriteTo.Seq("http://localhost:5341"));

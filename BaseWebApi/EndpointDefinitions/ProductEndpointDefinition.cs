@@ -10,10 +10,8 @@ using ModProduct.Models;
 
 namespace Apps.BaseWebApi;
 
-public class EndpointDefinition : IEndpointDefinition
+public class ProductEndpointDefinition : IEndpointDefinition
 {
-    
-
     public void DefineEndpoints(WebApplication app)
     {
         app.MapGet("/", () => "Startup Tool Template");
@@ -31,14 +29,4 @@ public class EndpointDefinition : IEndpointDefinition
         services.AddScoped<IProductRepository, ProductRepository>();
         services.AddScoped<IProductService, ProductService>();
     }
-
-    //private void SetRequestEndPoint<TModel, TRequest>(string url, WebApplication app, TModel model, IRequest<TRequest> request, Func<RouteHandlerBuilder, IEndpointRouteBuilder, RouteTemplate, Action<IMediator>> map)
-    //    where TModel : class, new()
-    //{
-    //    // IMediator _mediator;
-    //    // IDistributedCache _cache;
-
-    //    map(url, ([FromServices] IMediator _mediator, [FromServices] IDistributedCache _distributedCace) => _mediator.Send(request));
-
-    //}
 }
