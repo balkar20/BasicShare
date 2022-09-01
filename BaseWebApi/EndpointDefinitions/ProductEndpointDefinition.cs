@@ -8,7 +8,7 @@ using Mod.Product.Services;
 using ModProduct.Models;
 
 
-namespace Apps.BaseWebApi;
+namespace Apps.EndpointDefinitions.BaseWebApi;
 
 public class ProductEndpointDefinition : IEndpointDefinition
 {

@@ -1,10 +1,11 @@
 using System.Text;
+using Core.RabbitMqBase.Interfaces;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 
 namespace Core.RabbitMqBase.Services;
 
-public class RabbitMQReader
+public class RabbitMQReader: IRabbitMQReader
 {
     public void ReadMessage()
     {

@@ -1,4 +1,3 @@
-namespace Apps.BaseWebApi;
 
 public interface IEndpointDefinition
 {

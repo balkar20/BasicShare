@@ -18,7 +18,8 @@ public class CreateShipmentCommandHandler: IRequestHandler<CreateShipmentCommand
 
     public async Task<ShipmentModel> Handle(CreateShipmentCommand request, CancellationToken cancellationToken)
     {
-        return await _ShipmentRepository.AddAsync(request.Shipment);
-        // _rabbitMqProducer.SendProductMessage();
+        var shipment =  await _ShipmentRepository.AddAsync(request.Shipment);
+        _rabbitMqProducer.SendProductMessage(request.Shipment);
+        return shipment;
     }
 }

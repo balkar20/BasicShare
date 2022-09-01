@@ -8,7 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Db\Db.csproj" />
       <ProjectReference Include="..\Mod.Order.Base\Mod.Order.Base.csproj" />
       <ProjectReference Include="..\Mod.Order.Services\Mod.Order.Services.csproj" />
       <ProjectReference Include="..\Mod.Product.Base\Mod.Product.Base.csproj" />

@@ -5,8 +5,7 @@ using Core.Base.Configuration;
 using Db;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Mod.Order.Base.Queries;
-using Mod.Product.Base.Queries;
+using Mod.Shipment.Base.Queries;
 using Serilog;
 
 namespace Apps.BaseWebApi.Helpers;
@@ -55,11 +54,10 @@ public static class StartupHelper
         });
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
-        builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
-        builder.Services.AddMediatR(typeof(GetAllOrdersQuery).Assembly);
+        builder.Services.AddMediatR(typeof(GetAllShipmentsQuery).Assembly);
         
-        builder.Services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
-        // builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));
+        builder.Services.AddEndpointDefinitions(typeof(ShipmentEndpointDefinition));
+        // builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));?????
         builder.Host.UseSerilog((ctx, lc) => lc
             .WriteTo.Console()
             .WriteTo.Seq("http://localhost:5341"));
