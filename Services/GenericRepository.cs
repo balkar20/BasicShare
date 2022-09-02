@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
 using AutoMapper;
 using Core.Base.DataBase.Interfaces;
-using Db;
+using Data.Db;
 using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;

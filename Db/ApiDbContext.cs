@@ -1,8 +1,8 @@
 using Core.Base.DataBase.Entities;
-using Db.Maps;
+using Data.Db.Maps;
 using Microsoft.EntityFrameworkCore;
 
-namespace Db;
+namespace Data.Db;
 
 public class ApiDbContext : DbContext
 {

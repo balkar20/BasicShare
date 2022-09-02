@@ -1,18 +1,20 @@
 using AutoMapper;
+using Core.Auh.Entities;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
 using Data.Db;
 using Infrastructure.Services;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
-using Mod.Product.Interfaces;
-using ModProduct.Models;
+using Mod.Auth.Interfaces;
+using Mod.Auth.Models;
 
-namespace Mod.Product.Services;
 
-public class ProductRepository: CachedRepositoryService<ProductEntity, ProductModel>, IProductRepository
+namespace Mod.Auth.Services;
+
+public class AuthRepository: CachedRepositoryService<UserEntity, UserModel>, IAuthRepository
 {
-    public ProductRepository(ApiDbContext apiDbContext, IMapper mapper, IDistributedCache cache,
+    public AuthRepository(ApiDbContext apiDbContext, IMapper mapper, IDistributedCache cache,
         IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )
     {
     }

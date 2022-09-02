@@ -4,7 +4,7 @@
 using AutoMapper;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
-using Db;
+using Data.Db;
 using Infrastructure.Services;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;

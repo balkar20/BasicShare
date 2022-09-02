@@ -2,7 +2,7 @@ using Apps.BaseWebApi.Extensions;
 using Apps.BaseWebApi.Middlewares;
 using Apps.EndpointDefinitions.BaseWebApi;
 using Core.Base.Configuration;
-using Db;
+using Data.Db;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Mod.Shipment.Base.Queries;

@@ -1,12 +1,15 @@
 using Apps.BaseWebApi.Extensions;
 using Apps.BaseWebApi.Middlewares;
 using Apps.EndpointDefinitions.BaseWebApi;
+using Core.Auh.Configuration;
+using Core.Auh.Entities;
 using Core.Base.Configuration;
 using Data.Db;
+using Data.IdentityDb;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Mod.Order.Base.Queries;
-using Mod.Product.Base.Queries;
+using Mod.Auth.Base.Queries;
 using Serilog;
 
 namespace Apps.BaseWebApi.Helpers;
@@ -15,9 +18,6 @@ public static class StartupHelper
 {
     public static void ConfigureServices(WebApplication app)
     {
-        app.UseSwagger();
-        app.UseSwaggerUI();
-        
         app.UseMiddleware<ErrorHandlerMiddleware>();
         app.UseEndpointDefinitions();
         app.Run();
@@ -25,21 +25,23 @@ public static class StartupHelper
     
     public static void Configure(WebApplicationBuilder builder)
     {
-        var connectionString = builder.Configuration.GetConnectionString("ProductDb");
+        var connectionString = builder.Configuration.GetConnectionString("AuthDb");
         builder.Services.AddDbContext<ApiDbContext>(options =>
             options.UseNpgsql(
                 connectionString
             ));
 
-        builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddIdentity<UserEntity, IdentityRole>()
+    .AddEntityFrameworkStores<ApplicationContext>();
 
-        builder.Services.Configure<ProductApiConfiguration>(
-            builder.Configuration.GetSection(ProductApiConfiguration.AuthConfiguration));
+        builder.Services.AddEndpointsApiExplorer();
+
+        builder.Services.Configure<AuthConfiguration>(
+            builder.Configuration.GetSection(AuthConfiguration.HostConfiguration));
         builder.Services.Configure<AppConfiguration>(
             builder.Configuration.GetSection(AppConfiguration.HostConfiguration));
 
-        ProductApiConfiguration productApiConfiguration = builder.Configuration.GetSection(ProductApiConfiguration.AuthConfiguration).Get<ProductApiConfiguration>();
+        AuthConfiguration productApiConfiguration = builder.Configuration.GetSection(AuthConfiguration.HostConfiguration).Get<AuthConfiguration>();
         // builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         //     .AddJwtBearer(JwtBearerDefaults.AuthenticationScheme, options =>
         //     {
@@ -49,16 +51,17 @@ public static class StartupHelper
         //     });
 
 
-        builder.Services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
-        });
+        //builder.Services.AddStackExchangeRedisCache(options =>
+        //{
+        //    options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
+        //});
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
-        builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
-        builder.Services.AddMediatR(typeof(GetAllOrdersQuery).Assembly);
+        builder.Services.AddMediatR(typeof(GetAllAuthsQuery).Assembly);
+
+
         
-        builder.Services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
+        builder.Services.AddEndpointDefinitions(typeof(AuthEndpointDefinition));
         // builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));
         builder.Host.UseSerilog((ctx, lc) => lc
             .WriteTo.Console()

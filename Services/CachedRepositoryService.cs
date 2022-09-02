@@ -3,7 +3,7 @@ using System.Text.Json;
 using AutoMapper;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Interfaces;
-using Db;
+using Data.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
