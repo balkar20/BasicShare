@@ -1,5 +1,5 @@
-using Core.RabbitMqBase.Interfaces;
-using Core.RabbitMqBase.Services;
+using Infrastructure.Interfaces;
+using Infrastructure.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Shipment.Base.Commands;
@@ -7,7 +7,6 @@ using Mod.Shipment.Base.Queries;
 using Mod.Shipment.Base.Repositories;
 using Mod.Shipment.Interfaces;
 using Mod.Shipment.Models;
-
 
 namespace Apps.EndpointDefinitions.BaseWebApi;
 

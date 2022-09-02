@@ -1,0 +1,251 @@
+2022-09-02 18:46:15.348 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 18:46:15.388 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 18:46:15.394 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 18:46:15.396 +03:00 [INF] Hosting environment: Development
+2022-09-02 18:46:15.397 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 18:46:15.974 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 18:46:16.116 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 18:46:16.122 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 18:46:16.126 +03:00 [INF] HTTP GET / responded 200 in 20.6156 ms
+2022-09-02 18:46:16.134 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 162.4633ms
+2022-09-02 19:01:42.122 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 19:01:42.159 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 19:01:42.164 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 19:01:42.165 +03:00 [INF] Hosting environment: Development
+2022-09-02 19:01:42.166 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:01:42.414 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:01:42.483 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:01:42.486 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:01:42.489 +03:00 [INF] HTTP GET / responded 200 in 14.0257 ms
+2022-09-02 19:01:42.494 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 82.4016ms
+2022-09-02 19:01:57.742 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:01:57.745 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:01:59.185 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:02:04.707 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:02:04.715 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:02:19.176 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:02:19.177 +03:00 [INF] HTTP GET / responded 200 in 14462.7696 ms
+2022-09-02 19:02:19.180 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 14471.8857ms
+2022-09-02 19:10:51.806 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:10:51.808 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:10:51.829 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:12:27.360 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:12:27.361 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:12:27.363 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:12:27.365 +03:00 [INF] HTTP GET / responded 200 in 3.4811 ms
+2022-09-02 19:12:27.367 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 7.5110ms
+2022-09-02 19:13:40.242 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 19:13:40.270 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 19:13:40.276 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 19:13:40.277 +03:00 [INF] Hosting environment: Development
+2022-09-02 19:13:40.278 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:13:46.305 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:13:46.369 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:13:47.143 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:15:27.578 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:15:27.580 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:15:27.607 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:18:52.363 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 19:18:52.394 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 19:18:52.401 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 19:18:52.403 +03:00 [INF] Hosting environment: Development
+2022-09-02 19:18:52.404 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:18:52.754 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:18:52.844 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:18:52.849 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:18:52.853 +03:00 [INF] HTTP GET / responded 200 in 18.5734 ms
+2022-09-02 19:18:52.859 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 108.6113ms
+2022-09-02 19:25:33.514 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 19:25:33.543 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 19:25:33.549 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 19:25:33.550 +03:00 [INF] Hosting environment: Development
+2022-09-02 19:25:33.551 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:25:33.898 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:25:33.997 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:25:34.002 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:25:34.006 +03:00 [INF] HTTP GET / responded 200 in 18.4480 ms
+2022-09-02 19:25:34.011 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 115.1044ms
+2022-09-02 19:25:51.509 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:25:51.514 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:25:52.971 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:26:28.724 +03:00 [INF] kjhjkhjkhkjhkjh
+2022-09-02 19:26:41.151 +03:00 [INF] Executed endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:26:41.152 +03:00 [ERR] HTTP GET /api/shipments responded 500 in 49637.3698 ms
+System.ArgumentNullException: Value cannot be null. (Parameter 'configuration')
+   at StackExchange.Redis.ConfigurationOptions.DoParse(String configuration, Boolean ignoreUnknown) in /_/src/StackExchange.Redis/ConfigurationOptions.cs:line 646
+   at StackExchange.Redis.ConfigurationOptions.Parse(String configuration) in /_/src/StackExchange.Redis/ConfigurationOptions.cs:line 421
+   at StackExchange.Redis.ConnectionMultiplexer.ConnectAsync(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 843
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.ConnectAsync(CancellationToken token)
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAndRefreshAsync(String key, Boolean getData, CancellationToken token)
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAsync(String key, CancellationToken token)
+   at Infrastructure.Services.CachedRepositoryService`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\CachedRepositoryService.cs:line 44
+   at Mod.Shipment.Base.Repositories.ShipmentService.GetAllShipments() in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 38
+   at Mod.Shipment.Base.Handlers.GetAllShipmentsQueryHandler.Handle(GetAllShipmentsQuery request, CancellationToken cancellationToken) in D:\Train\BasicShare\Mod.Shipment.Base\Handlers\GetAllShipmentsQueryHandler.cs:line 21
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTask>g__ExecuteAwaited|58_0[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2022-09-02 19:29:35.470 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 19:29:35.503 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 19:29:35.508 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 19:29:35.510 +03:00 [INF] Hosting environment: Development
+2022-09-02 19:29:35.511 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:29:45.517 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:29:45.590 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:29:45.595 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:29:45.599 +03:00 [INF] HTTP GET / responded 200 in 17.9911 ms
+2022-09-02 19:29:45.605 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 91.8220ms
+2022-09-02 19:30:00.568 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:30:00.569 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:30:01.289 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:30:11.567 +03:00 [INF] kjhjkhjkhkjhkjh
+2022-09-02 19:30:21.484 +03:00 [INF] Executed endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:30:21.486 +03:00 [ERR] HTTP GET /api/shipments responded 500 in 20916.7157 ms
+System.InvalidOperationException: Cannot create a DbSet for 'ShipmentEntity' because this type is not included in the model for the context.
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityType()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.CheckState()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityQueryable()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderBy[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at Mod.Shipment.Base.Repositories.ShipmentService.<>c.<GetAllShipments>b__5_0(IQueryable`1 o) in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 39
+   at Infrastructure.Services.GenericRepository`2.GetQueryable[TEntity](Expression`1 filter, Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\GenericRepository.cs:line 89
+   at Infrastructure.Services.GenericRepository`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take)
+   at Infrastructure.Services.CachedRepositoryService`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\CachedRepositoryService.cs:line 56
+   at Mod.Shipment.Base.Repositories.ShipmentService.GetAllShipments() in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 38
+   at Mod.Shipment.Base.Handlers.GetAllShipmentsQueryHandler.Handle(GetAllShipmentsQuery request, CancellationToken cancellationToken) in D:\Train\BasicShare\Mod.Shipment.Base\Handlers\GetAllShipmentsQueryHandler.cs:line 21
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTask>g__ExecuteAwaited|58_0[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2022-09-02 19:32:35.845 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 19:32:35.914 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 19:32:35.951 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 19:32:35.953 +03:00 [INF] Hosting environment: Development
+2022-09-02 19:32:35.954 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:32:37.203 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:32:37.410 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:32:37.413 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:32:37.418 +03:00 [INF] HTTP GET / responded 200 in 11.7345 ms
+2022-09-02 19:32:37.425 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 228.7261ms
+2022-09-02 19:33:03.580 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:33:03.582 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:33:05.169 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:33:05.384 +03:00 [INF] kjhjkhjkhkjhkjh
+2022-09-02 19:33:06.778 +03:00 [ERR] Failed executing DbCommand (424ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.description, s.name
+FROM shipment AS s
+ORDER BY s.description
+2022-09-02 19:33:06.830 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Db.ApiDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: relation "shipment" does not exist
+
+POSITION: 42
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "shipment" does not exist
+    Position: 42
+    File: parse_relation.c
+    Line: 1384
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: relation "shipment" does not exist
+
+POSITION: 42
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "shipment" does not exist
+    Position: 42
+    File: parse_relation.c
+    Line: 1384
+    Routine: parserOpenTable
+2022-09-02 19:33:06.859 +03:00 [INF] Executed endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:33:06.862 +03:00 [ERR] HTTP GET /api/shipments responded 500 in 3279.8745 ms
+Npgsql.PostgresException (0x80004005): 42P01: relation "shipment" does not exist
+
+POSITION: 42
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Infrastructure.Services.GenericRepository`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\GenericRepository.cs:line 32
+   at Infrastructure.Services.CachedRepositoryService`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\CachedRepositoryService.cs:line 56
+   at Mod.Shipment.Base.Repositories.ShipmentService.GetAllShipments() in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 38
+   at Mod.Shipment.Base.Handlers.GetAllShipmentsQueryHandler.Handle(GetAllShipmentsQuery request, CancellationToken cancellationToken) in D:\Train\BasicShare\Mod.Shipment.Base\Handlers\GetAllShipmentsQueryHandler.cs:line 21
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTask>g__ExecuteAwaited|58_0[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "shipment" does not exist
+    Position: 42
+    File: parse_relation.c
+    Line: 1384
+    Routine: parserOpenTable
+2022-09-02 19:33:06.964 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/api/shipments - - - 500 - application/json 3383.8289ms
+2022-09-02 19:33:56.507 +03:00 [INF] Application is shutting down...
+2022-09-02 19:34:10.449 +03:00 [INF] Now listening on: https://localhost:7167
+2022-09-02 19:34:10.575 +03:00 [INF] Now listening on: http://localhost:5167
+2022-09-02 19:34:10.581 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2022-09-02 19:34:10.582 +03:00 [INF] Hosting environment: Development
+2022-09-02 19:34:10.583 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:34:11.408 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
+2022-09-02 19:34:11.511 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2022-09-02 19:34:11.515 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2022-09-02 19:34:11.519 +03:00 [INF] HTTP GET / responded 200 in 9.6666 ms
+2022-09-02 19:34:11.526 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/ - - - 200 - text/plain;+charset=utf-8 125.4358ms
+2022-09-02 19:34:15.070 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
+2022-09-02 19:34:15.071 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:34:16.341 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
+2022-09-02 19:34:16.485 +03:00 [INF] kjhjkhjkhkjhkjh
+2022-09-02 19:34:17.416 +03:00 [INF] Executed DbCommand (79ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.description, s.name
+FROM shipments AS s
+ORDER BY s.description
+2022-09-02 19:34:17.603 +03:00 [INF] Executed endpoint 'HTTP: GET api/shipments'
+2022-09-02 19:34:17.606 +03:00 [INF] HTTP GET /api/shipments responded 200 in 2534.2762 ms
+2022-09-02 19:34:17.624 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7167/api/shipments - - - 200 - application/json;+charset=utf-8 2554.3688ms

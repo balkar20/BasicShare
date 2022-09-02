@@ -1,0 +1,126 @@
+2022-09-02 19:26:41.152 +03:00 [ERR] HTTP GET /api/shipments responded 500 in 49637.3698 ms
+System.ArgumentNullException: Value cannot be null. (Parameter 'configuration')
+   at StackExchange.Redis.ConfigurationOptions.DoParse(String configuration, Boolean ignoreUnknown) in /_/src/StackExchange.Redis/ConfigurationOptions.cs:line 646
+   at StackExchange.Redis.ConfigurationOptions.Parse(String configuration) in /_/src/StackExchange.Redis/ConfigurationOptions.cs:line 421
+   at StackExchange.Redis.ConnectionMultiplexer.ConnectAsync(String configuration, TextWriter log) in /_/src/StackExchange.Redis/ConnectionMultiplexer.cs:line 843
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.ConnectAsync(CancellationToken token)
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAndRefreshAsync(String key, Boolean getData, CancellationToken token)
+   at Microsoft.Extensions.Caching.StackExchangeRedis.RedisCache.GetAsync(String key, CancellationToken token)
+   at Infrastructure.Services.CachedRepositoryService`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\CachedRepositoryService.cs:line 44
+   at Mod.Shipment.Base.Repositories.ShipmentService.GetAllShipments() in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 38
+   at Mod.Shipment.Base.Handlers.GetAllShipmentsQueryHandler.Handle(GetAllShipmentsQuery request, CancellationToken cancellationToken) in D:\Train\BasicShare\Mod.Shipment.Base\Handlers\GetAllShipmentsQueryHandler.cs:line 21
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTask>g__ExecuteAwaited|58_0[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2022-09-02 19:30:21.486 +03:00 [ERR] HTTP GET /api/shipments responded 500 in 20916.7157 ms
+System.InvalidOperationException: Cannot create a DbSet for 'ShipmentEntity' because this type is not included in the model for the context.
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityType()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.CheckState()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.get_EntityQueryable()
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.System.Linq.IQueryable.get_Provider()
+   at System.Linq.Queryable.OrderBy[TSource,TKey](IQueryable`1 source, Expression`1 keySelector)
+   at Mod.Shipment.Base.Repositories.ShipmentService.<>c.<GetAllShipments>b__5_0(IQueryable`1 o) in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 39
+   at Infrastructure.Services.GenericRepository`2.GetQueryable[TEntity](Expression`1 filter, Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\GenericRepository.cs:line 89
+   at Infrastructure.Services.GenericRepository`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take)
+   at Infrastructure.Services.CachedRepositoryService`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\CachedRepositoryService.cs:line 56
+   at Mod.Shipment.Base.Repositories.ShipmentService.GetAllShipments() in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 38
+   at Mod.Shipment.Base.Handlers.GetAllShipmentsQueryHandler.Handle(GetAllShipmentsQuery request, CancellationToken cancellationToken) in D:\Train\BasicShare\Mod.Shipment.Base\Handlers\GetAllShipmentsQueryHandler.cs:line 21
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTask>g__ExecuteAwaited|58_0[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2022-09-02 19:33:06.778 +03:00 [ERR] Failed executing DbCommand (424ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT s.id, s.description, s.name
+FROM shipment AS s
+ORDER BY s.description
+2022-09-02 19:33:06.830 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Db.ApiDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: relation "shipment" does not exist
+
+POSITION: 42
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "shipment" does not exist
+    Position: 42
+    File: parse_relation.c
+    Line: 1384
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: relation "shipment" does not exist
+
+POSITION: 42
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "shipment" does not exist
+    Position: 42
+    File: parse_relation.c
+    Line: 1384
+    Routine: parserOpenTable
+2022-09-02 19:33:06.862 +03:00 [ERR] HTTP GET /api/shipments responded 500 in 3279.8745 ms
+Npgsql.PostgresException (0x80004005): 42P01: relation "shipment" does not exist
+
+POSITION: 42
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|211_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Infrastructure.Services.GenericRepository`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\GenericRepository.cs:line 32
+   at Infrastructure.Services.CachedRepositoryService`2.GetAllMappedToModelAsync[TEntity](Func`2 orderBy, String includeProperties, Nullable`1 skip, Nullable`1 take) in D:\Train\BasicShare\Services\CachedRepositoryService.cs:line 56
+   at Mod.Shipment.Base.Repositories.ShipmentService.GetAllShipments() in D:\Train\BasicShare\Mod.Shipment.Services\ShipmentService.cs:line 38
+   at Mod.Shipment.Base.Handlers.GetAllShipmentsQueryHandler.Handle(GetAllShipmentsQuery request, CancellationToken cancellationToken) in D:\Train\BasicShare\Mod.Shipment.Base\Handlers\GetAllShipmentsQueryHandler.cs:line 21
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestExceptionActionProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPostProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at MediatR.Pipeline.RequestPreProcessorBehavior`2.Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate`1 next)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<ExecuteTask>g__ExecuteAwaited|58_0[T](Task`1 task, HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "shipment" does not exist
+    Position: 42
+    File: parse_relation.c
+    Line: 1384
+    Routine: parserOpenTable

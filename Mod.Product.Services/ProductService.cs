@@ -1,6 +1,5 @@
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
-using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Mod.Product.Interfaces;
 using ModProduct.Models;

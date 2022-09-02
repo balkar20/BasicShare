@@ -8,7 +8,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Core.Base\Core.Base.csproj" />
-      <ProjectReference Include="..\Core.RabbitMqBase\Core.RabbitMqBase.csproj" />
       <ProjectReference Include="..\Mod.WareHouseProduct.Interfaces\Mod.WareHouseProduct.Interfaces.csproj" />
     </ItemGroup>
 

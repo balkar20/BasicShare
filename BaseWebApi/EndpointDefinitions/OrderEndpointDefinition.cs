@@ -1,5 +1,5 @@
-using Core.RabbitMqBase.Interfaces;
-using Core.RabbitMqBase.Services;
+using Infrastructure.Interfaces;
+using Infrastructure.Services;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Order.Base.Commands;

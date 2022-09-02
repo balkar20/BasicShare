@@ -1,4 +1,4 @@
-using Core.RabbitMqBase.Interfaces;
+using Infrastructure.Interfaces;
 using MediatR;
 using Mod.Order.Base.Commands;
 using Mod.Order.Interfaces;
@@ -20,7 +20,7 @@ public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, Orde
     public async Task<OrderModel> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
         var createdOrder =  await _orderRepository.AddAsync(request.Order);
-        _rabbitMqProducer.SendProductMessage(createdOrder);
+        _rabbitMqProducer.SendMessage(createdOrder);
         return createdOrder;
     }
 }

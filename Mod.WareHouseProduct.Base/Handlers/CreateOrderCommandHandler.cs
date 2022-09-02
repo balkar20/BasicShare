@@ -1,4 +1,4 @@
-using Core.RabbitMqBase.Interfaces;
+using Infrastructure.Interfaces;
 using MediatR;
 using Mod.WareHouseProduct.Base.Commands;
 using Mod.WareHouseProduct.Interfaces;

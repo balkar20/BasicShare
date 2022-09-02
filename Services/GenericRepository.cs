@@ -6,6 +6,8 @@ using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 
+namespace Infrastructure.Services;
+
 public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity,new()
     where TModel : class,new()
 {

@@ -10,7 +10,7 @@ public class ShipmentMap
     public ShipmentMap(EntityTypeBuilder<ShipmentEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
-        entityBuilder.ToTable("shipment");
+        entityBuilder.ToTable("shipments");
 
         entityBuilder.Property(x => x.Id).HasColumnName("id");
         entityBuilder.Property(x => x.Name).HasColumnName("name");

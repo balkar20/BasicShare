@@ -5,6 +5,7 @@
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>1c685542-194e-4073-b787-5ada4fd6b418</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -16,6 +17,8 @@
       <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
       <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="6.0.8" />
       <PackageReference Include="Microsoft.OpenApi" Version="1.3.2" />
+      <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+      <PackageReference Include="Serilog.Sinks.Loki" Version="3.0.0" />
       <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
     </ItemGroup>
 

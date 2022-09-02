@@ -1,6 +1,6 @@
-namespace Core.RabbitMqBase.Interfaces;
-
-public interface IRabbitMQReader
-{
-    void ReadMessage();
-}
+// namespace Core.RabbitMqBase.Interfaces;
+//
+// public interface IRabbitMQReader
+// {
+//     void ReadMessage();
+// }

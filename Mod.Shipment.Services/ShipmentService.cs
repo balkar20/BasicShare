@@ -1,6 +1,6 @@
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
-using Core.RabbitMqBase.Interfaces;
+using Infrastructure.Interfaces;
 using Microsoft.Extensions.Options;
 using Mod.Shipment.Interfaces;
 using Mod.Shipment.Models;
@@ -27,12 +27,32 @@ public class ShipmentService: IShipmentService
         _logger = logger;
         _configuration = options.Value;
         
-        rabbitMqReader.ReadMessage();
+        rabbitMqReader.ListenEventsFromQue<OrderMessage>(HandleOrder);
     }
+
+    #region Public Methods
 
     public async Task<List<ShipmentModel>> GetAllShipments()
     {
-        var Shipments =  await _repository.GetAllMappedToModelAsync<ShipmentEntity>(o => o.OrderBy(j => j.Description), null, null, null);
+        _logger.Information("kjhjkhjkhkjhkjh");
+        var Shipments =
+            await _repository.GetAllMappedToModelAsync<ShipmentEntity>(o => o.OrderBy(j => j.Description), null, null,
+                null);
         return Shipments.ToList();
     }
+    
+    #endregion
+
+    #region Private Methods
+
+    public void HandleOrder(OrderMessage orderMessage)
+    {
+        if (orderMessage != null) 
+            _logger.Debug($"ShipmentService got message: {orderMessage.Description}");
+    }
+
+    #endregion
+    
+    
+    
 }

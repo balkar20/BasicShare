@@ -1,4 +1,4 @@
-using Core.RabbitMqBase.Interfaces;
+using Infrastructure.Interfaces;
 using MediatR;
 using Mod.Shipment.Base.Commands;
 using Mod.Shipment.Interfaces;
@@ -19,7 +19,7 @@ public class CreateShipmentCommandHandler: IRequestHandler<CreateShipmentCommand
     public async Task<ShipmentModel> Handle(CreateShipmentCommand request, CancellationToken cancellationToken)
     {
         var shipment =  await _ShipmentRepository.AddAsync(request.Shipment);
-        _rabbitMqProducer.SendProductMessage(request.Shipment);
+        _rabbitMqProducer.SendMessage(request.Shipment);
         return shipment;
     }
 }

@@ -5,11 +5,11 @@ using AutoMapper;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
 using Db;
+using Infrastructure.Services;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Mod.WareHouseProduct.Interfaces;
 using Mod.WareHouseProduct.Models;
-using Services;
 
 namespace Mod.WareHouseProduct.Base.Repositories;
 

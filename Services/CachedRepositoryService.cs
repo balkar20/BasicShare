@@ -9,7 +9,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Serilog;
 
-namespace Services;
+namespace Infrastructure.Services;
 
 public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepository<TEntity, TModel> where TEntity : class, IEntity,new()
     where TModel : class,new()
