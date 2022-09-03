@@ -4,7 +4,6 @@ using Apps.EndpointDefinitions.BaseWebApi;
 using Core.Auh.Configuration;
 using Core.Auh.Entities;
 using Core.Base.Configuration;
-using Data.Db;
 using Data.IdentityDb;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -29,7 +28,7 @@ public static class StartupHelper
     {
         var connectionString = builder.Configuration.GetConnectionString("AuthDb");
         //builder.Services.AddIdentityCore<UserEntity>();
-        builder.Services.AddDbContext<ApiDbContext>(options =>
+        builder.Services.AddDbContext<ApplicationContext>(options =>
             options.UseNpgsql(
                 connectionString
             ));

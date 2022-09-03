@@ -3,7 +3,6 @@ using System.Text.Json;
 using AutoMapper;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Interfaces;
-using Data.Db;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
@@ -21,7 +20,7 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
     private const string AllDataCacheKey = $"{EntityName}-AllData";
 
     protected CachedRepositoryService(
-        ApiDbContext customDbContext,
+        DbContext customDbContext,
         IMapper mapper,
         IDistributedCache cache,
         IOptions<AppConfiguration> configurationOptions): base(customDbContext, mapper)

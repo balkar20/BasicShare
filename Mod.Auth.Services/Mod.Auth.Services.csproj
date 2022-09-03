@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Core.Auh\Core.Auh.csproj" />
+    <ProjectReference Include="..\IdentityDb\IdentityDb.csproj" />
     <ProjectReference Include="..\Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj" />
     <ProjectReference Include="..\Mod.Auth.Models\Mod.Auth.Models.csproj" />
     <ProjectReference Include="..\Services\Services.csproj" />
