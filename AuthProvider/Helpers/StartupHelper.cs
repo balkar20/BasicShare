@@ -9,6 +9,7 @@ using Data.IdentityDb;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Mod.Auth.Base.Queries;
 using Serilog;
 
@@ -19,6 +20,7 @@ public static class StartupHelper
     public static void ConfigureServices(WebApplication app)
     {
         app.UseMiddleware<ErrorHandlerMiddleware>();
+        app.UseAuthentication();
         app.UseEndpointDefinitions();
         app.Run();
     }
@@ -26,14 +28,14 @@ public static class StartupHelper
     public static void Configure(WebApplicationBuilder builder)
     {
         var connectionString = builder.Configuration.GetConnectionString("AuthDb");
+        //builder.Services.AddIdentityCore<UserEntity>();
         builder.Services.AddDbContext<ApiDbContext>(options =>
             options.UseNpgsql(
                 connectionString
             ));
 
-        builder.Services.AddIdentity<UserEntity, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationContext>();
-
+        //    builder.Services.AddIdentity<UserEntity, IdentityRole>()
+        //.AddEntityFrameworkStores<ApplicationContext>();
         builder.Services.AddEndpointsApiExplorer();
 
         builder.Services.Configure<AuthConfiguration>(
@@ -51,10 +53,10 @@ public static class StartupHelper
         //     });
 
 
-        //builder.Services.AddStackExchangeRedisCache(options =>
-        //{
-        //    options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
-        //});
+        builder.Services.AddStackExchangeRedisCache(options =>
+        {
+            options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
+        });
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
         builder.Services.AddMediatR(typeof(GetAllAuthsQuery).Assembly);

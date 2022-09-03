@@ -83,23 +83,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Shipment.Models", "Mod.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{8F482D49-A063-40EF-9221-54394956D681}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TokenProvider", "TokenProvider\TokenProvider.csproj", "{77AB3AC9-0C9E-418E-883A-89943B178399}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenProvider", "TokenProvider\TokenProvider.csproj", "{77AB3AC9-0C9E-418E-883A-89943B178399}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{D5350F4E-2790-45BD-B3A9-7D1B693BE3CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mod.Auth.Base", "Mod.Auth.Base\Mod.Auth.Base.csproj", "{89312DB3-D46A-4D66-AC79-32AE1F37C7CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Auth.Base", "Mod.Auth.Base\Mod.Auth.Base.csproj", "{89312DB3-D46A-4D66-AC79-32AE1F37C7CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mod.Auth.Interfaces", "Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj", "{AABFF660-DB8C-4D5C-BF39-21C6EE77A13F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Auth.Interfaces", "Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj", "{AABFF660-DB8C-4D5C-BF39-21C6EE77A13F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mod.Auth.Models", "Mod.Auth.Models\Mod.Auth.Models.csproj", "{4041ED99-4B66-405F-B837-A9A6FCE2E9C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Auth.Models", "Mod.Auth.Models\Mod.Auth.Models.csproj", "{4041ED99-4B66-405F-B837-A9A6FCE2E9C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mod.Auth.Services", "Mod.Auth.Services\Mod.Auth.Services.csproj", "{505073AE-885B-4201-B47C-AC868CA372BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Auth.Services", "Mod.Auth.Services\Mod.Auth.Services.csproj", "{505073AE-885B-4201-B47C-AC868CA372BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityDb", "IdentityDb\IdentityDb.csproj", "{0DCFD9B5-7C78-440E-99CB-E283E07CF330}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityDb", "IdentityDb\IdentityDb.csproj", "{0DCFD9B5-7C78-440E-99CB-E283E07CF330}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core.Auh", "Core.Auh\Core.Auh.csproj", "{AE6DBE7C-40A0-4ECD-B98D-C32AA35F3B44}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core.Auh", "Core.Auh\Core.Auh.csproj", "{AE6DBE7C-40A0-4ECD-B98D-C32AA35F3B44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthProvider", "AuthProvider\AuthProvider.csproj", "{D174787C-3505-4AE1-B537-06EA6A5B348F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthProvider", "AuthProvider\AuthProvider.csproj", "{D174787C-3505-4AE1-B537-06EA6A5B348F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication2", "WebApplication2\WebApplication2.csproj", "{023FB133-0818-4390-BE61-235CBB13697D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -247,6 +249,10 @@ Global
 		{D174787C-3505-4AE1-B537-06EA6A5B348F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D174787C-3505-4AE1-B537-06EA6A5B348F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D174787C-3505-4AE1-B537-06EA6A5B348F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023FB133-0818-4390-BE61-235CBB13697D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023FB133-0818-4390-BE61-235CBB13697D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023FB133-0818-4390-BE61-235CBB13697D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023FB133-0818-4390-BE61-235CBB13697D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -294,6 +300,7 @@ Global
 		{0DCFD9B5-7C78-440E-99CB-E283E07CF330} = {5B60B5A2-B1FB-4DF1-8CE3-95C12617276F}
 		{AE6DBE7C-40A0-4ECD-B98D-C32AA35F3B44} = {DBC49839-EE99-46F5-93B6-5EEC62C622EB}
 		{D174787C-3505-4AE1-B537-06EA6A5B348F} = {5F28A828-E427-4F6E-BF99-7B42746B0051}
+		{023FB133-0818-4390-BE61-235CBB13697D} = {5B60B5A2-B1FB-4DF1-8CE3-95C12617276F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEF22E60-9505-4791-B3FA-697E4DB2FE75}

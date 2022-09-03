@@ -6,5 +6,6 @@ https://medium.com/aspnetrun/cqrs-and-event-sourcing-in-event-driven-architectur
 DiagramTool:
 https://app.terrastruct.com/diagrams/2085814819/edit#path=Overview
 
-
 Rewiewer user
+
+dotnet ef migrations add InitialCreate -s ../AuthProvider
