@@ -35,7 +35,13 @@ public static class StartupHelper
 
         //    builder.Services.AddIdentity<UserEntity, IdentityRole>()
         //.AddEntityFrameworkStores<ApplicationContext>();
+        var idBuilder = builder.Services.AddIdentityCore<UserEntity>();
+        var identityBuilder = new IdentityBuilder(idBuilder.UserType, idBuilder.Services);
+        identityBuilder.AddEntityFrameworkStores<ApplicationContext>();
+        identityBuilder.AddSignInManager<SignInManager<UserEntity>>();
+
         builder.Services.AddEndpointsApiExplorer();
+        
 
         builder.Services.Configure<AuthConfiguration>(
             builder.Configuration.GetSection(AuthConfiguration.HostConfiguration));
