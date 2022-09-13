@@ -18,7 +18,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
         app.MapGet("api/products", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
         app.MapPost("api/products",
             ([FromServices] IMediator _mediator, [FromBody] AuthModel product) =>
-                _mediator.Send(new CreateAuthCommand(product)));
+                _mediator.Send(new AuthCommand(product)));
         app.MapPut("api/products",
             ([FromServices] IMediator _mediator, [FromBody] AuthModel product) =>
                 _mediator.Send(new UpdateAuthCommand(product)));

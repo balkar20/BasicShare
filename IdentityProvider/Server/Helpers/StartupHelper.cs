@@ -1,4 +1,5 @@
 
+using Apps.Blazor.Identity.IdentityProvider.Server.EndpointDefinitions;
 using Apps.Blazor.Identity.IdentityProvider.Server.Extensions;
 using Core.Auh.Configuration;
 using Core.Auh.Entities;
@@ -25,7 +26,7 @@ public static class StartupHelper
     public static void ConfigureServices(WebApplication app)
     {
         //app.UseMiddleware<ErrorHandlerMiddleware>();
-        //app.UseEndpointDefinitions();
+        app.UseEndpointDefinitions();
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
@@ -96,6 +97,8 @@ public static class StartupHelper
         services.AddControllersWithViews();
         services.AddRazorPages();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        builder.Services.AddEndpointDefinitions(typeof(AuthEndpointDefinition));
+
         services.AddMediatR(typeof(GetAllAuthsQuery).Assembly);
         builder.Host.UseSerilog((ctx, lc) => lc
             .WriteTo.Console()
