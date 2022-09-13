@@ -5,4 +5,4 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Queries;
 
-public record GetAllAuthsQuery : IRequest<List<UserModel>>;
+public record GetAllAuthsQuery : IRequest<List<AuthModel>>;

@@ -9,6 +9,6 @@ public class AuthModelProfile: Profile
 {
     public AuthModelProfile()
     {
-        CreateMap<UserModel, UserEntity>().ReverseMap();
+        CreateMap<AuthModel, UserEntity>().ReverseMap();
     }
 }

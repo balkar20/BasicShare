@@ -12,9 +12,12 @@ namespace Data.IdentityDb
     public class ApplicationContext : IdentityDbContext<UserEntity>
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
-            : base(options)
+        : base(options)
         {
-            Database.EnsureCreated();
+        }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
         }
     }
 }

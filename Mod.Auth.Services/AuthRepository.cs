@@ -11,7 +11,7 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Services;
 
-public class AuthRepository: CachedRepositoryService<UserEntity, UserModel>, IAuthRepository
+public class AuthRepository: CachedRepositoryService<UserEntity, AuthModel>, IAuthRepository
 {
     public AuthRepository(ApplicationContext apiDbContext, IMapper mapper, IDistributedCache cache,
         IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )

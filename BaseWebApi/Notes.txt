@@ -10,3 +10,6 @@ Rewiewer user
 
 dotnet ef migrations add InitialCreate -s ../AuthProvider
 dotnet ef database update -s ../AuthProvider
+
+dotnet ef migrations add InitialCreate -s ../IdentityProvider/Server
+dotnet ef database update -s ../IdentityProvider/Server

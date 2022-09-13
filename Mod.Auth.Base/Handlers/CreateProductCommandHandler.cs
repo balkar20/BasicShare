@@ -5,14 +5,14 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class CreateAuthCommandHandler: IRequestHandler<CreateAuthCommand, UserModel>
-{
-    private readonly IAuthRepository _productRepository;
+//public class CreateAuthCommandHandler: IRequestHandler<CreateAuthCommand, AuthModel>
+//{
+//    //private readonly IAuthRepository _productRepository;
 
-    public CreateAuthCommandHandler(IAuthRepository productRepository) => _productRepository = productRepository;
+//    //public CreateAuthCommandHandler(IAuthRepository productRepository) => _productRepository = productRepository;
     
-    public async Task<UserModel> Handle(CreateAuthCommand request, CancellationToken cancellationToken)
-    {
-        return await _productRepository.AddAsync(request.Auth);
-    }
-}
+//    //public async Task<AuthModel> Handle(CreateAuthCommand request, CancellationToken cancellationToken)
+//    //{
+//    //    return await _productRepository.AddAsync(request.Auth);
+//    //}
+//}

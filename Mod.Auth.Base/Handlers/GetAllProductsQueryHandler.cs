@@ -7,19 +7,20 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, List<UserModel>>
+public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, List<AuthModel>>
 {
-    private readonly IAuthRepository _productRepository;
-    private readonly IAuthService _productService;
+    //private readonly IAuthRepository _productRepository;
+    private readonly IAuthService _authService;
 
-    public GetAllAuthsQueryHandler(IAuthRepository productRepository, IAuthService productService)
+    public GetAllAuthsQueryHandler(IAuthService productService)
     {
-        _productRepository = productRepository;
-        _productService = productService;
+        //_productRepository = productRepository;
+        _authService = productService;
     }
     
-    public async Task<List<UserModel>> Handle(GetAllAuthsQuery request, CancellationToken cancellationToken)
+    public async Task<List<AuthModel>> Handle(GetAllAuthsQuery request, CancellationToken cancellationToken)
     {
-        return await _productService.GetAllAuths();
+        //return await _productService.GetAllAuths();
+        return new List<AuthModel>();
     }
 }
