@@ -1,4 +1,5 @@
 ﻿using Core.Auh.Entities;
+using IdentityDb.Configuration;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -17,8 +18,10 @@ namespace Data.IdentityDb
         : base(options)
         {
         }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder.ApplyConfiguration(new RoleConfiguration());
             base.OnModelCreating(builder);
         }
     }
