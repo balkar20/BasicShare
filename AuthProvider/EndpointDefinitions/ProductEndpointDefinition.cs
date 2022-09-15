@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Base.Repositories;
+using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
 using Mod.Auth.Services;
@@ -17,8 +18,8 @@ public class AuthEndpointDefinition : IEndpointDefinition
         app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/products", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
         app.MapPost("api/products",
-            ([FromServices] IMediator _mediator, [FromBody] AuthModel product) =>
-                _mediator.Send(new AuthCommand(product)));
+            ([FromServices] IMediator _mediator, [FromBody] AuthViewModel product) =>
+                _mediator.Send(new LoginCommand(product)));
         app.MapPut("api/products",
             ([FromServices] IMediator _mediator, [FromBody] AuthModel product) =>
                 _mediator.Send(new UpdateAuthCommand(product)));
