@@ -1,12 +1,14 @@
 
 using Apps.Blazor.Identity.IdentityProvider.Server.EndpointDefinitions;
 using Apps.Blazor.Identity.IdentityProvider.Server.Extensions;
+using Blazored.LocalStorage;
 using Core.Auh.Configuration;
 using Core.Auh.Entities;
 using Core.Base.Configuration;
 using Data.IdentityDb;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -90,6 +92,10 @@ public static class StartupHelper
         {
             options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
         });
+
+        builder.Services.AddBlazoredLocalStorage();
+        builder.Services.AddAuthorizationCore();
+        builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
 
         //services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
