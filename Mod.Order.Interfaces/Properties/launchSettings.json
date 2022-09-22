@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Mod.Order.Interfaces": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:54876;http://localhost:54877"
+    }
+  }
+}

@@ -18,7 +18,7 @@ public class AuthService: IAuthService
 {
     //private readonly IAuthRepository _repository;
     private readonly ILogger _logger;
-    //private SignInManager<UserEntity> _signManager;
+    private SignInManager<UserEntity> _signManager;
     private UserManager<UserEntity> _userManager;
     private readonly AuthConfiguration _configuration;
 
@@ -51,6 +51,12 @@ public class AuthService: IAuthService
         return new AuthResponseModel { IsAuthSuccessful = true, Token = token };
     }
 
+    //public async Task<AuthModel> LogOut(AuthModel authModel)
+    //{
+    //    await _signManager.SignOutAsync();
+    //    return Task.CompletedTask;
+    //}
+
     public async Task<RegisterResponseModel> RegisterUser(AuthModel userForAuthentication)
     {
         if (userForAuthentication == null)
@@ -64,6 +70,23 @@ public class AuthService: IAuthService
             return new RegisterResponseModel { Errors = errors.ToList(), IsSuccess = false };
         }
         await _userManager.AddToRoleAsync(user, "Viewer");
+
+        return new RegisterResponseModel { IsSuccess = true };
+    }
+
+    public async Task<RegisterResponseModel> RegisterAdmin(AuthModel userForAuthentication)
+    {
+        if (userForAuthentication == null)
+            return new RegisterResponseModel { Errors = new List<string> { "Null" }, IsSuccess = false };
+        var user = new UserEntity { UserName = userForAuthentication.Email, Email = userForAuthentication.Email };
+
+        var result = await _userManager.CreateAsync(user, userForAuthentication.Password);
+        if (!result.Succeeded)
+        {
+            var errors = result.Errors.Select(e => e.Description);
+            return new RegisterResponseModel { Errors = errors.ToList(), IsSuccess = false };
+        }
+        await _userManager.AddToRoleAsync(user, "Administrator");
 
         return new RegisterResponseModel { IsSuccess = true };
     }

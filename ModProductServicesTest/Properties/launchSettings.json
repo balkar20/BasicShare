@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "ModProductServicesTest": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:54854;http://localhost:54860"
+    }
+  }
+}
