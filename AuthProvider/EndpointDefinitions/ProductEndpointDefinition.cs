@@ -18,10 +18,10 @@ public class AuthEndpointDefinition : IEndpointDefinition
         app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/products", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
         app.MapPost("api/products",
-            ([FromServices] IMediator _mediator, [FromBody] AuthViewModel product) =>
+            ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
                 _mediator.Send(new LoginCommand(product)));
         app.MapPut("api/products",
-            ([FromServices] IMediator _mediator, [FromBody] AuthModel product) =>
+            ([FromServices] IMediator _mediator, [FromBody] LoginModel product) =>
                 _mediator.Send(new UpdateAuthCommand(product)));
     }
 

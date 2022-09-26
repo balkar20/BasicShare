@@ -10,6 +10,6 @@ public class AuthViewModelProfile: Profile
 {
     public AuthViewModelProfile()
     {
-        CreateMap<AuthModel, AuthViewModel>().ReverseMap();
+        CreateMap<LoginModel, LoginViewModel>().ReverseMap();
     }
 }

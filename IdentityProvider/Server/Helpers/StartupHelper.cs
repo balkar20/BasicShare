@@ -6,12 +6,14 @@ using Core.Auh.Configuration;
 using Core.Auh.Entities;
 using Core.Base.Configuration;
 using Data.IdentityDb;
+using IdentityDb;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Mod.Auth.Base.Queries;
@@ -25,7 +27,7 @@ namespace Apps.Blazor.Identity.IdentityProvider.Server.Helpers;
 
 public static class StartupHelper
 {
-    public static void ConfigureServices(WebApplication app)
+    public static void Configure(WebApplication app)
     {
         //app.UseMiddleware<ErrorHandlerMiddleware>();
         app.UseEndpointDefinitions();
@@ -49,15 +51,14 @@ public static class StartupHelper
         app.MapControllers();
         app.MapFallbackToFile("index.html");
 
-        app.Run();
-
-
         app.UseAuthentication();
         app.UseAuthorization();
+
+        //SeedDataService.Initialize(app.Services);
         app.Run();
     }
     
-    public static void Configure(WebApplicationBuilder builder)
+    public static void ConfigureServices(WebApplicationBuilder builder)
     {
         var configuration = builder.Configuration;
         var services = builder.Services;
@@ -65,7 +66,7 @@ public static class StartupHelper
         var authConfiguration = configuration.GetSection(AuthConfiguration.HostConfiguration);
         services.Configure<AuthConfiguration>(
             authConfiguration);
-        services.AddDbContext<ApplicationContext>(options =>
+        services.AddDbContext<DbContext, ApplicationContext>(options =>
     options.UseNpgsql(configuration.GetConnectionString("sqlConnection")));
         services.AddIdentity<UserEntity, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationContext>();
@@ -96,6 +97,7 @@ public static class StartupHelper
         builder.Services.AddBlazoredLocalStorage();
         builder.Services.AddAuthorizationCore();
         builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
+        //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         //services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
@@ -109,7 +111,5 @@ public static class StartupHelper
         builder.Host.UseSerilog((ctx, lc) => lc
             .WriteTo.Console()
             .WriteTo.Seq("http://localhost:5341"));
-
-
     }
 }

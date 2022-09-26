@@ -1,7 +1,9 @@
 ﻿using Core.Auh.Entities;
 using IdentityDb.Configuration;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,7 +23,20 @@ namespace Data.IdentityDb
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.ApplyConfiguration(new RoleConfiguration());
+            var userManager = Database.GetService<UserManager<UserEntity>>();
+            var roleManager = Database.GetService<RoleManager<IdentityRole>>();
+            var roleConfig = new RoleConfiguration();
+            var userConfig = new UserConfiguration();
+
+            builder.ApplyConfiguration(roleConfig);
+            builder.ApplyConfiguration(userConfig);
+
+            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            {
+                RoleId = roleConfig.Roles.FirstOrDefault(r => r.Name == "Administrator").Id,
+                UserId = userConfig.Users.FirstOrDefault(u => u.UserName == "admin").Id.ToString(),
+            });
+
             base.OnModelCreating(builder);
         }
     }

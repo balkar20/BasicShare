@@ -1,6 +1,6 @@
 ﻿namespace Mod.Auth.Models
 {
-    public class AuthResponseModel
+    public class LoginResponseModel
     {
         public bool IsAuthSuccessful { get; set; }
         public string ErrorMessage { get; set; }

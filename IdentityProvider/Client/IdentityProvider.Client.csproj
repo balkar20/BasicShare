@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Mod.Auth.Models\Mod.Auth.Models.csproj" />
     <ProjectReference Include="..\Shared\IdentityProvider.Shared.csproj" />
   </ItemGroup>
 

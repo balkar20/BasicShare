@@ -3,4 +3,4 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Commands;
 
-public record UpdateAuthCommand(AuthModel Auth) : IRequest<AuthModel>;
+public record UpdateAuthCommand(LoginModel Auth) : IRequest<LoginModel>;

@@ -31,6 +31,7 @@ public class AuthService: IAuthService
         _logger = logger;
         _configuration = options.Value;
         _userManager = userManager;
+        //var user =  _userManager.AddLoginAsync(new UserEntity() { Email = "balkar20@mail."})
     }
 
     //public async Task<List<AuthModel>> GetAllAuths()
@@ -39,16 +40,16 @@ public class AuthService: IAuthService
     //    //return products.ToList();
     //}
 
-    public async Task<AuthResponseModel> LogIn(AuthModel userForAuthentication)
+    public async Task<LoginResponseModel> LogIn(LoginModel userForAuthentication)
     {
         var user = await _userManager.FindByNameAsync(userForAuthentication.Email);
         if (user == null || !await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
-            return new AuthResponseModel { ErrorMessage = "Invalid Authentication" };
+            return new LoginResponseModel { ErrorMessage = "Invalid Authentication" };
         var signingCredentials = GetSigningCredentials();
         var claims = await GetClaims(user);
         var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
         var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
-        return new AuthResponseModel { IsAuthSuccessful = true, Token = token };
+        return new LoginResponseModel { IsAuthSuccessful = true, Token = token };
     }
 
     //public async Task<AuthModel> LogOut(AuthModel authModel)
@@ -57,7 +58,7 @@ public class AuthService: IAuthService
     //    return Task.CompletedTask;
     //}
 
-    public async Task<RegisterResponseModel> RegisterUser(AuthModel userForAuthentication)
+    public async Task<RegisterResponseModel> RegisterUser(LoginModel userForAuthentication)
     {
         if (userForAuthentication == null)
             return new RegisterResponseModel { Errors = new List<string> { "Null" }, IsSuccess = false };
@@ -74,7 +75,7 @@ public class AuthService: IAuthService
         return new RegisterResponseModel { IsSuccess = true };
     }
 
-    public async Task<RegisterResponseModel> RegisterAdmin(AuthModel userForAuthentication)
+    public async Task<RegisterResponseModel> RegisterAdmin(LoginModel userForAuthentication)
     {
         if (userForAuthentication == null)
             return new RegisterResponseModel { Errors = new List<string> { "Null" }, IsSuccess = false };

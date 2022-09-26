@@ -5,6 +5,6 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Interfaces;
 
-public interface IAuthRepository: IRepository<UserEntity, AuthModel>
+public interface IAuthRepository: IRepository<UserEntity, LoginModel>
 {
 }

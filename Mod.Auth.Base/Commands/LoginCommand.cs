@@ -4,4 +4,4 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Commands;
 
-public record LoginCommand(AuthViewModel Auth) : IRequest<AuthResponseModel>;
+public record LoginCommand(LoginViewModel Auth) : IRequest<LoginResponseModel>;
