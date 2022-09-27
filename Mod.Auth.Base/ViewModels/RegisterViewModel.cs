@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Auh.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Mod.Auth.Models
 {
-    public record RegisterViewModel(string Email, string UserName, string Password, string? PhoneNumber, string? Male, int? Year)
+    public record RegisterViewModel(string Email, string UserName, string Password, string? PhoneNumber, string? Male, int? Year, UserRolesEnum? UserRole)
     {
         //public string Email { get; set; }
         //public string Password { get; set; }

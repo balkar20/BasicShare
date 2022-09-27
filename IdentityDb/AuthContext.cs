@@ -33,13 +33,13 @@ namespace Data.IdentityDb
             builder.ApplyConfiguration(userConfig);
             var roleId = roleConfig.Roles.FirstOrDefault(r => r.Name == UserRolesEnum.Administrator.ToString()).Id;
             var userId = userConfig.Users.FirstOrDefault(u => u.UserName == "admin").Id;
-            Console.WriteLine($"roleId : {roleId}");
-            Console.WriteLine($"userId : {userId}");
-            builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
+            var userRoleDictionary = new Dictionary<string, string>()
             {
-                RoleId = roleId,
-                UserId = userId
-            });
+                { userId, roleId }
+            };
+
+            var userRoleConfig = new UserRoleConfiguration(userRoleDictionary);
+            builder.ApplyConfiguration(userRoleConfig);
 
             base.OnModelCreating(builder);
         }

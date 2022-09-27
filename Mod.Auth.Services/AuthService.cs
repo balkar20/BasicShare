@@ -70,7 +70,6 @@ public class AuthService: IAuthService
             return new RegisterResponseModel { Errors = errors.ToList(), IsSuccess = false };
         }
 
-        
         await _userManager.AddToRoleAsync(user, registerModel.UserRole is null ? UserRolesEnum.Viewer.ToString() : registerModel.UserRole.ToString());
 
         return new RegisterResponseModel { IsSuccess = true };
