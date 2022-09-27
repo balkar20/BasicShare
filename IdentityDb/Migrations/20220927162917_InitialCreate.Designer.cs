@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace IdentityDb.Migrations
 {
     [DbContext(typeof(ApplicationContext))]
-    [Migration("20220921122934_InitialCreate")]
+    [Migration("20220927162917_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -76,7 +76,7 @@ namespace IdentityDb.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
-                    b.Property<int>("Year")
+                    b.Property<int?>("Year")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -89,6 +89,25 @@ namespace IdentityDb.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "750cb244-9287-43c7-9718-5d83f97c776b",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c1c81cd4-6d70-4ce1-b8e7-2cdaf10fb8c7",
+                            Email = "balkar20@mail.ru",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "BALKAR20@MAIL.RU",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEA/KzCKeUFirhczMNtr8B+ZJ+ib9AqmxYescYWLy5VZQ2aeg52+GTOj7ECbERvkfqQ==",
+                            PhoneNumber = "+79111761331",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "b2e63410-091d-4307-bec7-a5757498ca26",
+                            TwoFactorEnabled = false,
+                            UserName = "admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -119,17 +138,38 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "fd9b1076-c30a-46b6-a242-0f80110bfc99",
-                            ConcurrencyStamp = "2d1d60ce-1e44-400e-9464-6a2a0c090ae6",
+                            Id = "66cfd738-ecc1-4a53-aea5-e17b8d811eee",
+                            ConcurrencyStamp = "36f29bd9-e19d-4ffb-8d49-2004f4659b50",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "c6af540e-bd87-4a6c-9054-ff9418497e32",
+                            ConcurrencyStamp = "82ac1157-e1d9-49ea-9629-d0c8f1bffa33",
                             Name = "Viewer",
                             NormalizedName = "VIEWER"
                         },
                         new
                         {
-                            Id = "a765b59e-9fb4-458a-8f6d-03ad58fd0e3e",
-                            ConcurrencyStamp = "6173fedc-662b-42e9-bbac-1cd4283490cb",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
+                            Id = "23e79101-406d-483a-8dc8-b846d51bfdec",
+                            ConcurrencyStamp = "c4c2de92-3ae9-4db4-bfa4-6a596aed472f",
+                            Name = "DeliveryStuff",
+                            NormalizedName = "DELIVERYSTUFF"
+                        },
+                        new
+                        {
+                            Id = "73e5181a-5e7d-444e-9ff9-132fede8edd7",
+                            ConcurrencyStamp = "29412d47-19d3-49cd-8b07-df78c712188d",
+                            Name = "Reviwer",
+                            NormalizedName = "REVIWER"
+                        },
+                        new
+                        {
+                            Id = "b64d0ca5-efec-4844-a3f9-720d9c99f906",
+                            ConcurrencyStamp = "38b449a4-596e-46ca-88f2-5885068027ad",
+                            Name = "Maker",
+                            NormalizedName = "MAKER"
                         });
                 });
 
@@ -218,6 +258,13 @@ namespace IdentityDb.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "750cb244-9287-43c7-9718-5d83f97c776b",
+                            RoleId = "66cfd738-ecc1-4a53-aea5-e17b8d811eee"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

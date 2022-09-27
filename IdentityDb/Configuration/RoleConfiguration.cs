@@ -1,4 +1,5 @@
 ﻿using Core.Auh.Entities;
+using Core.Auh.Enums;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -14,26 +15,22 @@ namespace IdentityDb.Configuration
     {
         public List<IdentityRole> Roles { get; set; }
 
+        public RoleConfiguration()
+        {
+            Roles = Roles = new List<IdentityRole>();
+            foreach (UserRolesEnum userRole in (UserRolesEnum[])Enum.GetValues(typeof(UserRolesEnum)))
+            {
+                Roles.Add(new IdentityRole
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    Name = userRole.ToString(),
+                    NormalizedName = userRole.ToString().ToUpper()
+                });
+            };
+        }
+
         public void Configure(EntityTypeBuilder<IdentityRole> builder)
         {
-            string ADMIN_ID = "02174cf0–9412–4cfe - afbf - 59f706d72cf6";
-            string ROLE_ID = "341743f0 - asd2–42de - afbf - 59kmkkmk72cf6";
-
-            Roles = new List<IdentityRole>(){
-                new IdentityRole
-                {
-                    Id = ROLE_ID,
-                    Name = "Viewer",
-                    NormalizedName = "VIEWER"
-                },
-                new IdentityRole
-                {
-                    Id = ADMIN_ID,
-                    Name = "Administrator",
-                    NormalizedName = "ADMINISTRATOR"
-                }};
-
-
             builder.HasData(Roles);
         }
     }
@@ -43,14 +40,16 @@ namespace IdentityDb.Configuration
         public List<UserEntity> Users { get; set; }
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
-            
+
+            var email = "balkar20@mail.ru";
+            var userName = "admin";
             var user = new UserEntity
             {
-                Id = 1,
-                UserName = "admin",
-                Email = "balkar20@mail.ru",
-                NormalizedEmail = "balkar20@mail.ru",
-                NormalizedUserName = "admin",
+                Id = Guid.NewGuid().ToString(),
+                UserName = userName,
+                Email = email,
+                NormalizedEmail = email.ToUpper(),
+                NormalizedUserName = userName.ToUpper(),
                 PhoneNumber = "+79111761331",
                 EmailConfirmed = true,
                 PhoneNumberConfirmed = true,
@@ -66,9 +65,6 @@ namespace IdentityDb.Configuration
             user.PasswordHash = hashed;
 
             builder.HasData(user);
-
-          
-
         }
     }
 }

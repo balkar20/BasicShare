@@ -1,5 +1,3 @@
-using Core.Base.Configuration;
-using Core.Base.DataBase.Entities;
 using Microsoft.Extensions.Options;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
@@ -11,6 +9,7 @@ using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
+using Core.Auh.Enums;
 
 namespace Mod.Auth.Base.Repositories;
 
@@ -42,7 +41,7 @@ public class AuthService: IAuthService
 
     public async Task<LoginResponseModel> LogIn(LoginModel userForAuthentication)
     {
-        var user = await _userManager.FindByNameAsync(userForAuthentication.Email);
+        var user = await _userManager.FindByEmailAsync(userForAuthentication.Email);
         if (user == null || !await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
             return new LoginResponseModel { ErrorMessage = "Invalid Authentication" };
         var signingCredentials = GetSigningCredentials();
@@ -58,36 +57,21 @@ public class AuthService: IAuthService
     //    return Task.CompletedTask;
     //}
 
-    public async Task<RegisterResponseModel> RegisterUser(LoginModel userForAuthentication)
+    public async Task<RegisterResponseModel> RegisterUser(RegisterModel registerModel)
     {
-        if (userForAuthentication == null)
+        if (registerModel == null)
             return new RegisterResponseModel { Errors = new List<string> { "Null" }, IsSuccess = false };
-        var user = new UserEntity { UserName = userForAuthentication.Email, Email = userForAuthentication.Email };
+        var user = new UserEntity { UserName = registerModel.UserName, Email = registerModel.Email, Year = registerModel.Year };
 
-        var result = await _userManager.CreateAsync(user, userForAuthentication.Password);
+        var result = await _userManager.CreateAsync(user, registerModel.Password);
         if (!result.Succeeded)
         {
             var errors = result.Errors.Select(e => e.Description);
             return new RegisterResponseModel { Errors = errors.ToList(), IsSuccess = false };
         }
-        await _userManager.AddToRoleAsync(user, "Viewer");
 
-        return new RegisterResponseModel { IsSuccess = true };
-    }
-
-    public async Task<RegisterResponseModel> RegisterAdmin(LoginModel userForAuthentication)
-    {
-        if (userForAuthentication == null)
-            return new RegisterResponseModel { Errors = new List<string> { "Null" }, IsSuccess = false };
-        var user = new UserEntity { UserName = userForAuthentication.Email, Email = userForAuthentication.Email };
-
-        var result = await _userManager.CreateAsync(user, userForAuthentication.Password);
-        if (!result.Succeeded)
-        {
-            var errors = result.Errors.Select(e => e.Description);
-            return new RegisterResponseModel { Errors = errors.ToList(), IsSuccess = false };
-        }
-        await _userManager.AddToRoleAsync(user, "Administrator");
+        
+        await _userManager.AddToRoleAsync(user, registerModel.UserRole is null ? UserRolesEnum.Viewer.ToString() : registerModel.UserRole.ToString());
 
         return new RegisterResponseModel { IsSuccess = true };
     }

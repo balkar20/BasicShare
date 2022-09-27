@@ -8,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Core.Auh.Entities
 {
-    public class UserEntity : IdentityUser, IEntity
+    public class UserEntity : IdentityUser
     {
-        public int Year { get; set; }
-        public long Id { get; set; }
+        public int? Year { get; set; }
     }
 }

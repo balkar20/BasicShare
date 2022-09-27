@@ -27,7 +27,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
 
     public void DefineServices(IServiceCollection services)
     {
-        services.AddScoped<IAuthRepository, AuthRepository>();
+        //services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
     }
 }

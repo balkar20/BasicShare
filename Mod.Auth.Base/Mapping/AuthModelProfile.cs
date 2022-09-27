@@ -11,5 +11,6 @@ public class AuthModelProfile: Profile
     public AuthModelProfile()
     {
         CreateMap<LoginModel, LoginViewModel>().ReverseMap();
+        CreateMap<RegisterModel, RegisterViewModel>().ReverseMap();
     }
 }

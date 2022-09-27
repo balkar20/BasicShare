@@ -82,7 +82,6 @@ public static class StartupHelper
                 ValidateAudience = true,
                 ValidateLifetime = true,
                 ValidateIssuerSigningKey = true,
-
                 ValidIssuer = authConfiguration["ValidIssuer"],
                 ValidAudience = authConfiguration["ValidAudience"],
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authConfiguration["SecurityKey"]))
@@ -95,7 +94,13 @@ public static class StartupHelper
         });
 
         builder.Services.AddBlazoredLocalStorage();
-        builder.Services.AddAuthorizationCore();
+        builder.Services.AddAuthorizationCore(opts =>
+        {
+            opts.AddPolicy("OnlyDeliveryStaffCoordinator", policy => {
+                policy.RequireClaim("DeliveryStaff", "Coordinator");
+            });
+        });
+
         builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
         //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

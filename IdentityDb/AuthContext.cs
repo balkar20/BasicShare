@@ -1,4 +1,5 @@
 ﻿using Core.Auh.Entities;
+using Core.Auh.Enums;
 using IdentityDb.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -30,11 +31,14 @@ namespace Data.IdentityDb
 
             builder.ApplyConfiguration(roleConfig);
             builder.ApplyConfiguration(userConfig);
-
+            var roleId = roleConfig.Roles.FirstOrDefault(r => r.Name == UserRolesEnum.Administrator.ToString()).Id;
+            var userId = userConfig.Users.FirstOrDefault(u => u.UserName == "admin").Id;
+            Console.WriteLine($"roleId : {roleId}");
+            Console.WriteLine($"userId : {userId}");
             builder.Entity<IdentityUserRole<string>>().HasData(new IdentityUserRole<string>
             {
-                RoleId = roleConfig.Roles.FirstOrDefault(r => r.Name == "Administrator").Id,
-                UserId = userConfig.Users.FirstOrDefault(u => u.UserName == "admin").Id.ToString(),
+                RoleId = roleId,
+                UserId = userId
             });
 
             base.OnModelCreating(builder);

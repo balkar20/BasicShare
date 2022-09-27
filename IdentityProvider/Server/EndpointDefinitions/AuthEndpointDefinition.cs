@@ -20,6 +20,9 @@ public class AuthEndpointDefinition : IEndpointDefinition
         app.MapPost("login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
                 _mediator.Send(new LoginCommand(product)));
+        app.MapPost("register",
+            ([FromServices] IMediator _mediator, [FromBody] RegisterViewModel product) =>
+                _mediator.Send(new RegisterCommand(product)));
         //app.MapPut("api/products",
         //    ([FromServices] IMediator _mediator, [FromBody] AuthModel product) =>
         //        _mediator.Send(new UpdateAuthCommand(product)));
@@ -27,7 +30,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
 
     public void DefineServices(IServiceCollection services)
     {
-        services.AddScoped<IAuthRepository, AuthRepository>();
+        //services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
     }
 }

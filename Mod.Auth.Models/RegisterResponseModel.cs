@@ -11,5 +11,7 @@ namespace Mod.Auth.Models
         public IList<string> Errors { get; set; }
 
         public bool IsSuccess { get; set; }
+
+        public string Token { get; set; }
     }
 }
