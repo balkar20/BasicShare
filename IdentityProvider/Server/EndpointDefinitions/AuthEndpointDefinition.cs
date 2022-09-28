@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;
 using Mod.Auth.Base.Queries;
@@ -17,10 +18,10 @@ public class AuthEndpointDefinition : IEndpointDefinition
     {
         //app.MapGet("/", () => "Startup Tool Template");
         //app.MapGet("api/products", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
-        app.MapPost("login",
+        app.MapPost("api/login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
                 _mediator.Send(new LoginCommand(product)));
-        app.MapPost("register",
+        app.MapPost("api/register",
             ([FromServices] IMediator _mediator, [FromBody] RegisterViewModel product) =>
                 _mediator.Send(new RegisterCommand(product)));
         //app.MapPut("api/products",
@@ -32,5 +33,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
     {
         //services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
+        //services.AddScoped<AuthStateProvider>();
+        //services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<AuthStateProvider>());
     }
 }

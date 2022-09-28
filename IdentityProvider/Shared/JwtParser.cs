@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Mod.Auth.Services
+namespace IdentityProvider.Shared
 {
     public static class JwtParser
     {
