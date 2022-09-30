@@ -23,6 +23,7 @@ namespace IdentityProvider.Shared
         public override async Task<AuthenticationState> GetAuthenticationStateAsync()
         {
             var token = await _localStorage.GetItemAsync<string>("authToken");
+     
             if (string.IsNullOrWhiteSpace(token))
                 return _anonymous;
             //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);

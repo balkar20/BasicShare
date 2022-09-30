@@ -11,9 +11,11 @@ var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
 
+builder.Services.AddOptions();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthStateProvider>();
+//builder.Services.AddScoped<TokenProvider>();
 
 builder.Services.AddScoped<AuthenticationStateProvider>( o => o.GetRequiredService<AuthStateProvider>());
 
