@@ -3,8 +3,8 @@
 @using IdentityProvider.Shared
 @using Microsoft.AspNetCore.Components.Authorization
 @inject AuthStateProvider AuthenticationStateProvider
-
-<AuthorizeView>
+<h3>Index</h3>
+@*<AuthorizeView>
     <Authorized>
         <h1>Hello, @context.User.Identity.Name!</h1>
         <p>You can only see this content if you're authorized.</p>
@@ -13,7 +13,7 @@
     <NotAuthorized>
         <RedirectToLogin></RedirectToLogin>
     </NotAuthorized>
-</AuthorizeView>
+</AuthorizeView>*@
 @*<h3>ClaimsPrincipal Data</h3>
 
 <button @onclick="GetClaimsPrincipalData">Get ClaimsPrincipal Data</button>
