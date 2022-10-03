@@ -54,8 +54,8 @@
             var result = await Http.PostAsJsonAsync<LoginModel>("api/login", model);
             var loginResponseModel = await result.Content.ReadFromJsonAsync<LoginResponseModel>();
             await _localStorage.SetItemAsync<string>("authToken", loginResponseModel.Token);
-            var returnUrl = NavigationManager.ToBaseRelativePath("returnUrl") ?? "";
-            NavigationManager.NavigateTo(returnUrl);
+            //var returnUrl = NavigationManager.BaseUri("returnUrl") ?? "";
+            //NavigationManager.NavigateTo(returnUrl);
         }
         catch (Exception ex)
         {
