@@ -1,0 +1,40 @@
+﻿@page "/Readexcelflatfile"
+@using System.Data
+<h3>ReadExcelFlatFile</h3>
+<InputFile OnChange="@LoadFiles" multiple />
+@if (flatFileViewModels == null)
+{
+    <p><em>Loading...</em></p>
+}
+else{
+    <h3>Table</h3>
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Temp. (C)</th>
+            <th>Temp. (F)</th>
+            <th>Summary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var forecast in flatFileViewModels)
+        {
+            <tr>
+                <td>@forecast.BusinessChannelAlias</td>
+                <td>@forecast.ProductAlias</td>
+                <td>@forecast.GradeAlias</td>
+                <td>@forecast.Rate</td>
+                <td>@forecast.PriceByCommitment15</td>
+                <td>@forecast.PriceByCommitment30</td>
+                <td>@forecast.PriceByCommitment45</td>
+                <td>@forecast.PriceByCommitment60</td>
+            </tr>
+        }
+    </tbody>
+</table>
+}
+
+
+
+
