@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using MudBlazor.Services;
 //using Mod.Auth.Services;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -15,6 +16,7 @@ builder.Services.AddOptions();
 builder.Services.AddBlazoredLocalStorage();
 builder.Services.AddAuthorizationCore();
 builder.Services.AddScoped<AuthStateProvider>();
+builder.Services.AddMudServices();
 //builder.Services.AddScoped<TokenProvider>();
 
 builder.Services.AddScoped<AuthenticationStateProvider>( o => o.GetRequiredService<AuthStateProvider>());

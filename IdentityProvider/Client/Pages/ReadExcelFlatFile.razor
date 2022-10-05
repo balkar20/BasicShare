@@ -1,34 +1,47 @@
 ﻿@page "/Readexcelflatfile"
-@using System.Data
+@using IdentityProvider.Shared
+
 <h3>ReadExcelFlatFile</h3>
 <InputFile OnChange="@LoadFiles" multiple />
-@if (flatFileViewModels == null)
+@if (productPricingViewModelList == null)
 {
     <p><em>Loading...</em></p>
 }
 else{
+     <p>
+        <MudSelect Label="Business Channels"  ValueChanged="BusinessChannelOptionChanged" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" T="DropDownModel<BusinessChannelViewModel>">
+
+            @foreach (var item in DdBusnessChannelList)
+            {   
+            <MudSelectItem Value="@item" />
+            }
+           
+        </MudSelect>
+     </p>
     <h3>Table</h3>
     <table class="table">
     <thead>
         <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
+            <th>ProductAlias</th>
+            <th>GradeAlias</th>
+            <th>Rate</th>
+            <th>PriceByCommitment15</th>
+            <th>PriceByCommitment30</th>
+            <th>PriceByCommitment45</th>
+            <th>PriceByCommitment60</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var forecast in flatFileViewModels)
+        @foreach (var productPricing in productPricingViewModelList)
         {
             <tr>
-                <td>@forecast.BusinessChannelAlias</td>
-                <td>@forecast.ProductAlias</td>
-                <td>@forecast.GradeAlias</td>
-                <td>@forecast.Rate</td>
-                <td>@forecast.PriceByCommitment15</td>
-                <td>@forecast.PriceByCommitment30</td>
-                <td>@forecast.PriceByCommitment45</td>
-                <td>@forecast.PriceByCommitment60</td>
+                <td>@productPricing.ProductAlias</td>
+                <td>@productPricing.GradeAlias</td>
+                <td>@productPricing.Rate</td>
+                <td>@productPricing.PriceByCommitment15</td>
+                <td>@productPricing.PriceByCommitment30</td>
+                <td>@productPricing.PriceByCommitment45</td>
+                <td>@productPricing.PriceByCommitment60</td>
             </tr>
         }
     </tbody>
