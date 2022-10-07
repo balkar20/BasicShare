@@ -26,26 +26,55 @@ namespace IdentityProvider.Client.Pages
     public partial class ReadExcelFlatFile
     {
         private List<DropDownModel<BusinessChannelViewModel>> DdBusnessChannelList = new();
+        private List<DropDownModel<List<Pricing>>> DdProductlList = new();
         Dictionary<string, BusinessChannelViewModel> buisnessChannelDictionary = new();
         Stack<BusinessChannelViewModel> BuisnessChannelViewModelStack = new();
         //DataTable dt = new DataTable();
 
         List<ProductPricingViewModel> productPricingViewModelList = new();
-        private DropDownModel<BusinessChannelViewModel> SelectedModel;
+        private DropDownModel<BusinessChannelViewModel> SelectedBusinessChannelModel;
+        private DropDownModel<ProductPricingViewModel> SelectedProductModel;
         
         private async Task BusinessChannelOptionChanged(DropDownModel<BusinessChannelViewModel> arg)
         {
-            SelectedModel = arg;
-            productPricingViewModelList = SelectedModel.Data.ProductStack.SelectMany(u => u.PricingList,
-                (product, pricing) =>
-                    new ProductPricingViewModel(
-                        product.ProductAlias,
-                        product.GradeAlias,
-                        pricing.Rate, pricing.PriceByCommitment15,
-                        pricing.PriceByCommitment30,
-                        pricing.PriceByCommitment45,
-                        pricing.PriceByCommitment60
-                    )).ToList();    
+            SelectedBusinessChannelModel = arg;
+            DdProductlList = SelectedBusinessChannelModel.Data.ProductStack.Select(p =>
+                new DropDownModel<List<Pricing>>()
+                {
+                    Data = p.PricingList,
+                    DropDownValue = p.ProductAlias
+                }).ToList();
+            // productPricingViewModelList = SelectedModel.Data.ProductStack.SelectMany(u => u.PricingList,
+            //     (product, pricing) =>
+            //         new ProductPricingViewModel(
+            //             product.ProductAlias,
+            //             product.GradeAlias,
+            //             pricing.Rate, pricing.PriceByCommitment15,
+            //             pricing.PriceByCommitment30,
+            //             pricing.PriceByCommitment45,
+            //             pricing.PriceByCommitment60
+            //         )).ToList();    
+        }
+        private async Task ProductOptionChanged(DropDownModel<ProductPricingViewModel> arg)
+        {
+            // SelectedProductModel = arg;
+            // productPricingViewModelList = SelectedProductModel.Data.Select(p =>
+            //     new Pricing(
+            //         p.Rate, p.PriceByCommitment15,
+            //         p.PriceByCommitment30,
+            //         p.PriceByCommitment45,
+            //         p.PriceByCommitment60
+            // )).ToList(); 
+            // productPricingViewModelList = SelectedModel.Data.ProductStack.SelectMany(u => u.PricingList,
+            //     (product, pricing) =>
+            //         new ProductPricingViewModel(
+            //             product.ProductAlias,
+            //             product.GradeAlias,
+            //             pricing.Rate, pricing.PriceByCommitment15,
+            //             pricing.PriceByCommitment30,
+            //             pricing.PriceByCommitment45,
+            //             pricing.PriceByCommitment60
+            //         )).ToList();    
         }
 
         private async void LoadFiles(InputFileChangeEventArgs e)
