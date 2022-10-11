@@ -17,13 +17,19 @@ else{
             }
            
         </MudSelect>
+        <MudSelect Label="Products"  ValueChanged="ProductOptionChanged" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" T="DropDownModel<ProductViewModel>">
+
+            @foreach (var item in DdProductlList)
+            {   
+            <MudSelectItem Value="@item" />
+            }
+           
+        </MudSelect>
      </p>
     <h3>Table</h3>
     <table class="table">
     <thead>
         <tr>
-            <th>ProductAlias</th>
-            <th>GradeAlias</th>
             <th>Rate</th>
             <th>PriceByCommitment15</th>
             <th>PriceByCommitment30</th>
@@ -35,8 +41,8 @@ else{
         @foreach (var productPricing in productPricingViewModelList)
         {
             <tr>
-                <td>@productPricing.ProductAlias</td>
-                <td>@productPricing.GradeAlias</td>
+                @* <td>@productPricing.ProductAlias</td> *@
+                @* <td>@productPricing.GradeAlias</td> *@
                 <td>@productPricing.Rate</td>
                 <td>@productPricing.PriceByCommitment15</td>
                 <td>@productPricing.PriceByCommitment30</td>

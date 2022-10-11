@@ -1,59 +1,44 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Components;
-using System.Net.Http;
-using System.Net.Http.Json;
 using Microsoft.AspNetCore.Components.Forms;
-using Microsoft.AspNetCore.Components.Routing;
-using Microsoft.AspNetCore.Components.Web;
-using Microsoft.AspNetCore.Components.Web.Virtualization;
-using Microsoft.AspNetCore.Components.WebAssembly.Http;
-using Microsoft.JSInterop;
-using IdentityProvider.Client;
 using IdentityProvider.Client.Shared;
-using Microsoft.AspNetCore.Components.Authorization;
-using System.Data;
 using IdentityProvider.Shared;
 using TinyCsvParser;
 using System.Text;
-using System.IO;
-using static MudBlazor.CategoryTypes;
 
 namespace IdentityProvider.Client.Pages
 {
     public partial class ReadExcelFlatFile
     {
         private List<DropDownModel<BusinessChannelViewModel>> DdBusnessChannelList = new();
-        private List<DropDownModel<List<Pricing>>> DdProductlList = new();
+        private List<DropDownModel<ProductViewModel>> DdProductlList = new();
         Dictionary<string, BusinessChannelViewModel> buisnessChannelDictionary = new();
         Stack<BusinessChannelViewModel> BuisnessChannelViewModelStack = new();
         //DataTable dt = new DataTable();
 
         List<ProductPricingViewModel> productPricingViewModelList = new();
         private DropDownModel<BusinessChannelViewModel> SelectedBusinessChannelModel;
-        private DropDownModel<ProductPricingViewModel> SelectedProductModel;
+        private DropDownModel<ProductViewModel> SelectedProductModel;
         
         private async Task BusinessChannelOptionChanged(DropDownModel<BusinessChannelViewModel> arg)
         {
             SelectedBusinessChannelModel = arg;
             DdProductlList = SelectedBusinessChannelModel.Data.ProductStack.Select(p =>
-                new DropDownModel<List<Pricing>>()
+                new DropDownModel<ProductViewModel>()
                 {
-                    Data = p.PricingList,
+                    Data = new ProductViewModel(p.ProductAlias, p.PricingList),
                     DropDownValue = p.ProductAlias
                 }).ToList();
-            // productPricingViewModelList = SelectedModel.Data.ProductStack.SelectMany(u => u.PricingList,
-            //     (product, pricing) =>
-            //         new ProductPricingViewModel(
-            //             product.ProductAlias,
-            //             product.GradeAlias,
-            //             pricing.Rate, pricing.PriceByCommitment15,
-            //             pricing.PriceByCommitment30,
-            //             pricing.PriceByCommitment45,
-            //             pricing.PriceByCommitment60
-            //         )).ToList();    
+        }
+        private async Task ProductOptionChanged(DropDownModel<ProductViewModel> arg)
+        {
+            SelectedProductModel = arg;
+            productPricingViewModelList = SelectedProductModel.Data.PricingList.Select(u=>
+                    new ProductPricingViewModel(
+                        u.Rate,
+                        u.PriceByCommitment15,
+                        u.PriceByCommitment30,
+                        u.PriceByCommitment45,
+                        u.PriceByCommitment60
+                    )).ToList();    
         }
         private async Task ProductOptionChanged(DropDownModel<ProductPricingViewModel> arg)
         {
