@@ -40,27 +40,6 @@ namespace IdentityProvider.Client.Pages
                         u.PriceByCommitment60
                     )).ToList();    
         }
-        private async Task ProductOptionChanged(DropDownModel<ProductPricingViewModel> arg)
-        {
-            // SelectedProductModel = arg;
-            // productPricingViewModelList = SelectedProductModel.Data.Select(p =>
-            //     new Pricing(
-            //         p.Rate, p.PriceByCommitment15,
-            //         p.PriceByCommitment30,
-            //         p.PriceByCommitment45,
-            //         p.PriceByCommitment60
-            // )).ToList(); 
-            // productPricingViewModelList = SelectedModel.Data.ProductStack.SelectMany(u => u.PricingList,
-            //     (product, pricing) =>
-            //         new ProductPricingViewModel(
-            //             product.ProductAlias,
-            //             product.GradeAlias,
-            //             pricing.Rate, pricing.PriceByCommitment15,
-            //             pricing.PriceByCommitment30,
-            //             pricing.PriceByCommitment45,
-            //             pricing.PriceByCommitment60
-            //         )).ToList();    
-        }
 
         private async void LoadFiles(InputFileChangeEventArgs e)
         { 
