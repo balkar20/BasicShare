@@ -2,7 +2,7 @@
 2022-09-02 18:46:15.388 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 18:46:15.394 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 18:46:15.396 +03:00 [INF] Hosting environment: Development
-2022-09-02 18:46:15.397 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 18:46:15.397 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 18:46:15.974 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
 2022-09-02 18:46:16.116 +03:00 [INF] Executing endpoint 'HTTP: GET /'
 2022-09-02 18:46:16.122 +03:00 [INF] Executed endpoint 'HTTP: GET /'
@@ -12,7 +12,7 @@
 2022-09-02 19:01:42.159 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 19:01:42.164 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 19:01:42.165 +03:00 [INF] Hosting environment: Development
-2022-09-02 19:01:42.166 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:01:42.166 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 19:01:42.414 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
 2022-09-02 19:01:42.483 +03:00 [INF] Executing endpoint 'HTTP: GET /'
 2022-09-02 19:01:42.486 +03:00 [INF] Executed endpoint 'HTTP: GET /'
@@ -38,7 +38,7 @@
 2022-09-02 19:13:40.270 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 19:13:40.276 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 19:13:40.277 +03:00 [INF] Hosting environment: Development
-2022-09-02 19:13:40.278 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:13:40.278 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 19:13:46.305 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/api/shipments - -
 2022-09-02 19:13:46.369 +03:00 [INF] Executing endpoint 'HTTP: GET api/shipments'
 2022-09-02 19:13:47.143 +03:00 [INF] Entity Framework Core 6.0.5 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:6.0.5+9d79af6e2586d5d28da253ac075706a5575a1743' with options: None
@@ -49,7 +49,7 @@
 2022-09-02 19:18:52.394 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 19:18:52.401 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 19:18:52.403 +03:00 [INF] Hosting environment: Development
-2022-09-02 19:18:52.404 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:18:52.404 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 19:18:52.754 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
 2022-09-02 19:18:52.844 +03:00 [INF] Executing endpoint 'HTTP: GET /'
 2022-09-02 19:18:52.849 +03:00 [INF] Executed endpoint 'HTTP: GET /'
@@ -59,7 +59,7 @@
 2022-09-02 19:25:33.543 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 19:25:33.549 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 19:25:33.550 +03:00 [INF] Hosting environment: Development
-2022-09-02 19:25:33.551 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:25:33.551 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 19:25:33.898 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
 2022-09-02 19:25:33.997 +03:00 [INF] Executing endpoint 'HTTP: GET /'
 2022-09-02 19:25:34.002 +03:00 [INF] Executed endpoint 'HTTP: GET /'
@@ -94,7 +94,7 @@ System.ArgumentNullException: Value cannot be null. (Parameter 'configuration')
 2022-09-02 19:29:35.503 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 19:29:35.508 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 19:29:35.510 +03:00 [INF] Hosting environment: Development
-2022-09-02 19:29:35.511 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:29:35.511 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 19:29:45.517 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
 2022-09-02 19:29:45.590 +03:00 [INF] Executing endpoint 'HTTP: GET /'
 2022-09-02 19:29:45.595 +03:00 [INF] Executed endpoint 'HTTP: GET /'
@@ -131,7 +131,7 @@ System.InvalidOperationException: Cannot create a DbSet for 'ShipmentEntity' bec
 2022-09-02 19:32:35.914 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 19:32:35.951 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 19:32:35.953 +03:00 [INF] Hosting environment: Development
-2022-09-02 19:32:35.954 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:32:35.954 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 19:32:37.203 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
 2022-09-02 19:32:37.410 +03:00 [INF] Executing endpoint 'HTTP: GET /'
 2022-09-02 19:32:37.413 +03:00 [INF] Executed endpoint 'HTTP: GET /'
@@ -232,7 +232,7 @@ POSITION: 42
 2022-09-02 19:34:10.575 +03:00 [INF] Now listening on: http://localhost:5167
 2022-09-02 19:34:10.581 +03:00 [INF] Application started. Press Ctrl+C to shut down.
 2022-09-02 19:34:10.582 +03:00 [INF] Hosting environment: Development
-2022-09-02 19:34:10.583 +03:00 [INF] Content root path: D:\Train\BasicShare\WebApplication1\
+2022-09-02 19:34:10.583 +03:00 [INF] Content root path: D:\Train\BasicShare\BaseWebApi\
 2022-09-02 19:34:11.408 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7167/ - -
 2022-09-02 19:34:11.511 +03:00 [INF] Executing endpoint 'HTTP: GET /'
 2022-09-02 19:34:11.515 +03:00 [INF] Executed endpoint 'HTTP: GET /'

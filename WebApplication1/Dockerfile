@@ -7,7 +7,7 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /src
-COPY ["WebApplication1/WebApplication1.csproj", "WebApplication1/"]
+COPY ["BaseWebApi/BaseWebApi.csproj", "BaseWebApi/"]
 COPY ["Mod.Shipment.Base/Mod.Shipment.Base.csproj", "Mod.Shipment.Base/"]
 COPY ["Core.Base/Core.Base.csproj", "Core.Base/"]
 COPY ["Mod.Shipment.Interfaces/Mod.Shipment.Interfaces.csproj", "Mod.Shipment.Interfaces/"]
@@ -16,15 +16,15 @@ COPY ["Mod.Shipment.Models/Mod.Shipment.Models.csproj", "Mod.Shipment.Models/"]
 COPY ["Mod.Shipment.Services/Mod.Shipment.Services.csproj", "Mod.Shipment.Services/"]
 COPY ["Services/Services.csproj", "Services/"]
 COPY ["Db/Db.csproj", "Db/"]
-RUN dotnet restore "WebApplication1/WebApplication1.csproj"
+RUN dotnet restore "BaseWebApi/BaseWebApi.csproj"
 COPY . .
-WORKDIR "/src/WebApplication1"
-RUN dotnet build "WebApplication1.csproj" -c Release -o /app/build
+WORKDIR "/src/BaseWebApi"
+RUN dotnet build "BaseWebApi.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "WebApplication1.csproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "BaseWebApi.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "WebApplication1.dll"]
+ENTRYPOINT ["dotnet", "BaseWebApi.dll"]

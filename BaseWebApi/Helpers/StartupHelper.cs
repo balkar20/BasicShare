@@ -8,6 +8,9 @@ using Microsoft.EntityFrameworkCore;
 using Mod.Order.Base.Queries;
 using Mod.Product.Base.Queries;
 using Serilog;
+using Serilog.Formatting.Compact;
+using Serilog.Sinks.Grafana.Loki;
+using Serilog.AspNetCore;
 
 namespace Apps.BaseWebApi.Helpers;
 
@@ -18,7 +21,10 @@ public static class StartupHelper
         app.UseSwagger();
         app.UseSwaggerUI();
         
+        app.UseSerilogRequestLogging();
+        
         app.UseMiddleware<ErrorHandlerMiddleware>();
+        
         app.UseEndpointDefinitions();
         app.Run();
     }
@@ -33,6 +39,7 @@ public static class StartupHelper
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
+        // builder.UseSe;
 
         builder.Services.Configure<ProductApiConfiguration>(
             builder.Configuration.GetSection(ProductApiConfiguration.AuthConfiguration));
@@ -56,12 +63,24 @@ public static class StartupHelper
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
         builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
-        builder.Services.AddMediatR(typeof(GetAllOrdersQuery).Assembly);
+        // builder.Services.AddMediatR(typeof(GetAllOrdersQuery).Assembly);
         
         builder.Services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
         // builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));
-        builder.Host.UseSerilog((ctx, lc) => lc
-            .WriteTo.Console()
-            .WriteTo.Seq("http://localhost:5341"));
+        var credentials = new LokiCredentials()
+        {
+            Login = "admin",
+            Password = "admin"
+        };
+
+        
+        builder.Host.UseSerilog((ctx, cfg) =>
+        {
+            //Override Few of the Configurations
+            cfg.Enrich.WithProperty("Application", ctx.HostingEnvironment.ApplicationName)
+                .Enrich.WithProperty("Environment", ctx.HostingEnvironment.EnvironmentName)
+                .WriteTo.Console(new RenderedCompactJsonFormatter());
+        });
+        // builder.Services.UseSerilogRequestLogging();
     }
 }

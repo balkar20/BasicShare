@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Mod.Auth.Base.Queries;
 using Serilog;
+using Serilog.Sinks.Grafana.Loki;
 
 namespace Apps.BaseWebApi.Helpers;
 
@@ -72,6 +73,6 @@ public static class StartupHelper
         // builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));
         builder.Host.UseSerilog((ctx, lc) => lc
             .WriteTo.Console()
-            .WriteTo.Seq("http://localhost:5341"));
+            .WriteTo.GrafanaLoki("http://localhost:3100"));
     }
 }

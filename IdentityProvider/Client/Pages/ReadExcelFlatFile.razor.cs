@@ -12,7 +12,6 @@ namespace IdentityProvider.Client.Pages
         private List<DropDownModel<ProductViewModel>> DdProductlList = new();
         Dictionary<string, BusinessChannelViewModel> buisnessChannelDictionary = new();
         Stack<BusinessChannelViewModel> BuisnessChannelViewModelStack = new();
-        //DataTable dt = new DataTable();
 
         List<ProductPricingViewModel> productPricingViewModelList = new();
         private DropDownModel<BusinessChannelViewModel> SelectedBusinessChannelModel;

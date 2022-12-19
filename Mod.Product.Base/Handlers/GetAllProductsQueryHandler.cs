@@ -24,12 +24,6 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
     
     public async Task<OutputViewModelWithData<List<ProductViewModel>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
-        // OutputViewModelWithData<List<ProductViewModel>> result = new OutputViewModelWithData<List<ProductViewModel>>(false, null, null);
-        // // {
-        // //     IsOk = true,
-        // //     ErrorMessage = null,
-        // //     Data = null
-        // // };
         try
         {
             var products =  await _productService.GetAllProducts();
@@ -41,6 +35,5 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
             Console.WriteLine(e);
             return new OutputViewModelWithData<List<ProductViewModel>>(false, e.Message, null);
         }
-        // return await _productService.GetAllProducts();
     }
 }

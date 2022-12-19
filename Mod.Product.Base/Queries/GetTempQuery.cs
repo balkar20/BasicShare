@@ -6,4 +6,4 @@ using Mod.Product.Base.ViewModels;
 
 namespace Mod.Product.Base.Queries;
 
-public record GetAllProductsQuery : IRequest<OutputViewModelWithData<List<ProductViewModel>>>;
+public record GetTempQuery : IRequest<string>;

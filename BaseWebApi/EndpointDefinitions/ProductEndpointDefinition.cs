@@ -6,6 +6,7 @@ using Mod.Product.Base.Repositories;
 using Mod.Product.Interfaces;
 using Mod.Product.Services;
 using ModProduct.Models;
+using Mod.Product.Base.ViewModels;
 
 
 namespace Apps.EndpointDefinitions.BaseWebApi;
@@ -16,6 +17,7 @@ public class ProductEndpointDefinition : IEndpointDefinition
     {
         app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/products", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllProductsQuery()));
+        app.MapGet("api/testLogger", ([FromServices] IMediator _mediator) => _mediator.Send(new GetTempQuery()));
         app.MapPost("api/products",
             ([FromServices] IMediator _mediator, [FromBody] ProductModel product) =>
                 _mediator.Send(new CreateProductCommand(product)));
