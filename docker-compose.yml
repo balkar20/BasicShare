@@ -1,25 +1,26 @@
 version: '3.4'
 
-
 services:
   basewebapi:
-    image: ${DOCKER_REGISTRY-}basewebapi
+    image: basewebapi:latest
     build:
       context: .
       dockerfile: BaseWebApi/Dockerfile
     environment:
-      loki: http://loki:3100
-      ASPNETCORE_ENVIRONMENT: Development
-      ASPNETCORE_URLS: http://+:80
+      #loki: http://loki:3100
+      - REDISCONNECTION=redis
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:7031
+      - DOCKER_DB_Host=db
     ports:
-      - 7031:80
-      - 44388:443
+      - "7031:7031"
+    links:
+      - redis
+      - db
     depends_on:
-      redis:
-        condition: service_started
-      loki:
-         condition: service_healthy
-
+      - db
+      - redis
+      - loki
 
   loki:
     container_name: loki
@@ -36,23 +37,29 @@ services:
 
   grafana:
     container_name: grafana
-    image: grafana/grafana:master
-    ports:
-      - "3000:3000"
+    image:  grafana/grafana:master
     depends_on:
-      loki:
-        condition: service_healthy    
-
+      - loki
+    ports:
+      - "3000:3000" 
   redis:
     image: redis
-    container_name: redis
     ports:
       - "6379:6379"
-
-  postrges:
+  db:
     image: postgres:latest
+    restart: always
     ports:
       - "5432:5432"
-volumes: 
-  db_volume:
+    container_name: postgresql
+    # connect this container to the user-defined network my-network
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    configs:
+      - /etc/postgresql/postgresql.conf
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
+volumes:
+  db-volume:
     

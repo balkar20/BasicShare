@@ -10,13 +10,13 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Mod.Shipment.Interfaces;
 using Mod.Shipment.Models;
+using StackExchange.Redis;
 
 namespace Mod.Shipment.Base.Repositories;
 
 public class ShipmentRepository: CachedRepositoryService<ShipmentEntity, ShipmentModel>, IShipmentRepository
 {
-    public ShipmentRepository(ApiDbContext apiDbContext, IMapper mapper, IDistributedCache cache,
-    IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )
+    public ShipmentRepository(ApiDbContext apiDbContext, IMapper mapper, IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, configurationOptions )
     {
     }
 }

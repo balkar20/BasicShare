@@ -12,4 +12,8 @@
       <ProjectReference Include="..\Mod.Product.Interfaces\Mod.Product.Interfaces.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="Serilog" Version="2.12.1-dev-01635" />
+    </ItemGroup>
+
 </Project>

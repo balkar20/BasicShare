@@ -1,6 +1,7 @@
 using System.Net;
 using System.Text.Json;
 using Core.Base.Exceptions;
+using Core.Base.Utilities;
 
 namespace Apps.BaseWebApi.Middlewares;
 

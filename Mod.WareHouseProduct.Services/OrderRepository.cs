@@ -10,13 +10,14 @@ using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
 using Mod.WareHouseProduct.Interfaces;
 using Mod.WareHouseProduct.Models;
+using StackExchange.Redis;
 
 namespace Mod.WareHouseProduct.Base.Repositories;
 
 public class WareHouseProductRepository: CachedRepositoryService<WareHouseProductEntity, WareHouseProductModel>, IWareHouseProductRepository
 {
-    public WareHouseProductRepository(ApiDbContext apiDbContext, IMapper mapper, IDistributedCache cache,
-    IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )
+    public WareHouseProductRepository(ApiDbContext apiDbContext, IMapper mapper, IOptions<AppConfiguration> configurationOptions): 
+        base(apiDbContext, mapper, configurationOptions)
     {
     }
 }

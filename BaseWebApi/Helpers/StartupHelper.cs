@@ -2,6 +2,7 @@ using Apps.BaseWebApi.Extensions;
 using Apps.BaseWebApi.Middlewares;
 using Apps.EndpointDefinitions.BaseWebApi;
 using Core.Base.Configuration;
+using Core.Base.Utilities;
 using Data.Db;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -11,11 +12,14 @@ using Serilog;
 using Serilog.Formatting.Compact;
 using Serilog.Sinks.Grafana.Loki;
 using Serilog.AspNetCore;
+using StackExchange.Redis;
+using ILogger = Serilog.ILogger;
 
 namespace Apps.BaseWebApi.Helpers;
 
 public static class StartupHelper
 {
+    private static string redisConnection;
     public static void ConfigureServices(WebApplication app)
     {
         app.UseSwagger();
@@ -26,12 +30,26 @@ public static class StartupHelper
         app.UseMiddleware<ErrorHandlerMiddleware>();
         
         app.UseEndpointDefinitions();
+        using (var serviceScope = app.Services.GetService<IServiceScopeFactory>()?.CreateScope())
+        {
+            var context = serviceScope?.ServiceProvider.GetRequiredService<ApiDbContext>();
+            context?.Database.EnsureCreated();
+        }
+        
+        using (var serviceScope = app.Services.GetService<IServiceScopeFactory>()?.CreateScope())
+        {
+            var logger = serviceScope?.ServiceProvider.GetRequiredService<ILogger>();
+            logger?.Debug("redisConnectionString");
+            logger?.Debug(redisConnection);
+        }
         app.Run();
     }
     
     public static void Configure(WebApplicationBuilder builder)
     {
-        var connectionString = builder.Configuration.GetConnectionString("ProductDb");
+        var dockerDbHost = Environment.GetEnvironmentVariable("DOCKER_DB_Host");
+        var connectionStringKey = string.IsNullOrWhiteSpace(dockerDbHost) ? "ProductDb" : "ProductDbForDocker";
+        var connectionString = builder.Configuration.GetConnectionString(connectionStringKey);
         builder.Services.AddDbContext<ApiDbContext>(options =>
             options.UseNpgsql(
                 connectionString
@@ -56,15 +74,13 @@ public static class StartupHelper
         //     });
 
 
-        builder.Services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
-        });
+        redisConnection = builder.Configuration.GetValue<string>("RedisCacheUrl");
+
+        LogBufferDataUtility.RedisConnectionStringFromJsonConfig = redisConnection;
 
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
         builder.Services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
-        // builder.Services.AddMediatR(typeof(GetAllOrdersQuery).Assembly);
-        
+
         builder.Services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
         // builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));
         var credentials = new LokiCredentials()
@@ -81,6 +97,7 @@ public static class StartupHelper
                 .Enrich.WithProperty("Environment", ctx.HostingEnvironment.EnvironmentName)
                 .WriteTo.Console(new RenderedCompactJsonFormatter());
         });
+        
         // builder.Services.UseSerilogRequestLogging();
     }
 }

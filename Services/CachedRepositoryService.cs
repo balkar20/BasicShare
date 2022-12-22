@@ -6,14 +6,15 @@ using Core.Base.DataBase.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
-using Serilog;
+using RedisCache;
+using StackExchange.Redis;
 
 namespace Infrastructure.Services;
 
 public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepository<TEntity, TModel> where TEntity : class, IEntity,new()
     where TModel : class,new()
 {
-    private readonly IDistributedCache _cache;
+    private readonly IDatabaseAsync _redisDbAsync;
     private readonly AppConfiguration _configuration;
     private const string EntityName = nameof(TEntity);
     
@@ -22,11 +23,10 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
     protected CachedRepositoryService(
         DbContext customDbContext,
         IMapper mapper,
-        IDistributedCache cache,
         IOptions<AppConfiguration> configurationOptions): base(customDbContext, mapper)
     {
-        _cache = cache;
         _configuration = configurationOptions.Value;
+        _redisDbAsync = RedisContext.Connection.GetDatabase();
     }
 
     public override async  Task<IEnumerable<TModel>> GetAllMappedToModelAsync<TEntity>(
@@ -40,31 +40,23 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
             return await base.GetAllMappedToModelAsync<TEntity>(orderBy, includeProperties, skip, take);
         }
         
-        byte[] cachedData = await _cache.GetAsync(AllDataCacheKey);
+        var cachedData = await _redisDbAsync.StringGetAsync(AllDataCacheKey);
+        // var cachedData = await _cache.StringGetAsync(AllDataCacheKey);
         IEnumerable<TModel> modelData;
         string cachedDataString;
-        if (cachedData != null)
+        if (cachedData.HasValue)
         {
             // If the data is found in the cache, encode and deserialize cached data.
-            cachedDataString = Encoding.UTF8.GetString(cachedData);
-            modelData = JsonSerializer.Deserialize<IEnumerable<TModel>>(cachedDataString) ?? throw new InvalidOperationException();
+            // cachedDataString = Encoding.UTF8.GetString(cachedData);
+            modelData = JsonSerializer.Deserialize<IEnumerable<TModel>>(cachedData) ?? throw new InvalidOperationException();
         }
         else
         {
-            // If the data is not found in the cache, then fetch data from database
             modelData = await base.GetAllMappedToModelAsync<TEntity>(orderBy, includeProperties, skip, take);
 
-            // Serializing the data
             cachedDataString = JsonSerializer.Serialize(modelData);
-            var dataToCache = Encoding.UTF8.GetBytes(cachedDataString);
 
-            // Setting up the cache options
-            DistributedCacheEntryOptions options = new DistributedCacheEntryOptions()
-                .SetAbsoluteExpiration(DateTime.Now.AddMinutes(5))
-                .SetSlidingExpiration(TimeSpan.FromMinutes(3));
-
-            // Add the data into the cache
-            await _cache.SetAsync(AllDataCacheKey, dataToCache, options);
+            _redisDbAsync.StringSetAsync(AllDataCacheKey, cachedDataString);
         }
         
         return modelData;
@@ -77,8 +69,8 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
         _context.Entry(entity).State = EntityState.Modified;
         
         await _context.SaveChangesAsync();
-        await _cache.RemoveAsync(AllDataCacheKey);
-        await _cache.RemoveAsync($"{EntityName}-{((IEntity)entity).Id.ToString()}");
+        await _redisDbAsync.KeyDeleteAsync($"{EntityName}-{((IEntity)entity).Id.ToString()}");
+        // await _redisCache.RemoveAsync($"{EntityName}-{((IEntity)entity).Id.ToString()}");
         
         return await Task.FromResult(model);
     }
@@ -90,10 +82,11 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
             return await base.GetByIdASync(id);
         }
 
-        byte[] cachedData = await _cache.GetAsync($"{EntityName}-{id}");
+        var cachedData = await _redisDbAsync.StringGetAsync($"{EntityName}-{id}");
+        // byte[] cachedData = await _redisCache.GetAsync($"{EntityName}-{id}");
         TModel modelData;
         string cachedDataString;
-        if (cachedData != null)
+        if (cachedData.HasValue)
         {
             // If the data is found in the cache, encode and deserialize cached data.
             cachedDataString = Encoding.UTF8.GetString(cachedData);
@@ -109,12 +102,13 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
             var dataToCache = Encoding.UTF8.GetBytes(cachedDataString);
 
             // Setting up the cache options
-            DistributedCacheEntryOptions options = new DistributedCacheEntryOptions()
-                .SetAbsoluteExpiration(DateTime.Now.AddMinutes(5))
-                .SetSlidingExpiration(TimeSpan.FromMinutes(3));
+            // DistributedCacheEntryOptions options = new DistributedCacheEntryOptions()
+            //     .SetAbsoluteExpiration(DateTime.Now.AddMinutes(5))
+            //     .SetSlidingExpiration(TimeSpan.FromMinutes(3));
 
             // Add the data into the cache
-            await _cache.SetAsync(AllDataCacheKey, dataToCache, options);
+            // await _redisCache.SetAsync(AllDataCacheKey, dataToCache, options);
+            await _redisDbAsync.StringSetAsync(AllDataCacheKey, cachedDataString);
         }
 
         return modelData;

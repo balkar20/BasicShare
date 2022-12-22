@@ -12,8 +12,7 @@ namespace Mod.Product.Services;
 
 public class ProductRepository: CachedRepositoryService<ProductEntity, ProductModel>, IProductRepository
 {
-    public ProductRepository(ApiDbContext apiDbContext, IMapper mapper, IDistributedCache cache,
-        IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )
+    public ProductRepository(ApiDbContext apiDbContext, IMapper mapper, IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, configurationOptions )
     {
     }
 }
