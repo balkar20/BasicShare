@@ -2,12 +2,12 @@ version: '3.4'
 
 services:
   basewebapi:
-    image: basewebapi:latest
+    image: ${DOCKER_REGISTRY-}basewebapi
     build:
       context: .
       dockerfile: BaseWebApi/Dockerfile
     environment:
-      #loki: http://loki:3100
+      - loki=http://loki:3100
       - REDISCONNECTION=redis
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:7031
@@ -18,30 +18,35 @@ services:
       - redis
       - db
     depends_on:
-      - db
-      - redis
-      - loki
+      db:
+       condition: service_started
+      redis:
+        condition: service_started
+      loki:
+         condition: service_healthy
 
   loki:
     container_name: loki
     image: grafana/loki:master
     ports:
-      - 3100:3100
+       - "3100:3100"
     command: -config.file=/etc/loki/local-config.yaml
     healthcheck:
-      test: wget -q --tries=1 -O- http://localhost:3100/ready
-      interval: 3s
-      timeout: 3s
-      retries: 10
-      start_period: 10s
+        test: wget -q --tries=1 -O- http://localhost:3100/ready 
+        interval: 3s
+        timeout: 3s
+        retries: 10
+        start_period: 10s
+
 
   grafana:
     container_name: grafana
-    image:  grafana/grafana:master
-    depends_on:
-      - loki
+    image: grafana/grafana:master
     ports:
-      - "3000:3000" 
+      - "3000:3000"
+    depends_on:
+        loki:
+            condition: service_healthy
   redis:
     image: redis
     ports:

@@ -89,13 +89,17 @@ public static class StartupHelper
             Password = "admin"
         };
 
+        var lokiConnrctionUrl = Environment.GetEnvironmentVariable("loki");
+        if(lokiConnrctionUrl is null )
+            lokiConnrctionUrl = builder.Configuration.GetValue<string>("LokiUrl");
         
         builder.Host.UseSerilog((ctx, cfg) =>
         {
             //Override Few of the Configurations
             cfg.Enrich.WithProperty("Application", ctx.HostingEnvironment.ApplicationName)
                 .Enrich.WithProperty("Environment", ctx.HostingEnvironment.EnvironmentName)
-                .WriteTo.Console(new RenderedCompactJsonFormatter());
+                .WriteTo.Console(new RenderedCompactJsonFormatter())
+                .WriteTo.GrafanaLoki("http://loki:3100");
         });
         
         // builder.Services.UseSerilogRequestLogging();
