@@ -16,7 +16,7 @@ namespace Mod.WareHouseProduct.Base.Repositories;
 
 public class WareHouseProductRepository: CachedRepositoryService<WareHouseProductEntity, WareHouseProductModel>, IWareHouseProductRepository
 {
-    public WareHouseProductRepository(ApiDbContext apiDbContext, IMapper mapper, IOptions<AppConfiguration> configurationOptions): 
+    public WareHouseProductRepository(ApiDbContext apiDbContext, IMapper mapper, AppConfiguration configurationOptions): 
         base(apiDbContext, mapper, configurationOptions)
     {
     }

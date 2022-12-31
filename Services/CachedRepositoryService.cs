@@ -3,6 +3,7 @@ using System.Text.Json;
 using AutoMapper;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Interfaces;
+using Core.Base.Exceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Options;
@@ -23,10 +24,15 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
     protected CachedRepositoryService(
         DbContext customDbContext,
         IMapper mapper,
-        IOptions<AppConfiguration> configurationOptions): base(customDbContext, mapper)
+        AppConfiguration configurationOptions): base(customDbContext, mapper)
     {
-        _configuration = configurationOptions.Value;
-        _redisDbAsync = RedisContext.Connection.GetDatabase();
+        _configuration = configurationOptions;
+        if (_configuration.DockerRunning && _configuration.RedisUrl != "redis:6379" || 
+            !_configuration.DockerRunning && _configuration.RedisUrl != "localhost:6379")
+        {
+            throw new AppException("Not redis url");
+        }
+        _redisDbAsync = new RedisContext(_configuration.RedisUrl).Connection.GetDatabase();
     }
 
     public override async  Task<IEnumerable<TModel>> GetAllMappedToModelAsync<TEntity>(
@@ -82,7 +88,7 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
             return await base.GetByIdASync(id);
         }
 
-        var cachedData = await _redisDbAsync.StringGetAsync($"{EntityName}-{id}");
+        var cachedData = await _redisDbAsync.StringGetAsync($"{EntityName}-{id.ToString()}");
         // byte[] cachedData = await _redisCache.GetAsync($"{EntityName}-{id}");
         TModel modelData;
         string cachedDataString;

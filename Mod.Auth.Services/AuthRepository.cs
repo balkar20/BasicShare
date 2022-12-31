@@ -14,7 +14,7 @@ namespace Mod.Auth.Services;
 //public class AuthRepository: CachedRepositoryService<UserEntity, LoginModel>, IAuthRepository
 //{
 //    public AuthRepository(ApplicationContext apiDbContext, IMapper mapper, IDistributedCache cache,
-//        IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )
+//        AppConfiguration configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )
 //    {
 //    }
 //}

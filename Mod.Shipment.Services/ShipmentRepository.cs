@@ -16,7 +16,7 @@ namespace Mod.Shipment.Base.Repositories;
 
 public class ShipmentRepository: CachedRepositoryService<ShipmentEntity, ShipmentModel>, IShipmentRepository
 {
-    public ShipmentRepository(ApiDbContext apiDbContext, IMapper mapper, IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, configurationOptions )
+    public ShipmentRepository(ApiDbContext apiDbContext, IMapper mapper, AppConfiguration configurationOptions): base(apiDbContext, mapper, configurationOptions )
     {
     }
 }

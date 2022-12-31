@@ -16,18 +16,18 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
     private readonly IProductService _productService;
     private readonly IMapper _mapper;
     private readonly ILogger _logger;
-    public GetAllProductsQueryHandler(IProductService productService, IMapper mapper, ILogger logger)
+
+    public GetAllProductsQueryHandler(ILogger logger, IMapper mapper, IProductService productService)
     {
-        _productService = productService;
-        _mapper = mapper;
         _logger = logger;
+        _mapper = mapper;
+        _productService = productService;
     }
     
     public async Task<OutputViewModelWithData<List<ProductViewModel>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
         try
         {
-            _logger.Information("GetAllProductsHandler");
             var products =  await _productService.GetAllProducts();
             var data = products.Select(p => _mapper.Map<ProductModel, ProductViewModel>(p)).ToList();
             return  new OutputViewModelWithData<List<ProductViewModel>>(true, null, data);

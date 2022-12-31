@@ -1,9 +1,9 @@
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
+using Serilog;
 using Microsoft.Extensions.Options;
 using Mod.Product.Interfaces;
 using ModProduct.Models;
-using Serilog;
 
 namespace Mod.Product.Base.Repositories;
 
@@ -15,12 +15,12 @@ public class ProductService: IProductService
 
     public ProductService(
         ILogger logger,
-        IOptions<ProductApiConfiguration> options,
+        ProductApiConfiguration configuration,
         IProductRepository repository)
     {
         _repository = repository;
         _logger = logger;
-        _configuration = options.Value;
+        _configuration = configuration;
     }
 
     public async Task<List<ProductModel>> GetAllProducts()

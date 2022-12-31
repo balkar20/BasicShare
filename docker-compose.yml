@@ -7,13 +7,12 @@ services:
       context: .
       dockerfile: BaseWebApi/Dockerfile
     environment:
-      - loki=http://loki:3100
-      - REDISCONNECTION=redis
-      - ASPNETCORE_ENVIRONMENT=Development
-      - ASPNETCORE_URLS=http://+:7031
-      - DOCKER_DB_Host=db
+        loki: http://loki:3100
+        ASPNETCORE_ENVIRONMENT: Development
+        ASPNETCORE_URLS: http://+:80
+        DOCKER_DB_Host: db
     ports:
-      - "7031:7031"
+      - "7031:80"
     links:
       - redis
       - db

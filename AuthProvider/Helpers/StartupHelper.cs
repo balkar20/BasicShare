@@ -46,8 +46,9 @@ public static class StartupHelper
 
         builder.Services.Configure<AuthConfiguration>(
             builder.Configuration.GetSection(AuthConfiguration.HostConfiguration));
-        builder.Services.Configure<AppConfiguration>(
-            builder.Configuration.GetSection(AppConfiguration.HostConfiguration));
+        builder.Services.AddOptions<AppConfiguration>().Configure(configuration => 
+            configuration = new AppConfiguration(builder.Configuration.GetValue<string>)
+        );
 
         AuthConfiguration productApiConfiguration = builder.Configuration.GetSection(AuthConfiguration.HostConfiguration).Get<AuthConfiguration>();
         // builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

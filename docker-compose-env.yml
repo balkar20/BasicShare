@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  loki:
+    container_name: loki
+    image: grafana/loki:master
+    ports:
+      - 3100:3100
+    command: -config.file=/etc/loki/local-config.yaml
+    healthcheck:
+      test: wget -q --tries=1 -O- http://localhost:3100/ready
+      interval: 3s
+      timeout: 3s
+      retries: 10
+      start_period: 10s
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:master
+    ports:
+      - "3000:3000"
+    depends_on:
+      loki:
+        condition: service_healthy
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    container_name: postgresql
+    # connect this container to the user-defined network my-network
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    configs:
+      - /etc/postgresql/postgresql.conf
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres

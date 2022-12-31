@@ -16,7 +16,7 @@ namespace Mod.Order.Base.Repositories;
 
 public class OrderRepository: CachedRepositoryService<OrderEntity, OrderModel>, IOrderRepository
 {
-    public OrderRepository(ApiDbContext apiDbContext, IMapper mapper, IOptions<AppConfiguration> configurationOptions):
+    public OrderRepository(ApiDbContext apiDbContext, IMapper mapper, AppConfiguration configurationOptions):
         base(apiDbContext, mapper, configurationOptions )
     {
     }
