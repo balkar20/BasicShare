@@ -1,25 +1,31 @@
 version: '3.4'
 
 services:
-  basewebapi:
-    image: ${DOCKER_REGISTRY-}basewebapi
+  lokigraf.api:
+    image: ${DOCKER_REGISTRY-}productwebapi
     build:
       context: .
-      dockerfile: BaseWebApi/Dockerfile
+      dockerfile: productwebapi/Dockerfile
     environment:
-        loki: http://loki:3100
+        LOKI_CONNECTION: http://loki:3100
+        LOKI_USER_NAME: admin
+        LOKI_PASSWORD: admin
+        REDIS_CONNECTION: redis:6379
+        IS_LOKI_GRAF: 'false'
+        USE_CACHE: 'true'
         ASPNETCORE_ENVIRONMENT: Development
         ASPNETCORE_URLS: http://+:80
-        DOCKER_DB_Host: db
+        DB_CONNECTION: Host=db;Database=productDb;Port=5432;User Id=postgres;Password=postgres
+        CONTAINER_RUN: 'true'
     ports:
-      - "7031:80"
-    links:
-      - redis
-      - db
+        - "8085:80"
     depends_on:
-     - db
-     - redis
-     - loki
+      db:
+          condition: service_started
+      redis:
+          condition: service_started
+      loki:
+          condition: service_healthy
 
   loki:
     container_name: loki
@@ -34,14 +40,13 @@ services:
         retries: 10
         start_period: 10s
 
-
   grafana:
     container_name: grafana
     image: grafana/grafana:master
     ports:
       - "3000:3000"
     depends_on:
-      - loki
+        - loki
   redis:
     image: redis
     ports:
@@ -60,6 +65,3 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-volumes:
-  db-volume:
-    
