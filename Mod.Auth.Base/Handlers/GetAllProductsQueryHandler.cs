@@ -1,5 +1,3 @@
-using AutoMapper;
-using Core.Base.DataBase.Entities;
 using MediatR;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Interfaces;

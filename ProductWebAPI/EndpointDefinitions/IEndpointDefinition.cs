@@ -1,7 +1,4 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Apps.EndpointDefinitions.BaseWebApi;
+namespace Apps.EndpointDefinitions.ProductWebAPI;
 
 public interface IEndpointDefinition
 {

@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using Apps.EndpointDefinitions.BaseWebApi;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
+using Apps.EndpointDefinitions.ProductWebAPI;
 
-namespace Apps.BaseWebApi.Extensions;
+namespace Apps.ProductWebAPI.Extensions;
 
 public static class EndpointDefinitionExtensions
 {

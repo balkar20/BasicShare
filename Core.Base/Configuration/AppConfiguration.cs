@@ -1,5 +1,3 @@
-using Core.Base.Evironment;
-
 namespace Core.Base.Configuration;
 
 public class AppConfiguration : BaseConfiguration

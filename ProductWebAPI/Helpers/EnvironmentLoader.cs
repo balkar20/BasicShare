@@ -1,4 +1,4 @@
-namespace Apps.BaseWebApi.Helpers;
+namespace Apps.ProductWebAPI.Helpers;
 
 public class EnvironmentLoader
 {

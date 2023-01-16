@@ -3,12 +3,11 @@ using AutoMapper;
 using Core.Base.DataBase.Interfaces;
 using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Distributed;
 
 namespace Infrastructure.Services;
 
-public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity,new()
-    where TModel : class,new()
+public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity
+    where TModel : class
 {
     protected readonly DbContext _context;
     protected readonly IMapper _mapper;

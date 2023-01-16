@@ -1,17 +1,14 @@
 using MediatR;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.DependencyInjection;
 using Mod.Product.Base.Commands;
 using Mod.Product.Base.Queries;
 using Mod.Product.Base.Repositories;
 using Mod.Product.Interfaces;
 using Mod.Product.Services;
 using ModProduct.Models;
-using Mod.Product.Base.ViewModels;
 
 
-namespace Apps.EndpointDefinitions.BaseWebApi;
+namespace Apps.EndpointDefinitions.ProductWebAPI;
 
 public class ProductEndpointDefinition : IEndpointDefinition
 {

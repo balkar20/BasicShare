@@ -1,6 +1,6 @@
-using Apps.EndpointDefinitions.BaseWebApi;
+using Apps.EndpointDefinitions.ProductWebAPI;
 
-namespace Apps.BaseWebApi.Extensions;
+namespace Apps.ProductWebAPI.Extensions;
 
 public static class EndpointDefinitionExtensions
 {

@@ -1,6 +1,6 @@
-using Apps.BaseWebApi.Extensions;
-using Apps.BaseWebApi.Middlewares;
-using Apps.EndpointDefinitions.BaseWebApi;
+using Apps.ProductWebAPI.Extensions;
+using Apps.ProductWebAPI.Middlewares;
+using Apps.EndpointDefinitions.ProductWebAPI;
 using Core.Auh.Configuration;
 using Core.Auh.Entities;
 using Core.Base.Configuration;
@@ -8,12 +8,11 @@ using Data.IdentityDb;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Mod.Auth.Base.Queries;
 using Serilog;
 using Serilog.Sinks.Grafana.Loki;
 
-namespace Apps.BaseWebApi.Helpers;
+namespace Apps.ProductWebAPI.Helpers;
 
 public static class StartupHelper
 {

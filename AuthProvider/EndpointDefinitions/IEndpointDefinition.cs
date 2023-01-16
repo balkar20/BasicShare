@@ -1,4 +1,4 @@
-namespace Apps.EndpointDefinitions.BaseWebApi;
+namespace Apps.EndpointDefinitions.ProductWebAPI;
 
 public interface IEndpointDefinition
 {

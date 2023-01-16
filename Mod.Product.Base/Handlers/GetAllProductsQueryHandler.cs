@@ -1,7 +1,5 @@
 using AutoMapper;
-using Core.Base.DataBase.Entities;
 using Core.Base.Output;
-using Core.Base.Utilities;
 using MediatR;
 using Serilog;
 using Mod.Product.Base.Queries;

@@ -1,13 +1,10 @@
 using MediatR;
-using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;
-using Mod.Auth.Base.Queries;
 using Mod.Auth.Base.Repositories;
 using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
-using Mod.Auth.Services;
 
 
 namespace Apps.Blazor.Identity.IdentityProvider.Server.EndpointDefinitions;

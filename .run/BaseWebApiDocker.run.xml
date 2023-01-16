@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="BaseWebApiDocker" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+  <configuration default="false" name="ProductWebAPIDocker" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
     <deployment type="dockerfile">
       <settings>
-        <option name="containerName" value="BaseWebApi" />
-        <option name="sourceFilePath" value="BaseWebApi/Dockerfile" />
+        <option name="containerName" value="ProductWebAPI" />
+        <option name="sourceFilePath" value="ProductWebAPI/Dockerfile" />
       </settings>
     </deployment>
     <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isPublishEnabled="true" />

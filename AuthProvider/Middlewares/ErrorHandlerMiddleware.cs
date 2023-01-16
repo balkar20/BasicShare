@@ -2,7 +2,7 @@ using System.Net;
 using System.Text.Json;
 using Core.Base.Exceptions;
 
-namespace Apps.BaseWebApi.Middlewares;
+namespace Apps.ProductWebAPI.Middlewares;
 
 public class ErrorHandlerMiddleware
 {

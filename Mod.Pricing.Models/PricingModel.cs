@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mod.Pricing.Models; 
+﻿namespace Mod.Pricing.Models; 
 public record PricingModel(string? Rate, string? PriceByCommitment15, string? PriceByCommitment30, string? PriceByCommitment45, string? PriceByCommitment60);
     //{
     //    public string? GradeAlias { get; set; }

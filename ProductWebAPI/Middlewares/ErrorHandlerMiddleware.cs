@@ -1,12 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
-using System.Threading.Tasks;
 using Core.Base.Exceptions;
-using Microsoft.AspNetCore.Http;
 
-namespace LokiGraf.API.Middlewares;
+namespace ProductWebApi.Middlewares;
 
 public class ErrorHandlerMiddleware
 {

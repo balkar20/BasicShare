@@ -1,7 +1,7 @@
 // using System;
-// using Apps.BaseWebApi.Extensions;
-// using Apps.BaseWebApi.Middlewares;
-// using Apps.EndpointDefinitions.BaseWebApi;
+// using Apps.ProductWebAPI.Extensions;
+// using Apps.ProductWebAPI.Middlewares;
+// using Apps.EndpointDefinitions.ProductWebAPI;
 // using Core.Base.Configuration;
 // using Core.Base.Utilities;
 // using Data.Db;
@@ -19,7 +19,7 @@
 // using StackExchange.Redis;
 // using ILogger = Serilog.ILogger;
 //
-// namespace Apps.BaseWebApi.Helpers;
+// namespace Apps.ProductWebAPI.Helpers;
 //
 // public static class StartupHelper
 // {

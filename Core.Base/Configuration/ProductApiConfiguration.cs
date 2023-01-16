@@ -1,6 +1,8 @@
+using Core.Base.ConfigurationInterfaces;
+
 namespace Core.Base.Configuration;
 
-public class ProductApiConfiguration: BaseConfiguration
+public class ProductApiConfiguration: BaseConfiguration, IProductApiConfiguration
 {
     
     public ProductApiConfiguration(Func<string, string?> getConfigFunc) : base(getConfigFunc)

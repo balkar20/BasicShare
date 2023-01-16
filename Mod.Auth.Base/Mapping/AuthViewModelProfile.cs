@@ -1,6 +1,4 @@
 using AutoMapper;
-using Core.Auh.Entities;
-using Core.Base.DataBase.Entities;
 using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Models;
 

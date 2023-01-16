@@ -1,5 +1,4 @@
 using Core.Auh.Entities;
-using Core.Base.DataBase.Entities;
 using Infrastructure.Interfaces;
 using Mod.Auth.Models;
 

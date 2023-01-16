@@ -1,7 +1,6 @@
 using AutoMapper;
 using MediatR;
 using Mod.Auth.Base.Commands;
-using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
 

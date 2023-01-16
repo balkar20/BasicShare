@@ -1,7 +1,4 @@
-using System.Security.Cryptography.X509Certificates;
-using System.Text.Json;
 using EventStore;
-using EventStore.Events;
 
 namespace EventTrain;
 

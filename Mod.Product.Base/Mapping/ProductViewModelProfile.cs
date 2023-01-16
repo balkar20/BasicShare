@@ -1,5 +1,4 @@
 using AutoMapper;
-using Core.Base.DataBase.Entities;
 using Mod.Product.Base.ViewModels;
 using ModProduct.Models;
 
