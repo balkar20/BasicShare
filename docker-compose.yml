@@ -1,36 +1,65 @@
 version: '3.4'
 
-networks:
-  webapp1-dev:
-    driver: bridge
-
 services:
-  webapp1:
-    image: webapp1:latest
-    depends_on:
-      - "postgres_image"
+  ProductWebAPI:
+    image: ${DOCKER_REGISTRY-}ProductWebAPI
     build:
       context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8080:80"
+      dockerfile: ProductWebAPI/Dockerfile
     environment:
-      DB_CONNECTION_STRING: "host=postgres_image;port=5432;database=blogdb;username=bloguser;password=bloguser"
-    networks:
-      - webapp1-dev
-  
-  postgres_image:
+        loki: http://loki:3100
+        ASPNETCORE_ENVIRONMENT: Development
+        ASPNETCORE_URLS: http://+:80
+        DOCKER_DB_Host: db
+    ports:
+      - "7031:80"
+    links:
+      - redis
+      - db
+    depends_on:
+     - db
+     - redis
+     - loki
+
+  loki:
+    container_name: loki
+    image: grafana/loki:master
+    ports:
+       - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    healthcheck:
+        test: wget -q --tries=1 -O- http://localhost:3100/ready 
+        interval: 3s
+        timeout: 3s
+        retries: 10
+        start_period: 10s
+
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:master
+    ports:
+      - "3000:3000"
+    depends_on:
+      - loki
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  db:
     image: postgres:latest
-    ports:
-      - "5432"
     restart: always
+    ports:
+      - "5432:5432"
+    container_name: postgresql
+    # connect this container to the user-defined network my-network
     volumes:
-      - db_volume:/var/lib/postgresql/data
+      - ./data/db:/var/lib/postgresql/data
+    configs:
+      - /etc/postgresql/postgresql.conf
     environment:
-      POSTGRES_USER: "bloguser"
-      POSTGRES_PASSWORD: "bloguser"
-      POSTGRES_DB: "blogdb"
-    networks:
-      - webapp1-dev
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres
 volumes:
-  db_volume:
+  db-volume:
+    

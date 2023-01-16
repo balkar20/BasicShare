@@ -1,19 +1,19 @@
 using System.Linq.Expressions;
 using AutoMapper;
 using Core.Base.DataBase.Interfaces;
-using Db;
 using Infrastructure.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Distributed;
 
-public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity,new()
-    where TModel : class,new()
+namespace Infrastructure.Services;
+
+public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity
+    where TModel : class
 {
-    protected readonly ApiDbContext _context;
+    protected readonly DbContext _context;
     protected readonly IMapper _mapper;
     private DbSet<TEntity> _table;
 
-    public GenericRepository(ApiDbContext customDbContext, IMapper mapper)
+    public GenericRepository(DbContext customDbContext, IMapper mapper)
     {
         _context = customDbContext;
         _mapper = mapper;

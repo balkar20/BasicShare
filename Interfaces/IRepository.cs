@@ -2,8 +2,8 @@
 
 namespace Infrastructure.Interfaces;
 
-public interface IRepository<TEntity, TModel> where TEntity : class, new()
-    where TModel : class, new()
+public interface IRepository<TEntity, TModel> where TEntity : class
+    where TModel : class
 {
     Task<TModel> AddAsync(TModel entity);
 

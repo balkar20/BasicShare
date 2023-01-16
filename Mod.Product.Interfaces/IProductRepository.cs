@@ -6,4 +6,5 @@ namespace Mod.Product.Interfaces;
 
 public interface IProductRepository: IRepository<ProductEntity, ProductModel>
 {
+    
 }

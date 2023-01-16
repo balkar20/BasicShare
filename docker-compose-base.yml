@@ -1,0 +1,67 @@
+version: '3.4'
+
+services:
+  ProductWebApi:
+    image: ${DOCKER_REGISTRY-}productwebapi
+    build:
+      context: .
+      dockerfile: productwebapi/Dockerfile
+    environment:
+        LOKI_CONNECTION: http://loki:3100
+        LOKI_USER_NAME: admin
+        LOKI_PASSWORD: admin
+        REDIS_CONNECTION: redis:6379
+        IS_LOKI_GRAF: 'false'
+        USE_CACHE: 'true'
+        ASPNETCORE_ENVIRONMENT: Development
+        ASPNETCORE_URLS: http://+:80
+        DB_CONNECTION: Host=db;Database=productDb;Port=5432;User Id=postgres;Password=postgres
+        CONTAINER_RUN: 'true'
+    ports:
+        - "8085:80"
+    depends_on:
+      db:
+          condition: service_started
+      redis:
+          condition: service_started
+      loki:
+          condition: service_healthy
+
+  loki:
+    container_name: loki
+    image: grafana/loki:master
+    ports:
+       - "3100:3100"
+    command: -config.file=/etc/loki/local-config.yaml
+    healthcheck:
+        test: wget -q --tries=1 -O- http://localhost:3100/ready 
+        interval: 3s
+        timeout: 3s
+        retries: 10
+        start_period: 10s
+
+  grafana:
+    container_name: grafana
+    image: grafana/grafana:master
+    ports:
+      - "3000:3000"
+    depends_on:
+        - loki
+  redis:
+    image: redis
+    ports:
+      - "6379:6379"
+  db:
+    image: postgres:latest
+    restart: always
+    ports:
+      - "5432:5432"
+    container_name: postgresql
+    # connect this container to the user-defined network my-network
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    configs:
+      - /etc/postgresql/postgresql.conf
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=postgres

@@ -1,8 +1,9 @@
 // using MediatR;
 
+using Core.Base.Output;
 using MediatR;
-using ModProduct.Models;
+using Mod.Product.Base.ViewModels;
 
 namespace Mod.Product.Base.Queries;
 
-public record GetAllProductsQuery : IRequest<List<ProductModel>>;
+public record GetAllProductsQuery : IRequest<OutputViewModelWithData<List<ProductViewModel>>>;

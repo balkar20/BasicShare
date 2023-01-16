@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Mod.Shipment.Services": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:54898;http://localhost:54899"
+    }
+  }
+}

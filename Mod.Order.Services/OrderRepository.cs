@@ -4,19 +4,17 @@
 using AutoMapper;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
-using Db;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Options;
+using Data.Db;
+using Infrastructure.Services;
 using Mod.Order.Interfaces;
 using Mod.Order.Models;
-using Services;
 
 namespace Mod.Order.Base.Repositories;
 
 public class OrderRepository: CachedRepositoryService<OrderEntity, OrderModel>, IOrderRepository
 {
-    public OrderRepository(ApiDbContext apiDbContext, IMapper mapper, IDistributedCache cache,
-    IOptions<AppConfiguration> configurationOptions): base(apiDbContext, mapper, cache, configurationOptions )
+    public OrderRepository(ApiDbContext apiDbContext, IMapper mapper, AppConfiguration configurationOptions):
+        base(apiDbContext, mapper, configurationOptions )
     {
     }
 }

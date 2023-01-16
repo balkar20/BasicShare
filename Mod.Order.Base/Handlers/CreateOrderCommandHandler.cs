@@ -1,3 +1,4 @@
+using Infrastructure.Interfaces;
 using MediatR;
 using Mod.Order.Base.Commands;
 using Mod.Order.Interfaces;
@@ -8,10 +9,18 @@ namespace Mod.Order.Base.Handlers;
 public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, OrderModel>
 {
     private readonly IOrderRepository _orderRepository;
-    public CreateOrderCommandHandler(IOrderRepository orderRepository) => _orderRepository = orderRepository;
-    
+    private readonly IRabitMQProducer _rabbitMqProducer;
+
+    public CreateOrderCommandHandler(IOrderRepository orderRepository, IRabitMQProducer rabbitMqProducer)
+    {
+        _orderRepository = orderRepository;
+        _rabbitMqProducer = rabbitMqProducer;
+    }
+
     public async Task<OrderModel> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
     {
-        return await _orderRepository.AddAsync(request.Order);
+        var createdOrder =  await _orderRepository.AddAsync(request.Order);
+        _rabbitMqProducer.SendMessage(createdOrder);
+        return createdOrder;
     }
 }

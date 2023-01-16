@@ -2,7 +2,7 @@ using Core.Base.DataBase.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Db.Maps;
+namespace Data.Db.Maps;
 
 #pragma warning disable CS1591
 public class ProductMap
