@@ -1,4 +1,4 @@
-using Apps.BaseWebApi.Helpers;
+using Apps.ProductWebAPI.Helpers;
 
 var builder = WebApplication.CreateBuilder(args);
 StartupHelper.Configure(builder);

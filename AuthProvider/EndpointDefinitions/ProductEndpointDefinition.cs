@@ -6,10 +6,9 @@ using Mod.Auth.Base.Repositories;
 using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
-using Mod.Auth.Services;
 
 
-namespace Apps.EndpointDefinitions.BaseWebApi;
+namespace Apps.EndpointDefinitions.ProductWebAPI;
 
 public class AuthEndpointDefinition : IEndpointDefinition
 {

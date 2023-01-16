@@ -1,26 +1,22 @@
-using AutoMapper;
-using Core.Base.DataBase.Entities;
-using Core.Base.Output;
 using MediatR;
-using Microsoft.Extensions.Logging;
+using Serilog;
 using Mod.Product.Base.Queries;
-using Mod.Product.Base.ViewModels;
 using Mod.Product.Interfaces;
-using ModProduct.Models;
 
 namespace Mod.Product.Base.Handlers;
 
 public class GetTempQueryHandler: IRequestHandler<GetTempQuery, string>
 {
     // private readonly IProductRepository _productRepository;
-    // private readonly IProductService _productService;
+    private readonly IProductService _productService;
     // private readonly IMapper _mapper;
     private readonly ILogger _logger;
 
-    public GetTempQueryHandler()
+    public GetTempQueryHandler(ILogger logger, IProductService productService)
     {
+        _logger = logger;
+        _productService = productService;
         // _productRepository = productRepository;
-        // _productService = productService;
         // _mapper = mapper;
     }
     
@@ -28,7 +24,7 @@ public class GetTempQueryHandler: IRequestHandler<GetTempQuery, string>
     {
         try
         {
-            _logger.LogError("-------------Error---------------");
+            // _logger.LogError("-------------Error---------------");
             return "juyguyuyg";
         }
         catch (Exception e)

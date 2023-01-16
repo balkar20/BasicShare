@@ -5,15 +5,13 @@ using Core.Base.Configuration;
 using Core.Base.DataBase.Interfaces;
 using Core.Base.Exceptions;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Caching.Distributed;
-using Microsoft.Extensions.Options;
 using RedisCache;
 using StackExchange.Redis;
 
 namespace Infrastructure.Services;
 
-public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepository<TEntity, TModel> where TEntity : class, IEntity,new()
-    where TModel : class,new()
+public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepository<TEntity, TModel> where TEntity : class, IEntity
+    where TModel : class
 {
     private readonly IDatabaseAsync _redisDbAsync;
     private readonly AppConfiguration _configuration;

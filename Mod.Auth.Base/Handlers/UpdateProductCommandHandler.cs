@@ -1,8 +1,3 @@
-using MediatR;
-using Mod.Auth.Base.Commands;
-using Mod.Auth.Interfaces;
-using Mod.Auth.Models;
-
 namespace Mod.Auth.Base.Handlers;
 
 //public class UpdateAuthCommandHandler: IRequestHandler<UpdateAuthCommand, AuthModel>

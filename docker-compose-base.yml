@@ -1,7 +1,7 @@
 version: '3.4'
 
 services:
-  lokigraf.api:
+  ProductWebApi:
     image: ${DOCKER_REGISTRY-}productwebapi
     build:
       context: .

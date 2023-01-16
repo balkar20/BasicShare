@@ -27,7 +27,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{35
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{1950A7EB-C866-4978-9F9C-FFAB5A8AB217}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModProductTest", "ModProductTest\ModProductTest.csproj", "{A58882A6-AAE2-4801-BAD5-EDCA5767C6A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApiTest", "ProductApiTest\ProductApiTest.csproj", "{A58882A6-AAE2-4801-BAD5-EDCA5767C6A1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModProductServicesTest", "ModProductServicesTest\ModProductServicesTest.csproj", "{154C085E-5F67-4772-A224-55A4B3FEB77B}"
 EndProject

@@ -11,7 +11,7 @@
 // using Mod.Order.Models;
 //
 //
-// namespace Apps.EndpointDefinitions.BaseWebApi;
+// namespace Apps.EndpointDefinitions.ProductWebAPI;
 //
 // public class OrderEndpointDefinition : IEndpointDefinition
 // {

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TinyCsvParser.Mapping;
+﻿using TinyCsvParser.Mapping;
 
 namespace IdentityProvider.Shared
 {

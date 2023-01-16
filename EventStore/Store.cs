@@ -1,5 +1,4 @@
-﻿using System.Text.Json.Serialization;
-using EventStore.Events;
+﻿using EventStore.Events;
 using Newtonsoft.Json;
 
 namespace EventStore;
