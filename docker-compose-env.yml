@@ -35,8 +35,6 @@ services:
     # connect this container to the user-defined network my-network
     volumes:
       - ./data/db:/var/lib/postgresql/data
-    configs:
-      - /etc/postgresql/postgresql.conf
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres

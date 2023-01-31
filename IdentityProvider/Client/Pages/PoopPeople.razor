@@ -1,0 +1,25 @@
+﻿@page "/PoopPeople"
+@using IdentityProvider.Shared
+
+<h3>PoopPeopleFlatFile</h3>
+<InputFile OnChange="@LoadPhoto" multiple />
+@if (PooperlList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h3>Table</h3>
+    <MudGrid>
+        @foreach (var pooper in PooperlList)
+        {
+            <MudItem Style="width: 70vh;">
+                <MudPaper Height="70vh" Elevation="3">
+                    <MudText Typo="Typo.h6">@pooper.Id</MudText>
+                    <MudText Typo="Typo.h6">@pooper.Name</MudText>
+                    <MudText Typo="Typo.h6">@pooper.AmountOfPoops</MudText>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+}
