@@ -10,6 +10,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using Core.Auh.Enums;
+using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 
 namespace Mod.Auth.Base.Repositories;
 
@@ -33,11 +34,25 @@ public class AuthService: IAuthService
         //var user =  _userManager.AddLoginAsync(new UserEntity() { Email = "balkar20@mail."})
     }
 
-    //public async Task<List<AuthModel>> GetAllAuths()
-    //{
-    //    //var products =  await _repository.GetAllMappedToModelAsync<UserEntity>(o => o.OrderBy(j => j.UserName), null, null, null);
-    //    //return products.ToList();
-    //}
+    public async Task<List<PooperModel>> GetAllAuths()
+    {
+        
+        var list = new List<PooperModel>();
+        var users = await _userManager.GetUsersInRoleAsync("Pooper");
+        var poopers = users?.Select(p => new PooperModel(
+        
+            p.Id,
+            0,
+            p.Email
+        ))?.ToList();
+        // {
+        //     PooperAlias = p.Email,
+        //     AmountOfPoops = 0,
+        //     Id = p.Id
+        // });
+
+        return poopers;
+    }
 
     public async Task<LoginResponseModel> LogIn(LoginModel userForAuthentication)
     {

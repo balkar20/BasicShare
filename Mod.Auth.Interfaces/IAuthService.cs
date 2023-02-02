@@ -4,7 +4,7 @@ namespace Mod.Auth.Interfaces;
 
 public interface IAuthService
 {
-    //Task<List<AuthModel>> GetAllAuths();
+    Task<List<PooperModel>> GetAllAuths();
     Task<LoginResponseModel> LogIn(LoginModel userForAuthentication);
 
     Task<RegisterResponseModel> RegisterUser(RegisterModel userForAuthentication);

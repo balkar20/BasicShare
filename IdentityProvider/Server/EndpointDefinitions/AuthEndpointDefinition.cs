@@ -1,6 +1,7 @@
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;
+using Mod.Auth.Base.Queries;
 using Mod.Auth.Base.Repositories;
 using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Interfaces;
@@ -14,7 +15,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
     public void DefineEndpoints(WebApplication app)
     {
         //app.MapGet("/", () => "Startup Tool Template");
-        //app.MapGet("api/products", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
+        app.MapGet("api/poopers", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
         app.MapPost("api/login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
                 _mediator.Send(new LoginCommand(product)));

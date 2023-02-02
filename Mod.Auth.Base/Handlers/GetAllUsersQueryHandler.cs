@@ -5,7 +5,7 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, List<LoginModel>>
+public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, List<PooperModel>>
 {
     //private readonly IAuthRepository _productRepository;
     private readonly IAuthService _authService;
@@ -16,9 +16,9 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, List<Log
         _authService = productService;
     }
     
-    public async Task<List<LoginModel>> Handle(GetAllAuthsQuery request, CancellationToken cancellationToken)
+    public async Task<List<PooperModel>> Handle(GetAllAuthsQuery request, CancellationToken cancellationToken)
     {
-        //return await _productService.GetAllAuths();
-        return new List<LoginModel>();
+        var result = await _authService.GetAllAuths();
+        return result;
     }
 }

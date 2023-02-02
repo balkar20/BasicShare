@@ -4,7 +4,7 @@
     {
         Administrator,
         Viewer,
-        DeliveryStuff,
+        Pooper,
         Reviwer,
         Maker,
     }

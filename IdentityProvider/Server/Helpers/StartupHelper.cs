@@ -17,6 +17,9 @@ using Mod.Auth.Interfaces;
 using Mod.Auth.Services;
 using Serilog;
 using System.Text;
+using Apps.Blazor.Identity.IdentityProvider.Server.Middlewares;
+using IdentityProvider.Client;
+using Serilog.Sinks.GrafanaLoki;
 
 namespace Apps.Blazor.Identity.IdentityProvider.Server.Helpers;
 
@@ -26,6 +29,13 @@ public static class StartupHelper
     {
         //app.UseMiddleware<ErrorHandlerMiddleware>();
         app.UseEndpointDefinitions();
+        app.UseMiddleware<ErrorHandlerMiddleware>();
+        
+        using (var serviceScope = app.Services?.CreateScope())
+        {
+            var context = serviceScope?.ServiceProvider.GetRequiredService<ApplicationContext>();
+            context?.Database.EnsureCreated();
+        }
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
         {
@@ -55,8 +65,21 @@ public static class StartupHelper
     
     public static void ConfigureServices(WebApplicationBuilder builder)
     {
+        var credentials = new GrafanaLokiCredentials()
+        {
+            User = "admin",
+            Password = "admin"
+        };
+        Log.Logger = new LoggerConfiguration()
+            .MinimumLevel.Verbose()
+            .Enrich.FromLogContext()
+            .WriteTo.Console()
+            .CreateLogger();
         var configuration = builder.Configuration;
         var services = builder.Services;
+        
+        builder.Logging.AddSerilog(Log.Logger);
+        builder.Host.UseSerilog(Log.Logger);
 
         var authConfiguration = configuration.GetSection(AuthConfiguration.HostConfiguration);
         services.Configure<AuthConfiguration>(
@@ -101,15 +124,28 @@ public static class StartupHelper
 
         //services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
 
+       
         services.AddControllersWithViews();
         services.AddRazorPages();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         builder.Services.AddEndpointDefinitions(typeof(AuthEndpointDefinition));
 
         services.AddMediatR(typeof(GetAllAuthsQuery).Assembly);
-        builder.Host.UseSerilog((ctx, lc) => lc
-            .WriteTo.Console()
-            .WriteTo.Seq("http://localhost:5341"));
+    }
+    
+}
+
+public class CustomHttpClient : GrafanaLokiHttpClient
+{
+    public override async Task<HttpResponseMessage> PostAsync(string requestUri, Stream contentStream)
+    {
+        using var content = new StreamContent(contentStream);
+        content.Headers.Add("Content-Type", "application/json");
+        var response = await HttpClient
+            .PostAsync(requestUri, content)
+            .ConfigureAwait(false);
+        return response;
     }
 }
