@@ -2,7 +2,7 @@ using Core.Base.ConfigurationInterfaces;
 using Core.Base.DataBase.Entities;
 using Serilog;
 using Mod.Product.Interfaces;
-using ModProduct.Models;
+using Mod.Product.Models;
 
 namespace Mod.Product.Base.Repositories;
 

@@ -1,0 +1,17 @@
+@using IdentityProvider.Client.ViewModels.Inerfaces
+@using IdentityProvider.Shared
+<h3>PooperForm</h3>
+<MudForm>
+    <MudInputString></MudInputString>
+</MudForm>
+
+@code {
+    [CascadingParameter(Name = "ViewModel")]
+    IPooperViewModel ViewModel { get; set; }
+
+    void SetToDoItem(PooperViewModel pooperViewModel)
+    {
+        ViewModel.Pooper = pooperViewModel;
+    }
+    
+}

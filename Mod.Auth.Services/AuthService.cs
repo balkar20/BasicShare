@@ -31,25 +31,17 @@ public class AuthService: IAuthService
         _logger = logger;
         _configuration = options.Value;
         _userManager = userManager;
-        //var user =  _userManager.AddLoginAsync(new UserEntity() { Email = "balkar20@mail."})
     }
 
     public async Task<List<PooperModel>> GetAllAuths()
     {
-        
-        var list = new List<PooperModel>();
         var users = await _userManager.GetUsersInRoleAsync("Pooper");
         var poopers = users?.Select(p => new PooperModel(
         
             p.Id,
             0,
-            p.Email
+            p.UserName
         ))?.ToList();
-        // {
-        //     PooperAlias = p.Email,
-        //     AmountOfPoops = 0,
-        //     Id = p.Id
-        // });
 
         return poopers;
     }
@@ -66,11 +58,6 @@ public class AuthService: IAuthService
         return new LoginResponseModel { IsAuthSuccessful = true, Token = token };
     }
 
-    //public async Task<AuthModel> LogOut(AuthModel authModel)
-    //{
-    //    await _signManager.SignOutAsync();
-    //    return Task.CompletedTask;
-    //}
 
     public async Task<RegisterResponseModel> RegisterUser(RegisterModel registerModel)
     {

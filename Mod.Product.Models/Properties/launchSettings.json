@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ModProduct.Models": {
+    "Mod.Product.Models": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

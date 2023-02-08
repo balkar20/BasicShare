@@ -1,5 +1,8 @@
+using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Json;
+using IdentityProvider.Client.Components;
+using IdentityProvider.Client.ViewModels.Inerfaces;
 using Microsoft.AspNetCore.Components.Forms;
 using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
@@ -12,10 +15,13 @@ namespace IdentityProvider.Client.Pages
     public partial class PoopPeople
     {
         [Inject]
-        HttpClient HttpClient1 { get; set; }
+        HttpClient HttpClient { get; set; }
         
         [Inject]
         IDialogService DialogService { get; set; }
+        
+        [Inject]
+        IPooperViewModel PooperViewModel { get; set; }
         
         
         // [CascadingParameter] MudDialogInstance MudDialog { get; set; }
@@ -44,21 +50,16 @@ namespace IdentityProvider.Client.Pages
             throw new NotImplementedException();
         }
         
-        private void OpenDialog()
+        private void OpenDialog(PooperViewModel pooperViewModel)
         {
-            // var options = new DialogOptions { CloseOnEscapeKey = true };
-            // DialogService.Show<DialogUsageExample_Dialog>("Simple Dialog", options);
-            // CategoryTypes.Dialog.Show<MudDialogInstance>("Custom Options Dialog", options);
-            // var options = new DialogOptions { CloseOnEscapeKey = true };
-            // DialogService.Show<DialogUsageExample_Dialog>("Simple Dialog", options);
+            ViewModel.Pooper = pooperViewModel;
+            DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
+
+            DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);
         }
         
         private void DeleteUser()
         {
-            var parameters = new DialogParameters();
-            parameters.Add("ContentText", "Do you really want to delete these records? This process cannot be undone.");
-            parameters.Add("ButtonText", "Delete");
-            parameters.Add("Color", Color.Error);
 
             var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
         }
@@ -86,7 +87,31 @@ namespace IdentityProvider.Client.Pages
         
         protected override async Task OnInitializedAsync()
         {
-            PooperlList = await HttpClient1.GetFromJsonAsync<List<PooperViewModel>>("api/poopers");
+            ViewModel.PooperList = await HttpClient.GetFromJsonAsync<List<PooperViewModel>>("api/poopers");
+            await SetUpPropertyChangedAsync();
+        }
+
+        private async Task SetUpPropertyChangedAsync()
+        {
+            PooperViewModel.PropertyChanged += async (sender, e) => { 
+                await InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            };
+        }
+        
+        async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        {
+            await InvokeAsync(() =>
+            {
+                StateHasChanged();
+            });
+        }
+
+        public void Dispose()
+        {
+            PooperViewModel.PropertyChanged -= OnPropertyChangedHandler;
         }
     }
 
