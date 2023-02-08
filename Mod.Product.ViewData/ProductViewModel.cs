@@ -1,5 +1,5 @@
 using Mod.Pricing.Models;
 
-namespace ModProduct.Models;
+namespace Mod.Product.Models;
 
 public record ProductViewModel(string ProductAlias, List<PricingModel> PricingList);

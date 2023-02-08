@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Core.Auh\Core.Auh.csproj" />
       <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
       <ProjectReference Include="..\Mod.Pooper.Models\Mod.Pooper.Models.csproj" />
     </ItemGroup>

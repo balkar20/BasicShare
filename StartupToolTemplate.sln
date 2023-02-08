@@ -29,7 +29,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApiTest", "ProductApiTest\ProductApiTest.csproj", "{A58882A6-AAE2-4801-BAD5-EDCA5767C6A1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModProductServicesTest", "ModProductServicesTest\ModProductServicesTest.csproj", "{154C085E-5F67-4772-A224-55A4B3FEB77B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.ProductServicesTest", "Mod.ProductServicesTest\Mod.ProductServicesTest.csproj", "{154C085E-5F67-4772-A224-55A4B3FEB77B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{5F28A828-E427-4F6E-BF99-7B42746B0051}"
 	ProjectSection(SolutionItems) = preProject
@@ -40,7 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{5B60B5A2-B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Product.Interfaces", "Mod.Product.Interfaces\Mod.Product.Interfaces.csproj", "{0F74478F-EFEA-4666-86AE-62ED6021F57D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModProduct.Models", "ModProduct.Models\ModProduct.Models.csproj", "{9895115C-EE79-4061-AA7E-3B64E5A46564}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Product.Models", "Mod.Product.Models\Mod.Product.Models.csproj", "{9895115C-EE79-4061-AA7E-3B64E5A46564}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Product.Services", "Mod.Product.Services\Mod.Product.Services.csproj", "{F009D5AF-CBED-43AA-9D4D-28BEF851CE04}"
 EndProject

@@ -1,4 +1,4 @@
-namespace ModProductServicesTest
+namespace Mod.ProductServicesTest
 {
     public class UnitTest1
     {

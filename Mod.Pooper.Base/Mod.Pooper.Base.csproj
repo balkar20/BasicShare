@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\Core.Auh\Core.Auh.csproj" />
         <ProjectReference Include="..\Db\Db.csproj" />
         <ProjectReference Include="..\Mod.Pooper.Interfaces\Mod.Pooper.Interfaces.csproj" />
     </ItemGroup>

@@ -46,19 +46,6 @@ namespace IdentityDb
             var roleStore = new RoleStore<IdentityRole>(context);
                 var allRoles = roleStore.Roles;
 
-                // var user = new UserEntity
-                // {
-                //     UserName = "admin",
-                //     Email = "balkar20@mail.ru",
-                //     NormalizedEmail = "balkar20@mail.ru",
-                //     NormalizedUserName = "admin",
-                //     PhoneNumber = "+79111761331",
-                //     EmailConfirmed = true,
-                //     PhoneNumberConfirmed = true,
-                //     SecurityStamp = Guid.NewGuid().ToString("D")
-                // };
-
-                // List<>
                 await CreatePoopers(serviceProvider, context, poppNames);
                 await context.SaveChangesAsync();
             }
@@ -93,7 +80,7 @@ namespace IdentityDb
                 };
 
                 var password = new PasswordHasher<UserEntity>();
-                var hashed = password.HashPassword(pooper, "12121Qer_");
+                var hashed = password.HashPassword(pooper, "pooper");
                 pooper.PasswordHash = hashed;
 
                 var userStore = new UserStore<UserEntity>(context);
@@ -107,6 +94,12 @@ namespace IdentityDb
                 }
 
                 await AssignRoles(serviceProvider, context, pooper.Email, new[] { "pooper" });
+
+                // context.Poopers.AddAsync(new PooperEntity()
+                // {
+                //     Description = "I am a pooper - poo poo poo !!!!",
+                //     AmountOfPoops = 10
+                // });
             }
         }
         

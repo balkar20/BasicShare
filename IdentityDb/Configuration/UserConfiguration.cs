@@ -21,21 +21,7 @@ namespace IdentityDb.Configuration
         public List<UserEntity> Users { get; set; } = new List<UserEntity>();
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
-
-            // var email = "balkar20@mail.ru";
-            // var userName = "admin";
-            // var user = new UserEntity
-            // {
-            //     Id = Guid.NewGuid().ToString(),
-            //     UserName = userName,
-            //     Email = email,
-            //     NormalizedEmail = email.ToUpper(),
-            //     NormalizedUserName = userName.ToUpper(),
-            //     PhoneNumber = "+79111761331",
-            //     EmailConfirmed = true,
-            //     PhoneNumberConfirmed = true,
-            //     SecurityStamp = Guid.NewGuid().ToString("D")
-            // };
+            
             
             foreach (var poppName in poppNames)
             {
@@ -59,13 +45,6 @@ namespace IdentityDb.Configuration
                 builder.HasData(pooper);
                 Users.Add(pooper);
             }
-
-            //user.Id = Guid.NewGuid().ToString();
-
-            // var password = new PasswordHasher<UserEntity>();
-            // var hashed = password.HashPassword(user, "12121Qer_");
-            // user.PasswordHash = hashed;
-            // builder.HasData(user);
         }
     }
 }
