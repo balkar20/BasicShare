@@ -1,6 +1,6 @@
 using AutoMapper;
 using Mod.Product.Base.ViewModels;
-using ModProduct.Models;
+using Mod.Product.Models;
 
 namespace Mod.Product.Base.Mapping;
 

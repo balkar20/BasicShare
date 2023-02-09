@@ -17,7 +17,7 @@ namespace IdentityDb.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.8")
+                .HasAnnotation("ProductVersion", "7.0.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
@@ -28,6 +28,9 @@ namespace IdentityDb.Migrations
                         .HasColumnType("text");
 
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("AmountOfPoops")
                         .HasColumnType("integer");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -91,21 +94,134 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "750cb244-9287-43c7-9718-5d83f97c776b",
+                            Id = "c9b2ef0e-ea65-41b9-9d10-4957557821b8",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c1c81cd4-6d70-4ce1-b8e7-2cdaf10fb8c7",
-                            Email = "balkar20@mail.ru",
+                            ConcurrencyStamp = "7c2e8937-8f15-43af-b61b-18acaf1a1d45",
+                            Email = "VladBalkar20@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "BALKAR20@MAIL.RU",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEA/KzCKeUFirhczMNtr8B+ZJ+ib9AqmxYescYWLy5VZQ2aeg52+GTOj7ECbERvkfqQ==",
-                            PhoneNumber = "+79111761331",
+                            NormalizedEmail = "VladBalkar20@mail.ru",
+                            NormalizedUserName = "VladBalkar",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKvb5q0ct/K6jnmN8AQodUG13HtTkcd+kGxJFFoSucDUTIWuP+yrcwNABjY+UeeiBw==",
+                            PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            SecurityStamp = "b2e63410-091d-4307-bec7-a5757498ca26",
+                            SecurityStamp = "7529c4ad-4c56-47dd-bf27-9d2c73f3463d",
                             TwoFactorEnabled = false,
-                            UserName = "admin"
+                            UserName = "VladBalkar"
+                        },
+                        new
+                        {
+                            Id = "fe1e4c24-794d-4943-bf47-047ba7f49d11",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "6935502a-1830-4f1c-811e-716a225548f8",
+                            Email = "VladBlack20@mail.ru",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "VladBlack20@mail.ru",
+                            NormalizedUserName = "VladBlack",
+                            PasswordHash = "AQAAAAIAAYagAAAAED4NL6MXAISDXC05NxkRmXqjxS4K3XI/cTdX+EiUmrhzdaaRZzPBuqg/IncciPC9OA==",
+                            PhoneNumber = "",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "c6298a16-b37f-4856-8718-684755a8940f",
+                            TwoFactorEnabled = false,
+                            UserName = "VladBlack"
+                        },
+                        new
+                        {
+                            Id = "f7c1f949-b1b4-45d0-bd88-87267d7afbca",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "85f6af95-5e0d-45db-9d8a-896099881c10",
+                            Email = "NastyaKareva20@mail.ru",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NastyaKareva20@mail.ru",
+                            NormalizedUserName = "NastyaKareva",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOvAQmjL+2d0D3TbSvqEsJjk5MAIg8lw+R66b8q4eDzperC4sy+yQS8aqFLFSWl11w==",
+                            PhoneNumber = "",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "d9777d1e-6ac2-4a1e-8cd3-dc0be3368fbd",
+                            TwoFactorEnabled = false,
+                            UserName = "NastyaKareva"
+                        },
+                        new
+                        {
+                            Id = "412b7dcd-9cb3-4ee4-98fe-8b545a28acf6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2132b926-2a36-4ded-b249-db1d57f5f738",
+                            Email = "NastyaBocharnikova20@mail.ru",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "NastyaBocharnikova20@mail.ru",
+                            NormalizedUserName = "NastyaBocharnikova",
+                            PasswordHash = "AQAAAAIAAYagAAAAEG+XwqcaWGbxkzNE6BuOjWE2G2Yroe32Ut46/Sh7Lva1Dq397mDjyHfcEv1iWCQR3Q==",
+                            PhoneNumber = "",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "95e3df2e-5473-4ee9-8f7c-b051bebad9ff",
+                            TwoFactorEnabled = false,
+                            UserName = "NastyaBocharnikova"
+                        },
+                        new
+                        {
+                            Id = "92469288-59e3-4694-8f5e-7cdc771afa19",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "199c4071-a799-43c0-94f5-ceb88f13cf7b",
+                            Email = "AdrewRojer20@mail.ru",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "AdrewRojer20@mail.ru",
+                            NormalizedUserName = "AdrewRojer",
+                            PasswordHash = "AQAAAAIAAYagAAAAELz8D9l8iU2KwiN191Eirx6Uaf7iHXdLgyWr3X2pZMHKYklng+dpLm+wR3WBMi19qg==",
+                            PhoneNumber = "",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "7d4baa77-c54e-46cd-a6bc-4ced79748777",
+                            TwoFactorEnabled = false,
+                            UserName = "AdrewRojer"
+                        },
+                        new
+                        {
+                            Id = "7b82acbe-8885-4940-aa1b-f1522e32a7b8",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "aebfb5b7-775b-45ed-a2fb-de7142d48a0d",
+                            Email = "SanchoLeaver20@mail.ru",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "SanchoLeaver20@mail.ru",
+                            NormalizedUserName = "SanchoLeaver",
+                            PasswordHash = "AQAAAAIAAYagAAAAEBlipiJvgaQda15BsENPR9vNFXLQ1lxLf/NynkG7z14qObsmjcJlxmtCNhFbB50I9A==",
+                            PhoneNumber = "",
+                            PhoneNumberConfirmed = true,
+                            SecurityStamp = "e4443dd2-036e-4e16-b741-cbb30f406de5",
+                            TwoFactorEnabled = false,
+                            UserName = "SanchoLeaver"
                         });
+                });
+
+            modelBuilder.Entity("Core.Base.DataBase.Entities.PooperEntity", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<long>("Id"));
+
+                    b.Property<int?>("AmountOfPoops")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserEntityId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserEntityId");
+
+                    b.ToTable("Poopers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -136,36 +252,31 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "66cfd738-ecc1-4a53-aea5-e17b8d811eee",
-                            ConcurrencyStamp = "36f29bd9-e19d-4ffb-8d49-2004f4659b50",
+                            Id = "3dac91f7-4f48-48fb-bd80-9bf473733d78",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "c6af540e-bd87-4a6c-9054-ff9418497e32",
-                            ConcurrencyStamp = "82ac1157-e1d9-49ea-9629-d0c8f1bffa33",
+                            Id = "a44d8e85-b0e5-47b1-bc2c-ad9874bacece",
                             Name = "Viewer",
                             NormalizedName = "VIEWER"
                         },
                         new
                         {
-                            Id = "23e79101-406d-483a-8dc8-b846d51bfdec",
-                            ConcurrencyStamp = "c4c2de92-3ae9-4db4-bfa4-6a596aed472f",
-                            Name = "DeliveryStuff",
-                            NormalizedName = "DELIVERYSTUFF"
+                            Id = "c15f1672-1e28-403d-970e-064009ef4c0e",
+                            Name = "Pooper",
+                            NormalizedName = "POOPER"
                         },
                         new
                         {
-                            Id = "73e5181a-5e7d-444e-9ff9-132fede8edd7",
-                            ConcurrencyStamp = "29412d47-19d3-49cd-8b07-df78c712188d",
+                            Id = "2a86b21c-17d6-4e56-976f-5d58fd41e651",
                             Name = "Reviwer",
                             NormalizedName = "REVIWER"
                         },
                         new
                         {
-                            Id = "b64d0ca5-efec-4844-a3f9-720d9c99f906",
-                            ConcurrencyStamp = "38b449a4-596e-46ca-88f2-5885068027ad",
+                            Id = "2a52f5f4-fb8e-4d51-99df-2413d38e3f65",
                             Name = "Maker",
                             NormalizedName = "MAKER"
                         });
@@ -260,8 +371,33 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "750cb244-9287-43c7-9718-5d83f97c776b",
-                            RoleId = "66cfd738-ecc1-4a53-aea5-e17b8d811eee"
+                            UserId = "c9b2ef0e-ea65-41b9-9d10-4957557821b8",
+                            RoleId = "3dac91f7-4f48-48fb-bd80-9bf473733d78"
+                        },
+                        new
+                        {
+                            UserId = "fe1e4c24-794d-4943-bf47-047ba7f49d11",
+                            RoleId = "c15f1672-1e28-403d-970e-064009ef4c0e"
+                        },
+                        new
+                        {
+                            UserId = "f7c1f949-b1b4-45d0-bd88-87267d7afbca",
+                            RoleId = "c15f1672-1e28-403d-970e-064009ef4c0e"
+                        },
+                        new
+                        {
+                            UserId = "412b7dcd-9cb3-4ee4-98fe-8b545a28acf6",
+                            RoleId = "c15f1672-1e28-403d-970e-064009ef4c0e"
+                        },
+                        new
+                        {
+                            UserId = "92469288-59e3-4694-8f5e-7cdc771afa19",
+                            RoleId = "c15f1672-1e28-403d-970e-064009ef4c0e"
+                        },
+                        new
+                        {
+                            UserId = "7b82acbe-8885-4940-aa1b-f1522e32a7b8",
+                            RoleId = "c15f1672-1e28-403d-970e-064009ef4c0e"
                         });
                 });
 
@@ -282,6 +418,13 @@ namespace IdentityDb.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("Core.Base.DataBase.Entities.PooperEntity", b =>
+                {
+                    b.HasOne("Core.Auh.Entities.UserEntity", null)
+                        .WithMany()
+                        .HasForeignKey("UserEntityId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

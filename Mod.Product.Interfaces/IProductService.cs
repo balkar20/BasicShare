@@ -1,4 +1,4 @@
-using ModProduct.Models;
+using Mod.Product.Models;
 
 namespace Mod.Product.Interfaces;
 

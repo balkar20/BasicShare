@@ -1,0 +1,30 @@
+﻿@using IdentityProvider.Client.ViewModels
+@using IdentityProvider.Client.ViewModels.Inerfaces
+@using Microsoft.EntityFrameworkCore.Metadata.Internal
+@inject IPooperViewModel ViewModel;
+
+<MudDialog>
+    <DialogContent>
+        <MudTextField T="string" Label="Name"  @bind-Value="ViewModel.Pooper.PooperAlias" @bind-Text="ViewModel.Pooper.PooperAlias"></MudTextField>
+        <MudNumericField T="int" Label="Name"  @bind-Value="ViewModel.Pooper.AmountOfPoops"></MudNumericField>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="SavePooper">Save Pooper</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    void SavePooper()
+    {
+        var alias = ViewModel.Pooper.PooperAlias;
+        var amountOfPoops = ViewModel.Pooper.AmountOfPoops;
+        ViewModel.SavePooper();
+        MudDialog.Close(DialogResult.Ok(true));
+    }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+}

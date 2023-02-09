@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" Sdk="Microsoft.Docker.Sdk">
+  <PropertyGroup Label="Globals">
+    <ProjectVersion>2.1</ProjectVersion>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <ProjectGuid>0726c80a-f9d5-412d-85ae-fdefb90e80c4</ProjectGuid>
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerServiceUrl>{Scheme}://localhost:{ServicePort}/swagger</DockerServiceUrl>
+    <DockerServiceName>ProductWebApi</DockerServiceName>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="docker-compose-env.yml" />
+    <None Include="docker-compose.yml" />
+    <None Include=".dockerignore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="backend-deploy.yml" />
+    <Content Include="docker-compose-base.yml" />
+    <Content Include="grafana-deployment.yaml" />
+    <Content Include="grafana-service.yaml" />
+    <Content Include="loki-deployment.yaml" />
+    <Content Include="loki-service.yaml" />
+    <Content Include="postgres.yaml" />
+    <Content Include="redis-deployment.yaml" />
+    <Content Include="test-deploy-compose\grafana-service.yaml" />
+    <Content Include="test-deploy-compose\grafana-test-compose.yml" />
+    <Content Include="test-deploy-compose\loki-test-compose.yml" />
+  </ItemGroup>
+</Project>

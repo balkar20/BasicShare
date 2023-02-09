@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "ProductWebAPI": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:63246;http://localhost:63247"
+    }
+  }
+}

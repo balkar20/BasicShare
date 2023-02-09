@@ -7,34 +7,44 @@ namespace IdentityDb.Configuration
 {
     internal class UserConfiguration : IEntityTypeConfiguration<UserEntity>
     {
-        public List<UserEntity> Users { get; set; }
+        private readonly List<string> poppNames = new List<string>()
+        {
+            //1. Nastya todo - order
+            "VladBalkar",
+            "VladBlack",
+            "NastyaKareva",
+            "NastyaBocharnikova",
+            "AdrewRojer",
+            "SanchoLeaver"
+        };
+
+        public List<UserEntity> Users { get; set; } = new List<UserEntity>();
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
-
-            var email = "balkar20@mail.ru";
-            var userName = "admin";
-            var user = new UserEntity
+            
+            
+            foreach (var poppName in poppNames)
             {
-                Id = Guid.NewGuid().ToString(),
-                UserName = userName,
-                Email = email,
-                NormalizedEmail = email.ToUpper(),
-                NormalizedUserName = userName.ToUpper(),
-                PhoneNumber = "+79111761331",
-                EmailConfirmed = true,
-                PhoneNumberConfirmed = true,
-                SecurityStamp = Guid.NewGuid().ToString("D")
-            };
+                var pooper = new UserEntity
+                {
+                    UserName = poppName,
+                    Email = $"{poppName}20@mail.ru",
+                    NormalizedEmail = $"{poppName}20@mail.ru",
+                    NormalizedUserName = poppName,
+                    // todo sms to number
+                    PhoneNumber = "",
+                    EmailConfirmed = true,
+                    PhoneNumberConfirmed = true,
+                    SecurityStamp = Guid.NewGuid().ToString("D")
+                };
 
-            //user.Id = Guid.NewGuid().ToString();
+                var password = new PasswordHasher<UserEntity>();
+                var hashed = password.HashPassword(pooper, "default");
+                pooper.PasswordHash = hashed;
 
-            Users = new() { user };
-
-            var password = new PasswordHasher<UserEntity>();
-            var hashed = password.HashPassword(user, "12121Qer_");
-            user.PasswordHash = hashed;
-
-            builder.HasData(user);
+                builder.HasData(pooper);
+                Users.Add(pooper);
+            }
         }
     }
 }

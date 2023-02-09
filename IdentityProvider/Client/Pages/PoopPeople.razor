@@ -1,0 +1,51 @@
+﻿@page "/PoopPeople"
+@using IdentityProvider.Client.ViewModels.Inerfaces
+@using IdentityProvider.Client.Components
+
+@inject IPooperViewModel ViewModel
+
+<h3>PoopPeople</h3>
+<InputFile OnChange="@LoadPhoto" multiple />
+
+@if (PooperlList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <h3>Pooper Grid</h3>
+    <CascadingValue Value=@ViewModel Name="ViewModel">
+        <MudGrid>
+                @foreach (var pooper in ViewModel.PooperList)
+                {
+                    <MudItem Style="width: 70vh;">
+                        <MudCard>
+                            <MudCardHeader>
+                                <CardHeaderAvatar>
+                                    <MudAvatar Image="poop.svg.png"  Color="Color.Secondary">I</MudAvatar>
+                                </CardHeaderAvatar>
+                                <CardHeaderContent>
+                                    <MudText Typo="Typo.body1">@pooper.PooperAlias</MudText>
+                                    <MudText Typo="Typo.body2">@pooper.AmountOfPoops</MudText>
+                                </CardHeaderContent>
+                                <CardHeaderActions>
+                                    <MudIconButton OnClick="@((e)=> OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark" />
+                                </CardHeaderActions>
+                            </MudCardHeader>
+                            <MudCardMedia Image="poop.svg.png" />
+                            <MudCardContent>
+                                <MudText Typo="Typo.body2">I am pooper! poo poo poo !!!!!!!!!</MudText>
+                            </MudCardContent>
+                            <MudCardActions>
+                                <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />
+                                <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
+                            </MudCardActions>
+                        </MudCard>
+                    </MudItem>
+                }
+            </MudGrid>
+    </CascadingValue>
+
+    
+    
+}

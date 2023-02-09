@@ -1,6 +1,6 @@
 using Core.Base.DataBase.Entities;
 using Infrastructure.Interfaces;
-using ModProduct.Models;
+using Mod.Product.Models;
 
 namespace Mod.Product.Interfaces;
 
