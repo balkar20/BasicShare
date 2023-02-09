@@ -1,3 +1,4 @@
+using IdentityProvider.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;
@@ -16,6 +17,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
     {
         //app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/poopers", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
+        app.MapPut("api/poopers", ([FromServices] IMediator _mediator, [FromBody] PooperModel pooperModel) => _mediator.Send(new SavePooperCommand(pooperModel)));
         app.MapPost("api/login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
                 _mediator.Send(new LoginCommand(product)));

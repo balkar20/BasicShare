@@ -2,7 +2,7 @@ namespace IdentityProvider.Shared;
 
 public class PooperViewModel
 {
-public string Id { get; set; }
+public string Id { get;  }
 
 public string PooperAlias { get; set; }
          

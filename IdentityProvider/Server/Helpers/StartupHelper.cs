@@ -25,6 +25,7 @@ namespace Apps.Blazor.Identity.IdentityProvider.Server.Helpers;
 
 public static class StartupHelper
 {
+    private static string str;
     public static void Configure(WebApplication app)
     {
         //app.UseMiddleware<ErrorHandlerMiddleware>();
@@ -119,7 +120,7 @@ public static class StartupHelper
             });
         });
 
-        builder.Services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
+        services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
         //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         //services.AddScoped<IAuthRepository, AuthRepository>();

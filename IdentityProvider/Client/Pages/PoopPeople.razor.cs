@@ -79,10 +79,11 @@ namespace IdentityProvider.Client.Pages
             // MudDialog.
         }
         
-        public void SetUpPooperClick(MouseEventArgs e)
+        public async Task SetUpPooperClick(MouseEventArgs e)
         {
-            // call ToggleMenu or any other method
             Console.WriteLine("Edit!");
+            await HttpClient.PutAsJsonAsync<PooperViewModel>("api/poopers", ViewModel.Pooper);
+            await SetUpPropertyChangedAsync();
         }
         
         protected override async Task OnInitializedAsync()
