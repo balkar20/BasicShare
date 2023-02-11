@@ -8,5 +8,7 @@ public interface IAuthService
     Task<LoginResponseModel> LogIn(LoginModel userForAuthentication);
 
     Task<RegisterResponseModel> RegisterUser(RegisterModel userForAuthentication);
+
+    Task<PooperSaveResponseModel> SavePooper(PooperModel pooperModel);
     //Task LogOut();
 }

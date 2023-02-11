@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ModProductTest": {
+    "Mod.ProductTest": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

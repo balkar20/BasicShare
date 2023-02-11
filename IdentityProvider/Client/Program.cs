@@ -1,5 +1,7 @@
 using Blazored.LocalStorage;
 using IdentityProvider.Client;
+using IdentityProvider.Client.ViewModels;
+using IdentityProvider.Client.ViewModels.Inerfaces;
 using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
@@ -10,15 +12,17 @@ using MudBlazor.Services;
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
 builder.RootComponents.Add<HeadOutlet>("head::after");
+var services = builder.Services;
 
-builder.Services.AddOptions();
-builder.Services.AddBlazoredLocalStorage();
-builder.Services.AddAuthorizationCore();
-builder.Services.AddScoped<AuthStateProvider>();
-builder.Services.AddMudServices();
-//builder.Services.AddScoped<TokenProvider>();
+services.AddOptions();
+services.AddBlazoredLocalStorage();
+services.AddAuthorizationCore();
+services.AddScoped<AuthStateProvider>();
+services.AddMudServices();
+services.AddScoped<IPooperViewModel, PooperVM>();
+//services.AddScoped<TokenProvider>();
 
-builder.Services.AddScoped<AuthenticationStateProvider>( o => o.GetRequiredService<AuthStateProvider>());
+services.AddScoped<AuthenticationStateProvider>( o => o.GetRequiredService<AuthStateProvider>());
 
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 await builder.Build().RunAsync();

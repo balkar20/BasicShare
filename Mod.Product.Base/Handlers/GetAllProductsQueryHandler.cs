@@ -5,7 +5,7 @@ using Serilog;
 using Mod.Product.Base.Queries;
 using Mod.Product.Base.ViewModels;
 using Mod.Product.Interfaces;
-using ModProduct.Models;
+using Mod.Product.Models;
 
 namespace Mod.Product.Base.Handlers;
 

@@ -5,7 +5,7 @@ using Mod.Product.Base.Queries;
 using Mod.Product.Base.Repositories;
 using Mod.Product.Interfaces;
 using Mod.Product.Services;
-using ModProduct.Models;
+using Mod.Product.Models;
 
 
 namespace Apps.EndpointDefinitions.ProductWebAPI;

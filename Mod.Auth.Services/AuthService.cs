@@ -31,25 +31,17 @@ public class AuthService: IAuthService
         _logger = logger;
         _configuration = options.Value;
         _userManager = userManager;
-        //var user =  _userManager.AddLoginAsync(new UserEntity() { Email = "balkar20@mail."})
     }
 
     public async Task<List<PooperModel>> GetAllAuths()
     {
-        
-        var list = new List<PooperModel>();
         var users = await _userManager.GetUsersInRoleAsync("Pooper");
         var poopers = users?.Select(p => new PooperModel(
         
             p.Id,
             0,
-            p.Email
+            p.UserName
         ))?.ToList();
-        // {
-        //     PooperAlias = p.Email,
-        //     AmountOfPoops = 0,
-        //     Id = p.Id
-        // });
 
         return poopers;
     }
@@ -60,17 +52,12 @@ public class AuthService: IAuthService
         if (user == null || !await _userManager.CheckPasswordAsync(user, userForAuthentication.Password))
             return new LoginResponseModel { ErrorMessage = "Invalid Authentication" };
         var signingCredentials = GetSigningCredentials();
-        var claims = await GetClaims(user);
+        var claims = await GetClaimsAsync(user);
         var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
         var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
         return new LoginResponseModel { IsAuthSuccessful = true, Token = token };
     }
 
-    //public async Task<AuthModel> LogOut(AuthModel authModel)
-    //{
-    //    await _signManager.SignOutAsync();
-    //    return Task.CompletedTask;
-    //}
 
     public async Task<RegisterResponseModel> RegisterUser(RegisterModel registerModel)
     {
@@ -90,6 +77,31 @@ public class AuthService: IAuthService
         return new RegisterResponseModel { IsSuccess = true };
     }
 
+    public async Task<PooperSaveResponseModel> SavePooper(PooperModel pooperModel)
+    {
+        var responce = new PooperSaveResponseModel()
+        {
+            IsSuccess = false
+        };
+        
+        var user = await _userManager.FindByIdAsync(pooperModel.Id);
+        if (user == null)
+        {
+            return responce;
+        }
+
+        if (user != null)
+        {
+            user.UserName = pooperModel.PooperAlias;
+            user.AmountOfPoops = pooperModel.AmountOfPoops;
+            await _userManager.UpdateAsync(user);
+            responce.IsSuccess = true;
+        }
+        
+        return responce;
+    }
+
+
     private SigningCredentials GetSigningCredentials()
     {
         var key = Encoding.UTF8.GetBytes(_configuration.SecurityKey);
@@ -98,8 +110,9 @@ public class AuthService: IAuthService
         return new SigningCredentials(secret, SecurityAlgorithms.HmacSha256);
     }
 
-    private async Task<List<Claim>> GetClaims(UserEntity user)
+    private async Task<List<Claim>> GetClaimsAsync(UserEntity user)
     {
+        
         var claims = new List<Claim>
         {
             new Claim(ClaimTypes.Name, user.Email)

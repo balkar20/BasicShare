@@ -1,5 +1,5 @@
 using MediatR;
-using ModProduct.Models;
+using Mod.Product.Models;
 
 namespace Mod.Product.Base.Commands;
 

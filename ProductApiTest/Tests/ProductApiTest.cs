@@ -1,7 +1,7 @@
 using System.Net.Http.Json;
 using Core.Base.Output;
 using Mod.Product.Base.ViewModels;
-using ModProduct.Models;
+using Mod.Product.Models;
 using Moq;
 
 // using Microsoft.VisualStudio.TestPlatform.TestHost;
@@ -26,9 +26,9 @@ namespace ProductApiTest.Tests
             //Arrange
             var expResult = new List<ProductModel>
             {
-                new ProductModel("Koko", "Chanell", "Manel")
+                new ("Koko", "Chanell", "Manel")
             };
-            var expMapperResult = new ProductViewModel("NewId", "NewBAlias", "NewPAlias");
+            
             _mockServices.ProductServiceMock.Setup(m => m.GetAllProducts()).ReturnsAsync(expResult);
             
             //Act
