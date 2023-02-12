@@ -1,3 +1,4 @@
+using Core.Transfer;
 using Mod.Auth.Models;
 
 namespace Mod.Auth.Interfaces;
@@ -9,6 +10,6 @@ public interface IAuthService
 
     Task<RegisterResponseModel> RegisterUser(RegisterModel userForAuthentication);
 
-    Task<PooperSaveResponseModel> SavePooper(PooperModel pooperModel);
+    Task<BaseResponseResult> SavePooper(PooperModel pooperModel);
     //Task LogOut();
 }

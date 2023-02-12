@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Core.Transfer;
 using IdentityProvider.Shared;
 
 namespace IdentityProvider.Client.ViewModels.Inerfaces;
@@ -12,5 +13,5 @@ public interface IPooperViewModel
 
     event PropertyChangedEventHandler PropertyChanged;
 
-    void SavePooper();
+    Task<BaseResponseResult> SavePooper();
 }

@@ -4,13 +4,16 @@ using System.Net.Http.Json;
 using System.Runtime.CompilerServices;
 using IdentityProvider.Client.ViewModels.Inerfaces;
 using IdentityProvider.Shared;
+using Core.Transfer;
 
 namespace IdentityProvider.Client.ViewModels;
 
 public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
 {
-    public PooperVM()
+    private readonly HttpClient _httpClient;
+    public PooperVM(HttpClient httpClient)
     {
+        _httpClient = httpClient;
         PooperList = new List<PooperViewModel>();
     }
     
@@ -32,9 +35,16 @@ public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
     
     public event PropertyChangedEventHandler PropertyChanged;
     
-    public void SavePooper()
+    public async Task<BaseResponseResult> SavePooper()
     {
-        Console.WriteLine("Pooper Saved!");
+        var result = await _httpClient.PutAsJsonAsync<PooperViewModel>("api/poopers", Pooper);
+        var respose = await result.Content.ReadFromJsonAsync<BaseResponseResult>();
+        if (respose.IsSuccess)
+        {
+            OnPropertyChanged("Pooper");
+        }
+
+        return respose;
     }
 
     private void OnPropertyChanged([CallerMemberName] string propertyName = null)

@@ -5,26 +5,52 @@
 
 <MudDialog>
     <DialogContent>
-        <MudTextField T="string" Label="Name"  @bind-Value="ViewModel.Pooper.PooperAlias" @bind-Text="ViewModel.Pooper.PooperAlias"></MudTextField>
-        <MudNumericField T="int" Label="Name"  @bind-Value="ViewModel.Pooper.AmountOfPoops"></MudNumericField>
+
+@if (showErrorAlert)
+{
+    <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Error saving pooper!</MudAlert>
+}
+@if (showSavedAlert)
+{
+    <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Pooper Saved!</MudAlert>
+}
+        
+        @* <MudIcon  Icon="@Icons.Material.Outlined.DoneOutline" Color="Color.Success">Pooper Saved</MudIcon> *@
+        @* <MudIcon @ref="Oopoo" hidden="true" Icon="@Icons.Material.Outlined.Error" Color="Color.Error">Error saving pooper</MudIcon> *@
+        <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Pooper.PooperAlias" @bind-Text="ViewModel.Pooper.PooperAlias"></MudTextField>
+        <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Pooper.AmountOfPoops"></MudNumericField>
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Primary" OnClick="SavePooper">Save Pooper</MudButton>
+        <MudButton Color="Color.Primary" OnClick="@(async () => await SavePooper())">Save Pooper</MudButton>
     </DialogActions>
 </MudDialog>
 
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    private bool showSavedAlert = false;
+    private bool showErrorAlert = false;
 
-    void SavePooper()
+    async Task SavePooper()
     {
-        var alias = ViewModel.Pooper.PooperAlias;
-        var amountOfPoops = ViewModel.Pooper.AmountOfPoops;
-        ViewModel.SavePooper();
-        MudDialog.Close(DialogResult.Ok(true));
+        var result = await ViewModel.SavePooper();
+        if (result.IsSuccess)
+        {
+            showSavedAlert = true;
+            return;
+        }
+        showErrorAlert = true;
+    }
+    
+    private void CloseMe()
+    {
+        showErrorAlert = false;
+        showSavedAlert = false;
     }
 
     void Submit() => MudDialog.Close(DialogResult.Ok(true));
     void Cancel() => MudDialog.Cancel();
+    
+    
+
 }

@@ -3,10 +3,11 @@ using MediatR;
 using Mod.Auth.Base.Commands;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
+using Core.Transfer;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class SavePooperCommandHandler: IRequestHandler<SavePooperCommand, PooperSaveResponseModel>
+public class SavePooperCommandHandler: IRequestHandler<SavePooperCommand, BaseResponseResult>
 {
     private readonly IAuthService _authService;
     private readonly IMapper _mapper;
@@ -16,7 +17,7 @@ public class SavePooperCommandHandler: IRequestHandler<SavePooperCommand, Pooper
         _mapper = mapper;
     }
     
-    public async Task<PooperSaveResponseModel> Handle(SavePooperCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponseResult> Handle(SavePooperCommand request, CancellationToken cancellationToken)
     {
         return await _authService.SavePooper(request.PooperModel);
     }

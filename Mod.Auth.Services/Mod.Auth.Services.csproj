@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
     <ProjectReference Include="..\IdentityDb\IdentityDb.csproj" />
     <ProjectReference Include="..\Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj" />
     <ProjectReference Include="..\Mod.Auth.Models\Mod.Auth.Models.csproj" />

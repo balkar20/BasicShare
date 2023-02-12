@@ -1,4 +1,4 @@
-﻿@page "/PoopPeople"
+﻿@page "/"
 @using IdentityProvider.Client.ViewModels.Inerfaces
 @using IdentityProvider.Client.Components
 
@@ -29,7 +29,7 @@ else
                                     <MudText Typo="Typo.body2">@pooper.AmountOfPoops</MudText>
                                 </CardHeaderContent>
                                 <CardHeaderActions>
-                                    <MudIconButton OnClick="@((e)=> OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark" />
+                                    <MudIconButton OnClick="@(()=> OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark" />
                                 </CardHeaderActions>
                             </MudCardHeader>
                             <MudCardMedia Image="poop.svg.png" />

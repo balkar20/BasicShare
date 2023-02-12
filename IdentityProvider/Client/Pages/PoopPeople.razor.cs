@@ -52,7 +52,7 @@ namespace IdentityProvider.Client.Pages
         
         private void OpenDialog(PooperViewModel pooperViewModel)
         {
-            ViewModel.Pooper = pooperViewModel;
+            PooperViewModel.Pooper = pooperViewModel;
             DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
 
             DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);

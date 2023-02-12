@@ -1,4 +1,3 @@
-using IdentityProvider.Shared;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;

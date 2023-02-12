@@ -7,12 +7,10 @@ namespace Mod.Auth.Base.Handlers;
 
 public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, List<PooperModel>>
 {
-    //private readonly IAuthRepository _productRepository;
     private readonly IAuthService _authService;
 
     public GetAllAuthsQueryHandler(IAuthService productService)
     {
-        //_productRepository = productRepository;
         _authService = productService;
     }
     
