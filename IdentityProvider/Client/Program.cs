@@ -20,6 +20,7 @@ services.AddAuthorizationCore();
 services.AddScoped<AuthStateProvider>();
 services.AddMudServices();
 services.AddScoped<IPooperViewModel, PooperVM>();
+//services.AddScoped<IWebAssemblyHostEnvironment>();
 //services.AddScoped<TokenProvider>();
 
 services.AddScoped<AuthenticationStateProvider>( o => o.GetRequiredService<AuthStateProvider>());

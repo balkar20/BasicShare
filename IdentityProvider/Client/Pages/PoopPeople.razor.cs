@@ -8,7 +8,8 @@ using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using MudBlazor;
-
+using System;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 namespace IdentityProvider.Client.Pages
 {
@@ -22,8 +23,7 @@ namespace IdentityProvider.Client.Pages
         
         [Inject]
         IPooperViewModel PooperViewModel { get; set; }
-        
-        
+
         // [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
         // static PoopPeople(HttpClient httpClient)
@@ -32,7 +32,7 @@ namespace IdentityProvider.Client.Pages
         // }
         public PoopPeople()
         {
-            // HttpClient1 = httpClient;
+            
         }
         // private List<PooperViewModel> PooperlList = new() {new()
         //          {
@@ -45,10 +45,6 @@ namespace IdentityProvider.Client.Pages
         // };
         private static List<PooperViewModel> PooperlList = new List<PooperViewModel>();
 
-        private void LoadPhoto(InputFileChangeEventArgs obj)
-        {
-            throw new NotImplementedException();
-        }
         
         private void OpenDialog(PooperViewModel pooperViewModel)
         {
