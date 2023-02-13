@@ -18,7 +18,7 @@ using Mod.Auth.Services;
 using Serilog;
 using System.Text;
 using Apps.Blazor.Identity.IdentityProvider.Server.Middlewares;
-using IdentityProvider.Client;
+// using IdentityProvider.Client;
 using Serilog.Sinks.GrafanaLoki;
 
 namespace Apps.Blazor.Identity.IdentityProvider.Server.Helpers;
@@ -29,6 +29,7 @@ public static class StartupHelper
     public static void Configure(WebApplication app)
     {
         //app.UseMiddleware<ErrorHandlerMiddleware>();
+        
         app.UseEndpointDefinitions();
         app.UseMiddleware<ErrorHandlerMiddleware>();
         
@@ -79,6 +80,8 @@ public static class StartupHelper
         var configuration = builder.Configuration;
         var services = builder.Services;
         
+        services.AddServerSideBlazor();
+
         builder.Logging.AddSerilog(Log.Logger);
         builder.Host.UseSerilog(Log.Logger);
 

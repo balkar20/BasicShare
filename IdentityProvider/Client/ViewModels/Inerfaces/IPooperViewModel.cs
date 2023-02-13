@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Core.Transfer;
 using IdentityProvider.Shared;
 
 namespace IdentityProvider.Client.ViewModels.Inerfaces;
@@ -9,8 +10,12 @@ public interface IPooperViewModel
     int Poopers { get; }
     PooperViewModel Pooper { get; set; }
     List<PooperViewModel> PooperList { get; set; }
+    
+    string StatusMessage { get; set; }
 
     event PropertyChangedEventHandler PropertyChanged;
 
-    void SavePooper();
+    Task<BaseResponseResult> SavePooper();
+
+    Task<ResponseResultWithData<List<PooperViewModel>>> GetPoopers();
 }
