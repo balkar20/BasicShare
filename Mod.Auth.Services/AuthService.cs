@@ -34,7 +34,7 @@ public class AuthService: IAuthService
         _userManager = userManager;
     }
 
-    public async Task<List<PooperModel>> GetAllAuths()
+    public async Task<List<PooperModel>> GetAllPoopers()
     {
         var users = await _userManager.GetUsersInRoleAsync("Pooper");
         var poopers = users?.Select(p => new PooperModel(

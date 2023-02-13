@@ -6,11 +6,11 @@
 <MudDialog>
     <DialogContent>
 
-@if (showErrorAlert)
+@if (_showErrorAlert)
 {
     <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Error saving pooper!</MudAlert>
 }
-@if (showSavedAlert)
+@if (_showSavedAlert)
 {
     <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Pooper Saved!</MudAlert>
 }
@@ -28,24 +28,24 @@
 
 @code {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    private bool showSavedAlert = false;
-    private bool showErrorAlert = false;
+    private bool _showSavedAlert = false;
+    private bool _showErrorAlert = false;
 
     async Task SavePooper()
     {
         var result = await ViewModel.SavePooper();
         if (result.IsSuccess)
         {
-            showSavedAlert = true;
+            _showSavedAlert = true;
             return;
         }
-        showErrorAlert = true;
+        _showErrorAlert = true;
     }
     
     private void CloseMe()
     {
-        showErrorAlert = false;
-        showSavedAlert = false;
+        _showErrorAlert = false;
+        _showSavedAlert = false;
     }
 
     void Submit() => MudDialog.Close(DialogResult.Ok(true));

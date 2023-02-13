@@ -10,8 +10,12 @@ public interface IPooperViewModel
     int Poopers { get; }
     PooperViewModel Pooper { get; set; }
     List<PooperViewModel> PooperList { get; set; }
+    
+    string StatusMessage { get; set; }
 
     event PropertyChangedEventHandler PropertyChanged;
 
     Task<BaseResponseResult> SavePooper();
+
+    Task<ResponseResultWithData<List<PooperViewModel>>> GetPoopers();
 }

@@ -6,6 +6,7 @@ using Mod.Auth.Base.Repositories;
 using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
+using Core.Transfer;
 
 
 namespace Apps.EndpointDefinitions.ProductWebAPI;

@@ -32,6 +32,9 @@ public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
     public PooperViewModel Pooper { get; set; }
 
     public List<PooperViewModel> PooperList { get; set; }
+
+    public string StatusMessage { get; set; }
+
     
     public event PropertyChangedEventHandler PropertyChanged;
     
@@ -45,6 +48,18 @@ public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
         }
 
         return respose;
+    }
+    
+    public async Task<ResponseResultWithData<List<PooperViewModel>>> GetPoopers()
+    {
+        var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<PooperViewModel>>>("api/poopers");
+        if (response != null && response.IsSuccess)
+        {
+            PooperList = response.Data;
+            OnPropertyChanged("PooperList");
+        }
+
+        return response;
     }
 
     private void OnPropertyChanged([CallerMemberName] string propertyName = null)
