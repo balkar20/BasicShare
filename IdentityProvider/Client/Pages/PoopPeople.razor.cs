@@ -16,6 +16,12 @@ namespace IdentityProvider.Client.Pages
 {
     public partial class PoopPeople
     {
+        private string girlName;
+        private string girlEmail;
+        private int girlAge;
+        private string girlCity;
+        private bool isOpen = true;
+        
         [Inject]
         HttpClient HttpClient { get; set; }
         
