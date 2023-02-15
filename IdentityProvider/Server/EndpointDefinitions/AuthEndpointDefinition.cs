@@ -26,6 +26,13 @@ public class AuthEndpointDefinition : IEndpointDefinition
         //app.MapPut("api/products",
         //    ([FromServices] IMediator _mediator, [FromBody] AuthModel product) =>
         //        _mediator.Send(new UpdateAuthCommand(product)));
+        
+        AddSomeRoutes(app);
+    }
+
+    private void AddSomeRoutes(WebApplication app)
+    {
+        app.MapGet("api/someroute", () => "This is someRoute!");
     }
 
     public void DefineServices(IServiceCollection services)

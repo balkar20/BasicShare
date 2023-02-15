@@ -63,9 +63,49 @@ public class Tests
         // Assert.AreEqual(0, integer);
     }
 
+    [Test]
+    public async Task TestClass()
+    {
+        //Arrange
+        
+        
+        var animal = new Animal(AnimalTypes.Bird);
+
+
+        // f.ContinueWith((t) => Console.WriteLine("jhjhjh"));
+
+
+        //Act
+        var type = animal.AnimalType;
+
+        //Assert
+        Assert.AreEqual(AnimalTypes.Bird, type);
+    }
+
     private async Task<int> VoidAsyncMethhod()
     {
         await Task.Run(() => Thread.Sleep(5000));
         return 0;
+    }
+}
+
+enum AnimalTypes
+{
+    //Млекопитающее
+    Mammal,
+    //Насекомое
+    Incept,
+    //Рыба
+    Fish,
+    //Птицы
+    Bird
+}
+
+class Animal
+{
+    public AnimalTypes AnimalType { get; set; }
+    public Animal(AnimalTypes animalType): base()
+    {
+        AnimalType = animalType;
     }
 }

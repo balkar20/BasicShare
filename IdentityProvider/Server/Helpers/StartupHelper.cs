@@ -128,6 +128,7 @@ public static class StartupHelper
 
         //services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
+
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
 
        
