@@ -17,8 +17,17 @@
         
         @* <MudIcon  Icon="@Icons.Material.Outlined.DoneOutline" Color="Color.Success">Pooper Saved</MudIcon> *@
         @* <MudIcon @ref="Oopoo" hidden="true" Icon="@Icons.Material.Outlined.Error" Color="Color.Error">Error saving pooper</MudIcon> *@
+        <img src="@imgUrl">
         <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Pooper.PooperAlias" @bind-Text="ViewModel.Pooper.PooperAlias"></MudTextField>
         <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Pooper.AmountOfPoops"></MudNumericField>
+        <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync">
+            <ButtonTemplate>
+                <MudFab HtmlTag="label"
+                        Color="Color.Success"
+                        Icon="@Icons.Material.Filled.Upload"
+                        for="@context" />
+            </ButtonTemplate>
+        </MudFileUpload>
     </DialogContent>
 
     <DialogActions>
@@ -31,6 +40,7 @@
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
     private bool _showSavedAlert = false;
     private bool _showErrorAlert = false;
+    private string imgUrl = string.Empty;
 
     async Task SavePooper()
     {
@@ -43,6 +53,16 @@
         _showErrorAlert = true;
     }
     
+    private async Task UploadFilesAsync(IBrowserFile file)
+    {
+        var buffers = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(buffers);
+        string imageType = file.ContentType;
+        imgUrl = $"data:{imageType};base64,{Convert.ToBase64String(buffers)}";
+
+    }
+
+
     private void CloseMe()
     {
         _showErrorAlert = false;
