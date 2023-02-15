@@ -10,6 +10,7 @@ using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using Core.Auh.Enums;
+using Core.Transfer;
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 
 namespace Mod.Auth.Base.Repositories;
@@ -33,13 +34,13 @@ public class AuthService: IAuthService
         _userManager = userManager;
     }
 
-    public async Task<List<PooperModel>> GetAllAuths()
+    public async Task<List<PooperModel>> GetAllPoopers()
     {
         var users = await _userManager.GetUsersInRoleAsync("Pooper");
         var poopers = users?.Select(p => new PooperModel(
         
             p.Id,
-            0,
+            p.AmountOfPoops,
             p.UserName
         ))?.ToList();
 
@@ -77,9 +78,9 @@ public class AuthService: IAuthService
         return new RegisterResponseModel { IsSuccess = true };
     }
 
-    public async Task<PooperSaveResponseModel> SavePooper(PooperModel pooperModel)
+    public async Task<BaseResponseResult> SavePooper(PooperModel pooperModel)
     {
-        var responce = new PooperSaveResponseModel()
+        var responce = new BaseResponseResult()
         {
             IsSuccess = false
         };

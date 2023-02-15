@@ -1,6 +1,8 @@
 using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Json;
+using System.Text;
+using Core.Transfer;
 using IdentityProvider.Client.Components;
 using IdentityProvider.Client.ViewModels.Inerfaces;
 using Microsoft.AspNetCore.Components.Forms;
@@ -24,27 +26,10 @@ namespace IdentityProvider.Client.Pages
         [Inject]
         IPooperViewModel PooperViewModel { get; set; }
 
-        // [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-
-        // static PoopPeople(HttpClient httpClient)
-        // {
-        //     _httpClient = httpClient;
-        // }
-        public PoopPeople()
+        private void LoadPhoto(InputFileChangeEventArgs obj)
         {
-            
+            throw new NotImplementedException();
         }
-        // private List<PooperViewModel> PooperlList = new() {new()
-        //          {
-        //              Id = 1, Name = "VladCoach", AmountOfPoops = 0
-        //          },
-        //     new()
-        //         {
-        //             Id = 2, Name = "Drews", AmountOfPoops = 0
-        //         }
-        // };
-        private static List<PooperViewModel> PooperlList = new List<PooperViewModel>();
-
         
         private void OpenDialog(PooperViewModel pooperViewModel)
         {
@@ -84,8 +69,25 @@ namespace IdentityProvider.Client.Pages
         
         protected override async Task OnInitializedAsync()
         {
-            ViewModel.PooperList = await HttpClient.GetFromJsonAsync<List<PooperViewModel>>("api/poopers");
-            await SetUpPropertyChangedAsync();
+            ViewModel.IsBusy = true;
+             var response = await ViewModel.GetPoopers();
+             if (response.IsSuccess)
+             {
+                 ViewModel.PooperList = response.Data;
+             }
+             else
+             {
+                 var messages = new StringBuilder();
+                 foreach (var responseError in response.Errors)
+                 {
+                     messages.AppendLine(responseError);
+                 }
+
+                 ViewModel.StatusMessage = messages.ToString();
+             }
+             
+             await SetUpPropertyChangedAsync().ConfigureAwait(false);
+             ViewModel.IsBusy = false;
         }
 
         private async Task SetUpPropertyChangedAsync()

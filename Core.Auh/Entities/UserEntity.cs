@@ -8,6 +8,6 @@ namespace Core.Auh.Entities
         // public long Id { get; set; }
         public int? Year { get; set; }
         
-        public int? AmountOfPoops { get; set; }
+        public int AmountOfPoops { get; set; }
     }
 }

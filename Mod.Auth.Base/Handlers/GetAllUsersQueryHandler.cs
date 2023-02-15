@@ -1,3 +1,4 @@
+using Core.Transfer;
 using MediatR;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Interfaces;
@@ -5,20 +6,32 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, List<PooperModel>>
+public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, ResponseResultWithData<List<PooperModel>>>
 {
-    //private readonly IAuthRepository _productRepository;
     private readonly IAuthService _authService;
 
     public GetAllAuthsQueryHandler(IAuthService productService)
     {
-        //_productRepository = productRepository;
         _authService = productService;
     }
     
-    public async Task<List<PooperModel>> Handle(GetAllAuthsQuery request, CancellationToken cancellationToken)
+    public async Task<ResponseResultWithData<List<PooperModel>>> Handle(GetAllAuthsQuery request, CancellationToken cancellationToken)
     {
-        var result = await _authService.GetAllAuths();
-        return result;
+        var response = new ResponseResultWithData<List<PooperModel>>()
+        {
+            IsSuccess = false
+        };
+        try
+        {
+            var result = await _authService.GetAllPoopers();
+            response.Data = result;
+            response.IsSuccess = true;
+        }
+        catch(Exception ex)
+        {
+            response.Errors.Add(ex.Message);
+        }
+        
+        return response;
     }
 }
