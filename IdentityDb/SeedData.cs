@@ -27,20 +27,7 @@ namespace IdentityDb
             {
                 context = scope.ServiceProvider.GetRequiredService<ApplicationContext>();
                 _userManager = scope.ServiceProvider.GetRequiredService<UserManager<UserEntity>>();
-
-                //var context = serviceProvider.GetRequiredService<ApplicationContext>();
-
-                //string[] roles = new string[] { "Owner", "Administrator", "Manager", "Editor", "Buyer", "Business", "Seller", "Subscriber" };
-
-                //foreach (string role in roles)
-                //{
-                //    var roleStore = new RoleStore<IdentityRole>(context);
-
-                //    if (!context.Roles.Any(r => r.Name == role))
-                //    {
-                //        roleStore.CreateAsync(new IdentityRole(role));
-                //    }
-                //}
+                
             }
 
             var roleStore = new RoleStore<IdentityRole>(context);
