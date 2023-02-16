@@ -36,6 +36,10 @@ namespace IdentityDb.Migrations
                     b.Property<int>("AmountOfPoops")
                         .HasColumnType("integer");
 
+                    b.Property<string>("Image")
+                        .IsConcurrencyToken()
+                        .HasColumnType("text");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("text");
@@ -215,6 +219,9 @@ namespace IdentityDb.Migrations
 
                     b.Property<int?>("AmountOfPoops")
                         .HasColumnType("integer");
+
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");

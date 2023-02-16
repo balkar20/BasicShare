@@ -222,6 +222,9 @@ namespace IdentityDb.Migrations
                     b.Property<string>("UserEntityId")
                         .HasColumnType("text");
 
+                    b.Property<string>("Image")
+                        .HasColumnType("text");
+
                     b.Property<string>("UserId")
                         .IsRequired()
                         .HasColumnType("text");

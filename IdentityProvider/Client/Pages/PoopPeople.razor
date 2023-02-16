@@ -37,7 +37,14 @@ else
                                 <MudIconButton OnClick="@(()=> OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark" />
                             </CardHeaderActions>
                         </MudCardHeader>
-                        <MudCardMedia Image="poop.svg.png" />
+                        @if (pooper.Image != null)
+                        {
+                            <MudCardMedia Image="@pooper.Image" />
+                        }
+                        else
+                        {
+                            <MudCardMedia Image="poop.svg.png" />
+                        }                       
                         <MudCardContent>
                             <MudText Typo="Typo.body2">I am pooper! poo poo poo !!!!!!!!!</MudText>
                         </MudCardContent>

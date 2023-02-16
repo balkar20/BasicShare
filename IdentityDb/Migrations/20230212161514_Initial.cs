@@ -48,7 +48,8 @@ namespace IdentityDb.Migrations
                     TwoFactorEnabled = table.Column<bool>(type: "boolean", nullable: false),
                     LockoutEnd = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
                     LockoutEnabled = table.Column<bool>(type: "boolean", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "integer", nullable: false)
+                    AccessFailedCount = table.Column<int>(type: "integer", nullable: false),
+                    Image = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -170,7 +171,8 @@ namespace IdentityDb.Migrations
                     Description = table.Column<string>(type: "text", nullable: true),
                     AmountOfPoops = table.Column<int>(type: "integer", nullable: true),
                     UserId = table.Column<string>(type: "text", nullable: false),
-                    UserEntityId = table.Column<string>(type: "text", nullable: true)
+                    UserEntityId = table.Column<string>(type: "text", nullable: true),
+                    Image = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -196,15 +198,15 @@ namespace IdentityDb.Migrations
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
-                columns: new[] { "Id", "AccessFailedCount", "AmountOfPoops", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Year" },
+                columns: new[] { "Id", "AccessFailedCount", "AmountOfPoops", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName", "Year", "Image" },
                 values: new object[,]
                 {
-                    { "01eefbe1-0f88-4d9d-b3a8-80a00a2212f4", 0, 0, "b25d36af-322a-47da-a226-3361715d4522", "NastyaKareva20@mail.ru", true, false, null, "NastyaKareva20@mail.ru", "NastyaKareva", "AQAAAAIAAYagAAAAEMa1ilIFmhkAL0LzEbHMtTCpfDR6TpP+3vQ11T0vEPL3OUSeRgu7bJAhrbnZaZMK0A==", "", true, "5b4f9fec-c36d-476f-8980-16fc430429ff", false, "NastyaKareva", null },
-                    { "400b679f-c2c8-4567-9d43-ba4195cd1bfe", 0, 0, "0d46ed8e-2d58-4439-8571-c6f1c3ac9f86", "NastyaBocharnikova20@mail.ru", true, false, null, "NastyaBocharnikova20@mail.ru", "NastyaBocharnikova", "AQAAAAIAAYagAAAAEJD2aIfH7NsXINTSmoOjcGt95hHY6IX6htymC+BwHaPjpAXszJ2xgcaWj15qrO0C9A==", "", true, "2995208d-5b79-4b01-a372-80e60a59172c", false, "NastyaBocharnikova", null },
-                    { "4e131785-454c-4e20-89e9-e7830a434baf", 0, 0, "c0b25a42-0f20-45cc-b540-0297a7072a7a", "SanchoLeaver20@mail.ru", true, false, null, "SanchoLeaver20@mail.ru", "SanchoLeaver", "AQAAAAIAAYagAAAAEBcjvxwTBp6/LLx4CR+qFxmXWS/rxRDPRI4Vf4Mpjx1CtRdqubcbvhE26SCHMXvUWA==", "", true, "01e6c1dc-adea-4270-bdd6-ffcdfbecbcf1", false, "SanchoLeaver", null },
-                    { "de7cae6c-f602-4dd3-802d-76e48456957a", 0, 0, "0ef16730-721a-4106-bbe6-f7d600eb4db4", "VladBlack20@mail.ru", true, false, null, "VladBlack20@mail.ru", "VladBlack", "AQAAAAIAAYagAAAAEFydVXew/lUrBMUm1cX+pXmUZRtnCuENb/ETG4gilgqi7HtuggNOzHBMBzah8kyjyw==", "", true, "df45db37-7345-460c-8dd9-8c98942bc2a2", false, "VladBlack", null },
-                    { "faf27c3e-d598-4215-9e8b-015e5bca9907", 0, 0, "1037eb36-cb46-4e54-bb83-5ce1af400a01", "VladBalkar20@mail.ru", true, false, null, "VladBalkar20@mail.ru", "VladBalkar", "AQAAAAIAAYagAAAAEOEr6avF3dhQEx4jw9n14wDs9sL93RQ8doEGXiJjRNPbDKhF1wCdf4jjETiB/W6OMQ==", "", true, "12d65610-0eff-4b0b-82fb-819829828d31", false, "VladBalkar", null },
-                    { "fd737bec-bb0a-4f97-975b-4f88fd34a3ad", 0, 0, "2092b347-0fea-4b69-8c08-377b1569687b", "AdrewRojer20@mail.ru", true, false, null, "AdrewRojer20@mail.ru", "AdrewRojer", "AQAAAAIAAYagAAAAENtR0j8kudtA5M0nuZhrOCbjtEexnuDtV9Kd4OfjlfuX1ZWsru01Sn704hFyAFinDg==", "", true, "9409818e-85c7-4169-85de-fe341e04f19d", false, "AdrewRojer", null }
+                    { "01eefbe1-0f88-4d9d-b3a8-80a00a2212f4", 0, 0, "b25d36af-322a-47da-a226-3361715d4522", "NastyaKareva20@mail.ru", true, false, null, "NastyaKareva20@mail.ru", "NastyaKareva", "AQAAAAIAAYagAAAAEMa1ilIFmhkAL0LzEbHMtTCpfDR6TpP+3vQ11T0vEPL3OUSeRgu7bJAhrbnZaZMK0A==", "", true, "5b4f9fec-c36d-476f-8980-16fc430429ff", false, "NastyaKareva", null, null },
+                    { "400b679f-c2c8-4567-9d43-ba4195cd1bfe", 0, 0, "0d46ed8e-2d58-4439-8571-c6f1c3ac9f86", "NastyaBocharnikova20@mail.ru", true, false, null, "NastyaBocharnikova20@mail.ru", "NastyaBocharnikova", "AQAAAAIAAYagAAAAEJD2aIfH7NsXINTSmoOjcGt95hHY6IX6htymC+BwHaPjpAXszJ2xgcaWj15qrO0C9A==", "", true, "2995208d-5b79-4b01-a372-80e60a59172c", false, "NastyaBocharnikova", null, null },
+                    { "4e131785-454c-4e20-89e9-e7830a434baf", 0, 0, "c0b25a42-0f20-45cc-b540-0297a7072a7a", "SanchoLeaver20@mail.ru", true, false, null, "SanchoLeaver20@mail.ru", "SanchoLeaver", "AQAAAAIAAYagAAAAEBcjvxwTBp6/LLx4CR+qFxmXWS/rxRDPRI4Vf4Mpjx1CtRdqubcbvhE26SCHMXvUWA==", "", true, "01e6c1dc-adea-4270-bdd6-ffcdfbecbcf1", false, "SanchoLeaver", null, null },
+                    { "de7cae6c-f602-4dd3-802d-76e48456957a", 0, 0, "0ef16730-721a-4106-bbe6-f7d600eb4db4", "VladBlack20@mail.ru", true, false, null, "VladBlack20@mail.ru", "VladBlack", "AQAAAAIAAYagAAAAEFydVXew/lUrBMUm1cX+pXmUZRtnCuENb/ETG4gilgqi7HtuggNOzHBMBzah8kyjyw==", "", true, "df45db37-7345-460c-8dd9-8c98942bc2a2", false, "VladBlack", null, null },
+                    { "faf27c3e-d598-4215-9e8b-015e5bca9907", 0, 0, "1037eb36-cb46-4e54-bb83-5ce1af400a01", "VladBalkar20@mail.ru", true, false, null, "VladBalkar20@mail.ru", "VladBalkar", "AQAAAAIAAYagAAAAEOEr6avF3dhQEx4jw9n14wDs9sL93RQ8doEGXiJjRNPbDKhF1wCdf4jjETiB/W6OMQ==", "", true, "12d65610-0eff-4b0b-82fb-819829828d31", false, "VladBalkar", null, null },
+                    { "fd737bec-bb0a-4f97-975b-4f88fd34a3ad", 0, 0, "2092b347-0fea-4b69-8c08-377b1569687b", "AdrewRojer20@mail.ru", true, false, null, "AdrewRojer20@mail.ru", "AdrewRojer", "AQAAAAIAAYagAAAAENtR0j8kudtA5M0nuZhrOCbjtEexnuDtV9Kd4OfjlfuX1ZWsru01Sn704hFyAFinDg==", "", true, "9409818e-85c7-4169-85de-fe341e04f19d", false, "AdrewRojer", null, null }
                 });
 
             migrationBuilder.InsertData(

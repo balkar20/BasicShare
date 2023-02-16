@@ -41,7 +41,8 @@ public class AuthService: IAuthService
         
             p.Id,
             p.AmountOfPoops,
-            p.UserName
+            p.UserName,
+            p.Image
         ))?.ToList();
 
         return poopers;
@@ -95,6 +96,7 @@ public class AuthService: IAuthService
         {
             user.UserName = pooperModel.PooperAlias;
             user.AmountOfPoops = pooperModel.AmountOfPoops;
+            user.Image = pooperModel.Image;
             await _userManager.UpdateAsync(user);
             responce.IsSuccess = true;
         }
