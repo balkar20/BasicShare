@@ -15,7 +15,8 @@ namespace IdentityDb.Configuration
             "NastyaKareva",
             "NastyaBocharnikova",
             "AdrewRojer",
-            "SanchoLeaver"
+            "SanchoLeaver",
+            "GregorPiha",
         };
 
         public List<UserEntity> Users { get; set; } = new List<UserEntity>();
@@ -29,19 +30,21 @@ namespace IdentityDb.Configuration
                 {
                     UserName = poppName,
                     Email = $"{poppName}20@mail.ru",
-                    NormalizedEmail = $"{poppName}20@mail.ru",
-                    NormalizedUserName = poppName,
+                    NormalizedEmail = $"{poppName}20@mail.ru".ToUpper(),
+                    NormalizedUserName = poppName.ToUpper(),
                     // todo sms to number
                     PhoneNumber = "",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
-                    SecurityStamp = Guid.NewGuid().ToString("D")
+                    SecurityStamp = Guid.NewGuid().ToString("D"),
+                    Description = "I am a pooper! Poo poo poo!!!"
                 };
 
                 var password = new PasswordHasher<UserEntity>();
                 var hashed = password.HashPassword(pooper, "default");
                 pooper.PasswordHash = hashed;
-
+              
+                
                 builder.HasData(pooper);
                 Users.Add(pooper);
             }

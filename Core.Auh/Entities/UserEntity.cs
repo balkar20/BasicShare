@@ -9,5 +9,7 @@ namespace Core.Auh.Entities
         public int? Year { get; set; }
         
         public int AmountOfPoops { get; set; }
+        
+        public string? Description { get; set; }
     }
 }

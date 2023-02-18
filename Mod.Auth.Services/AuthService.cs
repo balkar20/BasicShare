@@ -41,7 +41,8 @@ public class AuthService: IAuthService
         
             p.Id,
             p.AmountOfPoops,
-            p.UserName
+            p.UserName,
+            p.Description
         ))?.ToList();
 
         return poopers;

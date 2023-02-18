@@ -1,4 +1,6 @@
 using Blazored.LocalStorage;
+using ClientLibrary.Interfaces;
+using ClientLibrary.Services;
 using IdentityProvider.Client;
 using IdentityProvider.Client.ViewModels;
 using IdentityProvider.Client.ViewModels.Inerfaces;
@@ -19,10 +21,16 @@ services.AddBlazoredLocalStorage();
 services.AddAuthorizationCore();
 services.AddScoped<AuthStateProvider>();
 services.AddMudServices();
-services.AddScoped<IPooperViewModel, PooperVM>();
-//services.AddScoped<TokenProvider>();
+
+var mvvmViewModel = new BaseMvvmViewModel<string, PooperViewModel>();
+mvvmViewModel.DataApiString = "api/pooper";
+mvvmViewModel.DataListApiString = "api/poopers";
+services.AddSingleton<IBaseMvvmViewModel<string, PooperViewModel>>( o => mvvmViewModel);
+services.AddSingleton<IBaseCrudService<PooperViewModel, string>, BaseCrudService<PooperViewModel, string>>();
+// services.AddSingleton<IPooperViewModel, PooperVM>();
+// services.AddScoped<TokenProvider>();
 
 services.AddScoped<AuthenticationStateProvider>( o => o.GetRequiredService<AuthStateProvider>());
 
-services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 await builder.Build().RunAsync();

@@ -28,8 +28,6 @@ public static class StartupHelper
     private static string str;
     public static void Configure(WebApplication app)
     {
-        //app.UseMiddleware<ErrorHandlerMiddleware>();
-        
         app.UseEndpointDefinitions();
         app.UseMiddleware<ErrorHandlerMiddleware>();
         
@@ -124,9 +122,9 @@ public static class StartupHelper
         });
 
         services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
-        //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-        //services.AddScoped<IAuthRepository, AuthRepository>();
+        // services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 

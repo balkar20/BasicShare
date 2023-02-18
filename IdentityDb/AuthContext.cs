@@ -1,4 +1,5 @@
-﻿using Core.Auh.Entities;
+﻿using System.Security.Claims;
+using Core.Auh.Entities;
 using Core.Auh.Enums;
 using Core.Base.DataBase.Entities;
 using IdentityDb.Configuration;
@@ -20,27 +21,38 @@ namespace Data.IdentityDb
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            //todo:  decompose logic from user to pooper
             builder.Entity<PooperEntity>().ToTable("Poopers");
             builder.Entity<PooperEntity>().HasOne<UserEntity>();
+            
             var userManager = Database.GetService<UserManager<UserEntity>>();
             var roleManager = Database.GetService<RoleManager<IdentityRole>>();
             var roleConfig = new RoleConfiguration();
             var userConfig = new UserConfiguration();
+            
+            var types = Enum.GetNames(typeof(UserClaimEnum));
+            var claims = new List<Claim>();
 
-            builder.ApplyConfiguration(roleConfig);
+            
+                claims.AddRange(types.Select(t => new Claim("PooperClaim", t)));
+
+                builder.ApplyConfiguration(roleConfig);
             builder.ApplyConfiguration(userConfig);
             
             var adminRoleId = roleConfig.Roles.First(r => r.Name == UserRolesEnum.Administrator.ToString()).Id;
             var pooperRoleId = roleConfig.Roles.First(r => r.Name == UserRolesEnum.Pooper.ToString()).Id;
             var userRoleDictionary = new Dictionary<string, string>();
-            foreach (var userConfigUser in userConfig.Users)
+            
+            foreach (var userEntity in userConfig.Users)
             {
-                if (userConfigUser.UserName.Contains("Balkar"))
+                if (userEntity.UserName.Contains("Balkar"))
                 {
-                    userRoleDictionary.Add(userConfigUser.Id, adminRoleId);
+                    userRoleDictionary.Add(userEntity.Id, adminRoleId);
                     continue;
                 }
-                else if (userConfigUser.UserName != null) userRoleDictionary.Add(userConfigUser.Id, pooperRoleId);
+                else if (userEntity.UserName != null) userRoleDictionary.Add(userEntity.Id, pooperRoleId);
+
+                userManager.AddClaimsAsync(userEntity, claims);
 
             }
 
