@@ -6,7 +6,6 @@ using System.Text;
 using ClientLibrary.Components;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Services;
-using Core.Transfer;
 using IdentityProvider.Client.Components;
 using IdentityProvider.Client.ViewModels.Inerfaces;
 using Microsoft.AspNetCore.Components.Forms;
@@ -15,7 +14,8 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using MudBlazor;
-
+using System;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 namespace IdentityProvider.Client.Pages
 {
@@ -50,9 +50,6 @@ namespace IdentityProvider.Client.Pages
             PooperViewModel.Data = pooperViewModel;
             DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
 
-            // var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            // var user = authState.User;
-            //
             DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);
         }
         
@@ -129,24 +126,6 @@ namespace IdentityProvider.Client.Pages
         {
             PooperViewModel.PropertyChanged -= OnPropertyChangedHandler;
         }
-        
-        // private async Task GetClaimsPrincipalData()
-        // {
-        //     var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        //     var user = authState.User;
-        //
-        //     if (user.Identity.IsAuthenticated)
-        //     {
-        //         authMessage = $"{user.Identity.Name} is authenticated.";
-        //         claims = user.Claims;
-        //         surnameMessage =
-        //             $"Role: {user.FindFirst(c => c.Type == ClaimTypes.Role)?.Value}";
-        //     }
-        //     else
-        //     {
-        //         authMessage = "The user is NOT authenticated.";
-        //     }
-        // }
     }
 
 }

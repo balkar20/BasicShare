@@ -1,6 +1,4 @@
 using Blazored.LocalStorage;
-using ClientLibrary.Interfaces;
-using ClientLibrary.Services;
 using IdentityProvider.Client;
 using IdentityProvider.Client.ViewModels;
 using IdentityProvider.Client.ViewModels.Inerfaces;

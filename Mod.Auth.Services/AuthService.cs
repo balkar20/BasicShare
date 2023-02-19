@@ -58,6 +58,7 @@ public class AuthService: IAuthService
                     user.Id,
                     user.AmountOfPoops,
                     user.UserName,
+                    user.Image,
                     user.Description,
                     user.Claims.Select(c => c.ClaimValue).ToList()
                 ))
@@ -79,54 +80,6 @@ public class AuthService: IAuthService
 
         return users;
     }
-    
-    // public async Task<List<UserWithClaimsAndRoles>> GetUsersWithClaimsAndRolesAsync()
-    // {
-    //     var result = new List<UserWithClaimsAndRoles>();
-    //
-    //     foreach (var user in _userManager.Users)
-    //     {
-    //         var claims = await _userManager.GetClaimsAsync(user);
-    //         var roles = await _userManager.GetRolesAsync(user);
-    //
-    //         result.Add(new UserWithClaimsAndRoles
-    //         {
-    //             UserId = user.Id,
-    //             Claims = claims.Select(c => c.Value).ToList(),
-    //             Roles = roles.ToList()
-    //         });
-    //     }
-    //
-    //     return result;
-    // }
-    //
-    // public async Task<List<UserWithClaimsAndRoles>> OOO()
-    // {
-    //     var result = new List<UserWithClaimsAndRoles>();
-    //
-    //     using (var context = _userManager)
-    //     {
-    //         var users = await context.Set<IdentityUser>()
-    //             .Include(u => u.Claims)
-    //             .Include(u => u.Roles)
-    //             .ToListAsync();
-    //
-    //         foreach (var user in users)
-    //         {
-    //             var claims = user.Claims.Select(c => c.Value).ToList();
-    //             var roles = await _userManager.GetRolesAsync(user);
-    //
-    //             result.Add(new UserWithClaimsAndRoles
-    //             {
-    //                 UserId = user.Id,
-    //                 Claims = claims,
-    //                 Roles = roles.ToList()
-    //             });
-    //         }
-    //     }
-    //
-    //     return result;
-    // }
 
     public async Task<LoginResponseModel> LogIn(LoginModel userForAuthentication)
     {
@@ -176,6 +129,7 @@ public class AuthService: IAuthService
         {
             user.UserName = pooperModel.PooperAlias;
             user.AmountOfPoops = pooperModel.AmountOfPoops;
+            user.Image = pooperModel.Image;
             await _userManager.UpdateAsync(user);
             responce.IsSuccess = true;
         }
@@ -221,10 +175,4 @@ public class AuthService: IAuthService
 
         return tokenOptions;
     }
-}
-public class UserWithClaimsAndRoles
-{
-    public string UserId { get; set; }
-    public IList<string> Claims { get; set; }
-    public IList<string> Roles { get; set; }
 }

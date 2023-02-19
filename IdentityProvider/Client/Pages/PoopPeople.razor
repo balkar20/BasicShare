@@ -54,7 +54,14 @@ else
                                                                 </AuthorizeView>
                             </CardHeaderActions>
                         </MudCardHeader>
-                        <MudCardMedia Image="poop.svg.png" />
+                        @if (pooper.Image != null)
+                        {
+                            <MudCardMedia Image="@pooper.Image" />
+                        }
+                        else
+                        {
+                            <MudCardMedia Image="poop.svg.png" />
+                        }                       
                         <MudCardContent>
                             <MudText Typo="Typo.body2">@pooper.Description</MudText>
                         </MudCardContent>
