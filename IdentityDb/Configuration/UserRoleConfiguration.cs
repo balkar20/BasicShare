@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Core.Auh.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
@@ -21,6 +22,7 @@ namespace IdentityDb.Configuration
 
         public void Configure(EntityTypeBuilder<IdentityUserRole<string>> builder)
         {
+            // builder.Has;
             builder.HasData(identityUserRoles);
         }
     }

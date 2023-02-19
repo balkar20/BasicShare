@@ -11,5 +11,11 @@ namespace Core.Auh.Entities
         public int AmountOfPoops { get; set; }
         
         public string? Description { get; set; }
+
+        public IQueryable<IdentityUserClaim<string>> Claims { get; set; }
+
+        public IQueryable<IdentityUserRole<string>> Roles { get; set; }
+        //
+        // public List<IdentityUserRole<string>>? Roles { get; set; }
     }
 }

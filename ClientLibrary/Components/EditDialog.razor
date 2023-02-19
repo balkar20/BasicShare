@@ -61,23 +61,5 @@
 
     void Submit() => MudDialog.Close(DialogResult.Ok(true));
     void Cancel() => MudDialog.Cancel();
-    
-    private async Task GetClaimsPrincipalData()
-    {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-        var user = authState.User;
-
-        if (user.Identity.IsAuthenticated)
-        {
-            authMessage = $"{user.Identity.Name} is authenticated.";
-            claims = user.Claims;
-            surnameMessage =
-                $"Role: {user.FindFirst(c => c.Type == ClaimTypes.Role)?.Value}";
-        }
-        else
-        {
-            authMessage = "The user is NOT authenticated.";
-        }
-    }
 }
 

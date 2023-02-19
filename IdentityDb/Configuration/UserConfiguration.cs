@@ -22,8 +22,6 @@ namespace IdentityDb.Configuration
         public List<UserEntity> Users { get; set; } = new List<UserEntity>();
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
-            
-            
             foreach (var poppName in poppNames)
             {
                 var pooper = new UserEntity
@@ -43,8 +41,10 @@ namespace IdentityDb.Configuration
                 var password = new PasswordHasher<UserEntity>();
                 var hashed = password.HashPassword(pooper, "default");
                 pooper.PasswordHash = hashed;
-              
-                
+
+
+                builder.HasMany(r => r.Claims);
+                builder.HasMany(r => r.Roles);
                 builder.HasData(pooper);
                 Users.Add(pooper);
             }

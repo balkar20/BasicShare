@@ -50,6 +50,9 @@ namespace IdentityProvider.Client.Pages
             PooperViewModel.Data = pooperViewModel;
             DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
 
+            // var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            // var user = authState.User;
+            //
             DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);
         }
         
@@ -127,23 +130,23 @@ namespace IdentityProvider.Client.Pages
             PooperViewModel.PropertyChanged -= OnPropertyChangedHandler;
         }
         
-        private async Task GetClaimsPrincipalData()
-        {
-            var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            var user = authState.User;
-
-            if (user.Identity.IsAuthenticated)
-            {
-                authMessage = $"{user.Identity.Name} is authenticated.";
-                claims = user.Claims;
-                surnameMessage =
-                    $"Role: {user.FindFirst(c => c.Type == ClaimTypes.Role)?.Value}";
-            }
-            else
-            {
-                authMessage = "The user is NOT authenticated.";
-            }
-        }
+        // private async Task GetClaimsPrincipalData()
+        // {
+        //     var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        //     var user = authState.User;
+        //
+        //     if (user.Identity.IsAuthenticated)
+        //     {
+        //         authMessage = $"{user.Identity.Name} is authenticated.";
+        //         claims = user.Claims;
+        //         surnameMessage =
+        //             $"Role: {user.FindFirst(c => c.Type == ClaimTypes.Role)?.Value}";
+        //     }
+        //     else
+        //     {
+        //         authMessage = "The user is NOT authenticated.";
+        //     }
+        // }
     }
 
 }

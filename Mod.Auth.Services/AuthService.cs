@@ -11,7 +11,10 @@ using System.IdentityModel.Tokens.Jwt;
 using Microsoft.IdentityModel.Tokens;
 using Core.Auh.Enums;
 using Core.Transfer;
+using Data.IdentityDb;
 using Microsoft.AspNetCore.Hosting.StaticWebAssets;
+using Microsoft.EntityFrameworkCore;
+using StackExchange.Redis;
 
 namespace Mod.Auth.Base.Repositories;
 
@@ -21,32 +24,109 @@ public class AuthService: IAuthService
     private readonly ILogger _logger;
     private SignInManager<UserEntity> _signManager;
     private UserManager<UserEntity> _userManager;
+    private RoleManager<IdentityRole> _roleManager;
+    private ApplicationContext _context;
     private readonly AuthConfiguration _configuration;
 
 
     public AuthService(
         ILogger logger,
         IOptions<AuthConfiguration> options,
-        UserManager<UserEntity> userManager)
+        UserManager<UserEntity> userManager,
+        RoleManager<IdentityRole> roleManager,
+        ApplicationContext context)
     {
         _logger = logger;
         _configuration = options.Value;
         _userManager = userManager;
+        _roleManager = roleManager;
+        _context = context;
     }
 
     public async Task<List<PooperModel>> GetAllPoopers()
     {
-        var users = await _userManager.GetUsersInRoleAsync("Pooper");
-        var poopers = users?.Select(p => new PooperModel(
+        // var users = await _userManager.GetUsersInRoleAsync("Pooper");
         
-            p.Id,
-            p.AmountOfPoops,
-            p.UserName,
-            p.Description
-        ))?.ToList();
+        // var pooperRole = _roleManager.Roles.Where(r => r.Name == UserRolesEnum.Pooper.ToString()).SingleOrDefault();
+        // var users = await _userManager.GetUsersInRoleAsync("Pooper");
+        
+        var users = await (from user in _context.Users
+                join userRoles in _context.UserRoles on user.Id equals userRoles.UserId
+                join role in _context.Roles on userRoles.RoleId equals role.Id
+                join userClaims  in _context.UserClaims on user.Id equals userClaims.UserId
+                select new PooperModel(
+                    user.Id,
+                    user.AmountOfPoops,
+                    user.UserName,
+                    user.Description,
+                    user.Claims.Select(c => c.ClaimValue).ToList()
+                ))
+            .ToListAsync();
+        // var users = await _userManager.Users
+        //     .Include(x => x.Claims)
+        //     .Include(x => x.Roles)
+        //     .ThenInclude(r => r.)
+        //     .ToListAsync();
+        // var users = await _userManager.GetUsersInRoleAsync(UserRolesEnum.Pooper.ToString());
+        // var poopers = users?.Select(p => new PooperModel(
+        //
+        //     p.Id,
+        //     p.AmountOfPoops,
+        //     p.UserName,
+        //     p.Description,
+        //     p.Claims == null ? new List<string>() : p.Claims.Select(c => c.ClaimValue).ToList()
+        // ))?.ToList();
 
-        return poopers;
+        return users;
     }
+    
+    // public async Task<List<UserWithClaimsAndRoles>> GetUsersWithClaimsAndRolesAsync()
+    // {
+    //     var result = new List<UserWithClaimsAndRoles>();
+    //
+    //     foreach (var user in _userManager.Users)
+    //     {
+    //         var claims = await _userManager.GetClaimsAsync(user);
+    //         var roles = await _userManager.GetRolesAsync(user);
+    //
+    //         result.Add(new UserWithClaimsAndRoles
+    //         {
+    //             UserId = user.Id,
+    //             Claims = claims.Select(c => c.Value).ToList(),
+    //             Roles = roles.ToList()
+    //         });
+    //     }
+    //
+    //     return result;
+    // }
+    //
+    // public async Task<List<UserWithClaimsAndRoles>> OOO()
+    // {
+    //     var result = new List<UserWithClaimsAndRoles>();
+    //
+    //     using (var context = _userManager)
+    //     {
+    //         var users = await context.Set<IdentityUser>()
+    //             .Include(u => u.Claims)
+    //             .Include(u => u.Roles)
+    //             .ToListAsync();
+    //
+    //         foreach (var user in users)
+    //         {
+    //             var claims = user.Claims.Select(c => c.Value).ToList();
+    //             var roles = await _userManager.GetRolesAsync(user);
+    //
+    //             result.Add(new UserWithClaimsAndRoles
+    //             {
+    //                 UserId = user.Id,
+    //                 Claims = claims,
+    //                 Roles = roles.ToList()
+    //             });
+    //         }
+    //     }
+    //
+    //     return result;
+    // }
 
     public async Task<LoginResponseModel> LogIn(LoginModel userForAuthentication)
     {
@@ -141,4 +221,10 @@ public class AuthService: IAuthService
 
         return tokenOptions;
     }
+}
+public class UserWithClaimsAndRoles
+{
+    public string UserId { get; set; }
+    public IList<string> Claims { get; set; }
+    public IList<string> Roles { get; set; }
 }

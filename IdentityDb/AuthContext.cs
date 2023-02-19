@@ -31,17 +31,17 @@ namespace Data.IdentityDb
             var userConfig = new UserConfiguration();
             
             var types = Enum.GetNames(typeof(UserClaimEnum));
-            var claims = new List<Claim>();
-
             
-                claims.AddRange(types.Select(t => new Claim("PooperClaim", t)));
+            var claims = new List<Claim>();
+            claims.AddRange(types.Select(t => new Claim("PooperClaim", t)));
 
-                builder.ApplyConfiguration(roleConfig);
+            builder.ApplyConfiguration(roleConfig);
             builder.ApplyConfiguration(userConfig);
             
             var adminRoleId = roleConfig.Roles.First(r => r.Name == UserRolesEnum.Administrator.ToString()).Id;
             var pooperRoleId = roleConfig.Roles.First(r => r.Name == UserRolesEnum.Pooper.ToString()).Id;
             var userRoleDictionary = new Dictionary<string, string>();
+            var userClaimsDictionary = new Dictionary<string, List<Claim>>();
             
             foreach (var userEntity in userConfig.Users)
             {
@@ -50,15 +50,17 @@ namespace Data.IdentityDb
                     userRoleDictionary.Add(userEntity.Id, adminRoleId);
                     continue;
                 }
-                else if (userEntity.UserName != null) userRoleDictionary.Add(userEntity.Id, pooperRoleId);
-
-                userManager.AddClaimsAsync(userEntity, claims);
-
+                else if (userEntity.UserName != null)
+                {
+                    userRoleDictionary.Add(userEntity.Id, pooperRoleId);
+                    userClaimsDictionary.Add(userEntity.Id, claims);
+                }
             }
 
             var userRoleConfig = new UserRoleConfiguration(userRoleDictionary);
             builder.ApplyConfiguration(userRoleConfig);
-
+            var userClaimConfig = new UserClaimConfiguration(userClaimsDictionary);
+            builder.ApplyConfiguration(userClaimConfig);
             base.OnModelCreating(builder);
         }
     }
