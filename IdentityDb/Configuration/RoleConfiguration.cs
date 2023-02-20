@@ -25,6 +25,7 @@ namespace IdentityDb.Configuration
 
         public void Configure(EntityTypeBuilder<IdentityRole> builder)
         {
+            
             builder.HasData(Roles);
         }
     }

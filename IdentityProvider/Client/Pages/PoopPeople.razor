@@ -1,8 +1,11 @@
 ﻿@page "/"
 @using IdentityProvider.Client.ViewModels.Inerfaces
 @using IdentityProvider.Client.Components
+@using IdentityProvider.Shared
+@using ClientLibrary.Services
+@using ClientLibrary.Interfaces
 
-@inject IPooperViewModel ViewModel
+@inject IBaseMvvmViewModel<string, PooperViewModel> ViewModel
 
 <h3>PoopPeople</h3>
 
@@ -20,7 +23,7 @@ else
     <h3>Pooper Grid</h3>
     <CascadingValue Value=@ViewModel Name="ViewModel">
         <MudGrid>
-            @foreach (var pooper in ViewModel.PooperList)
+            @foreach (var pooper in ViewModel.DataList)
             {
                 <MudItem Style="width: 70vh;">
                     <MudCard>
@@ -33,12 +36,34 @@ else
                                 <MudText Typo="Typo.body2">@pooper.AmountOfPoops</MudText>
                             </CardHeaderContent>
                             <CardHeaderActions>
-                                <MudIconButton OnClick="@(()=> OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark" />
+                                <AuthorizeView Roles="Administrator">
+                                    <Authorized>
+                                        <MudIconButton OnClick="@(() => OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark"/>
+                                    </Authorized>
+                                    @* <NotAuthorized> *@
+                                    @*      *@
+                                    @* </NotAuthorized> *@
+                                </AuthorizeView>
+                                <AuthorizeView Roles="Pooper">
+                                    <Authorized>
+                                        <MudText Typo="Typo.body2">Fucking Poo</MudText>
+                                    </Authorized>
+                                    @* <NotAuthorized> *@
+                                    @*      *@
+                                    @* </NotAuthorized> *@
+                                </AuthorizeView>
                             </CardHeaderActions>
                         </MudCardHeader>
-                        <MudCardMedia Image="poop.svg.png" />
+                        @if (pooper.Image != null)
+                        {
+                            <MudCardMedia Image="@pooper.Image" />
+                        }
+                        else
+                        {
+                            <MudCardMedia Image="poop.svg.png" />
+                        }                       
                         <MudCardContent>
-                            <MudText Typo="Typo.body2">I am pooper! poo poo poo !!!!!!!!!</MudText>
+                            <MudText Typo="Typo.body2">@pooper.Description</MudText>
                         </MudCardContent>
                         <MudCardActions>
                             <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />

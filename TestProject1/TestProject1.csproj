@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Core.Auh\Core.Auh.csproj" />
       <ProjectReference Include="..\IdentityProvider\Shared\IdentityProvider.Shared.csproj" />
     </ItemGroup>
 
