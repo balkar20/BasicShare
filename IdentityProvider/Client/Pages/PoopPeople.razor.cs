@@ -84,7 +84,7 @@ namespace IdentityProvider.Client.Pages
         protected override async Task OnInitializedAsync()
         {
             ViewModel.IsBusy = true;
-             var response = await CrudService.GetModelListAsync();
+             var response = await CrudService.GetModelListAsync().ConfigureAwait(false);
              if (response.IsSuccess)
              {
                  ViewModel.DataList = response.Data;

@@ -7,6 +7,7 @@
 @inject AuthStateProvider AuthenticationStateProvider
 
 @inject IBaseCrudService<PooperViewModel, string> CrudService;
+@* @ViewModel = CrudService.BaseMvvmViewModel; *@
 
 <MudDialog>
     <DialogContent>
@@ -20,11 +21,19 @@
             <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Pooper Saved!</MudAlert>
         }
         
-        @* <MudIcon  Icon="@Icons.Material.Outlined.DoneOutline" Color="Color.Success">Pooper Saved</MudIcon> *@
-        @* <MudIcon @ref="Oopoo" hidden="true" Icon="@Icons.Material.Outlined.Error" Color="Color.Error">Error saving pooper</MudIcon> *@
-        <MudTextField T="string" Label="Name" @bind-Value="CrudService.BaseMvvmViewModel.Data.PooperAlias" @bind-Text="CrudService.BaseMvvmViewModel.Data.PooperAlias"></MudTextField>
-        <MudTextField T="string" Label="Name" @bind-Value="CrudService.BaseMvvmViewModel.Data.Description" @bind-Text="CrudService.BaseMvvmViewModel.Data.Description"></MudTextField>
-        <MudNumericField T="int" Label="Name" @bind-Value="CrudService.BaseMvvmViewModel.Data.AmountOfPoops"></MudNumericField>
+        <MudImage Src="@imgHash"  />
+        <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Data.PooperAlias" @bind-Text="CrudService.BaseMvvmViewModel.Data.PooperAlias"></MudTextField>
+        <MudTextField  T="string" Label="Name" @bind-Value="ViewModel.Data.Description" @bind-Text="CrudService.BaseMvvmViewModel.Data.Description"></MudTextField>
+        <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Data.AmountOfPoops"></MudNumericField>
+
+        <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync">
+            <ButtonTemplate>
+                <MudFab HtmlTag="label"
+                        Color="Color.Success"
+                        Icon="@Icons.Material.Filled.Upload"
+                        for="@context"/>
+            </ButtonTemplate>
+        </MudFileUpload>
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>
@@ -37,13 +46,18 @@
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
     private bool _showSavedAlert = false;
     private bool _showErrorAlert = false;
+
+    public IBaseMvvmViewModel<string, PooperViewModel> ViewModel { get; set; }
     
     private string authMessage;
     private string surnameMessage;
     private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
+    
+    private string imgHash = string.Empty;
 
     async Task SavePooper()
     {
+        ViewModel.Data.Image = imgHash;
         var result = await CrudService.UpdateModelAsync();
         if (result.IsSuccess)
         {
@@ -61,5 +75,20 @@
 
     void Submit() => MudDialog.Close(DialogResult.Ok(true));
     void Cancel() => MudDialog.Cancel();
+    
+    private async Task UploadFilesAsync(IBrowserFile file)
+    {
+        var buffers = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(buffers);
+        string imageType = file.ContentType;
+        imgHash = $"data:{imageType};base64,{Convert.ToBase64String(buffers)}";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ViewModel = CrudService.BaseMvvmViewModel;
+        await Task.CompletedTask;
+    }
+
 }
 

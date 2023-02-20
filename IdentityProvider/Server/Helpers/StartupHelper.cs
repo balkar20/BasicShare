@@ -87,7 +87,10 @@ public static class StartupHelper
         services.Configure<AuthConfiguration>(
             authConfiguration);
         services.AddDbContext<DbContext, ApplicationContext>(options =>
-    options.UseNpgsql(configuration.GetConnectionString("sqlConnection")));
+        {
+            options.UseNpgsql(configuration.GetConnectionString("sqlConnection"));
+        });
+    
         services.AddIdentity<UserEntity, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationContext>();
         services.AddAuthentication(opt =>

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Security.Claims;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using AutoMapper;
 using Microsoft.IdentityModel.Tokens;
 using Core.Auh.Enums;
 using Core.Transfer;
@@ -27,6 +28,7 @@ public class AuthService: IAuthService
     private RoleManager<IdentityRole> _roleManager;
     private ApplicationContext _context;
     private readonly AuthConfiguration _configuration;
+    private readonly IMapper _mapper;
 
 
     public AuthService(
@@ -34,13 +36,14 @@ public class AuthService: IAuthService
         IOptions<AuthConfiguration> options,
         UserManager<UserEntity> userManager,
         RoleManager<IdentityRole> roleManager,
-        ApplicationContext context)
+        ApplicationContext context, IMapper mapper)
     {
         _logger = logger;
         _configuration = options.Value;
         _userManager = userManager;
         _roleManager = roleManager;
         _context = context;
+        _mapper = mapper;
     }
 
     public async Task<List<PooperModel>> GetAllPoopers()
@@ -50,35 +53,65 @@ public class AuthService: IAuthService
         // var pooperRole = _roleManager.Roles.Where(r => r.Name == UserRolesEnum.Pooper.ToString()).SingleOrDefault();
         // var users = await _userManager.GetUsersInRoleAsync("Pooper");
         
-        var users = await (from user in _context.Users
-                join userRoles in _context.UserRoles on user.Id equals userRoles.UserId
-                join role in _context.Roles on userRoles.RoleId equals role.Id
-                join userClaims  in _context.UserClaims on user.Id equals userClaims.UserId
-                select new PooperModel(
-                    user.Id,
-                    user.AmountOfPoops,
-                    user.UserName,
-                    user.Image,
-                    user.Description,
-                    user.Claims.Select(c => c.ClaimValue).ToList()
-                ))
-            .ToListAsync();
-        // var users = await _userManager.Users
-        //     .Include(x => x.Claims)
-        //     .Include(x => x.Roles)
-        //     .ThenInclude(r => r.)
-        //     .ToListAsync();
+        // var role = await _roleManager.Roles
+        //     .Where(u => string.Equals(u.Name, UserRolesEnum.Pooper.ToString()))
+        //     .SingleOrDefaultAsync();
+        
+            // var usersWithClaims = (from user in _context.Users
+            //     join userClaim in _context.UserClaims on user.Id equals userClaim.UserId 
+            //     group new {user.Id, userClaim.UserId} 
+            //     by new {user, userClaim.UserId} into g
+            //     select new PooperModel()
+            //     {
+            //         Id = g.Key.user.Id,
+            //         AmountOfPoops = g.Key.user.AmountOfPoops,
+            //         PooperAlias = g.Key.user.UserName,
+            //         Image = g.Key.user.Image,
+            //         Description = g.Key.user.Description,
+            //         Claims = new List<string?>()
+            //     }).ToList();
+                
+        // var users = _context.Users
+        //     .GroupJoin(_context.UserClaims,
+        //         u => u.Id,
+        //         c => c.UserId,
+        //         (u, c) => Tuple.Create(u, c)
+        //     ).SelectMany(
+        //         x => x.Item2.DefaultIfEmpty(),
+        //         (userEntity, claims) => new PooperModel(
+        //             userEntity.Item1.Id,
+        //             userEntity.Item1.AmountOfPoops,
+        //             userEntity.Item1.UserName,
+        //             userEntity.Item1.Image,
+        //             userEntity.Item1.Description,
+        //             userEntity.Item2.Select(cl => cl.ClaimValue).ToList()
+        //         ))
         // var users = await _userManager.GetUsersInRoleAsync(UserRolesEnum.Pooper.ToString());
         // var poopers = users?.Select(p => new PooperModel(
         //
         //     p.Id,
         //     p.AmountOfPoops,
         //     p.UserName,
+        //     p.Image,
         //     p.Description,
-        //     p.Claims == null ? new List<string>() : p.Claims.Select(c => c.ClaimValue).ToList()
+        //     new List<string>()
         // ))?.ToList();
+        
+        var usersWithClaims = await _context.Users.GroupJoin(
+            _context.UserClaims,
+            u => u.Id,
+            c => c.UserId,
+            (u, cl) => new PooperModel()
+            {
+                Id = u.Id,
+                AmountOfPoops = u.AmountOfPoops,
+                PooperAlias = u.UserName,
+                Description = u.Description,
+                Image = u.Image,
+                Claims = cl.Select(c => c.ClaimValue).ToList()
+            }).ToListAsync();
 
-        return users;
+        return usersWithClaims;
     }
 
     public async Task<LoginResponseModel> LogIn(LoginModel userForAuthentication)

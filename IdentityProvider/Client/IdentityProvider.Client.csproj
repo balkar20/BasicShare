@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\ClientLibrary\ClientLibrary.csproj" />
+    <ProjectReference Include="..\..\Core.Transfer\Core.Transfer.csproj" />
     <ProjectReference Include="..\..\Mod.Auth.Models\Mod.Auth.Models.csproj" />
     <ProjectReference Include="..\Shared\IdentityProvider.Shared.csproj" />
   </ItemGroup>

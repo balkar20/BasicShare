@@ -20,7 +20,7 @@ public class BaseCrudService<TModel, TContext> : IBaseCrudService<TModel, TConte
 
     public async Task<ResponseResultWithData<List<TModel>>> GetModelListAsync()
     {
-        var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(BaseMvvmViewModel.DataListApiString).ConfigureAwait(false);
+        var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(BaseMvvmViewModel.DataListApiString);
         if (response != null && response.IsSuccess)
         {
             BaseMvvmViewModel.DataList = response.Data;
