@@ -10,6 +10,7 @@ namespace ClientLibrary.Services;
 
 public class AuthenticationService : IAuthenticationService
 {
+    private const string TokenKey = "authToken";
     private readonly ILocalStorageService _localStorage;
     public AuthenticationService(IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> crudService , ILocalStorageService localStorage)
     {
@@ -17,6 +18,7 @@ public class AuthenticationService : IAuthenticationService
         _localStorage = localStorage;
     }
 
+    public bool IsAuthenticated { get; set; }
     public IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> CrudService { get; }
 
     public async Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync(LoginViewModel model)
@@ -24,15 +26,14 @@ public class AuthenticationService : IAuthenticationService
         var loginResult = await CrudService.CreateDataAsync(model);
         if (loginResult.IsSuccess)
         {
-            await _localStorage.SetItemAsync("authToken", loginResult?.Data?.Token);
+            await _localStorage.SetItemAsync(TokenKey, loginResult?.Data?.Token);
         }
 
         return loginResult;
     }
-    
-    public interface IAuthenticationService
-    {
-        
-    }
 
+    public async Task Logout()
+    {
+        await _localStorage.RemoveItemAsync(TokenKey);
+    }
 }

@@ -1,6 +1,6 @@
 @using BaseClientLibrary.Enums
 
-<MudForm  OnValidSubmit="@OnValidSubmit" Model="@_mvvmViewModel.Data" Validation="_loginCrudService.ValidateModelValue" ValidationDelay="0">
+<MudForm  OnValidSubmit="@OnValidSubmit" Model="@_mvvmViewModel.Data" Validation="AuthenticationService.CrudService.ValidateModelValue" ValidationDelay="0">
     <MudTextField @bind-Value="_mvvmViewModel.Data.Email"                              
                   For="@(() => _mvvmViewModel.Data.Email)"
                   Immediate="true"
@@ -9,9 +9,12 @@
                   For="@(() => _mvvmViewModel.Data.Password)"
                   Immediate="true"
                   Label="Name" />
+    <div class="d-flex align-center justify-space-between">
+        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Label="I agree!"/>
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Login</MudButton>
+    </div>
 </MudForm>
-<MudAlert Icon="Icon"></MudAlert>
- <NavLink href="account/register" class="btn btn-link">Register</NavLink>
+<NavLink href="account/register" class="btn btn-link">Register</NavLink>
 @* <EditForm Model="@_mvvmViewModel.Data" OnValidSubmit="OnValidSubmit"> *@
 @*             <DataAnnotationsValidator /> *@
 @*             <div class="form-group"> *@

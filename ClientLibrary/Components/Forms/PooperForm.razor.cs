@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
 using MudBlazor;
 
-namespace ClientLibrary.Components;
+namespace ClientLibrary.Components.Forms;
 
 public partial class PooperForm
 {

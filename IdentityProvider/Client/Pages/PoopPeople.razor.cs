@@ -16,6 +16,7 @@ using Microsoft.AspNetCore.Components.Web;
 using MudBlazor;
 using System;
 using ClientLibrary.Components.Base;
+using ClientLibrary.Components.Dialogs;
 using Core.Transfer;
 
 namespace IdentityProvider.Client.Pages
@@ -45,7 +46,7 @@ namespace IdentityProvider.Client.Pages
             PooperViewModel.Data = pooperViewModel;
             
             DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
-            DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);
+            DialogService.Show<PooperFormDialog>("Edit Pooper", closeOnEscapeKey);
         }
 
         public async Task SetUpPooperClick(MouseEventArgs e)

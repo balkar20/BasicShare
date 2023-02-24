@@ -9,8 +9,13 @@ using IdentityProvider.Shared.Interfaces;
 
 namespace ClientLibrary.Services;
 
-public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: IViewModel
+public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: IViewModel, new()
 {
+    public BaseMvvmViewModel()
+    {
+        Data = new();
+        StatusType = StatusTypes.StatusCanceled;
+    }
 
     public event PropertyChangedEventHandler? PropertyChanged;
     public TData Data { get; set; }
