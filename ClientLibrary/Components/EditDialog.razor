@@ -8,7 +8,6 @@
 @using Core.Transfer
 @inject AuthStateProvider AuthenticationStateProvider
 
-@inject IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService;
 @* @ViewModel = CrudService.BaseMvvmViewModel; *@
 
 <MudDialog>
@@ -30,7 +29,6 @@
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>
-        <MudButton Color="Color.Primary" OnClick="@(async () => await SavePooper())">Save Pooper</MudButton>
     </DialogActions>
 </MudDialog>
 
@@ -38,39 +36,18 @@
 @code {
     [CascadingParameter] MudDialogInstance? MudDialog { get; set; }
 
-    public IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
-
-    private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
-    
-    private string imgHash = string.Empty;
-
-    async Task SavePooper()
-    {
-        ViewModel.Data.Image = imgHash;
-        var result = await CrudService.UpdateModelAsync();
-    }
-    
     private void CloseMe()
     {
-        ViewModel.StatusType = StatusTypes.StatusCanceled;
+        // ViewModel.StatusType = StatusTypes.StatusCanceled;
     }
 
-    void Submit() => MudDialog.Close(DialogResult.Ok(true));
     void Cancel() => MudDialog.Cancel();
-    
-    private async Task UploadFilesAsync(IBrowserFile file)
-    {
-        var buffers = new byte[file.Size];
-        await file.OpenReadStream().ReadAsync(buffers);
-        string imageType = file.ContentType;
-        imgHash = $"data:{imageType};base64,{Convert.ToBase64String(buffers)}";
-    }
 
-    protected override async Task OnInitializedAsync()
-    {
-        ViewModel = CrudService.MvvmViewModel;
-        await Task.CompletedTask;
-    }
+    // protected override async Task OnInitializedAsync()
+    // {
+    //     // ViewModel = CrudService.MvvmViewModel;
+    //     await Task.CompletedTask;
+    // }
 
 }
 

@@ -45,7 +45,7 @@ namespace IdentityProvider.Client.Pages
             PooperViewModel.Data = pooperViewModel;
             
             DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
-            DialogService.Show<PooperForm>("Simple Dialog", closeOnEscapeKey);
+            DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);
         }
 
         public async Task SetUpPooperClick(MouseEventArgs e)
@@ -60,28 +60,28 @@ namespace IdentityProvider.Client.Pages
 
         }
 
-        private async Task SetUpPropertyChangedAsync()
-        {
-            PooperViewModel.PropertyChanged += async (sender, e) => { 
-                await InvokeAsync(() =>
-                {
-                    StateHasChanged();
-                });
-            };
-        }
+        // private async Task SetUpPropertyChangedAsync()
+        // {
+        //     PooperViewModel.PropertyChanged += async (sender, e) => { 
+        //         await InvokeAsync(() =>
+        //         {
+        //             StateHasChanged();
+        //         });
+        //     };
+        // }
         
-        async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
-        {
-            await InvokeAsync(() =>
-            {
-                StateHasChanged();
-            });
-        }
+        // async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        // {
+        //     await InvokeAsync(() =>
+        //     {
+        //         StateHasChanged();
+        //     });
+        // }
 
-        public void Dispose()
-        {
-            PooperViewModel.PropertyChanged -= OnPropertyChangedHandler;
-        }
+        // public void Dispose()
+        // {
+        //     PooperViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        // }
     }
 
 }

@@ -91,8 +91,8 @@ public class Tests
 
         Cooker cooker = new Cooker();
         
-        IAnimal incept = new Incept(AnimalTypes.Incept);
-        IAnimal fish = new Fish(AnimalTypes.Fish);
+        Animal incept = new Incept(AnimalTypes.Incept);
+        Animal fish = new Fish(AnimalTypes.Fish);
 
         // f.ContinueWith((t) => Console.WriteLine("jhjhjh"));
 

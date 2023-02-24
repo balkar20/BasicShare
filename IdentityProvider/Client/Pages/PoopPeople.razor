@@ -55,7 +55,7 @@ else
                                 </AuthorizeView>
                             </CardHeaderActions>
                         </MudCardHeader>
-                        @if (pooper.Image != null)
+                        @if (!string.IsNullOrWhiteSpace(pooper.Image))
                         {
                             <MudCardMedia Image="@pooper.Image" />
                         }

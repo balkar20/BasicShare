@@ -10,15 +10,15 @@ namespace ClientLibrary.Components;
 
 public partial class PooperForm
 {
-    IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> _crudService;
-    public IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
+    [Inject]
+    public IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService{ get; set; }
+
     
-    private string imgHash = string.Empty;
+    public IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
 
     async Task SavePooper()
     {
-        ViewModel.Data.Image = imgHash;
-        var result = await _crudService.UpdateModelAsync();
+        var result = await CrudService.UpdateModelAsync();
     }
     
     private void CloseMe()
@@ -34,12 +34,12 @@ public partial class PooperForm
         var buffers = new byte[file.Size];
         await file.OpenReadStream().ReadAsync(buffers);
         string imageType = file.ContentType;
-        imgHash = $"data:{imageType};base64,{Convert.ToBase64String(buffers)}";
+        ViewModel.Data.Image = $"data:{imageType};base64,{Convert.ToBase64String(buffers)}";
     }
 
     protected override async Task OnInitializedAsync()
     {
-        ViewModel = _crudService.MvvmViewModel;
+        ViewModel = CrudService.MvvmViewModel;
         await Task.CompletedTask;
     }
 }
