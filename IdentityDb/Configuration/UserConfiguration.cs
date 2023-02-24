@@ -15,33 +15,58 @@ namespace IdentityDb.Configuration
             "NastyaKareva",
             "NastyaBocharnikova",
             "AdrewRojer",
-            "SanchoLeaver"
+            "SanchoLeaver",
+            "GregorPiha",
         };
 
         public List<UserEntity> Users { get; set; } = new List<UserEntity>();
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
-            
-            
             foreach (var poppName in poppNames)
             {
                 var pooper = new UserEntity
                 {
                     UserName = poppName,
                     Email = $"{poppName}20@mail.ru",
-                    NormalizedEmail = $"{poppName}20@mail.ru",
-                    NormalizedUserName = poppName,
+                    NormalizedEmail = $"{poppName}20@mail.ru".ToUpper(),
+                    NormalizedUserName = poppName.ToUpper(),
                     // todo sms to number
                     PhoneNumber = "",
                     EmailConfirmed = true,
                     PhoneNumberConfirmed = true,
-                    SecurityStamp = Guid.NewGuid().ToString("D")
+                    SecurityStamp = Guid.NewGuid().ToString("D"),
+                    Description = "I am a pooper! Poo poo poo!!!",
                 };
 
                 var password = new PasswordHasher<UserEntity>();
                 var hashed = password.HashPassword(pooper, "default");
                 pooper.PasswordHash = hashed;
 
+                // Each User can have many UserClaims
+                builder.HasMany(e => e.Claims)
+                    .WithOne()
+                    .HasForeignKey(uc => uc.UserId)
+                    .IsRequired();
+
+                // Each User can have many UserLogins
+                builder.HasMany(e => e.Logins)
+                    .WithOne()
+                    .HasForeignKey(ul => ul.UserId)
+                    .IsRequired();
+
+                // Each User can have many UserTokens
+                builder.HasMany(e => e.Tokens)
+                    .WithOne()
+                    .HasForeignKey(ut => ut.UserId)
+                    .IsRequired();
+                
+                // builder.HasKey(k => k.Id);
+                // builder.Property(b => b.Id).ValueGeneratedOnAdd();
+                // builder
+                //     .HasMany<ClaimEntity>(u => u.Claims)
+                //     .WithOne(o => o.User)
+                //     .HasForeignKey(k => k.UserId);
+                // builder.HasMany(r => r.Roles);
                 builder.HasData(pooper);
                 Users.Add(pooper);
             }

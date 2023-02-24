@@ -1,8 +1,10 @@
-﻿using Data.IdentityDb;
+﻿using System.Security.Claims;
+using Data.IdentityDb;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Core.Auh.Entities;
+using Core.Auh.Enums;
 using Core.Base.DataBase.Entities;
 
 namespace IdentityDb
@@ -51,14 +53,22 @@ namespace IdentityDb
             UserManager<UserEntity> _userManager = serviceProvider.GetService<UserManager<UserEntity>>();
             var roleStore = new RoleStore<IdentityRole>(context);
             var allRoles = roleStore.Roles;
+            var types = Enum.GetNames(typeof(UserClaimEnum));
+            var claims = new List<Claim>();
+            
+            foreach (var type in types)
+            {
+                claims.Add(new Claim("PoopClaim", type));
+            }
+            
             foreach (var poppName in poppNames)
             {
                 var pooper = new UserEntity
                 {
                     UserName = poppName,
                     Email = $"{poppName}20@mail.ru",
-                    NormalizedEmail = $"{poppName}20@mail.ru",
-                    NormalizedUserName = poppName,
+                    NormalizedEmail = $"{poppName}20@mail.ru".ToUpper(),
+                    NormalizedUserName = poppName.ToUpper(),
                     // todo sms to number
                     PhoneNumber = "",
                     EmailConfirmed = true,
@@ -71,22 +81,17 @@ namespace IdentityDb
                 pooper.PasswordHash = hashed;
 
                 var userStore = new UserStore<UserEntity>(context);
-
+                
                 var result = await _userManager.CreateAsync(pooper);
 
                 if (pooper.UserName.Contains("Balkar"))
                 {
-                    await AssignRoles(serviceProvider, context, pooper.Email, new[] { "ADMINISTRATOR" });
+                    await AssignRoles(serviceProvider, context, pooper.Email, new[] {  UserRolesEnum.Administrator.ToString() });
                     continue;
                 }
 
-                await AssignRoles(serviceProvider, context, pooper.Email, new[] { "pooper" });
-
-                // context.Poopers.AddAsync(new PooperEntity()
-                // {
-                //     Description = "I am a pooper - poo poo poo !!!!",
-                //     AmountOfPoops = 10
-                // });
+                await _userManager.AddClaimsAsync(pooper, claims);
+                await AssignRoles(serviceProvider, context, pooper.Email, new[] { UserRolesEnum.Pooper.ToString() });
             }
         }
         

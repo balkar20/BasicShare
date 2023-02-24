@@ -1,0 +1,94 @@
+﻿
+@using ClientLibrary.Services
+@using IdentityProvider.Shared
+@using Microsoft.AspNetCore.Components
+@using ClientLibrary.Interfaces
+@using System.Security.Claims
+@inject AuthStateProvider AuthenticationStateProvider
+
+@inject IBaseCrudService<PooperViewModel, string> CrudService;
+@* @ViewModel = CrudService.BaseMvvmViewModel; *@
+
+<MudDialog>
+    <DialogContent>
+
+        @if (_showErrorAlert)
+        {
+            <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Error saving pooper!</MudAlert>
+        }
+        @if (_showSavedAlert)
+        {
+            <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Pooper Saved!</MudAlert>
+        }
+        
+        <MudImage Src="@imgHash"  />
+        <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Data.PooperAlias" @bind-Text="CrudService.BaseMvvmViewModel.Data.PooperAlias"></MudTextField>
+        <MudTextField  T="string" Label="Name" @bind-Value="ViewModel.Data.Description" @bind-Text="CrudService.BaseMvvmViewModel.Data.Description"></MudTextField>
+        <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Data.AmountOfPoops"></MudNumericField>
+
+        <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync">
+            <ButtonTemplate>
+                <MudFab HtmlTag="label"
+                        Color="Color.Success"
+                        Icon="@Icons.Material.Filled.Upload"
+                        for="@context"/>
+            </ButtonTemplate>
+        </MudFileUpload>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancel</MudButton>
+        <MudButton Color="Color.Primary" OnClick="@(async () => await SavePooper())">Save Pooper</MudButton>
+    </DialogActions>
+</MudDialog>
+
+
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+    private bool _showSavedAlert = false;
+    private bool _showErrorAlert = false;
+
+    public IBaseMvvmViewModel<string, PooperViewModel> ViewModel { get; set; }
+    
+    private string authMessage;
+    private string surnameMessage;
+    private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
+    
+    private string imgHash = string.Empty;
+
+    async Task SavePooper()
+    {
+        ViewModel.Data.Image = imgHash;
+        var result = await CrudService.UpdateModelAsync();
+        if (result.IsSuccess)
+        {
+            _showSavedAlert = true;
+            return;
+        }
+        _showErrorAlert = true;
+    }
+    
+    private void CloseMe()
+    {
+        _showErrorAlert = false;
+        _showSavedAlert = false;
+    }
+
+    void Submit() => MudDialog.Close(DialogResult.Ok(true));
+    void Cancel() => MudDialog.Cancel();
+    
+    private async Task UploadFilesAsync(IBrowserFile file)
+    {
+        var buffers = new byte[file.Size];
+        await file.OpenReadStream().ReadAsync(buffers);
+        string imageType = file.ContentType;
+        imgHash = $"data:{imageType};base64,{Convert.ToBase64String(buffers)}";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ViewModel = CrudService.BaseMvvmViewModel;
+        await Task.CompletedTask;
+    }
+
+}
+

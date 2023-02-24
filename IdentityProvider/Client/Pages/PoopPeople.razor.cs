@@ -1,35 +1,44 @@
 using System.ComponentModel;
 using System.Net;
 using System.Net.Http.Json;
+using System.Security.Claims;
 using System.Text;
-using Core.Transfer;
+using ClientLibrary.Components;
+using ClientLibrary.Interfaces;
+using ClientLibrary.Services;
 using IdentityProvider.Client.Components;
 using IdentityProvider.Client.ViewModels.Inerfaces;
 using Microsoft.AspNetCore.Components.Forms;
 using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using MudBlazor;
-
+using System;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 namespace IdentityProvider.Client.Pages
 {
     public partial class PoopPeople
     {
+        private string authMessage;
+        private string surnameMessage;
+        private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
+        
         private string girlName;
         private string girlEmail;
         private int girlAge;
         private string girlCity;
         private bool isOpen = true;
-        
-        [Inject]
-        HttpClient HttpClient { get; set; }
-        
+
         [Inject]
         IDialogService DialogService { get; set; }
         
         [Inject]
-        IPooperViewModel PooperViewModel { get; set; }
+        IBaseMvvmViewModel<string, PooperViewModel> PooperViewModel { get; set; }    
+        
+        [Inject]
+        IBaseCrudService<PooperViewModel, string> CrudService { get; set; }
 
         private void LoadPhoto(InputFileChangeEventArgs obj)
         {
@@ -38,7 +47,7 @@ namespace IdentityProvider.Client.Pages
         
         private void OpenDialog(PooperViewModel pooperViewModel)
         {
-            PooperViewModel.Pooper = pooperViewModel;
+            PooperViewModel.Data = pooperViewModel;
             DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
 
             DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);
@@ -68,17 +77,17 @@ namespace IdentityProvider.Client.Pages
         public async Task SetUpPooperClick(MouseEventArgs e)
         {
             Console.WriteLine("Edit!");
-            await HttpClient.PutAsJsonAsync<PooperViewModel>("api/poopers", ViewModel.Pooper);
+            await CrudService.UpdateModelAsync();
             await SetUpPropertyChangedAsync();
         }
         
         protected override async Task OnInitializedAsync()
         {
             ViewModel.IsBusy = true;
-             var response = await ViewModel.GetPoopers();
+             var response = await CrudService.GetModelListAsync().ConfigureAwait(false);
              if (response.IsSuccess)
              {
-                 ViewModel.PooperList = response.Data;
+                 ViewModel.DataList = response.Data;
              }
              else
              {

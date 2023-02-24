@@ -28,8 +28,6 @@ public static class StartupHelper
     private static string str;
     public static void Configure(WebApplication app)
     {
-        //app.UseMiddleware<ErrorHandlerMiddleware>();
-        
         app.UseEndpointDefinitions();
         app.UseMiddleware<ErrorHandlerMiddleware>();
         
@@ -89,7 +87,10 @@ public static class StartupHelper
         services.Configure<AuthConfiguration>(
             authConfiguration);
         services.AddDbContext<DbContext, ApplicationContext>(options =>
-    options.UseNpgsql(configuration.GetConnectionString("sqlConnection")));
+        {
+            options.UseNpgsql(configuration.GetConnectionString("sqlConnection"));
+        });
+    
         services.AddIdentity<UserEntity, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationContext>();
         services.AddAuthentication(opt =>
@@ -124,9 +125,9 @@ public static class StartupHelper
         });
 
         services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
-        //builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-        //services.AddScoped<IAuthRepository, AuthRepository>();
+        // services.AddScoped<IAuthRepository, AuthRepository>();
         services.AddScoped<IAuthService, AuthService>();
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 

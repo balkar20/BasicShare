@@ -1,3 +1,4 @@
+using Core.Auh.Enums;
 using IdentityProvider.Shared;
 
 namespace TestProject1;
@@ -80,6 +81,25 @@ public class Tests
 
         //Assert
         Assert.AreEqual(AnimalTypes.Bird, type);
+    }
+
+    [Test]
+    public async Task TestEnums()
+    {
+        //Arrange
+        
+        
+        var types = Enum.GetNames(typeof(UserClaimEnum));
+
+
+        // f.ContinueWith((t) => Console.WriteLine("jhjhjh"));
+
+
+        //Act
+        var type = types[0];
+
+        //Assert
+        Assert.AreEqual(UserClaimEnum.Dev.ToString(), type);
     }
 
     private async Task<int> VoidAsyncMethhod()
