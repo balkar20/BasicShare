@@ -1,0 +1,1 @@
+dotnet run -- "C:\trainee\BasicShare\Mod.Product.Base\Mod.Product.Base.csproj" "C:\trainee\BasicShare\StartupToolTemplate.sln" Product Offer

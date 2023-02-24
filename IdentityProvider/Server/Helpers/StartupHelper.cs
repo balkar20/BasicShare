@@ -138,7 +138,7 @@ public static class StartupHelper
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         builder.Services.AddEndpointDefinitions(typeof(AuthEndpointDefinition));
 
-        services.AddMediatR(typeof(GetAllAuthsQuery).Assembly);
+        services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
     }
     
 }

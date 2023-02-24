@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FluentValidation" Version="7.2.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+        <PackageReference Include="MudBlazor" Version="6.1.9" />
+        <PackageReference Include="Castle.DynamicProxy" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BaseClientLibrary\BaseClientLibrary.csproj" />
+      <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
+      <ProjectReference Include="..\IdentityProvider\Shared\IdentityProvider.Shared.csproj" />
+      <ProjectReference Include="..\Mod.Auth.Models\Mod.Auth.Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonAlertComponent.razor" />
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonCalendarComponent.razor" />
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonDialogComponent.razor" />
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonTopMenuComponent.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Attributes" />
+    </ItemGroup>
+
+</Project>

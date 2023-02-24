@@ -84,22 +84,24 @@ public class Tests
     }
 
     [Test]
-    public async Task TestEnums()
+    public  void TestCooker()
     {
         //Arrange
-        
-        
-        var types = Enum.GetNames(typeof(UserClaimEnum));
 
+
+        Cooker cooker = new Cooker();
+        
+        IAnimal incept = new Incept(AnimalTypes.Incept);
+        IAnimal fish = new Fish(AnimalTypes.Fish);
 
         // f.ContinueWith((t) => Console.WriteLine("jhjhjh"));
 
 
         //Act
-        var type = types[0];
-
+        cooker.Feed(fish, "Plancton");
+        
         //Assert
-        Assert.AreEqual(UserClaimEnum.Dev.ToString(), type);
+        // Assert.AreEqual(UserClaimEnum.Dev.ToString(), type);
     }
 
     private async Task<int> VoidAsyncMethhod()
@@ -121,11 +123,69 @@ enum AnimalTypes
     Bird
 }
 
-class Animal
+class Animal: IAnimal
 {
     public AnimalTypes AnimalType { get; set; }
     public Animal(AnimalTypes animalType): base()
     {
         AnimalType = animalType;
+    }
+
+    public virtual void Eat(string foodName)
+    {
+       Console.WriteLine($"I am animal wich eats {foodName}");
+    }
+}
+
+class Incept: Animal
+{
+    public Incept(AnimalTypes animalType) : base(animalType)
+    {
+    }
+
+    public override void Eat(string foodName)
+    {
+        base.Eat(foodName);
+        if (foodName.Contains("Weed"))
+        {
+            Console.WriteLine("Yeah i love Weed");
+        }else
+        {
+            Console.WriteLine("Fuck you");
+        }
+    }
+}
+
+class Fish: Animal
+{
+    public Fish(AnimalTypes animalType) : base(animalType)
+    {
+    }
+
+    public override void Eat(string foodName)
+    {
+        base.Eat(foodName);
+        if (foodName.Contains("Plancton"))
+        {
+            Console.WriteLine("Yeah i love plancton");
+        }else
+        {
+            Console.WriteLine("Fuck you");
+        }
+        
+    }
+}
+
+interface IAnimal
+{
+    AnimalTypes AnimalType { get; set; }
+    void Eat(string foodName);
+}
+
+class Cooker
+{
+    public void Feed(IAnimal animal, string foodName)
+    {
+        animal.Eat(foodName);
     }
 }

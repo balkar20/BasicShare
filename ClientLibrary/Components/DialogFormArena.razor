@@ -1,0 +1,14 @@
+<BaseDialog Title="My Dialog">
+    <BaseDialogForm TModel="MyFormModel" OnClose="@(() => HandleClose())">
+        <!-- Form fields go here -->
+    </BaseDialogForm>
+</BaseDialog>
+
+@code {
+    
+    private void HandleClose()
+    {
+        throw new NotImplementedException();
+    }
+
+}

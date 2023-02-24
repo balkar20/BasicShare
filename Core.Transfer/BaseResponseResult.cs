@@ -10,4 +10,6 @@ public class BaseResponseResult
     public IList<string> Errors { get; set; }
 
     public bool IsSuccess { get; set; }
+
+    public string Message { get; set; }
 }

@@ -15,11 +15,16 @@
             </div>
 
             <main>
-                <div class="top-row px-4">
-                    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-                    <a href="login" target="_blank">Login</a>
-                    <a href="logout" target="_blank">Logout</a>
-                </div>
+                <MudTabs class="top-row px-4"  Elevation="4" Rounded="true"  Color="@Color.Secondary">
+                    <MudTabPanel href="login" Text="Login" />
+                    <MudTabPanel href="logout" Text="Logout" />
+                    <MudTabPanel Text="Register" />
+                </MudTabs>
+                @* <div class="top-row px-4"> *@
+                @*     <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a> *@
+                @*     <a href="login" target="_blank">Login</a> *@
+                @*     <a href="logout" target="_blank">Logout</a> *@
+                @* </div> *@
 
                 <article class="content px-4">
                     @Body

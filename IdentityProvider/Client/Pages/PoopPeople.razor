@@ -4,8 +4,9 @@
 @using IdentityProvider.Shared
 @using ClientLibrary.Services
 @using ClientLibrary.Interfaces
+@using BaseClientLibrary.Enums
 
-@inject IBaseMvvmViewModel<string, PooperViewModel> ViewModel
+@inject IBaseMvvmViewModel<PooperViewModel> ViewModel
 
 <h3>PoopPeople</h3>
 
@@ -14,7 +15,7 @@
     <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ViewModel.StatusMessage</MudAlert>
 }
 
-@if (ViewModel.IsBusy)
+@if (ViewModel.StatusType == StatusTypes.Loading)
 {
     <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
 }
@@ -22,7 +23,7 @@ else
 {
     <h3>Pooper Grid</h3>
     <CascadingValue Value=@ViewModel Name="ViewModel">
-        <MudGrid>
+        <MudGrid Justify="Justify.Center">
             @foreach (var pooper in ViewModel.DataList)
             {
                 <MudItem Style="width: 70vh;">
@@ -33,7 +34,7 @@ else
                             </CardHeaderAvatar>
                             <CardHeaderContent>
                                 <MudText Typo="Typo.body1">@pooper.PooperAlias</MudText>
-                                <MudText Typo="Typo.body2">@pooper.AmountOfPoops</MudText>
+                                <MudText Typo="Typo.body1">@pooper.AmountOfPoops</MudText>
                             </CardHeaderContent>
                             <CardHeaderActions>
                                 <AuthorizeView Roles="Administrator">
@@ -64,6 +65,12 @@ else
                         }                       
                         <MudCardContent>
                             <MudText Typo="Typo.body2">@pooper.Description</MudText>
+                        </MudCardContent>                       
+                        <MudCardContent>
+                            @foreach (var tag in pooper.Claims)
+                            {
+                                <MudChip Disabled="true" Color="Color.Secondary">@tag</MudChip>
+                            }
                         </MudCardContent>
                         <MudCardActions>
                             <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />

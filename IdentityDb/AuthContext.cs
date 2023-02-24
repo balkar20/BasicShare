@@ -69,20 +69,8 @@ namespace Data.IdentityDb
                     userClaimsDictionary.Add(userEntity, claims);
                 }
             }
-
             
-            base.OnModelCreating(builder);
-            // var userClaimConfig = new UserClaimConfiguration(userClaimsDictionary);
-            // builder.ApplyConfiguration(userClaimConfig);
-            // builder.Entity<IdentityUserClaim<string>>().HasKey(c => c.Id);
-            // // builder.Entity<Ide>().HasMany<IdentityUserClaim<string>>().WithMany(u => u.C);
-            // builder.Entity<IdentityUserClaim<string>>().HasKey(k => k.Id);
-            // builder.Entity<IdentityUserClaim<string>>().Property<int>(o => o.Id).UseIdentityAlwaysColumn();
-            // builder.Entity<IdentityUserClaim<string>>().HasMany<UserEntity>().WithMany(u => u.Claims);
-            // Each User can have many UserClaims
-
-
-
+            
             var userRoleConfig = new UserRoleConfiguration(userRoleDictionary);
             builder.ApplyConfiguration(userRoleConfig);
 
@@ -102,7 +90,15 @@ namespace Data.IdentityDb
                 }
             }
 
-            builder.Entity<ClaimEntity>().HasData(claimEntities);
+            builder.Entity<IdentityUserClaim<string>>().Property(p => p.UserId).IsRequired();
+            builder.Entity<IdentityUserClaim<string>>().HasOne<UserEntity>()
+                .WithMany(u => u.Claims)
+                .HasForeignKey(c => c.UserId)
+                .HasPrincipalKey(cl => cl.Id);
+            
+            builder.Entity<IdentityUserClaim<string>>().HasData(claimEntities);
+
+            base.OnModelCreating(builder);
         }
     }
 }

@@ -1,6 +1,8 @@
+using IdentityProvider.Shared.Interfaces;
+
 namespace IdentityProvider.Shared;
 
-public class PooperViewModel
+public class PooperViewModel: IViewModel
 {
 public string Id { get; set; }
 
