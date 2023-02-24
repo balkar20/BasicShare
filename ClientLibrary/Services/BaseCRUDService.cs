@@ -1,79 +1,144 @@
 using System.ComponentModel;
 using System.Net.Http.Json;
+using BaseClientLibrary.Enums;
 using ClientLibrary.Interfaces;
 // using System.Net.Http.Json;
 using Core.Transfer;
+using FluentValidation;
+using FluentValidation.Results;
+using IdentityProvider.Shared;
+using IdentityProvider.Shared.Interfaces;
 
 namespace ClientLibrary.Services;
 
-public class BaseCrudService<TModel, TContext> : IBaseCrudService<TModel, TContext>
+public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudService<TModel, TResponseViewModel, TData> 
+    where TResponseViewModel: BaseResponseResult
+where TModel: IViewModel
 {
-    private readonly HttpClient _httpClient;
-    public  IBaseMvvmViewModel<TContext, TModel> BaseMvvmViewModel { get; set; }
-    
+    #region Fields
 
-    public BaseCrudService(HttpClient httpClient, IBaseMvvmViewModel<TContext, TModel> baseMvvmViewModel)
+    private readonly HttpClient _httpClient;
+    
+    private readonly AbstractValidator<TModel> _modelValidator;
+
+    #endregion Fields
+
+    #region Properties
+
+    public IBaseMvvmViewModel<TModel> MvvmViewModel { get; set; }
+
+    #endregion Properties
+
+    #region Constructors
+
+    public BaseCrudService(HttpClient httpClient, IBaseMvvmViewModel<TModel> baseMvvmViewModel,AbstractValidator<TModel> modelValidator)
     {
         _httpClient = httpClient;
-        this.BaseMvvmViewModel = baseMvvmViewModel;
+        this.MvvmViewModel = baseMvvmViewModel;
+        _modelValidator = modelValidator;
     }
 
-    public async Task<ResponseResultWithData<List<TModel>>> GetModelListAsync()
+    #endregion Constructors
+
+
+    #region PublicMethods
+
+    public virtual async Task<ResponseResultWithData<List<TModel>>> GetModelListAsync()
     {
-        var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(BaseMvvmViewModel.DataListApiString);
-        if (response != null && response.IsSuccess)
+        MvvmViewModel.StatusType = StatusTypes.Loading;
+        var response =
+            await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(MvvmViewModel.DataListApiString);
+        return HandleResponseResult(response);
+    }
+
+    public virtual async Task<ResponseResultWithData<TModel>> GetModelAsync(string id)
+    {
+        MvvmViewModel.StatusType = StatusTypes.Loading;
+        var response = await _httpClient
+            .GetFromJsonAsync<ResponseResultWithData<TModel>>($"{MvvmViewModel.DataApiString}?{id}")
+            .ConfigureAwait(false);
+        return HandleResponseResult(response);
+    }
+
+    public virtual async Task<TResponseViewModel> UpdateModelAsync()
+    {
+        MvvmViewModel.StatusType = StatusTypes.Loading;
+        var result = await _httpClient.PutAsJsonAsync<TModel>(MvvmViewModel.DataApiString, MvvmViewModel.Data);
+        var responseResult = await result.Content.ReadFromJsonAsync<TResponseViewModel>();
+        return (TResponseViewModel)HandleResponseResult(responseResult);
+    }
+
+    public virtual async Task<TResponseViewModel> CreateModelAsync(TModel model)
+    {
+        MvvmViewModel.StatusType = StatusTypes.Loading;
+        var result = await _httpClient.PostAsJsonAsync<TModel>(MvvmViewModel.DataApiString, model);
+        var responseResult = await result.Content.ReadFromJsonAsync<TResponseViewModel>();
+        return (TResponseViewModel)HandleResponseResult(responseResult);
+    }
+
+    public async Task<ResponseResultWithData<TData>> CreateDataAsync(TModel model)
+    {
+        MvvmViewModel.StatusType = StatusTypes.Loading;
+        var result = await _httpClient.PostAsJsonAsync<TModel>(MvvmViewModel.DataApiString, model);
+        var respose = await result.Content.ReadFromJsonAsync<ResponseResultWithData<TData>>();
+        return (ResponseResultWithData<TData>)HandleResponseResult(respose);
+    }
+
+    public virtual async Task<TResponseViewModel> DeleteModelAsync(string id)
+    {
+        MvvmViewModel.StatusType = StatusTypes.Loading;
+        var result = await _httpClient.DeleteFromJsonAsync<TResponseViewModel>($"{MvvmViewModel.DataApiString}?{id}");
+        return (TResponseViewModel)HandleResponseResult(result);
+    }
+
+    public virtual async Task<ValidationResult> ValidateModelValue()
+    {
+        return await _modelValidator.ValidateAsync(MvvmViewModel.Data);
+    }
+
+    #endregion PublicMethods
+
+    #region Private Methods
+
+    private BaseResponseResult HandleResponseResult(BaseResponseResult responseResult)
+    {
+        if (responseResult.IsSuccess)
         {
-            BaseMvvmViewModel.DataList = response.Data;
-            BaseMvvmViewModel.OnPropertyChanged(nameof(BaseMvvmViewModel.DataList));
+            MvvmViewModel.StatusType = StatusTypes.Success;
+            MvvmViewModel.OnPropertyChanged(nameof(MvvmViewModel.Data));
         }
-        
-        return response;
-    }
-
-    public async Task<ResponseResultWithData<TModel>> GetModelAsync(TContext id)
-    {
-        var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<TModel>>($"{BaseMvvmViewModel.DataApiString}?{id}").ConfigureAwait(false);
-        if (response != null && response.IsSuccess)
+        else
         {
-            BaseMvvmViewModel.Data = response.Data;
-            BaseMvvmViewModel.OnPropertyChanged(nameof(BaseMvvmViewModel.Data));
-        }
-        
-        return response;
-    }
-
-    public async Task<BaseResponseResult> UpdateModelAsync()
-    {
-        var result = await _httpClient.PutAsJsonAsync<TModel>(BaseMvvmViewModel.DataApiString, BaseMvvmViewModel.Data);
-        var respose = await result.Content.ReadFromJsonAsync<BaseResponseResult>();
-        if (respose.IsSuccess)
-        {
-            BaseMvvmViewModel.OnPropertyChanged(nameof(BaseMvvmViewModel.Data));
+            MvvmViewModel.StatusType = StatusTypes.Error;
         }
 
-        return respose;
+        MvvmViewModel.StatusMessage = responseResult.Message;
+
+        return responseResult;
     }
 
-    public async Task<BaseResponseResult> CreateModelAsync(TModel model)
+    private ResponseResultWithData<TModel> HandleResponseResult(ResponseResultWithData<TModel> responseResult)
     {
-        var result = await _httpClient.PostAsJsonAsync<TModel>(BaseMvvmViewModel.DataApiString, model);
-        var respose = await result.Content.ReadFromJsonAsync<BaseResponseResult>();
-        if (respose.IsSuccess)
-        {
-            BaseMvvmViewModel.OnPropertyChanged(nameof(BaseMvvmViewModel.Data));
-        }
-
-        return respose;
-    }
-
-    public async Task<BaseResponseResult> DeleteModelAsync(TContext id)
-    {
-        var result = await _httpClient.DeleteFromJsonAsync<BaseResponseResult>($"{BaseMvvmViewModel.DataApiString}?{id}");
+        var result = HandleResponseResult((BaseResponseResult)responseResult);
         if (result.IsSuccess)
         {
-            BaseMvvmViewModel.OnPropertyChanged(nameof(BaseMvvmViewModel.Data));
+            MvvmViewModel.Data = responseResult.Data;
         }
 
-        return result;
+        return responseResult;
     }
+
+    private ResponseResultWithData<List<TModel>> HandleResponseResult(
+        ResponseResultWithData<List<TModel>> responseResult)
+    {
+        var result = HandleResponseResult((BaseResponseResult)responseResult);
+        if (result.IsSuccess)
+        {
+            MvvmViewModel.DataList = responseResult.Data;
+        }
+
+        return responseResult;
+    }
+
+    #endregion Private Methods
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Npgsql.Internal.TypeHandlers;
 
 namespace IdentityDb.Configuration
 {
@@ -59,14 +60,7 @@ namespace IdentityDb.Configuration
                     .WithOne()
                     .HasForeignKey(ut => ut.UserId)
                     .IsRequired();
-                
-                // builder.HasKey(k => k.Id);
-                // builder.Property(b => b.Id).ValueGeneratedOnAdd();
-                // builder
-                //     .HasMany<ClaimEntity>(u => u.Claims)
-                //     .WithOne(o => o.User)
-                //     .HasForeignKey(k => k.UserId);
-                // builder.HasMany(r => r.Roles);
+
                 builder.HasData(pooper);
                 Users.Add(pooper);
             }

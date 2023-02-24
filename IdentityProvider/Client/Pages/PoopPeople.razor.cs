@@ -15,7 +15,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using MudBlazor;
 using System;
-using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using ClientLibrary.Components.Base;
+using Core.Transfer;
 
 namespace IdentityProvider.Client.Pages
 {
@@ -33,75 +34,30 @@ namespace IdentityProvider.Client.Pages
 
         [Inject]
         IDialogService DialogService { get; set; }
-        
-        [Inject]
-        IBaseMvvmViewModel<string, PooperViewModel> PooperViewModel { get; set; }    
-        
-        [Inject]
-        IBaseCrudService<PooperViewModel, string> CrudService { get; set; }
 
-        private void LoadPhoto(InputFileChangeEventArgs obj)
-        {
-            throw new NotImplementedException();
-        }
+        IBaseMvvmViewModel< PooperViewModel> PooperViewModel { get; set; }    
         
+        [Inject]
+        IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService { get; set; }
+
         private void OpenDialog(PooperViewModel pooperViewModel)
         {
             PooperViewModel.Data = pooperViewModel;
+            
             DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true };
+            DialogService.Show<PooperForm>("Simple Dialog", closeOnEscapeKey);
+        }
 
-            DialogService.Show<EditDialog>("Simple Dialog", closeOnEscapeKey);
-        }
-        
-        private void DeleteUser()
-        {
-
-            var options = new DialogOptions() { CloseButton = true, MaxWidth = MaxWidth.ExtraSmall };
-        }
-        
-        private void Cancel(MouseEventArgs obj)
-        {
-            Console.WriteLine("Ccancel!");
-        }
-        
-        private void Submit(MouseEventArgs obj)
-        {
-            Console.WriteLine("Ccancel!");
-        }
-        
-        private void SetUpPooper()
-        {
-            // MudDialog.
-        }
-        
         public async Task SetUpPooperClick(MouseEventArgs e)
         {
-            Console.WriteLine("Edit!");
             await CrudService.UpdateModelAsync();
-            await SetUpPropertyChangedAsync();
         }
         
         protected override async Task OnInitializedAsync()
         {
-            ViewModel.IsBusy = true;
-             var response = await CrudService.GetModelListAsync().ConfigureAwait(false);
-             if (response.IsSuccess)
-             {
-                 ViewModel.DataList = response.Data;
-             }
-             else
-             {
-                 var messages = new StringBuilder();
-                 foreach (var responseError in response.Errors)
-                 {
-                     messages.AppendLine(responseError);
-                 }
+            PooperViewModel = CrudService.MvvmViewModel;
+            await CrudService.GetModelListAsync().ConfigureAwait(false);
 
-                 ViewModel.StatusMessage = messages.ToString();
-             }
-             
-             await SetUpPropertyChangedAsync().ConfigureAwait(false);
-             ViewModel.IsBusy = false;
         }
 
         private async Task SetUpPropertyChangedAsync()

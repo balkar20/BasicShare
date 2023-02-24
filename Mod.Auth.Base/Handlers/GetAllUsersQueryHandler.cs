@@ -6,7 +6,7 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, ResponseResultWithData<List<PooperModel>>>
+public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, ResponseResultWithData<List<PooperModel>>>
 {
     private readonly IAuthService _authService;
 
@@ -15,7 +15,7 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllAuthsQuery, Response
         _authService = productService;
     }
     
-    public async Task<ResponseResultWithData<List<PooperModel>>> Handle(GetAllAuthsQuery request, CancellationToken cancellationToken)
+    public async Task<ResponseResultWithData<List<PooperModel>>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
     {
         var response = new ResponseResultWithData<List<PooperModel>>()
         {

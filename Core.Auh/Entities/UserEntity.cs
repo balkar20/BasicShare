@@ -17,12 +17,12 @@ namespace Core.Auh.Entities
 
         public string? Image { get; set; }
 
-        public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
+        public List<IdentityUserClaim<string>>? Claims { get; set; }
         
-        public virtual ICollection<IdentityUserLogin<string>> Logins { get; set; }
+        public List<IdentityUserLogin<string>>? Logins { get; set; }
         
-        public virtual ICollection<IdentityUserToken<string>> Tokens { get; set; }
+        public List<IdentityUserToken<string>>? Tokens { get; set; }
 
-        public virtual ICollection<IdentityUserRole<string>> UserRoles { get; set; }
+        public List<IdentityUserRole<string>>? UserRoles { get; set; }
     }
 }

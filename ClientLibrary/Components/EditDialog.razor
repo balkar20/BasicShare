@@ -4,36 +4,29 @@
 @using Microsoft.AspNetCore.Components
 @using ClientLibrary.Interfaces
 @using System.Security.Claims
+@using BaseClientLibrary.Enums
+@using Core.Transfer
 @inject AuthStateProvider AuthenticationStateProvider
 
-@inject IBaseCrudService<PooperViewModel, string> CrudService;
+@inject IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService;
 @* @ViewModel = CrudService.BaseMvvmViewModel; *@
 
 <MudDialog>
     <DialogContent>
-
-        @if (_showErrorAlert)
-        {
-            <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Error saving pooper!</MudAlert>
-        }
-        @if (_showSavedAlert)
-        {
-            <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(() => CloseMe())">Pooper Saved!</MudAlert>
-        }
-        
-        <MudImage Src="@imgHash"  />
-        <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Data.PooperAlias" @bind-Text="CrudService.BaseMvvmViewModel.Data.PooperAlias"></MudTextField>
-        <MudTextField  T="string" Label="Name" @bind-Value="ViewModel.Data.Description" @bind-Text="CrudService.BaseMvvmViewModel.Data.Description"></MudTextField>
-        <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Data.AmountOfPoops"></MudNumericField>
-
-        <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync">
-            <ButtonTemplate>
-                <MudFab HtmlTag="label"
-                        Color="Color.Success"
-                        Icon="@Icons.Material.Filled.Upload"
-                        for="@context"/>
-            </ButtonTemplate>
-        </MudFileUpload>
+        <PooperForm></PooperForm>
+        @* <MudImage Src="@imgHash"  /> *@
+        @* <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Data.PooperAlias" @bind-Text="ViewModel.Data.PooperAlias"></MudTextField> *@
+        @* <MudTextField  T="string" Label="Name" @bind-Value="ViewModel.Data.Description" @bind-Text="ViewModel.Data.Description"></MudTextField> *@
+        @* <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Data.AmountOfPoops"></MudNumericField> *@
+        @* *@
+        @* <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync"> *@
+        @*     <ButtonTemplate> *@
+        @*         <MudFab HtmlTag="label" *@
+        @*                 Color="Color.Success" *@
+        @*                 Icon="@Icons.Material.Filled.Upload" *@
+        @*                 for="@context"/> *@
+        @*     </ButtonTemplate> *@
+        @* </MudFileUpload> *@
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>
@@ -43,14 +36,10 @@
 
 
 @code {
-    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
-    private bool _showSavedAlert = false;
-    private bool _showErrorAlert = false;
+    [CascadingParameter] MudDialogInstance? MudDialog { get; set; }
 
-    public IBaseMvvmViewModel<string, PooperViewModel> ViewModel { get; set; }
-    
-    private string authMessage;
-    private string surnameMessage;
+    public IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
+
     private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
     
     private string imgHash = string.Empty;
@@ -59,18 +48,11 @@
     {
         ViewModel.Data.Image = imgHash;
         var result = await CrudService.UpdateModelAsync();
-        if (result.IsSuccess)
-        {
-            _showSavedAlert = true;
-            return;
-        }
-        _showErrorAlert = true;
     }
     
     private void CloseMe()
     {
-        _showErrorAlert = false;
-        _showSavedAlert = false;
+        ViewModel.StatusType = StatusTypes.StatusCanceled;
     }
 
     void Submit() => MudDialog.Close(DialogResult.Ok(true));
@@ -86,7 +68,7 @@
 
     protected override async Task OnInitializedAsync()
     {
-        ViewModel = CrudService.BaseMvvmViewModel;
+        ViewModel = CrudService.MvvmViewModel;
         await Task.CompletedTask;
     }
 

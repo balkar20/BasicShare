@@ -1,0 +1,26 @@
+@* @inherits ClientLibrary.Components.Base.BaseDialogForm<IdentityProvider.Shared.PooperViewModel> *@
+@* @{ *@
+@*     base.BuildRenderTree(); *@
+@* } *@
+@* <MudImage Src="@imgHash"  /> *@
+@*                 <MudTextField T="string" Label="Name" @bind-Value="Model.PooperAlias" @bind-Text="Model.PooperAlias"></MudTextField> *@
+@*                 <MudTextField  T="string" Label="Name" @bind-Value="Model.Description" @bind-Text="Model.Description"></MudTextField> *@
+@*                 <MudNumericField T="int" Label="Name" @bind-Value="Model.AmountOfPoops"></MudNumericField> *@
+@* *@
+@*         <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync"> *@
+@*             <ButtonTemplate> *@
+@*                 <MudFab HtmlTag="label" *@
+@*                         Color="Color.Success" *@
+@*                         Icon="@Icons.Material.Filled.Upload" *@
+@*                         for="@context"/> *@
+@*             </ButtonTemplate> *@
+@*         </MudFileUpload> *@
+@*         <MudButton ButtonType="ButtonType.Submit"  Color="Color.Primary">Save Pooper</MudButton> *@
+
+@code {
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+    }
+
+}

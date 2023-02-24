@@ -1,18 +1,23 @@
 using Core.Transfer;
+using FluentValidation.Results;
+using IdentityProvider.Shared.Interfaces;
 
 namespace ClientLibrary.Interfaces;
 
-public interface IBaseCrudService<TModel, TIdentifier>
+public interface IBaseCrudService<TModel, TResponseViewModel, TResponseData> 
+    where TResponseViewModel: BaseResponseResult
+where TModel: IViewModel
 {
-    IBaseMvvmViewModel<TIdentifier, TModel> BaseMvvmViewModel { get; set; }
-    
+    IBaseMvvmViewModel<TModel> MvvmViewModel { get; set; }
     Task<ResponseResultWithData<List<TModel>>> GetModelListAsync();
     
-    Task<ResponseResultWithData<TModel>> GetModelAsync(TIdentifier id);
+    Task<ResponseResultWithData<TModel>> GetModelAsync(string id);
 
-    Task<BaseResponseResult> UpdateModelAsync();
+    Task<TResponseViewModel> UpdateModelAsync();
 
-    Task<BaseResponseResult> CreateModelAsync(TModel model);
+    Task<TResponseViewModel> CreateModelAsync(TModel model);
+
+    Task<ResponseResultWithData<TResponseData>> CreateDataAsync(TModel model);
     
-    Task<BaseResponseResult> DeleteModelAsync(TIdentifier id);
+    Task<ValidationResult> ValidateModelValue(); 
 }

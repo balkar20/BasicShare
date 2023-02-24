@@ -15,7 +15,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
     public void DefineEndpoints(WebApplication app)
     {
         //app.MapGet("/", () => "Startup Tool Template");
-        app.MapGet("api/poopers", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllAuthsQuery()));
+        app.MapGet("api/poopers", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllUsersQuery()));
         app.MapPut("api/pooper", ([FromServices] IMediator _mediator, [FromBody] PooperModel pooperModel) => _mediator.Send(new SavePooperCommand(pooperModel)));
         app.MapPost("api/login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
