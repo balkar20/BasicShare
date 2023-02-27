@@ -1,7 +1,6 @@
 using Blazored.LocalStorage;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Interfaces.Particular;
-using ClientLibrary.Iterceptors;
 using ClientLibrary.Services;
 using Core.Transfer;
 using IdentityProvider.Client;
@@ -10,10 +9,8 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor.Services;
-using Castle.DynamicProxy;
 using ClientLibrary.Validators;
 using FluentValidation;
-using IdentityProvider.Shared.Interfaces;
 
 
 //using Mod.Auth.Services;
@@ -29,10 +26,6 @@ services.AddAuthorizationCore();
 services.AddScoped<AuthStateProvider>();
 services.AddMudServices();
 
-
-
-// services.AddSingleton<MvvmInterceptor<PooperViewModel>>();
-// services.AddSingleton<MvvmInterceptor<LoginViewModel>>();
 IBaseMvvmViewModel<PooperViewModel> mvvmPooperViewModel = new BaseMvvmViewModel<PooperViewModel>();
 mvvmPooperViewModel.DataApiString = "api/pooper";
 mvvmPooperViewModel.DataListApiString = "api/poopers";

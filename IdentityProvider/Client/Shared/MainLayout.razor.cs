@@ -8,6 +8,8 @@ namespace IdentityProvider.Client.Shared;
 
 public partial class MainLayout
 {
+    Justify _justify = Justify.FlexEnd;
+    
     [Inject]
     public IAuthenticationService AuthenticationService { get; set; }
     [Inject]
@@ -21,6 +23,7 @@ public partial class MainLayout
     private void Logout()
     {
         AuthenticationService.Logout();
+        StateHasChanged();
     }
     
     private void Register()

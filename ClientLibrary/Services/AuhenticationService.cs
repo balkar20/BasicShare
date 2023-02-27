@@ -21,12 +21,13 @@ public class AuthenticationService : IAuthenticationService
     public bool IsAuthenticated { get; set; }
     public IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> CrudService { get; }
 
-    public async Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync(LoginViewModel model)
+    public async Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync()
     {
-        var loginResult = await CrudService.CreateDataAsync(model);
+        var loginResult = await CrudService.CreateDataAsync();
         if (loginResult.IsSuccess)
         {
             await _localStorage.SetItemAsync(TokenKey, loginResult?.Data?.Token);
+            IsAuthenticated = true;
         }
 
         return loginResult;
@@ -35,5 +36,7 @@ public class AuthenticationService : IAuthenticationService
     public async Task Logout()
     {
         await _localStorage.RemoveItemAsync(TokenKey);
+        IsAuthenticated = false;
+        // CrudService.
     }
 }

@@ -49,40 +49,37 @@ namespace IdentityProvider.Client.Pages
             DialogService.Show<PooperFormDialog>("Edit Pooper", closeOnEscapeKey);
         }
 
-        public async Task SetUpPooperClick(MouseEventArgs e)
-        {
-            await CrudService.UpdateModelAsync();
-        }
-        
         protected override async Task OnInitializedAsync()
         {
             PooperViewModel = CrudService.MvvmViewModel;
-            await CrudService.GetModelListAsync().ConfigureAwait(false);
+            await CrudService.GetModelListAsync();
+            PooperViewModel.PropertyChanged += async (sender, e) => {
+                await InvokeAsync(() =>
+                {
+                    StateHasChanged();
+                });
+            };
+            await base.OnInitializedAsync();
 
         }
 
-        // private async Task SetUpPropertyChangedAsync()
-        // {
-        //     PooperViewModel.PropertyChanged += async (sender, e) => { 
-        //         await InvokeAsync(() =>
-        //         {
-        //             StateHasChanged();
-        //         });
-        //     };
-        // }
-        
-        // async void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
-        // {
-        //     await InvokeAsync(() =>
-        //     {
-        //         StateHasChanged();
-        //     });
-        // }
+        private async Task SetUpPropertyChangedAsync()
+        {
+            PooperViewModel.PropertyChanged += async (sender, e) =>
+            {
+                await InvokeAsync(() => { StateHasChanged(); });
+            };
+        }
 
-        // public void Dispose()
-        // {
-        //     PooperViewModel.PropertyChanged -= OnPropertyChangedHandler;
-        // }
+        void OnPropertyChangedHandler(object sender, PropertyChangedEventArgs e)
+        {
+            InvokeAsync(() => { StateHasChanged(); });
+        }
+
+        public void Dispose()
+        {
+            PooperViewModel.PropertyChanged -= OnPropertyChangedHandler;
+        }
     }
 
 }

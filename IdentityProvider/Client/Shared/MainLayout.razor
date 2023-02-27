@@ -17,10 +17,27 @@
 
             <main>
                 <MudTabs class="top-row px-4"  Elevation="4" Rounded="true"  Color="@Color.Secondary">
-                    <MudTabPanel OnClick="Login" Text="Login" />
-                    <MudTabPanel OnClick="Logout" Text="Logout" />
-                    <MudTabPanel OnClick="Register" />
+                    <MudTabPanel Text="Newbies"/>
+                    <MudTabPanel Text="Juniors"/>
+                    <MudTabPanel Text="Uppers"/>
+                     <MudTabPanel Text="GangPoopers"/>
+                    <MudTabPanel Text="StinkCoder"/>
+                    <MudTabPanel Text="Puppy"/>
+                    <MudTabPanel Text="OJ"/>
+                    <MudTabPanel Text="Middles"/>
+                    <MudTabPanel Text="Seniors"/>
                 </MudTabs>
+                <MudButtonGroup Justify="@_justify" Color="Color.Primary">
+                    <AuthorizeView>
+                        <Authorized>
+                             <MudButton IconColor="Color.Dark" StartIcon="@Icons.Material.Filled.Logout" OnClick="Logout" Color="Color.Warning" Variant="Variant.Outlined">Logout</MudButton>
+                        </Authorized>
+                        <NotAuthorized>
+                            <MudButton IconColor="Color.Surface" OnClick="Login" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Login" Variant="Variant.Outlined">Login</MudButton>
+                            <MudButton IconColor="Color.Tertiary" OnClick="Register" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.AppRegistration" Variant="Variant.Outlined">Register</MudButton>
+                        </NotAuthorized>
+                    </AuthorizeView>
+                </MudButtonGroup>
                 @* <div class="top-row px-4"> *@
                 @*     <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a> *@
                 @*     <a href="login" target="_blank">Login</a> *@

@@ -18,6 +18,8 @@ using Mod.Auth.Services;
 using Serilog;
 using System.Text;
 using Apps.Blazor.Identity.IdentityProvider.Server.Middlewares;
+using IdentityProvider.Server.Hubs;
+using Microsoft.AspNetCore.ResponseCompression;
 // using IdentityProvider.Client;
 using Serilog.Sinks.GrafanaLoki;
 
@@ -50,6 +52,8 @@ public static class StartupHelper
         app.UseStaticFiles();
 
         app.UseRouting();
+        app.MapBlazorHub();
+        app.MapHub<ChatHub>("/chathub");
 
 
         app.MapRazorPages();
@@ -79,6 +83,11 @@ public static class StartupHelper
         var services = builder.Services;
         
         services.AddServerSideBlazor();
+        builder.Services.AddResponseCompression(opts =>
+        {
+            opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+                new[] { "application/octet-stream" });
+        });
 
         builder.Logging.AddSerilog(Log.Logger);
         builder.Host.UseSerilog(Log.Logger);
@@ -137,6 +146,7 @@ public static class StartupHelper
         services.AddRazorPages();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         builder.Services.AddEndpointDefinitions(typeof(AuthEndpointDefinition));
+
 
         services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
     }

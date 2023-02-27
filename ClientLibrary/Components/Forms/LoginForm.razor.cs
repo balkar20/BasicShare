@@ -13,18 +13,17 @@ namespace ClientLibrary.Components.Forms;
 
 public partial class LoginForm
 {
-
     [Inject]
     public IAuthenticationService AuthenticationService { get; set; }
     
     private IBaseMvvmViewModel<LoginViewModel> _mvvmViewModel;
 
-    private async void OnValidSubmit()
+    private async Task OnValidSubmit()
     {
         //private readonly ILoc
-        // reset alerts on submit
+        // reset alerts on submi
         //AlertService.Clear();
-        await AuthenticationService.LigInAsync(_mvvmViewModel.Data);
+        var data= await AuthenticationService.LigInAsync();
     }
 
     protected override Task OnInitializedAsync()

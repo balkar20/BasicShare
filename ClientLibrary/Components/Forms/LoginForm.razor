@@ -1,37 +1,24 @@
 @using BaseClientLibrary.Enums
 
-<MudForm  OnValidSubmit="@OnValidSubmit" Model="@_mvvmViewModel.Data" Validation="AuthenticationService.CrudService.ValidateModelValue" ValidationDelay="0">
+<MudForm  OnValidSubmit="@(async () => await OnValidSubmit())" Model="@_mvvmViewModel.Data">
     <MudTextField @bind-Value="_mvvmViewModel.Data.Email"                              
                   For="@(() => _mvvmViewModel.Data.Email)"
                   Immediate="true"
-                  Label="Name" />
+                  Required="true"
+                  RequiredError="Enter Email"
+                  Label="Email" 
+                  Placeholder="Enter Email"/>
     <MudTextField @bind-Value="_mvvmViewModel.Data.Password"                              
                   For="@(() => _mvvmViewModel.Data.Password)"
                   Immediate="true"
-                  Label="Name" />
+                  Label="Password"
+                  Required="true"
+                  RequiredError="Enter Password"
+                  Placeholder="Enter Password"
+                  InputType="InputType.Password"/>
     <div class="d-flex align-center justify-space-between">
         <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Label="I agree!"/>
-        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Login</MudButton>
+        <MudButton OnClick="async () => await  OnValidSubmit()" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Login</MudButton>
     </div>
 </MudForm>
 <NavLink href="account/register" class="btn btn-link">Register</NavLink>
-@* <EditForm Model="@_mvvmViewModel.Data" OnValidSubmit="OnValidSubmit"> *@
-@*             <DataAnnotationsValidator /> *@
-@*             <div class="form-group"> *@
-@*                 <label>Email</label> *@
-@*                 <InputText @bind-Value="_mvvmViewModel.Data.Email" class="form-control" /> *@
-@*                 <ValidationMessage For="@(() => _mvvmViewModel.Data.Email)" /> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label>Password</label> *@
-@*                 <InputText @bind-Value="_mvvmViewModel.Data.Password" type="password" class="form-control" /> *@
-@*                 <ValidationMessage For="@(() => _mvvmViewModel.Data.Password)" /> *@
-@*             </div> *@
-@*              *@
-           
-        @* </EditForm> *@
-        @* <MudAlert Icon="Icon"></MudAlert> *@
-
-@code {
-    
-}

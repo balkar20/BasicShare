@@ -84,8 +84,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Blazor", "Blazor", "{07390A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TokenProvider", "TokenProvider\TokenProvider.csproj", "{77AB3AC9-0C9E-418E-883A-89943B178399}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Auth", "Auth", "{D5350F4E-2790-45BD-B3A9-7D1B693BE3CF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Auth.Base", "Mod.Auth.Base\Mod.Auth.Base.csproj", "{89312DB3-D46A-4D66-AC79-32AE1F37C7CD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Auth.Interfaces", "Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj", "{AABFF660-DB8C-4D5C-BF39-21C6EE77A13F}"

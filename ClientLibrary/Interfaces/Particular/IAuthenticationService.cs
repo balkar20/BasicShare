@@ -10,6 +10,6 @@ public interface IAuthenticationService
     
     IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> CrudService { get; }
     
-    Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync(LoginViewModel model);
+    Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync();
     Task Logout();
 }

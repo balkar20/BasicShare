@@ -14,8 +14,8 @@
     <ItemGroup>
         <PackageReference Include="FluentValidation" Version="7.2.1" />
         <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.2" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.3" />
         <PackageReference Include="MudBlazor" Version="6.1.9" />
-        <PackageReference Include="Castle.DynamicProxy" Version="2.2.0" />
     </ItemGroup>
 
     <ItemGroup>

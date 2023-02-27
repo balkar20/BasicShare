@@ -76,12 +76,12 @@ where TModel: IViewModel
         return (TResponseViewModel)HandleResponseResult(responseResult);
     }
 
-    public async Task<ResponseResultWithData<TData>> CreateDataAsync(TModel model)
+    public async Task<ResponseResultWithData<TData>> CreateDataAsync()
     {
         MvvmViewModel.StatusType = StatusTypes.Loading;
-        var result = await _httpClient.PostAsJsonAsync<TModel>(MvvmViewModel.DataApiString, model);
-        var respose = await result.Content.ReadFromJsonAsync<ResponseResultWithData<TData>>();
-        return (ResponseResultWithData<TData>)HandleResponseResult(respose);
+        var result = await _httpClient.PostAsJsonAsync<TModel>(MvvmViewModel.DataApiString, MvvmViewModel.Data);
+        var responseResult = await result.Content.ReadFromJsonAsync<ResponseResultWithData<TData>>();
+        return (ResponseResultWithData<TData>)HandleResponseResult(responseResult);
     }
 
     public virtual async Task<TResponseViewModel> DeleteModelAsync(string id)
@@ -105,6 +105,7 @@ where TModel: IViewModel
         if (responseResult.IsSuccess)
         {
             MvvmViewModel.StatusType = StatusTypes.Success;
+            // StateHasChanged();
             MvvmViewModel.OnPropertyChanged(nameof(MvvmViewModel.Data));
         }
         else
