@@ -1,6 +1,7 @@
 ﻿@inherits LayoutComponentBase
 
 @using Blazored.LocalStorage
+@using ClientLibrary.Components;
 @inject HttpClient Http;
 @*@inject IAlertService AlertService*@
 @inject NavigationManager NavigationManager
@@ -37,6 +38,7 @@
                         </NotAuthorized>
                     </AuthorizeView>
                 </MudButtonGroup>
+                <PoopCarousel></PoopCarousel>
                 @* <div class="top-row px-4"> *@
                 @*     <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a> *@
                 @*     <a href="login" target="_blank">Login</a> *@

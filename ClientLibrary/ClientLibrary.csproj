@@ -36,4 +36,10 @@
       <Folder Include="Attributes" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Components\PoopCarousel.razor.cs">
+        <DependentUpon>PoopCarousel.razor</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
