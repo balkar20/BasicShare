@@ -11,17 +11,19 @@ public partial class PooperFormDialog
 
     [CascadingParameter]
     private IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
+    
+    [Parameter]
+    public EventCallback OnClosed { get; set; }
 
-    // private void CloseMe()
-    // {
-    //     // ViewModel.StatusType = StatusTypes.StatusCanceled;
-    // }
-    //
+    private async Task HandleClosed()
+    {
+        await OnClosed.InvokeAsync();
+    }
+
     void Cancel() => MudDialog.Cancel();
 
     protected override async Task OnInitializedAsync()
     {
-        await Task.CompletedTask;
         await base.OnInitializedAsync();
     }
     
@@ -29,5 +31,5 @@ public partial class PooperFormDialog
     {
         ViewModel.OnPropertyChanged();
     }
-    
+
 }

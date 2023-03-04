@@ -15,15 +15,26 @@ public partial class MainLayout
     [Inject]
     IDialogService DialogService { get; set; }
 
-    void Login()
+    async Task Login()
     {
-        DialogService.Show<LoginFormDialog>();
+        // await DialogService.ShowAsync<LoginFormDialog>(null, new Dictionary<string, object>() { { "OnClosed", EventCallback.Factory.Create(this, HandleDialogClosed) }});
+        
+        var parameters = new DialogParameters();
+        parameters.Add("OnClosed", EventCallback.Factory.Create(this, HandleDialogClosed));
+
+        await DialogService.ShowAsync<LoginFormDialog>("Login", parameters);
+
+
     }
     
-    private void Logout()
+    private async Task HandleDialogClosed()
     {
-        AuthenticationService.Logout();
-        StateHasChanged();
+        Console.WriteLine("HandleDialogClosed");
+    }
+    
+    async Task Logout()
+    {
+        await AuthenticationService.Logout();
     }
     
     private void Register()

@@ -1,17 +1,16 @@
-@* <BaseDialogForm  HandleSuccessSubmitting="@(async () => await SavePooper())" Model="@ViewModel.Data" Validation="@_crudService.ValidateModelValue()" ValidationDelay="0"> *@
-<MudForm  Model="@ViewModel.Data">
+<EditForm OnValidSubmit="(async () => await OnValidSubmit())" Model="@ViewModel.Data">
     <MudImage Src="@ViewModel.Data.Image"  />
             <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Data.PooperAlias" @bind-Text="ViewModel.Data.PooperAlias"></MudTextField>
             <MudTextField  T="string" Label="Name" @bind-Value="ViewModel.Data.Description" @bind-Text="ViewModel.Data.Description"></MudTextField>
             <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Data.AmountOfPoops"></MudNumericField>
     
     <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync">
-        <ButtonTemplate>
+        <ButtonTemplate Context="productDetailContext">
             <MudFab HtmlTag="label"
                     Color="Color.Success"
                     Icon="@Icons.Material.Filled.Upload"
-                    for="@context"/>
+                    for="@productDetailContext"/>
         </ButtonTemplate>
     </MudFileUpload>
-    <MudButton OnClick="@(async () => await SavePooper())"  Color="Color.Primary">Save Pooper</MudButton>
-</MudForm>
+    <MudButton ButtonType="ButtonType.Submit"  Color="Color.Primary">Save Pooper</MudButton>
+</EditForm >

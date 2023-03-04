@@ -6,7 +6,6 @@ namespace IdentityProvider.Shared
 {
     public class AuthStateProvider : AuthenticationStateProvider
     {
-        //private readonly HttpClient _httpClient;
         private readonly ILocalStorageService _localStorage;
         private readonly AuthenticationState _anonymous;
         public AuthStateProvider(ILocalStorageService localStorage)
@@ -24,16 +23,28 @@ namespace IdentityProvider.Shared
             //_httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", token);
             return new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity(JwtParser.ParseClaimsFromJwt(token), "jwtAuthType")));
         }
-        public void NotifyUserAuthentication(string email)
+        public async Task NotifyUserAuthentication(string email)
         {
-            var authenticatedUser = new ClaimsPrincipal(new ClaimsIdentity(new[] { new Claim(ClaimTypes.Name, email) }, "jwtAuthType"));
-            var authState = Task.FromResult(new AuthenticationState(authenticatedUser));
+            var state = await GetAuthenticationStateAsync();
+            
+            var authState = Task.FromResult(new AuthenticationState(state.User));
             NotifyAuthenticationStateChanged(authState);
         }
         public void NotifyUserLogout()
         {
             var authState = Task.FromResult(_anonymous);
             NotifyAuthenticationStateChanged(authState);
+        }
+        public void NotifyAllPages()
+        {
+            var authState = Task.FromResult(_anonymous);
+            AuthenticationStateChanged += OnAuthenticationStateChanged;
+            NotifyAuthenticationStateChanged(authState);
+        }
+
+        private void OnAuthenticationStateChanged(Task<AuthenticationState> task)
+        {
+            throw new NotImplementedException();
         }
     }
 }

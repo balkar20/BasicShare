@@ -42,4 +42,9 @@ public partial class PooperForm
         ViewModel = CrudService.MvvmViewModel;
         await Task.CompletedTask;
     }
+
+    async Task OnValidSubmit()
+    {
+        var result = await CrudService.UpdateModelAsync();
+    }
 }

@@ -105,7 +105,6 @@ where TModel: IViewModel
         if (responseResult.IsSuccess)
         {
             MvvmViewModel.StatusType = StatusTypes.Success;
-            // StateHasChanged();
             MvvmViewModel.OnPropertyChanged(nameof(MvvmViewModel.Data));
         }
         else

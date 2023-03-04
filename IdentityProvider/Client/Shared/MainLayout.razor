@@ -8,9 +8,7 @@
 <MudThemeProvider />
 <MudDialogProvider />
 <MudSnackbarProvider />
-@*<AuthorizeView>
-    <Authorized>*@
-        <div class="page">
+<div class="page">
             <div class="sidebar">
                 <NavMenu />
             </div>
@@ -28,12 +26,13 @@
                     <MudTabPanel Text="Seniors"/>
                 </MudTabs>
                 <MudButtonGroup Justify="@_justify" Color="Color.Primary">
-                    <AuthorizeView>
+                    <AuthorizeView >
                         <Authorized>
-                             <MudButton IconColor="Color.Dark" StartIcon="@Icons.Material.Filled.Logout" OnClick="Logout" Color="Color.Warning" Variant="Variant.Outlined">Logout</MudButton>
+                            <MudAvatar Image="Pritty.png"  Color="Color.Secondary"></MudAvatar>
+                            <MudButton IconColor="Color.Dark" StartIcon="@Icons.Material.Filled.Logout" OnClick="@(async () => await Logout())" Color="Color.Warning" Variant="Variant.Outlined">Logout</MudButton>
                         </Authorized>
                         <NotAuthorized>
-                            <MudButton IconColor="Color.Surface" OnClick="Login" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Login" Variant="Variant.Outlined">Login</MudButton>
+                            <MudButton IconColor="Color.Surface" OnClick="@(async () =>  await Login())" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Login" Variant="Variant.Outlined">Login</MudButton>
                             <MudButton IconColor="Color.Tertiary" OnClick="Register" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.AppRegistration" Variant="Variant.Outlined">Register</MudButton>
                         </NotAuthorized>
                     </AuthorizeView>

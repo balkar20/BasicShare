@@ -21,7 +21,7 @@ public partial class LoginForm
     private async Task OnValidSubmit()
     {
         //private readonly ILoc
-        // reset alerts on submi
+        // reset alerts on submit
         //AlertService.Clear();
         var data= await AuthenticationService.LigInAsync();
     }

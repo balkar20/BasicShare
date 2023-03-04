@@ -1,20 +1,7 @@
 ﻿@using ClientLibrary.Components.Forms;
-<MudDialog >
+<MudDialog  OnClose="@OnClosed">
     <DialogContent>
         <PooperForm></PooperForm>
-        @* <MudImage Src="@imgHash"  /> *@
-        @* <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Data.PooperAlias" @bind-Text="ViewModel.Data.PooperAlias"></MudTextField> *@
-        @* <MudTextField  T="string" Label="Name" @bind-Value="ViewModel.Data.Description" @bind-Text="ViewModel.Data.Description"></MudTextField> *@
-        @* <MudNumericField T="int" Label="Name" @bind-Value="ViewModel.Data.AmountOfPoops"></MudNumericField> *@
-        @* *@
-        @* <MudFileUpload T="IBrowserFile" FilesChanged="UploadFilesAsync"> *@
-        @*     <ButtonTemplate> *@
-        @*         <MudFab HtmlTag="label" *@
-        @*                 Color="Color.Success" *@
-        @*                 Icon="@Icons.Material.Filled.Upload" *@
-        @*                 for="@context"/> *@
-        @*     </ButtonTemplate> *@
-        @* </MudFileUpload> *@
     </DialogContent>
     <DialogActions>
         <MudButton OnClick="Cancel">Cancel</MudButton>
