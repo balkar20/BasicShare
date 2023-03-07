@@ -17,7 +17,7 @@ where TModel: IViewModel
 
     Task<TResponseViewModel> CreateModelAsync(TModel model);
 
-    Task<ResponseResultWithData<TResponseData>> CreateDataAsync(TModel model);
+    Task<ResponseResultWithData<TResponseData>> CreateDataAsync();
     
     Task<ValidationResult> ValidateModelValue(); 
 }

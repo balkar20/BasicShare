@@ -4,35 +4,47 @@ using ClientLibrary.Interfaces;
 using ClientLibrary.Interfaces.Particular;
 using Core.Transfer;
 using IdentityProvider.Shared;
+using Microsoft.AspNetCore.Components.Authorization;
 using TinyCsvParser.Tokenizer.RFC4180;
 
 namespace ClientLibrary.Services;
 
 public class AuthenticationService : IAuthenticationService
 {
+    private const string TokenKey = "authToken";
     private readonly ILocalStorageService _localStorage;
-    public AuthenticationService(IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> crudService , ILocalStorageService localStorage)
+    private readonly AuthStateProvider _authenticationStateProvider;
+    
+    public AuthenticationService(
+        IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> crudService,
+        ILocalStorageService localStorage, 
+        AuthStateProvider authenticationStateProvider)
     {
         CrudService = crudService;
         _localStorage = localStorage;
+        _authenticationStateProvider = authenticationStateProvider;
     }
 
+    public bool IsAuthenticated { get; set; }
     public IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> CrudService { get; }
 
-    public async Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync(LoginViewModel model)
+    public async Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync()
     {
-        var loginResult = await CrudService.CreateDataAsync(model);
+        var loginResult = await CrudService.CreateDataAsync();
         if (loginResult.IsSuccess)
         {
-            await _localStorage.SetItemAsync("authToken", loginResult?.Data?.Token);
+            await _localStorage.SetItemAsync(TokenKey, loginResult?.Data?.Token);
+            IsAuthenticated = true;
+            await _authenticationStateProvider.NotifyUserAuthentication(CrudService.MvvmViewModel.Data.Email);
         }
 
         return loginResult;
     }
-    
-    public interface IAuthenticationService
-    {
-        
-    }
 
+    public async Task Logout()
+    {
+        await _localStorage.RemoveItemAsync(TokenKey);
+        IsAuthenticated = false;
+        _authenticationStateProvider.NotifyUserLogout();
+    }
 }

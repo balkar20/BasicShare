@@ -8,7 +8,7 @@
 
 @inject IBaseMvvmViewModel<PooperViewModel> ViewModel
 
-<h3>PoopPeople</h3>
+<h3>Govnolox</h3>
 
 @if (!string.IsNullOrWhiteSpace(ViewModel.StatusMessage))
 {
@@ -21,7 +21,7 @@
 }
 else
 {
-    <h3>Pooper Grid</h3>
+    <h3>Pooper Gridik</h3>
     <CascadingValue Value=@ViewModel Name="ViewModel">
         <MudGrid Justify="Justify.Center">
             @foreach (var pooper in ViewModel.DataList)
@@ -41,21 +41,18 @@ else
                                     <Authorized>
                                         <MudIconButton OnClick="@(() => OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark"/>
                                     </Authorized>
-                                    @* <NotAuthorized> *@
-                                    @*      *@
-                                    @* </NotAuthorized> *@
+                                    <NotAuthorized>
+                                    <MudText Typo="Typo.body2">Just Poo</MudText>
+                                    </NotAuthorized>
                                 </AuthorizeView>
                                 <AuthorizeView Roles="Pooper">
                                     <Authorized>
                                         <MudText Typo="Typo.body2">Fucking Poo</MudText>
                                     </Authorized>
-                                    @* <NotAuthorized> *@
-                                    @*      *@
-                                    @* </NotAuthorized> *@
                                 </AuthorizeView>
                             </CardHeaderActions>
                         </MudCardHeader>
-                        @if (pooper.Image != null)
+                        @if (!string.IsNullOrWhiteSpace(pooper.Image))
                         {
                             <MudCardMedia Image="@pooper.Image" />
                         }
