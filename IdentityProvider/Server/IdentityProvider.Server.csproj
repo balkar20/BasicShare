@@ -20,6 +20,7 @@
     <ProjectReference Include="..\..\Core.Transfer\Core.Transfer.csproj" />
     <ProjectReference Include="..\..\Mod.Auth.Base\Mod.Auth.Base.csproj" />
     <ProjectReference Include="..\..\Mod.Auth.Services\Mod.Auth.Services.csproj" />
+    <ProjectReference Include="..\..\Mod.Order.Base\Mod.Order.Base.csproj" />
     <ProjectReference Include="..\..\Mod.Order.Services\Mod.Order.Services.csproj" />
     <ProjectReference Include="..\..\Mod.Pooper.Base\Mod.Pooper.Base.csproj" />
     <ProjectReference Include="..\..\Mod.Pooper.Services\Mod.Pooper.Services.csproj" />

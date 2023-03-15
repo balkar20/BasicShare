@@ -29,11 +29,11 @@ services.AddMudServices();
 IBaseMvvmViewModel<PooperViewModel> mvvmPooperViewModel = new BaseMvvmViewModel<PooperViewModel>();
 mvvmPooperViewModel.DataApiString = "api/pooper";
 mvvmPooperViewModel.DataListApiString = "api/poopers";
-services.AddSingleton<
+services.AddScoped<
     IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel>, 
     BaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel>>();
 
-services.AddSingleton<
+services.AddScoped<
     IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel>, 
     BaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel>>();
 

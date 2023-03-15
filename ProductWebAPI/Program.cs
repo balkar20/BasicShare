@@ -20,7 +20,7 @@ Log.Logger = new LoggerConfiguration()
     .Enrich.FromLogContext()
     .Enrich.WithProperty("ALabel", "ALabelValue")
     .WriteTo.GrafanaLoki(
-        "http://loki:3100",
+        "http://localhost:3100",
         credentials,
         new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.Sample" } }, // Global labels
         Serilog.Events.LogEventLevel.Debug,

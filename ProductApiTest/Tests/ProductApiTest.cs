@@ -26,7 +26,13 @@ namespace ProductApiTest.Tests
             //Arrange
             var expResult = new List<ProductModel>
             {
-                new ("Koko", "Chanell", "Manel")
+                // ("Koko", "Chanell", "Manel")
+                new()
+                {
+                    Id = "Koko",
+                    BusinessChannelAlias = "Chanell",
+                    ProductAlias = "Manel"
+                }
             };
             
             _mockServices.ProductServiceMock.Setup(m => m.GetAllProducts()).ReturnsAsync(expResult);
@@ -37,7 +43,7 @@ namespace ProductApiTest.Tests
                 await response.Content.ReadFromJsonAsync<OutputViewModelWithData<List<ProductViewModel>>>();
 
             //Assert
-            Assert.Equal(jsonResult.Data[0].ProductAlias, expResult[0].ProductAlias);
+            Assert.Equal(jsonResult?.Data[0].ProductAlias, expResult[0].ProductAlias);
         }
     }
 }

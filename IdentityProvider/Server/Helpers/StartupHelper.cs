@@ -19,7 +19,12 @@ using Serilog;
 using System.Text;
 using Apps.Blazor.Identity.IdentityProvider.Server.Middlewares;
 using IdentityProvider.Server.Hubs;
+using Infrastructure.Interfaces;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.ResponseCompression;
+using Mod.Order.Base.Commands;
+using Mod.Order.Base.Repositories;
+using Mod.Order.Interfaces;
 // using IdentityProvider.Client;
 using Serilog.Sinks.GrafanaLoki;
 
@@ -137,6 +142,9 @@ public static class StartupHelper
         builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         // services.AddScoped<IAuthRepository, AuthRepository>();
+        
+        services.AddScoped<IRabbitMqProducer, RabbitMqProducer>();
+        // services.AddScoped<IOrderRepository, OrderRepository>();
         services.AddScoped<IAuthService, AuthService>();
 
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
@@ -149,6 +157,7 @@ public static class StartupHelper
 
 
         services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
+        services.AddMediatR(typeof(CreateOrderCommand).Assembly);
     }
     
 }

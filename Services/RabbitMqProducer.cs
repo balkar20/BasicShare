@@ -5,7 +5,7 @@ using RabbitMQ.Client;
 
 namespace Infrastructure.Services;
 
-public class RabitMQProducer : IRabitMQProducer
+public class RabbitMqProducer : IRabbitMqProducer
 {
     public void SendMessage<T>(T message)
     {

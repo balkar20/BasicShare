@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Core.Base\Core.Base.csproj" />
+      <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
       <ProjectReference Include="..\Mod.Order.Interfaces\Mod.Order.Interfaces.csproj" />
       <ProjectReference Include="..\Mod.Order.Models\Mod.Order.Models.csproj" />
     </ItemGroup>

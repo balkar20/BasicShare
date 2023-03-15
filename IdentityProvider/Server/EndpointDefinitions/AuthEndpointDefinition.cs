@@ -6,6 +6,8 @@ using Mod.Auth.Base.Repositories;
 using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
+using Mod.Order.Base.Commands;
+using Mod.Order.Models;
 
 
 namespace Apps.Blazor.Identity.IdentityProvider.Server.EndpointDefinitions;
@@ -17,6 +19,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
         //app.MapGet("/", () => "Startup Tool Template");
         app.MapGet("api/poopers", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllUsersQuery()));
         app.MapPut("api/pooper", ([FromServices] IMediator _mediator, [FromBody] PooperModel pooperModel) => _mediator.Send(new SavePooperCommand(pooperModel)));
+        app.MapPost("api/order", ([FromServices] IMediator _mediator, [FromBody] OrderModel orderModel) => _mediator.Send(new CreateOrderCommand(orderModel)));
         app.MapPost("api/login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
                 _mediator.Send(new LoginCommand(product)));

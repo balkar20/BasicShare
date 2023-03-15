@@ -8,8 +8,6 @@
 
 @inject IBaseMvvmViewModel<PooperViewModel> ViewModel
 
-<h3>Govnolox</h3>
-
 @if (!string.IsNullOrWhiteSpace(ViewModel.StatusMessage))
 {
     <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ViewModel.StatusMessage</MudAlert>
@@ -72,6 +70,7 @@ else
                         <MudCardActions>
                             <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />
                             <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
+                            <MudIcon Icon="@Icons.TwoTone.Animation" Color="Color.Info" />
                         </MudCardActions>
                     </MudCard>
                 </MudItem>

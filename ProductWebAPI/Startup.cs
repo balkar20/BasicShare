@@ -34,8 +34,9 @@ namespace ProductWebApi
             var productConfiguration = new ProductApiConfiguration(Configuration.GetValue<string>);
             services.AddSingleton<AppConfiguration>(x => appConfiguration);
             services.AddSingleton<IProductApiConfiguration>(x => productConfiguration);
-
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
+            
+            services.AddOptions();
+            services.AddAutoMapper(typeof(GetAllProductsQuery).Assembly); 
             services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
 
             services.AddDbContext<ApiDbContext>(options =>

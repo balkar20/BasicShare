@@ -8,17 +8,19 @@ using FluentValidation;
 using FluentValidation.Results;
 using IdentityProvider.Shared;
 using IdentityProvider.Shared.Interfaces;
+using MudBlazor;
+using Severity = MudBlazor.Severity;
 
 namespace ClientLibrary.Services;
 
-public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudService<TModel, TResponseViewModel, TData> 
-    where TResponseViewModel: BaseResponseResult
-where TModel: IViewModel
+public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudService<TModel, TResponseViewModel, TData>
+    where TResponseViewModel : BaseResponseResult
+    where TModel : IViewModel
 {
     #region Fields
 
     private readonly HttpClient _httpClient;
-    
+
     private readonly AbstractValidator<TModel> _modelValidator;
 
     #endregion Fields
@@ -26,16 +28,19 @@ where TModel: IViewModel
     #region Properties
 
     public IBaseMvvmViewModel<TModel> MvvmViewModel { get; set; }
+    public ISnackbar Snackbar  { get; set; }
 
     #endregion Properties
 
     #region Constructors
 
-    public BaseCrudService(HttpClient httpClient, IBaseMvvmViewModel<TModel> baseMvvmViewModel,AbstractValidator<TModel> modelValidator)
+    public BaseCrudService(HttpClient httpClient, IBaseMvvmViewModel<TModel> baseMvvmViewModel,
+        AbstractValidator<TModel> modelValidator, ISnackbar snackbar)
     {
         _httpClient = httpClient;
         this.MvvmViewModel = baseMvvmViewModel;
         _modelValidator = modelValidator;
+        Snackbar = snackbar;
     }
 
     #endregion Constructors
@@ -106,9 +111,13 @@ where TModel: IViewModel
         {
             MvvmViewModel.StatusType = StatusTypes.Success;
             MvvmViewModel.OnPropertyChanged(nameof(MvvmViewModel.Data));
+            Snackbar.Add(string.IsNullOrWhiteSpace(responseResult.Message) ? "Request was successful": responseResult.Message, Severity.Success);
+
         }
         else
         {
+            Snackbar.Add(string.IsNullOrWhiteSpace(responseResult.Message) ? "Request was failed": responseResult.Message, Severity.Error);
+
             MvvmViewModel.StatusType = StatusTypes.Error;
         }
 

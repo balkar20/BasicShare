@@ -1,4 +1,5 @@
 using ClientLibrary.Components.Dialogs;
+using ClientLibrary.Components.Forms;
 using ClientLibrary.Interfaces.Particular;
 using IdentityProvider.Client.Pages;
 using Microsoft.AspNetCore.Components;
@@ -8,24 +9,27 @@ namespace IdentityProvider.Client.Shared;
 
 public partial class MainLayout
 {
-    Justify _justify = Justify.FlexEnd;
+    Justify _justify = Justify.FlexStart;
     
     [Inject]
     public IAuthenticationService AuthenticationService { get; set; }
+    
+    [Inject]
+    public ISnackbar SnackBarService { get; set; }
+    
     [Inject]
     IDialogService DialogService { get; set; }
+    
+    public RenderFragment MyMarkup { get; set; }
 
     async Task Login()
     {
-        // await DialogService.ShowAsync<LoginFormDialog>(null, new Dictionary<string, object>() { { "OnClosed", EventCallback.Factory.Create(this, HandleDialogClosed) }});
-        
         var parameters = new DialogParameters();
         parameters.Add("OnClosed", EventCallback.Factory.Create(this, HandleDialogClosed));
 
         await DialogService.ShowAsync<LoginFormDialog>("Login", parameters);
-
-
     }
+    
     
     private async Task HandleDialogClosed()
     {
@@ -41,5 +45,20 @@ public partial class MainLayout
     {
         // DialogService.Show<RegisterFormDialog>();
     }
+    
+    // private void ShowAccountOptions()
+    // {
+    //     MyMarkup = builder =>
+    //     {
+    //         builder.OpenComponent(0, typeof(PooperForm));
+    //         builder.AddComponentReferenceCapture(1, (value) => PooperFormOnstance = (PooperForm)value);
+    //         builder.CloseComponent();
+    //     };
+    //     
+    //     SnackBarService.Add
+    //         (
+    //             @MyMarkup
+    //             );
+    // }
 
 }
