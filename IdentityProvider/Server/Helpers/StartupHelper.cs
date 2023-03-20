@@ -18,10 +18,12 @@ using Mod.Auth.Services;
 using Serilog;
 using System.Text;
 using Apps.Blazor.Identity.IdentityProvider.Server.Middlewares;
+using Core.Base.Custom;
 using IdentityProvider.Server.Hubs;
 using Infrastructure.Interfaces;
 using Infrastructure.Services;
 using Microsoft.AspNetCore.ResponseCompression;
+using Mod.Auth.Root;
 using Mod.Order.Base.Commands;
 using Mod.Order.Base.Repositories;
 using Mod.Order.Interfaces;
@@ -74,112 +76,100 @@ public static class StartupHelper
     
     public static void ConfigureServices(WebApplicationBuilder builder)
     {
-        var credentials = new GrafanaLokiCredentials()
-        {
-            User = "admin",
-            Password = "admin"
-        };
+        // var credentials = new GrafanaLokiCredentials()
+        // {
+        //     User = "admin",
+        //     Password = "admin"
+        // };
         //Creating the Logger with Minimum Settings
-        Log.Logger = new LoggerConfiguration()
-            .MinimumLevel.Verbose()
-            .Enrich.FromLogContext()
-            .Enrich.WithProperty("ALabel", "ALabelValue")
-            .WriteTo.File("log.txt", rollingInterval: RollingInterval.Hour)
-            .WriteTo.GrafanaLoki(
-                "http://localhost:3100",
-                credentials,
-                new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.IdentityProvider.Server" } }, // Global labels
-                Serilog.Events.LogEventLevel.Debug,
-                httpClient: new CustomHttpClient() 
-            )
-            .CreateLogger();
+        // Log.Logger = new LoggerConfiguration()
+        //     .MinimumLevel.Verbose()
+        //     .Enrich.FromLogContext()
+        //     .Enrich.WithProperty("ALabel", "ALabelValue")
+        //     .WriteTo.File("log.txt", rollingInterval: RollingInterval.Hour)
+        //     .WriteTo.GrafanaLoki(
+        //         "http://localhost:3100",
+        //         credentials,
+        //         new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.IdentityProvider.Server" } }, // Global labels
+        //         Serilog.Events.LogEventLevel.Debug,
+        //         httpClient: new CustomHttpClient() 
+        //     )
+        //     .CreateLogger();
         
-        var configuration = builder.Configuration;
-        var services = builder.Services;
+        // var configuration = builder.Configuration;
+        // var services = builder.Services;
         
-        services.AddServerSideBlazor();
-        builder.Services.AddResponseCompression(opts =>
-        {
-            opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-                new[] { "application/octet-stream" });
-        });
-
-        builder.Logging.AddSerilog(Log.Logger);
-        builder.Host.UseSerilog(Log.Logger);
-
-        var authConfiguration = configuration.GetSection(AuthConfiguration.HostConfiguration);
-        services.Configure<AuthConfiguration>(
-            authConfiguration);
-        services.AddDbContext<DbContext, ApplicationContext>(options =>
-        {
-            options.UseNpgsql(configuration.GetConnectionString("sqlConnection"));
-        });
+        // services.AddServerSideBlazor();
+        // builder.Services.AddResponseCompression(opts =>
+        // {
+        //     opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+        //         new[] { "application/octet-stream" });
+        // });
+        //
+        // builder.Logging.AddSerilog(Log.Logger);
+        // builder.Host.UseSerilog(Log.Logger);
+        //
+        // var authConfiguration = configuration.GetSection(AuthConfiguration.HostConfiguration);
+        // services.Configure<AuthConfiguration>(
+        //     authConfiguration);
+        // services.AddDbContext<DbContext, ApplicationContext>(options =>
+        // {
+        //     options.UseNpgsql(configuration.GetConnectionString("sqlConnection"));
+        // });
     
-        services.AddIdentity<UserEntity, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationContext>();
-        services.AddAuthentication(opt =>
-        {
-            opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-        }).AddJwtBearer(options =>
-        {
-            options.TokenValidationParameters = new TokenValidationParameters
-            {
-                ValidateIssuer = true,
-                ValidateAudience = true,
-                ValidateLifetime = true,
-                ValidateIssuerSigningKey = true,
-                ValidIssuer = authConfiguration["ValidIssuer"],
-                ValidAudience = authConfiguration["ValidAudience"],
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authConfiguration["SecurityKey"]))
-            };
-        });
+    //     services.AddIdentity<UserEntity, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+    // .AddEntityFrameworkStores<ApplicationContext>();
+    //     services.AddAuthentication(opt =>
+    //     {
+    //         opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    //         opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    //     }).AddJwtBearer(options =>
+    //     {
+    //         options.TokenValidationParameters = new TokenValidationParameters
+    //         {
+    //             ValidateIssuer = true,
+    //             ValidateAudience = true,
+    //             ValidateLifetime = true,
+    //             ValidateIssuerSigningKey = true,
+    //             ValidIssuer = authConfiguration["ValidIssuer"],
+    //             ValidAudience = authConfiguration["ValidAudience"],
+    //             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(authConfiguration["SecurityKey"]))
+    //         };
+    //     });
 
-        builder.Services.AddStackExchangeRedisCache(options =>
-        {
-            options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
-        });
-
-        builder.Services.AddBlazoredLocalStorage();
-        builder.Services.AddAuthorizationCore(opts =>
-        {
-            opts.AddPolicy("OnlyDeliveryStaffCoordinator", policy => {
-                policy.RequireClaim("DeliveryStaff", "Coordinator");
-            });
-        });
-
-        services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
-        builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-        // services.AddScoped<IAuthRepository, AuthRepository>();
-        
-        services.AddScoped<IRabbitMqProducer, RabbitMqProducer>();
-        // services.AddScoped<IOrderRepository, OrderRepository>();
-        services.AddScoped<IAuthService, AuthService>();
-
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
-
-       
-        services.AddControllersWithViews();
-        services.AddRazorPages();
-        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        // builder.Services.AddStackExchangeRedisCache(options =>
+        // {
+        //     options.Configuration = builder.Configuration.GetValue<string>("RedisCacheUrl");
+        // });
+        //
+        // builder.Services.AddBlazoredLocalStorage();
+        // builder.Services.AddAuthorizationCore(opts =>
+        // {
+        //     opts.AddPolicy("OnlyDeliveryStaffCoordinator", policy => {
+        //         policy.RequireClaim("DeliveryStaff", "Coordinator");
+        //     });
+        // });
+        //
+        // services.AddScoped<AuthenticationStateProvider, AuthStateProvider>();
+        // builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        //
+        // // services.AddScoped<IAuthRepository, AuthRepository>();
+        //
+        // services.AddScoped<IRabbitMqProducer, RabbitMqProducer>();
+        // // services.AddScoped<IOrderRepository, OrderRepository>();
+        // services.AddScoped<IAuthService, AuthService>();
+        //
+        // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
+        //
+        //
+        // services.AddControllersWithViews();
+        // services.AddRazorPages();
+        // services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         builder.Services.AddEndpointDefinitions(typeof(AuthEndpointDefinition));
-        
+        var startupConfigurator = new StartupConfigurator(builder.Configuration, builder);
+        startupConfigurator.Configure();
         // services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
         // services.AddMediatR(typeof(CreateOrderCommand).Assembly);
     }
     
-}
-
-public class CustomHttpClient : GrafanaLokiHttpClient
-{
-    public override async Task<HttpResponseMessage> PostAsync(string requestUri, Stream contentStream)
-    {
-        using var content = new StreamContent(contentStream);
-        content.Headers.Add("Content-Type", "application/json");
-        var response = await HttpClient
-            .PostAsync(requestUri, content)
-            .ConfigureAwait(false);
-        return response;
-    }
 }

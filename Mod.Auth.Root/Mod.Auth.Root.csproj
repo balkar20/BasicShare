@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Mod.Auth.Root</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <Folder Include="Listeners" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core.Auh\Core.Auh.csproj" />
+      <ProjectReference Include="..\IdentityDb\IdentityDb.csproj" />
+      <ProjectReference Include="..\Mod.Auth.Base\Mod.Auth.Base.csproj" />
+      <ProjectReference Include="..\Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj" />
+      <ProjectReference Include="..\Mod.Auth.Services\Mod.Auth.Services.csproj" />
+      <ProjectReference Include="..\Mod.Order.Interfaces\Mod.Order.Interfaces.csproj" />
+      <ProjectReference Include="..\Mod.Order.Services\Mod.Order.Services.csproj" />
+<!--      <ProjectReference Include="..\Mod.Order.Base\Mod.Auth.Base.csproj" />-->
+<!--      <ProjectReference Include="..\Mod.Order.Services\Mod.Auth.Services.csproj" />-->
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
+      <PackageReference Include="Serilog.Sinks.GrafanaLoki" Version="1.1.1" />
+        <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.2" />
+    </ItemGroup>
+
+</Project>

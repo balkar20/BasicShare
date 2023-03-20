@@ -34,13 +34,13 @@ public class AuthService: IAuthService
 
     public AuthService(
         ILogger logger,
-        IOptions<AuthConfiguration> options,
+        AuthConfiguration authConfiguration,
         UserManager<UserEntity> userManager,
         RoleManager<IdentityRole> roleManager,
         ApplicationContext context, IMapper mapper)
     {
         _logger = logger;
-        _configuration = options.Value;
+        _configuration = authConfiguration;
         _userManager = userManager;
         _roleManager = roleManager;
         _context = context;

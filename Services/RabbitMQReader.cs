@@ -15,9 +15,10 @@ public class RabbitMQReader: IRabbitMQReader
     private readonly IMessageBrokerConfiguration _configuration;
     private readonly ILogger _logger;
 
-    public RabbitMQReader(IMessageBrokerConfiguration configuration)
+    public RabbitMQReader(IMessageBrokerConfiguration configuration, ILogger logger)
     {
         _configuration = configuration;
+        _logger = logger;
     }
 
     public void ListenEventsFromQue<TModel>(Action<TModel> handler)
@@ -41,7 +42,7 @@ public class RabbitMQReader: IRabbitMQReader
                 var resultModel = JsonConvert.DeserializeObject<TModel>(message);
 
                 handler(resultModel);
-                _logger.Debug($"Message from Que essage received: {message}");
+                _logger.Debug($"Message from Que message received: {message}");
             };
         
             channel.BasicConsume(queue: _configuration.QueName, autoAck: true, consumer: consumer);
