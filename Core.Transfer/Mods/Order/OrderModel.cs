@@ -1,9 +1,6 @@
-﻿using Core.Base.DataBase.Interfaces;
-using Core.Base.Models.Enums;
+namespace Core.Transfer.Mods.Order;
 
-namespace Core.Base.DataBase.Entities;
-
-public class OrderEntity: IEntity
+public class OrderModel
 {
     public long Id { get; set; }
     
@@ -13,11 +10,11 @@ public class OrderEntity: IEntity
 
     public long OrderPayloadId { get; set; }
     
-    // public IPaymentInfo PaymentInfo { get; set; }
-    //        
-    // public IOrderNotification Notification { get; set; }
-    //        
-    // public ICustomerInfo CustomerInfo { get; set; }
+    public IPaymentInfo PaymentInfo { get; set; }
+           
+    public IOrderNotification Notification { get; set; }
+           
+    public ICustomerInfo CustomerInfo { get; set; }
 }
 
 public interface ICustomerInfo
@@ -41,4 +38,11 @@ public enum NotificationType
     Phone,
     Telegram,
     InApplication,
+}
+
+public enum OrderType
+{
+    Work,
+    Product,
+    Shipment
 }

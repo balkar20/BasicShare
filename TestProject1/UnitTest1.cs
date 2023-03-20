@@ -26,6 +26,25 @@ public class Tests
     }
 
     [Test]
+    public void Test2()
+    {
+        //Arrange
+        int one = 1;
+        int two = 2;
+        
+        //Act
+        var s = new S();
+        using (s)
+        {
+            Console.WriteLine(s.GetDispose());
+        }
+        Console.WriteLine(s.GetDispose());
+        
+        //Assert
+        // Assert.AreEqual(3, four);
+    }
+
+    [Test]
     public async Task TestAsync()
     {
         //Arrange
@@ -187,5 +206,18 @@ class Cooker
     public void Feed(IAnimal animal, string foodName)
     {
         animal.Eat(foodName);
+    }
+}
+
+public struct S : IDisposable
+{
+    private bool dispose;
+    public void Dispose()
+    {
+        dispose = true;
+    }
+    public bool GetDispose()
+    {
+        return dispose;
     }
 }

@@ -12,17 +12,17 @@ var credentials = new GrafanaLokiCredentials()
     User = "admin",
     Password = "admin"
 };
-Startup StartupClass;
 
 //Creating the Logger with Minimum Settings
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Verbose()
     .Enrich.FromLogContext()
     .Enrich.WithProperty("ALabel", "ALabelValue")
+    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Hour)
     .WriteTo.GrafanaLoki(
         "http://localhost:3100",
         credentials,
-        new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.Sample" } }, // Global labels
+        new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.ProductWebApi" } }, // Global labels
         Serilog.Events.LogEventLevel.Debug,
         httpClient: new CustomHttpClient() 
     )

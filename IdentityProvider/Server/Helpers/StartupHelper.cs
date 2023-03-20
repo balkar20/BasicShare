@@ -79,11 +79,21 @@ public static class StartupHelper
             User = "admin",
             Password = "admin"
         };
+        //Creating the Logger with Minimum Settings
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Verbose()
             .Enrich.FromLogContext()
-            .WriteTo.Console()
+            .Enrich.WithProperty("ALabel", "ALabelValue")
+            .WriteTo.File("log.txt", rollingInterval: RollingInterval.Hour)
+            .WriteTo.GrafanaLoki(
+                "http://localhost:3100",
+                credentials,
+                new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.IdentityProvider.Server" } }, // Global labels
+                Serilog.Events.LogEventLevel.Debug,
+                httpClient: new CustomHttpClient() 
+            )
             .CreateLogger();
+        
         var configuration = builder.Configuration;
         var services = builder.Services;
         
@@ -154,10 +164,9 @@ public static class StartupHelper
         services.AddRazorPages();
         services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         builder.Services.AddEndpointDefinitions(typeof(AuthEndpointDefinition));
-
-
-        services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
-        services.AddMediatR(typeof(CreateOrderCommand).Assembly);
+        
+        // services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
+        // services.AddMediatR(typeof(CreateOrderCommand).Assembly);
     }
     
 }

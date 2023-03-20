@@ -4,10 +4,13 @@ using Apps.EndpointDefinitions.ProductWebAPI;
 using Core.Base.Configuration;
 using Core.Base.ConfigurationInterfaces;
 using Data.Db;
+using Infrastructure.Interfaces;
+using Infrastructure.Services;
 using ProductWebApi.Middlewares;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Mod.Product.Base.Queries;
+using Mod.Product.Root;
 
 namespace ProductWebApi
 {
@@ -25,24 +28,8 @@ namespace ProductWebApi
         {
             services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
             
-            // services.AddSwaggerGen(c =>
-            // {
-            //     c.SwaggerDoc("v1", new OpenApiInfo { Title = "LokiGraProductWebAPIPI", Version = "v1" });
-            // });
-
-            var appConfiguration = new AppConfiguration(Configuration.GetValue<string>);
-            var productConfiguration = new ProductApiConfiguration(Configuration.GetValue<string>);
-            services.AddSingleton<AppConfiguration>(x => appConfiguration);
-            services.AddSingleton<IProductApiConfiguration>(x => productConfiguration);
-            
-            services.AddOptions();
-            services.AddAutoMapper(typeof(GetAllProductsQuery).Assembly); 
-            services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
-
-            services.AddDbContext<ApiDbContext>(options =>
-                options.UseNpgsql(
-                    appConfiguration.DbConnection
-                ));
+            var startupConfigurator = new StartupConfigurator(Configuration, services);
+            startupConfigurator.Configure();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

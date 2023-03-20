@@ -11,4 +11,11 @@
     <ProjectReference Include="..\Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj" />
   </ItemGroup>
 
+<!--  <ItemGroup>-->
+<!--    <PackageReference Include="Serilog" Version="3.0.0-dev-01926" />-->
+<!--  </ItemGroup>-->
+    <ItemGroup>
+        <PackageReference Include="Serilog" Version="2.12.1-dev-01635" />
+    </ItemGroup>
+
 </Project>

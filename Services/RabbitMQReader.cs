@@ -1,5 +1,6 @@
 using System.Text;
 using Core.Base.Configuration;
+using Core.Base.ConfigurationInterfaces;
 using Infrastructure.Interfaces;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
@@ -11,12 +12,12 @@ namespace Infrastructure.Services;
 
 public class RabbitMQReader: IRabbitMQReader
 {
-    private readonly MessageBrokerConfiguration _configuration;
+    private readonly IMessageBrokerConfiguration _configuration;
     private readonly ILogger _logger;
 
-    public RabbitMQReader(IOptions<MessageBrokerConfiguration> configuration)
+    public RabbitMQReader(IMessageBrokerConfiguration configuration)
     {
-        _configuration = configuration.Value;
+        _configuration = configuration;
     }
 
     public void ListenEventsFromQue<TModel>(Action<TModel> handler)

@@ -1,5 +1,7 @@
 using AutoMapper;
 using Core.Base.Output;
+using Core.Transfer.Mods.Order;
+using Infrastructure.Interfaces;
 using MediatR;
 using Serilog;
 using Mod.Product.Base.Queries;
@@ -14,12 +16,16 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
     private readonly IProductService _productService;
     private readonly IMapper _mapper;
     private readonly ILogger _logger;
+    private readonly IRabbitMQReader _rabbitMqReader;
 
-    public GetAllProductsQueryHandler(ILogger logger, IMapper mapper, IProductService productService)
+    #region Public Methods
+
+    public GetAllProductsQueryHandler(ILogger logger, IMapper mapper, IProductService productService, IRabbitMQReader rabbitMqReader)
     {
         _logger = logger;
         _mapper = mapper;
         _productService = productService;
+        rabbitMqReader.ListenEventsFromQue<OrderModel>(HandleOrder);
     }
     
     public async Task<OutputViewModelWithData<List<ProductViewModel>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
@@ -36,4 +42,21 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
             return new OutputViewModelWithData<List<ProductViewModel>>(false, e.Message, null);
         }
     }
+
+    #endregion Public Methods
+
+    #region Private Methods
+
+    private void HandleOrder(OrderModel orderModel)
+    {
+        if (orderModel == null)
+        {
+            _logger.Error("orderModel = null");
+            return;
+        }
+        _logger.Information(orderModel.Description);
+    }
+
+    #endregion Private Methods
+    
 }

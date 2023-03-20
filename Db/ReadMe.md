@@ -3,3 +3,4 @@ dotnet ef migrations add Initial  --startup-project ../ProductWebAPI/ProductWebA
 docker run --name some-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -d -p 5432:5432 postgres
 
 dotnet ef database update --startup-project ../ProductWebAPI/ProductWebAPI.csproj
+dotnet ef database update --connection "Host=localhost;Database=sadb;Port=5432;User Id=postgres;Password=postgres" --startup-project ../ProductWebAPI/ProductWebAPI.csproj

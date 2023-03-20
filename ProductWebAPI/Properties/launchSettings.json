@@ -11,7 +11,9 @@
         "LOKI_PASSWORD": "admin",
         "REDIS_CONNECTION": "localhost:6379",
         "CONTAINER_RUN": "false",
-        "DB_CONNECTION": "Host=localhost;Database=sadb;Port=5432;User Id=postgres;Password=postgres"
+        "DB_CONNECTION": "Host=localhost;Database=sadb;Port=5432;User Id=postgres;Password=postgres",
+        "RABBIT_HOST_NAME": "localhost",
+        "RABBIT_QUE_NAME": "order"
       },
       "applicationUrl": "https://localhost:63246;http://localhost:63247"
     }

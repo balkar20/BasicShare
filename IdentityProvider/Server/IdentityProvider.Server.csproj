@@ -7,13 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.3" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.2" />
-    <PackageReference Include="Serilog.Sinks.GrafanaLoki" Version="1.1.1" />
+      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0"/>
+      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.2"/>
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.2"/>
+      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.2"/>
+      <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.3"/>
+      <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.2"/>
+      <PackageReference Include="Serilog.Sinks.Grafana.Loki" Version="8.1.0"/>
+      <PackageReference Include="Serilog.Sinks.GrafanaLoki" Version="1.1.1"/>
   </ItemGroup>
 
   <ItemGroup>
