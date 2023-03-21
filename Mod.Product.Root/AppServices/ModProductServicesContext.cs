@@ -1,6 +1,3 @@
-using Infrastructure.Interfaces;
-using Mod.Product.Interfaces;
-
 namespace Mod.Product.Root.AppServices;
 
 public class ModProductServicesContext

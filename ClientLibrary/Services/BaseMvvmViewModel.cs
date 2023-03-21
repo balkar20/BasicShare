@@ -1,10 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using BaseClientLibrary.Enums;
-using ClientLibrary.Annotations;
 using ClientLibrary.Interfaces;
-using FluentValidation;
-using IdentityProvider.Shared;
 using IdentityProvider.Shared.Interfaces;
 
 namespace ClientLibrary.Services;

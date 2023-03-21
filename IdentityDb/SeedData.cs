@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Core.Auh.Entities;
 using Core.Auh.Enums;
-using Core.Base.DataBase.Entities;
 
 namespace IdentityDb
 {

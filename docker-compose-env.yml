@@ -44,8 +44,6 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-    networks:
-      - common_network
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'

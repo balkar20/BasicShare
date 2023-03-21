@@ -34,6 +34,10 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
         {
             var products =  await _productService.GetAllProducts();
             var data = products.Select(p => _mapper.Map<ProductModel, ProductViewModel>(p)).ToList();
+            if (data.Any())
+            {
+                _logger.Information("Some products exists in DataBase");
+            }
             return  new OutputViewModelWithData<List<ProductViewModel>>(true, null, data);
         }
         catch (Exception e)
@@ -54,7 +58,7 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
             _logger.Error("orderModel = null");
             return;
         }
-        _logger.Information(orderModel.Description);
+        _logger.Information($"Message{orderModel.Description}");
     }
 
     #endregion Private Methods

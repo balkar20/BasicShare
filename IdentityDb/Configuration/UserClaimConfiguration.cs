@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using Core.Auh.Entities;
 using Core.Auh.Enums;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 

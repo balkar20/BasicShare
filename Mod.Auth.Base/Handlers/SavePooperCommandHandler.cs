@@ -2,7 +2,6 @@ using AutoMapper;
 using MediatR;
 using Mod.Auth.Base.Commands;
 using Mod.Auth.Interfaces;
-using Mod.Auth.Models;
 using Core.Transfer;
 
 namespace Mod.Auth.Base.Handlers;

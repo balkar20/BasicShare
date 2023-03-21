@@ -1,8 +1,6 @@
 using System.Text;
-using Core.Base.Configuration;
 using Core.Base.ConfigurationInterfaces;
 using Infrastructure.Interfaces;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;

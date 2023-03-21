@@ -7,27 +7,29 @@ public class OrderModel
     public string Description { get; set; }
     
     public OrderType OrderType { get; set; }
+    
+    public OrderStatus OrderStatus { get; set; }
 
     public long OrderPayloadId { get; set; }
     
-    public IPaymentInfo PaymentInfo { get; set; }
+    public PaymentInfo PaymentInfo { get; set; }
            
-    public IOrderNotification Notification { get; set; }
+    public OrderNotification Notification { get; set; }
            
-    public ICustomerInfo CustomerInfo { get; set; }
+    public CustomerInfo CustomerInfo { get; set; }
 }
 
-public interface ICustomerInfo
+public class CustomerInfo
 {
     public string UserId { get; set; }
 }
 
-public interface IPaymentInfo
+public class PaymentInfo
 {
     public decimal Price { get; set; }
 }
 
-public interface IOrderNotification
+public class OrderNotification
 {
     public NotificationType NotificationType { get; set; }
 }
@@ -45,4 +47,11 @@ public enum OrderType
     Work,
     Product,
     Shipment
+}
+
+public enum OrderStatus
+{
+    Started,
+    Processing,
+    Completed
 }

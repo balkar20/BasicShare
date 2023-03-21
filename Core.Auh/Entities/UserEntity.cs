@@ -1,5 +1,4 @@
-﻿using Core.Base.DataBase.Interfaces;
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 
 namespace Core.Auh.Entities
 {

@@ -12,7 +12,7 @@ namespace Core.Auh.Configuration
         {
         }
 
-        public int ExpiryInMinutes { get => GetConfigFuncInt("API_NAME"); }
+        public int ExpiryInMinutes { get => GetConfigFuncInt("EXPIRY_IN_MINUTES"); }
         public string ValidIssuer { get => GetConfigFuncString("VALID_ISSUER"); }
         public string ValidAudience { get => GetConfigFuncString("VALID_AUDIENCE"); }
         public string SecurityKey { get => GetConfigFuncString("SECURITY_KEY"); }

@@ -1,7 +1,6 @@
 using System.Text;
 using Blazored.LocalStorage;
 using Core.Auh.Entities;
-using Core.Base.Custom;
 using Data.IdentityDb;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -13,10 +12,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Mod.Auth.Base.Queries;
-using Mod.Auth.Base.Repositories;
-using Mod.Auth.Interfaces;
 using Mod.Auth.Root.Configuration;
 using Mod.Auth.Services;
+using Mod.Order.Base.Handlers;
 using Serilog;
 using Serilog.Sinks.GrafanaLoki;
 
@@ -56,6 +54,7 @@ public class ModAuthExternalServicesConfigurator
         _services.AddRazorPages();
         _services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
         _services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
+        _services.AddMediatR(typeof(CreateOrderCommandHandler).Assembly);
 
         ConfigureDataBase();
         ConfigureAuthentication();
@@ -112,14 +111,13 @@ public class ModAuthExternalServicesConfigurator
         Log.Logger = new LoggerConfiguration()
             .MinimumLevel.Verbose()
             .Enrich.FromLogContext()
-            .Enrich.WithProperty("ALabel", "ALabelValue")
-            .WriteTo.File("log.txt", rollingInterval: RollingInterval.Hour)
+            .Enrich.WithProperty("ALabel2", "ALabelValue2")
+            .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Minute)
             .WriteTo.GrafanaLoki(
                 "http://localhost:3100",
                 credentials,
-                new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.IdentityProvider.Server" } }, // Global labels
-                Serilog.Events.LogEventLevel.Debug,
-                httpClient: new CustomHttpClient() 
+                new Dictionary<string, string>() { { "api", "Serilog.Sinks.GrafanaLoki.IdentityProvider.Server" } }, // Global labels
+                Serilog.Events.LogEventLevel.Debug
             )
             .CreateLogger();
 

@@ -1,5 +1,4 @@
 using Mod.Pooper.Models;
-using Core.Base;
 
 namespace Mod.Pooper.Interfaces;
 

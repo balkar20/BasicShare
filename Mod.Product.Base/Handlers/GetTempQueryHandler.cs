@@ -1,5 +1,4 @@
 using MediatR;
-using Serilog;
 using Mod.Product.Base.Queries;
 using Mod.Product.Interfaces;
 

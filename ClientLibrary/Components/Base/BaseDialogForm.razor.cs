@@ -1,9 +1,6 @@
-using BaseClientLibrary.Enums;
 using ClientLibrary.Interfaces;
 using IdentityProvider.Shared.Interfaces;
 using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Components.Rendering;
-using MudBlazor;
 
 namespace ClientLibrary.Components.Base;
 

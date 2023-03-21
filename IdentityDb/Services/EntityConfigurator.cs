@@ -1,6 +1,4 @@
-using Core.Auh.Entities;
 using IdentityDb.Configuration;
-using Microsoft.EntityFrameworkCore;
 
 namespace IdentityDb.Services;
 

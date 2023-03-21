@@ -1,11 +1,8 @@
-using System.Net;
 using Blazored.LocalStorage;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Interfaces.Particular;
 using Core.Transfer;
 using IdentityProvider.Shared;
-using Microsoft.AspNetCore.Components.Authorization;
-using TinyCsvParser.Tokenizer.RFC4180;
 
 namespace ClientLibrary.Services;
 

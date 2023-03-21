@@ -14,7 +14,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Serilog" Version="3.0.0-dev-01842" />
+<!--      <PackageReference Include="Serilog" Version="3.0.0-dev-01842" />-->
     </ItemGroup>
 
 </Project>

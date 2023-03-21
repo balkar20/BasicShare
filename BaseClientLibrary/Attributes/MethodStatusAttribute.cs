@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-
 namespace BaseClientLibrary.Attributes;
 
 public class MethodStatusAttribute: Attribute

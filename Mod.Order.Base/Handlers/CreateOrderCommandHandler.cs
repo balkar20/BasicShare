@@ -2,8 +2,6 @@ using Core.Transfer;
 using Infrastructure.Interfaces;
 using MediatR;
 using Mod.Order.Base.Commands;
-using Mod.Order.Interfaces;
-using Mod.Order.Models;
 
 namespace Mod.Order.Base.Handlers;
 

@@ -1,5 +1,4 @@
-﻿using Core.Auh.Entities;
-using Core.Base.DataBase.Interfaces;
+﻿using Core.Base.DataBase.Interfaces;
 
 namespace Core.Base.DataBase.Entities;
 

@@ -1,4 +1,3 @@
-using ClientLibrary.Interfaces;
 using Core.Transfer;
 using IdentityProvider.Shared;
 

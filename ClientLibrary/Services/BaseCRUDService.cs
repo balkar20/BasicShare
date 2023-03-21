@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using System.Net.Http.Json;
 using BaseClientLibrary.Enums;
 using ClientLibrary.Interfaces;
@@ -6,7 +5,6 @@ using ClientLibrary.Interfaces;
 using Core.Transfer;
 using FluentValidation;
 using FluentValidation.Results;
-using IdentityProvider.Shared;
 using IdentityProvider.Shared.Interfaces;
 using MudBlazor;
 using Severity = MudBlazor.Severity;

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 using Mod.Auth.Root.AppServices;
 using Mod.Auth.Root.Configuration;
 using Mod.Auth.Root.ExtenalServices;

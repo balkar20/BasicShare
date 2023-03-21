@@ -1,4 +1,3 @@
-using Microsoft.Extensions.Options;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
 using Serilog;
@@ -13,10 +12,7 @@ using Microsoft.IdentityModel.Tokens;
 using Core.Auh.Enums;
 using Core.Transfer;
 using Data.IdentityDb;
-using Hangfire.States;
-using Microsoft.AspNetCore.Hosting.StaticWebAssets;
 using Microsoft.EntityFrameworkCore;
-using StackExchange.Redis;
 
 namespace Mod.Auth.Base.Repositories;
 

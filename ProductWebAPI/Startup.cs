@@ -1,15 +1,7 @@
 using Serilog;
 using Apps.ProductWebAPI.Extensions;
 using Apps.EndpointDefinitions.ProductWebAPI;
-using Core.Base.Configuration;
-using Core.Base.ConfigurationInterfaces;
-using Data.Db;
-using Infrastructure.Interfaces;
-using Infrastructure.Services;
 using ProductWebApi.Middlewares;
-using MediatR;
-using Microsoft.EntityFrameworkCore;
-using Mod.Product.Base.Queries;
 using Mod.Product.Root;
 
 namespace ProductWebApi
@@ -27,11 +19,11 @@ namespace ProductWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
-            
+
             var startupConfigurator = new StartupConfigurator(Configuration, services);
             startupConfigurator.Configure();
         }
-        
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
