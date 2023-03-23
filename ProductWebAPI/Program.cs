@@ -7,11 +7,11 @@ using Apps.ProductWebAPI.Helpers;
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-    builder.Logging.AddSerilog(Log.Logger);
-    builder.Host.UseSerilog(Log.Logger);
+    // builder.Logging.AddSerilog(Log.Logger);
+    // builder.Host.UseSerilog(Log.Logger);
 
     var startUp = new StartupHelper(builder.Configuration);
-    startUp.ConfigureServices(builder.Services);
+    startUp.ConfigureServices(builder);
     
     var app = builder.Build();
     startUp.Configure(app, app.Environment);

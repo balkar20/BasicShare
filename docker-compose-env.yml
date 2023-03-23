@@ -1,4 +1,4 @@
-version: '3.4'
+version: '3'
 
 services:
   loki:
@@ -33,17 +33,13 @@ services:
     networks:
       - common_network
   db:
-    image: postgres:latest
+    image: postgres
     restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
     ports:
       - "5432:5432"
-    container_name: postgresql
-    # connect this container to the user-defined network common_network
-    volumes:
-      - "./pgdata:/var/lib/postgresql/data/pgdata"
-    environment:
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_USER=postgres
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: 'rabbitmq'

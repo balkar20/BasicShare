@@ -15,6 +15,8 @@ public class ApiDbContext : DbContext
     public DbSet<ProductEntity> Products { get; set; }
     public DbSet<OrderEntity> Orders { get; set; }
     public DbSet<ShipmentEntity> Shipments { get; set; }
+    
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         try

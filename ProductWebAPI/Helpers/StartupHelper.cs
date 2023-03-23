@@ -15,11 +15,12 @@ public class StartupHelper
     
     public IConfiguration Configuration { get; }
     
-    public void ConfigureServices(IServiceCollection services)
+    public void ConfigureServices(WebApplicationBuilder builder)
     {
-        services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
+        
+        builder.Services.AddEndpointDefinitions(typeof(ProductEndpointDefinition));
             
-        var startupConfigurator = new StartupConfigurator(Configuration, services);
+        var startupConfigurator = new StartupConfigurator(Configuration, builder);
         startupConfigurator.Configure();
     }
     

@@ -1,5 +1,6 @@
 using Data.Db;
 using MediatR;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Mod.Product.Base.Queries;
@@ -13,11 +14,13 @@ public class ModProductExternalServicesConfigurator
 {
     private readonly IServiceCollection _services;
     private readonly ProductEnvironmentContext _productEnvironmentContext;
+    private readonly WebApplicationBuilder _builder;
 
-    public ModProductExternalServicesConfigurator(IServiceCollection services, ProductEnvironmentContext productEnvironmentContext)
+    public ModProductExternalServicesConfigurator(WebApplicationBuilder builder, ProductEnvironmentContext productEnvironmentContext)
     {
-        _services = services;
+        _services = builder.Services;
         _productEnvironmentContext = productEnvironmentContext;
+        _builder = builder;
     }
 
     public void Configure()
@@ -50,6 +53,9 @@ public class ModProductExternalServicesConfigurator
                 Serilog.Events.LogEventLevel.Debug
             )
             .CreateLogger();
+
+        _builder.Logging.AddSerilog(Log.Logger);
+        _builder.Host.UseSerilog(Log.Logger);
     }
 
     private void ConfigureDataBase()
