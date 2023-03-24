@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Mod.Product.Base.Repositories;
 using Mod.Product.Interfaces;
 using Mod.Product.Services;
+using Mod.Product.Services.Listeners;
 
 namespace Mod.Product.Root.AppServices;
 
@@ -18,8 +19,6 @@ public class ModProductServicesConfigurator
 
     public void Configure()
     {
-        _services.AddSingleton<IRabbitMQReader, RabbitMQReader>();
-
         _services.AddScoped<IProductRepository, ProductRepository>();
         _services.AddScoped<IProductService, ProductService>();
     }

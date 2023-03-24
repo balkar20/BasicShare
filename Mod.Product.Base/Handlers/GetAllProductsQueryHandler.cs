@@ -16,16 +16,14 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
     private readonly IProductService _productService;
     private readonly IMapper _mapper;
     private readonly ILogger _logger;
-    private readonly IRabbitMQReader _rabbitMqReader;
 
     #region Public Methods
 
-    public GetAllProductsQueryHandler(ILogger logger, IMapper mapper, IProductService productService, IRabbitMQReader rabbitMqReader)
+    public GetAllProductsQueryHandler(ILogger logger, IMapper mapper, IProductService productService)
     {
         _logger = logger;
         _mapper = mapper;
         _productService = productService;
-        rabbitMqReader.ListenEventsFromQue<OrderModel>(HandleOrder);
     }
     
     public async Task<OutputViewModelWithData<List<ProductViewModel>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)

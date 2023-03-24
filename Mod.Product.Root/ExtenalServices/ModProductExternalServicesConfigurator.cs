@@ -1,11 +1,15 @@
 using Data.Db;
+using Infrastructure.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Mod.Product.Base.Queries;
+using Mod.Product.Root.AppServices;
 using Mod.Product.Root.Configuration;
+using Mod.Product.Services.Listeners;
 using Serilog;
+using Serilog.Core;
 using Serilog.Sinks.GrafanaLoki;
 
 namespace Mod.Product.Root.ExtenalServices;
@@ -28,9 +32,12 @@ public class ModProductExternalServicesConfigurator
         _services.AddOptions();
         _services.AddAutoMapper(typeof(GetAllProductsQuery).Assembly); 
         _services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
+        
+        
 
         ConfigureDataBase();
         ConfigureLogging();
+        ConfigureListeners();
     }
 
     public void ConfigureLogging()
@@ -64,5 +71,10 @@ public class ModProductExternalServicesConfigurator
             options.UseNpgsql(
                 _productEnvironmentContext.AppConfiguration.DbConnection
             ));
+    }
+
+    private void ConfigureListeners()
+    {
+        _services.AddHostedService<OrderCreationListener>();
     }
 }

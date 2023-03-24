@@ -11,6 +11,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
       <ProjectReference Include="..\Db\Db.csproj" />
       <ProjectReference Include="..\Mod.Product.Interfaces\Mod.Product.Interfaces.csproj" />
       <ProjectReference Include="..\Mod.Product.Models\Mod.Product.Models.csproj" />

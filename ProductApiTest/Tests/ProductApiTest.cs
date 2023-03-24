@@ -30,8 +30,8 @@ namespace ProductApiTest.Tests
                 new()
                 {
                     Id = "Koko",
-                    BusinessChannelAlias = "Chanell",
-                    ProductAlias = "Manel"
+                    Name = "Chanell",
+                    Description = "Manel"
                 }
             };
             
@@ -43,7 +43,7 @@ namespace ProductApiTest.Tests
                 await response.Content.ReadFromJsonAsync<OutputViewModelWithData<List<ProductViewModel>>>();
 
             //Assert
-            Assert.Equal(jsonResult?.Data[0].ProductAlias, expResult[0].ProductAlias);
+            Assert.Equal(jsonResult?.Data[0].ProductAlias, expResult[0].Description);
         }
     }
 }

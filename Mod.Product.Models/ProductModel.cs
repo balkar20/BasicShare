@@ -4,7 +4,7 @@ public record ProductModel
 {
     public string Id { get; init; }
     
-    public string? BusinessChannelAlias { get; init; }
+    public string? Name { get; init; }
     
-    public string?  ProductAlias{ get; init; }
+    public string?  Description { get; init; }
 }
