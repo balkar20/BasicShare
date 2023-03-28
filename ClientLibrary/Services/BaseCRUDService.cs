@@ -6,6 +6,7 @@ using Core.Transfer;
 using FluentValidation;
 using FluentValidation.Results;
 using IdentityProvider.Shared.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 using MudBlazor;
 using Severity = MudBlazor.Severity;
 
@@ -19,8 +20,6 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
 
     private readonly HttpClient _httpClient;
 
-    private readonly AbstractValidator<TModel> _modelValidator;
-
     #endregion Fields
 
     #region Properties
@@ -32,12 +31,11 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
 
     #region Constructors
 
-    public BaseCrudService(HttpClient httpClient, IBaseMvvmViewModel<TModel> baseMvvmViewModel,
-        AbstractValidator<TModel> modelValidator, ISnackbar snackbar)
+    public BaseCrudService(HttpClient httpClient, IBaseMvvmViewModel<TModel> baseMvvmViewModel, ISnackbar snackbar)
     {
         _httpClient = httpClient;
         this.MvvmViewModel = baseMvvmViewModel;
-        _modelValidator = modelValidator;
+        // _modelValidator = modelValidator;
         Snackbar = snackbar;
     }
 
@@ -94,10 +92,18 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
         return (TResponseViewModel)HandleResponseResult(result);
     }
 
-    public virtual async Task<ValidationResult> ValidateModelValue()
+    public virtual void ConfigureCrudService<TResponseData>(IServiceCollection services)
     {
-        return await _modelValidator.ValidateAsync(MvvmViewModel.Data);
+        services.AddScoped<
+            IBaseCrudService<TModel, BaseResponseResult, TResponseData>, 
+            BaseCrudService<TModel, BaseResponseResult, TResponseData>>();
     }
+
+
+    // public virtual async Task<ValidationResult> ValidateModelValue()
+    // {
+    //     return await _modelValidator.ValidateAsync(MvvmViewModel.Data);
+    // }
 
     #endregion PublicMethods
 

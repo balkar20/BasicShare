@@ -28,7 +28,7 @@ public partial class LoginForm
 
     protected override Task OnInitializedAsync()
     {
-        _mvvmViewModel = AuthenticationService.CrudService.MvvmViewModel;
+        _mvvmViewModel = AuthenticationService.LoginCrudService.MvvmViewModel;
         _mvvmViewModel.Data = new LoginViewModel();
         return base.OnInitializedAsync();
     }

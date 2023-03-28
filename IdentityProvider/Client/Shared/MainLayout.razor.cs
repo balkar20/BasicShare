@@ -39,9 +39,13 @@ public partial class MainLayout
         await AuthenticationService.Logout();
     }
     
-    private void Register()
+    async Task Register()
     {
-        // DialogService.Show<RegisterFormDialog>();
+        var parameters = new DialogParameters();
+        parameters.Add("OnClosed", EventCallback.Factory.Create(this, HandleDialogClosed));
+        DialogOptions fullScreen = new DialogOptions() { FullScreen = true, CloseButton = true };
+
+        await DialogService.ShowAsync<RegisterFormDialog>("Register", parameters, fullScreen);
     }
     
     // private void ShowAccountOptions()
@@ -58,5 +62,4 @@ public partial class MainLayout
     //             @MyMarkup
     //             );
     // }
-
 }

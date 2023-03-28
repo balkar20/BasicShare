@@ -7,8 +7,13 @@ public interface IAuthenticationService
 {
     public bool IsAuthenticated { get; set; }
     
-    IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> CrudService { get; }
+    IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> LoginCrudService { get; }
+    
+    IBaseCrudService<RegisterViewModel, BaseResponseResult, LoginResponseViewModel> RegisterCrudService { get; }
     
     Task<ResponseResultWithData<LoginResponseViewModel>> LigInAsync();
+    
+    Task<ResponseResultWithData<LoginResponseViewModel>> RegisterAsync();
+    
     Task Logout();
 }

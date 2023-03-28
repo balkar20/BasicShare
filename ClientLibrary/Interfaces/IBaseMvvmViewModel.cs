@@ -1,7 +1,9 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using BaseClientLibrary.Enums;
+using FluentValidation;
 using IdentityProvider.Shared.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ClientLibrary.Interfaces;
 
@@ -22,6 +24,10 @@ public interface IBaseMvvmViewModel<TData>: INotifyPropertyChanged where TData: 
     public bool IsLoading { get; set; }
     
     public bool IsFailed { get; set; }
+    
+    AbstractValidator<TData> Validator { get; set; }
 
     void OnPropertyChanged([CallerMemberName] string propertyName = null);
+
+    void ConfigureCrudService<TResponseData>(IServiceCollection services);
 }

@@ -1,3 +1,4 @@
+using System.Text.RegularExpressions;
 using IdentityProvider.Shared;
 
 namespace TestProject1;
@@ -99,6 +100,29 @@ public class Tests
 
         //Assert
         Assert.AreEqual(AnimalTypes.Bird, type);
+    }
+
+    [Test]
+    public  void TestRegex()
+    {
+        //Arrange
+
+        var vm = "ViewModel";
+        var vmo = "LoginViewModel";
+        var expected = "login";
+        // var regex2 = 
+        var nm = typeof(TestViewModel).ToString();
+        var result = vmo.Replace(vm, "" ).ToLower();
+
+
+        // f.ContinueWith((t) => Console.WriteLine("jhjhjh"));
+
+
+        //Act
+        // cooker.Feed(fish, "Plancton");
+
+        //Assert
+        Assert.AreEqual(expected, result);
     }
 
     [Test]
@@ -219,4 +243,9 @@ public struct S : IDisposable
     {
         return dispose;
     }
+}
+
+public class TestViewModel
+{
+    
 }

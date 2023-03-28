@@ -90,7 +90,11 @@ public class AuthService: IAuthService
 
         await _userManager.AddToRoleAsync(user, registerModel.UserRole is null ? UserRolesEnum.Viewer.ToString() : registerModel.UserRole.ToString());
 
-        return new RegisterResponseModel { IsSuccess = true };
+        var claims = await GetClaimsAsync(user);
+        var signingCredentials = GetSigningCredentials();
+        var tokenOptions = GenerateTokenOptions(signingCredentials, claims);
+        var token = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
+        return new RegisterResponseModel { IsSuccess = true, Token = token};
     }
 
     public async Task<BaseResponseResult> SavePooper(PooperModel pooperModel)

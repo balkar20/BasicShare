@@ -1,3 +1,4 @@
+using System.Reflection;
 using Data.Db;
 using Infrastructure.Interfaces;
 using MediatR;
@@ -31,7 +32,9 @@ public class ModProductExternalServicesConfigurator
     {
         _services.AddOptions();
         _services.AddAutoMapper(typeof(GetAllProductsQuery).Assembly); 
-        _services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
+        // _services.AddMediatR(typeof(GetAllProductsQuery).Assembly);
+        _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
         
         
 

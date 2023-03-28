@@ -1,6 +1,7 @@
 using Core.Transfer;
 using FluentValidation.Results;
 using IdentityProvider.Shared.Interfaces;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace ClientLibrary.Interfaces;
 
@@ -18,6 +19,8 @@ where TModel: IViewModel
     Task<TResponseViewModel> CreateModelAsync(TModel model);
 
     Task<ResponseResultWithData<TResponseData>> CreateDataAsync();
+
+    // void ConfigureCrudService(IServiceCollection services);
     
-    Task<ValidationResult> ValidateModelValue(); 
+    // Task<ValidationResult> ValidateModelValue(); 
 }

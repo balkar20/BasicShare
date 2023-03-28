@@ -1,3 +1,4 @@
+using System.Reflection;
 using System.Text;
 using Blazored.LocalStorage;
 using Core.Auh.Entities;
@@ -14,6 +15,7 @@ using Microsoft.IdentityModel.Tokens;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Root.Configuration;
 using Mod.Auth.Services;
+using Mod.Order.Base.Commands;
 using Mod.Order.Base.Handlers;
 using Serilog;
 using Serilog.Sinks.GrafanaLoki;
@@ -53,8 +55,13 @@ public class ModAuthExternalServicesConfigurator
         _services.AddControllersWithViews();
         _services.AddRazorPages();
         _services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
-        _services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
-        _services.AddMediatR(typeof(CreateOrderCommandHandler).Assembly);
+        // _services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
+        // _services.AddMediatR(configuration => configuration.)
+        // _services.AddMediatR(typeof(CreateOrderCommandHand).Assembly);
+        _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllUsersQuery).Assembly));
+        _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateOrderCommand).Assembly));
+        // _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllUsersQuery).Assembly));
+
 
         ConfigureDataBase();
         ConfigureAuthentication();
