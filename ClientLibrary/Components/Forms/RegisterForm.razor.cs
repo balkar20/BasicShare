@@ -7,14 +7,13 @@ using Core.Transfer;
 using FluentValidation;
 using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
-using Mod.Auth.Models;
 using MudBlazor;
 using MudBlazor.Extensions;
 using TinyCsvParser.Tokenizer.RFC4180;
 
 namespace ClientLibrary.Components.Forms;
 
-public partial class RegisterForm
+public partial class RegisterForm : ComponentBase
 {
     
     

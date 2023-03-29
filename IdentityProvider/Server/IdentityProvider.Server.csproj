@@ -7,19 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-<!--      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />-->
-      <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0-preview.2.23153.2" />
       <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0-preview.2.23153.2" />
-      <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.0-preview.2.23153.2" />
       <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0-preview.2.23153.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core.Transfer\Core.Transfer.csproj" />
     <ProjectReference Include="..\..\Mod.Auth.Root\Mod.Auth.Root.csproj" />
     <ProjectReference Include="..\..\Mod.Order.Base\Mod.Order.Base.csproj" />
-<!--    <ProjectReference Include="..\..\Mod.Pooper.Base\Mod.Pooper.Base.csproj" />-->
-<!--    <ProjectReference Include="..\..\Mod.Pooper.Services\Mod.Pooper.Services.csproj" />-->
     <ProjectReference Include="..\Client\IdentityProvider.Client.csproj" />
   </ItemGroup>
 

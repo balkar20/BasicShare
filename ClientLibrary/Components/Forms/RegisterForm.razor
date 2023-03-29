@@ -1,8 +1,8 @@
 @using BaseClientLibrary.Enums
 @using FluentValidation
 
-@* <MudForm @bind-IsValid="@success" @bind-Errors="@errors" Validation="@(async () => await _mvvmViewModel.Validator.ValidateAsync(_mvvmViewModel.Data))" @ref="@form" Model="@_mvvmViewModel.Data"> *@
-<MudForm @bind-IsValid="@success" @bind-Errors="@errors" Validation="ValidateFormAsync" @ref="@form" Model="@_mvvmViewModel.Data">
+@* <MudForm @bind-IsValid="@success"  Validation="@(_mvvmViewModel.Validator.ValidateValue)" @ref="@form" Model="@_mvvmViewModel.Data"> *@
+<MudForm  Validation="ValidateFormAsync" @ref="@form" Model="@_mvvmViewModel.Data">
     <MudTextField @bind-Value="_mvvmViewModel.Data.UserName"                              
                   For="@(() => _mvvmViewModel.Data.UserName)"
                   Immediate="true"

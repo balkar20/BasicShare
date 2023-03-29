@@ -5,7 +5,7 @@ using MudBlazor;
 
 namespace ClientLibrary.Components.Dialogs;
 
-public partial class PooperFormDialog
+public partial class PooperFormDialog : ComponentBase
 {
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 

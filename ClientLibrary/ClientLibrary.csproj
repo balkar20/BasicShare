@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
@@ -6,26 +6,22 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
-
-    <ItemGroup>
-        <SupportedPlatform Include="browser" />
-    </ItemGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <Optimize>False</Optimize>
+    </PropertyGroup>
 
     <ItemGroup>
 <!--        <PackageReference Include="FluentValidatdion" Version="7.2.1" />-->
         <PackageReference Include="FluentValidation" Version="11.5.1" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0-preview.2.23153.2" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0-preview.2.23153.2" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0-preview.2.23153.2" />
         <PackageReference Include="MudBlazor" Version="6.2.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\BaseClientLibrary\BaseClientLibrary.csproj" />
       <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
       <ProjectReference Include="..\IdentityProvider\Shared\IdentityProvider.Shared.csproj" />
-      <ProjectReference Include="..\Mod.Auth.Models\Mod.Auth.Models.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -3,7 +3,7 @@ using MudBlazor;
 
 namespace ClientLibrary.Components.Dialogs;
 
-public partial class RegisterFormDialog
+public partial class RegisterFormDialog : ComponentBase
 {
     [Parameter]
     public EventCallback OnClosed { get; set; }

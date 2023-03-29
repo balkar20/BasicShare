@@ -6,12 +6,11 @@ using ClientLibrary.Interfaces.Particular;
 using Core.Transfer;
 using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
-using Mod.Auth.Models;
 using TinyCsvParser.Tokenizer.RFC4180;
 
 namespace ClientLibrary.Components.Forms;
 
-public partial class LoginForm
+public partial class LoginForm : ComponentBase
 {
     [Inject]
     public IAuthenticationService AuthenticationService { get; set; }
@@ -25,6 +24,13 @@ public partial class LoginForm
         //AlertService.Clear();
         var data= await AuthenticationService.LigInAsync();
     }
+
+    //protected override Task OnInitializedAsync()
+    //{
+    //    _mvvmViewModel = AuthenticationService.LoginCrudService.MvvmViewModel;
+    //    _mvvmViewModel.Data = new LoginViewModel();
+    //    return base.OnInitializedAsync();
+    //}
 
     protected override Task OnInitializedAsync()
     {

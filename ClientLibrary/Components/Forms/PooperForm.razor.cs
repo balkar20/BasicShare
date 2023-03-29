@@ -8,7 +8,7 @@ using MudBlazor;
 
 namespace ClientLibrary.Components.Forms;
 
-public partial class PooperForm
+public partial class PooperForm: ComponentBase
 {
     [Inject]
     public IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService{ get; set; }

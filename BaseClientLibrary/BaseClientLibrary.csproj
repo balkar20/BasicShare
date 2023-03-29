@@ -6,17 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
-
-    <ItemGroup>
-        <SupportedPlatform Include="browser" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="8.0.0-preview.2.23153.2" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.2.23128.3" />
-        <PackageReference Include="MudBlazor" Version="6.2.0" />
-    </ItemGroup>
-
     <ItemGroup>
       <AdditionalFiles Include="CommonComponents\CommonAlertComponent.razor" />
       <AdditionalFiles Include="CommonComponents\CommonCalendarComponent.razor" />

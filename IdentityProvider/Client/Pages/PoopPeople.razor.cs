@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 
 namespace IdentityProvider.Client.Pages;
 
-public partial class PoopPeople
+public partial class PoopPeople : ComponentBase
 {
     [CascadingParameter] public MainLayout Layout { get; set; }
     private string authMessage;

@@ -3,7 +3,7 @@ using MudBlazor;
 
 namespace ClientLibrary.Components.Dialogs;
 
-public partial class LoginFormDialog
+public partial class LoginFormDialog : ComponentBase
 {
     [Parameter]
     public EventCallback OnClosed { get; set; }
