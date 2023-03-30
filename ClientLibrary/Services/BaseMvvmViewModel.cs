@@ -2,6 +2,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using BaseClientLibrary.Enums;
 using ClientLibrary.Interfaces;
+using ClientLibrary.Validators;
 using Core.Transfer;
 using FluentValidation;
 using IdentityProvider.Shared.Interfaces;
@@ -11,7 +12,7 @@ namespace ClientLibrary.Services;
 
 public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: IViewModel, new()
 {
-    public BaseMvvmViewModel(AbstractValidator<TData> validator)
+    public BaseMvvmViewModel(BaseModelValidator<TData> validator)
     {
         Data = new();
         StatusType = StatusTypes.StatusCanceled;
@@ -38,7 +39,7 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
     
     public bool IsFailed { get; set; }
     
-    public AbstractValidator<TData> Validator { get; set; }
+    public BaseModelValidator<TData> Validator { get; set; }
 
     public void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {

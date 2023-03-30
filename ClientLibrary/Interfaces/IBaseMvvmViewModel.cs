@@ -1,6 +1,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using BaseClientLibrary.Enums;
+using ClientLibrary.Validators;
 using FluentValidation;
 using IdentityProvider.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,7 +26,7 @@ public interface IBaseMvvmViewModel<TData>: INotifyPropertyChanged where TData: 
     
     public bool IsFailed { get; set; }
     
-    AbstractValidator<TData> Validator { get; set; }
+    BaseModelValidator<TData> Validator { get; set; }
 
     void OnPropertyChanged([CallerMemberName] string propertyName = null);
 
