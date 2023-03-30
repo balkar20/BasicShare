@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+      <Optimize>False</Optimize>
+    </PropertyGroup>
+
+    <ItemGroup>
+<!--        <PackageReference Include="FluentValidatdion" Version="7.2.1" />-->
+        <PackageReference Include="FluentValidation" Version="11.5.1" />
+        <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.1" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0-preview.2.23153.2" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0-preview.2.23153.2" />
+        <PackageReference Include="MudBlazor" Version="6.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
+      <ProjectReference Include="..\IdentityProvider\Shared\IdentityProvider.Shared.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonAlertComponent.razor" />
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonCalendarComponent.razor" />
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonDialogComponent.razor" />
+      <_ContentIncludedByDefault Remove="CommonComponents\CommonTopMenuComponent.razor" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Attributes" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Components\PoopCarousel.razor.cs">
+        <DependentUpon>PoopCarousel.razor</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
+</Project>

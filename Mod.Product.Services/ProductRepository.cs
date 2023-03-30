@@ -4,7 +4,7 @@ using Core.Base.DataBase.Entities;
 using Data.Db;
 using Infrastructure.Services;
 using Mod.Product.Interfaces;
-using ModProduct.Models;
+using Mod.Product.Models;
 
 namespace Mod.Product.Services;
 

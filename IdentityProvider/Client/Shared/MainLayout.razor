@@ -1,34 +1,76 @@
 ﻿@inherits LayoutComponentBase
+
 @using Blazored.LocalStorage
+@using ClientLibrary.Components;
 @inject HttpClient Http;
 @*@inject IAlertService AlertService*@
 @inject NavigationManager NavigationManager
 @inject ILocalStorageService _localStorage
-<MudThemeProvider />
-<MudDialogProvider />
-<MudSnackbarProvider />
-@*<AuthorizeView>
-    <Authorized>*@
-        <div class="page">
-            <div class="sidebar">
-                <NavMenu />
-            </div>
+<MudThemeProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+<div class="page">
+    <div class="sidebar">
+        <NavMenu/>
+    </div>
 
-            <main>
-                <div class="top-row px-4">
-                    <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-                    <a href="login" target="_blank">Login</a>
-                    <a href="logout" target="_blank">Logout</a>
-                </div>
+    <main>
+        <MudTabs class="top-row px-4" Elevation="4" Rounded="true" Color="@Color.Secondary">
+            <MudTabPanel Text="Newbies"/>
+            <MudTabPanel Text="Juniors"/>
+            <MudTabPanel Text="Uppers"/>
+            <MudTabPanel Text="GangPoopers"/>
+            <MudTabPanel Text="StinkCoder"/>
+            <MudTabPanel Text="Puppy"/>
+            <MudTabPanel Text="OJ"/>
+            <MudTabPanel Text="Middles"/>
+            <MudTabPanel Text="Seniors"/>
+            <AuthorizeView >
+                    <Authorized>
+                        <MudMenu >
+                            <ActivatorContent>
+                                <MudAvatar Image="Pritty.png" Color="Color.Secondary"></MudAvatar>
+                            </ActivatorContent>
+                            <ChildContent>
+                                <MudMenuItem>Profile</MudMenuItem>
+                                <MudMenuItem>Theme</MudMenuItem>
+                                <MudMenuItem>Usage</MudMenuItem>
+                                <MudMenuItem>
+                                    <MudButton IconColor="Color.Dark" StartIcon="@Icons.Material.Filled.Logout" OnClick="@(async () => await Logout())" Color="Color.Warning" Variant="Variant.Outlined">Sign Out</MudButton>
+                                </MudMenuItem>
+                            </ChildContent>
+                        </MudMenu>
+                        @* <MudAvatar Image="Pritty.png" OnClick="@ShowAccountOptions" Color="Color.Secondary"></MudAvatar> *@
+                    </Authorized>
+                    <NotAuthorized>
+                        <MudButton IconColor="Color.Surface" OnClick="@(async () => await Login())" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Login" Variant="Variant.Outlined">Login</MudButton>
+                        <MudButton IconColor="Color.Tertiary" OnClick="Register" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.AppRegistration" Variant="Variant.Outlined">Register</MudButton>
+                    </NotAuthorized>
+                </AuthorizeView>
+        </MudTabs>
+        @* <MudButtonGroup Justify="@_justify" Color="Color.Primary"> *@
+        @* </MudButtonGroup> *@
+        <PoopCarousel></PoopCarousel>
 
-                <article class="content px-4">
-                    @Body
-                </article>
-            </main>
-        </div>
-   @* </Authorized>
-    <NotAuthorized>*@
-      @*  <RedirectToLogin></RedirectToLogin>
-    </NotAuthorized>*@
-@*</AuthorizeView>*@
+        <article class="content px-4">
+            @Body
+        </article>
+    </main>
+</div>
 
+@code {
+        @* private void OnClick() *@
+        @* { *@
+        @*     SnackbarService.Add *@
+        @*     ( *@
+        @*         @<div> *@
+        @*             <h3>Hi from a RenderFragment</h3> *@
+        @*             <ul> *@
+        @*                 <li>Here's a regular item</li> *@
+        @*                 <li>Here's a <strong>bold item</strong></li> *@
+        @*                 <li>Here's an <em>italicized item</em></li> *@
+        @*             </ul> *@
+        @*         </div> *@
+        @*     ); *@
+        @* } *@
+}

@@ -13,7 +13,7 @@ public class OrderMap
         entityBuilder.ToTable("order");
 
         entityBuilder.Property(x => x.Id).HasColumnName("id");
-        entityBuilder.Property(x => x.Name).HasColumnName("name");
+        entityBuilder.Property(x => x.Description).HasColumnName("name");
         entityBuilder.Property(x => x.Description).HasColumnName("description");
     }
 }

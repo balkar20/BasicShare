@@ -32,4 +32,16 @@ public abstract class BaseConfiguration
         
         return result;
     }
+    
+    protected int GetConfigFuncInt(string name)
+    {
+        int defaultResult = 0;
+        var result = _getConfigFunc(name);
+        if (string.IsNullOrWhiteSpace(result))
+        {
+            return defaultResult;
+        }
+        
+        return Convert.ToInt32(result);
+    }
 }

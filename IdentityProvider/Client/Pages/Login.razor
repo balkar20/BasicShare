@@ -8,6 +8,9 @@
 
 <PageTitle>Login</PageTitle>
 
+    <MudAlert Severity="Severity.Info" Variant="Variant.Filled">@Messasge</MudAlert>
+
+
 <h1>Login</h1>
 
 <div class="card">
@@ -28,16 +31,19 @@
             <button disabled="@loading" class="btn btn-primary">
                 @if (loading)
                 {
-                        <span class="spinner-border spinner-border-sm mr-1"></span>
+                    <span class="spinner-border spinner-border-sm mr-1"></span>
                 }
                 Login
             </button>
             <NavLink href="account/register" class="btn btn-link">Register</NavLink>
         </EditForm>
+        <MudAlert Icon="Icon"></MudAlert>
     </div>
 </div>
 
 @code {
+    private bool isErr;
+    private string Messasge;
     private LoginModel model = new LoginModel();
     private bool loading;
     //private readonly ILocalStorageService _localStorage;
@@ -54,8 +60,17 @@
             var result = await Http.PostAsJsonAsync<LoginModel>("api/login", model);
             var loginResponseModel = await result.Content.ReadFromJsonAsync<LoginResponseModel>();
             await _localStorage.SetItemAsync<string>("authToken", loginResponseModel.Token);
-            //var returnUrl = NavigationManager.BaseUri("returnUrl") ?? "";
-            //NavigationManager.NavigateTo(returnUrl);
+            if (loginResponseModel.IsAuthSuccessful)
+            {
+                Messasge = loginResponseModel.Token;
+                StateHasChanged();
+                return;
+            }
+            Messasge = loginResponseModel.ErrorMessage;
+            StateHasChanged();
+
+    //var returnUrl = NavigationManager.BaseUri("returnUrl") ?? "";
+    //NavigationManager.NavigateTo(returnUrl);
         }
         catch (Exception ex)
         {

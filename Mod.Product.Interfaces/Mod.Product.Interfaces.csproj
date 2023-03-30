@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7</TargetFramework>
+        <TargetFramework>net8</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
-      <ProjectReference Include="..\ModProduct.Models\ModProduct.Models.csproj" />
+      <ProjectReference Include="..\Mod.Product.Models\Mod.Product.Models.csproj" />
     </ItemGroup>
 
 </Project>

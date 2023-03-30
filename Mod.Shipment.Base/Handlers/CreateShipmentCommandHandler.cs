@@ -9,8 +9,8 @@ namespace Mod.Shipment.Base.Handlers;
 public class CreateShipmentCommandHandler: IRequestHandler<CreateShipmentCommand, ShipmentModel>
 {
     private readonly IShipmentRepository _ShipmentRepository;
-    private readonly IRabitMQProducer _rabbitMqProducer;
-    public CreateShipmentCommandHandler(IShipmentRepository ShipmentRepository, IRabitMQProducer rabbitMqProducer)
+    private readonly IRabbitMqProducer _rabbitMqProducer;
+    public CreateShipmentCommandHandler(IShipmentRepository ShipmentRepository, IRabbitMqProducer rabbitMqProducer)
     {
         _ShipmentRepository = ShipmentRepository;
         _rabbitMqProducer = rabbitMqProducer;

@@ -1,0 +1,25 @@
+@inherits ComponentBase
+<MudDialog>
+    <DialogContent>
+        @ChildContent
+    </DialogContent>
+     <DialogActions>
+            <MudButton OnClick="Cancel">Cancel</MudButton>
+        </DialogActions>
+</MudDialog>
+
+@code
+{
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    void Foo()
+    {
+       
+    }
+
+    private void Cancel()
+    {
+        
+    }
+}

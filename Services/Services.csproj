@@ -1,18 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.1" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-      <PackageReference Include="Serilog.AspNetCore" Version="6.1.1-dev-00293" />
-      <PackageReference Include="Serilog.Sinks.Grafana.Loki" Version="8.1.0" />
-      <PackageReference Include="Serilog.Sinks.Seq" Version="5.2.3-dev-00260" />
-      <PackageReference Include="StackExchange.Redis" Version="2.6.86" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.2.23128.3" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="Serilog.AspNetCore" Version="6.1.1-dev-00295" />
+      <PackageReference Include="StackExchange.Redis" Version="2.6.96" />
     </ItemGroup>
 
     <ItemGroup>

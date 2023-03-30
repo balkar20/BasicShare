@@ -1,7 +1,7 @@
 using System.Net.Http.Json;
 using Core.Base.Output;
 using Mod.Product.Base.ViewModels;
-using ModProduct.Models;
+using Mod.Product.Models;
 using Moq;
 
 // using Microsoft.VisualStudio.TestPlatform.TestHost;
@@ -26,9 +26,15 @@ namespace ProductApiTest.Tests
             //Arrange
             var expResult = new List<ProductModel>
             {
-                new ProductModel("Koko", "Chanell", "Manel")
+                // ("Koko", "Chanell", "Manel")
+                new()
+                {
+                    Id = "Koko",
+                    Name = "Chanell",
+                    Description = "Manel"
+                }
             };
-            var expMapperResult = new ProductViewModel("NewId", "NewBAlias", "NewPAlias");
+            
             _mockServices.ProductServiceMock.Setup(m => m.GetAllProducts()).ReturnsAsync(expResult);
             
             //Act
@@ -37,7 +43,7 @@ namespace ProductApiTest.Tests
                 await response.Content.ReadFromJsonAsync<OutputViewModelWithData<List<ProductViewModel>>>();
 
             //Assert
-            Assert.Equal(jsonResult.Data[0].ProductAlias, expResult[0].ProductAlias);
+            Assert.Equal(jsonResult?.Data[0].ProductAlias, expResult[0].Description);
         }
     }
 }

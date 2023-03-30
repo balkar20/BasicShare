@@ -1,5 +1,4 @@
 using MediatR;
-using Serilog;
 using Mod.Product.Base.Queries;
 using Mod.Product.Interfaces;
 
@@ -10,12 +9,13 @@ public class GetTempQueryHandler: IRequestHandler<GetTempQuery, string>
     // private readonly IProductRepository _productRepository;
     private readonly IProductService _productService;
     // private readonly IMapper _mapper;
-    private readonly ILogger _logger;
+    // private readonly ILogger _logger;
 
-    public GetTempQueryHandler(ILogger logger, IProductService productService)
+    // public GetTempQueryHandler(ILogger logger, IProductService productService)
+    public GetTempQueryHandler(IProductService productService)
     {
-        _logger = logger;
-        _productService = productService;
+        // _logger = logger;
+        // _productService = productService;
         // _productRepository = productRepository;
         // _mapper = mapper;
     }

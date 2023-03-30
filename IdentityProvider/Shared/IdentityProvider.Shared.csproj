@@ -1,14 +1,15 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>11</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="8.0.0-preview.2.23153.2" />
     <PackageReference Include="TinyCsvParser" Version="2.7.0" />
   </ItemGroup>
 

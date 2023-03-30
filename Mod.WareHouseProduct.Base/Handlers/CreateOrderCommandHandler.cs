@@ -9,8 +9,8 @@ namespace Mod.WareHouseProduct.Base.Handlers;
 public class CreateWareHouseProductCommandHandler: IRequestHandler<CreateWareHouseProductCommand, WareHouseProductModel>
 {
     private readonly IWareHouseProductRepository _WareHouseProductRepository;
-    private readonly IRabitMQProducer _rabbitMqProducer;
-    public CreateWareHouseProductCommandHandler(IWareHouseProductRepository WareHouseProductRepository, IRabitMQProducer rabbitMqProducer)
+    private readonly IRabbitMqProducer _rabbitMqProducer;
+    public CreateWareHouseProductCommandHandler(IWareHouseProductRepository WareHouseProductRepository, IRabbitMqProducer rabbitMqProducer)
     {
         _WareHouseProductRepository = WareHouseProductRepository;
         _rabbitMqProducer = rabbitMqProducer;
