@@ -4,9 +4,11 @@ using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using ClientLibrary.Components.Dialogs;
+using ClientLibrary.Resources;
 using Core.Transfer;
 using IdentityProvider.Client.Shared;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.Extensions.Localization;
 
 namespace IdentityProvider.Client.Pages;
 
@@ -25,6 +27,7 @@ public partial class PoopPeople : ComponentBase
 
     [Inject] IDialogService DialogService { get; set; }
     [Inject] public AuthStateProvider AuthStateProvider { get; set; }
+    [Inject] public IStringLocalizer<Resource> Localizer { get; set; }
 
     IBaseMvvmViewModel<PooperViewModel> PooperViewModel { get; set; }
 

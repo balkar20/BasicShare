@@ -1,3 +1,5 @@
+@using Microsoft.Extensions.Localization
+@using ClientLibrary.Resources
 <EditForm OnValidSubmit="(async () => await OnValidSubmit())" Model="@ViewModel.Data">
     <MudImage Src="@ViewModel.Data.Image"  />
             <MudTextField T="string" Label="Name" @bind-Value="ViewModel.Data.PooperAlias" @bind-Text="ViewModel.Data.PooperAlias"></MudTextField>
@@ -12,5 +14,11 @@
                     for="@productDetailContext"/>
         </ButtonTemplate>
     </MudFileUpload>
-    <MudButton ButtonType="ButtonType.Submit"  Color="Color.Primary">Save Pooper</MudButton>
+    <MudButton ButtonType="ButtonType.Submit"  Color="Color.Primary">@Localizer.GetString(ClientResourceConstants.FuckingPoo).Value</MudButton>
+    <MudInputLabel>WasNotFound</MudInputLabel>
+    <MudInputLabel>@NotFound</MudInputLabel>
+    <MudInputLabel>SearchedLocation</MudInputLabel>
+    <MudInputLabel>@SearchedLocation</MudInputLabel>
+    <MudInputLabel>LocTestName</MudInputLabel>
+    <MudInputLabel>@LocTestName</MudInputLabel>
 </EditForm >

@@ -2,6 +2,7 @@
 @using IdentityProvider.Shared
 @using ClientLibrary.Interfaces
 @using BaseClientLibrary.Enums
+@using Microsoft.Extensions.Localization
 
 @inject IBaseMvvmViewModel<PooperViewModel> ViewModel
 
@@ -42,7 +43,7 @@ else
                                 </AuthorizeView>
                                 <AuthorizeView Roles="Pooper">
                                     <Authorized>
-                                        <MudText Typo="Typo.body2">Fucking Poo</MudText>
+                                        <MudText Typo="Typo.body2">@Localizer.GetString("FuckingPoo").Value</MudText>
                                     </Authorized>
                                 </AuthorizeView>
                             </CardHeaderActions>

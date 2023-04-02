@@ -2,6 +2,7 @@ using Core.Transfer;
 using MediatR;
 using Microsoft.Extensions.Localization;
 using Mod.Auth.Base.Queries;
+using Mod.Auth.Base.Resources;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
 using Serilog;
@@ -32,7 +33,7 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
             var result = await _authService.GetAllPoopers();
             response.Data = result;
             response.IsSuccess = true;
-            response.Message = _stringLocalizer.GetString("LoadSuccess", result.Count);
+            response.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.LOadSuccess, result.Count);
             _logger.Information("Successfully returned list of products, count: {ResultCount}", result.Count);
         }
         catch(Exception ex)

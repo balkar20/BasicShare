@@ -1,9 +1,11 @@
 using BaseClientLibrary.Enums;
 using ClientLibrary.Interfaces;
+using ClientLibrary.Resources;
 using Core.Transfer;
 using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
+using Microsoft.Extensions.Localization;
 using MudBlazor;
 
 namespace ClientLibrary.Components.Forms;
@@ -12,6 +14,9 @@ public partial class PooperForm: ComponentBase
 {
     [Inject]
     public IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService{ get; set; }
+    
+    [Inject]
+    public IStringLocalizer<Resource> Localizer{ get; set; }
 
     
     public IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
@@ -39,9 +44,19 @@ public partial class PooperForm: ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
+        var locTest = Localizer.GetString(ClientResourceConstants.SavePooper);
+        SearchedLocation = locTest.SearchedLocation;
+        LocTestName  = locTest.Name;
+        NotFound  = locTest.ResourceNotFound;
+        
+        var val = locTest.Value;
         ViewModel = CrudService.MvvmViewModel;
         await Task.CompletedTask;
     }
+
+    public string? SearchedLocation { get; set; }
+    public string? LocTestName { get; set; }
+    public bool NotFound { get; set; }
 
     async Task OnValidSubmit()
     {

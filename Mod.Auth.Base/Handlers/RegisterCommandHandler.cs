@@ -3,6 +3,7 @@ using Core.Transfer;
 using MediatR;
 using Microsoft.Extensions.Localization;
 using Mod.Auth.Base.Commands;
+using Mod.Auth.Base.Resources;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
 using Serilog;
@@ -35,7 +36,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResponseR
             var result =  await _authService.RegisterUser(_mapper.Map<RegisterModel>(request.RegisterViewModel));
             responseModel.Data = result;
             responseModel.IsSuccess = true;
-            responseModel.Message = _stringLocalizer.GetString("UserCreated", request.RegisterViewModel.UserName);
+            responseModel.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.RegisterSuccess, request.RegisterViewModel.UserName);
         }
         catch (Exception e)
         {

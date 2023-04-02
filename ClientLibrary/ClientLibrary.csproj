@@ -17,6 +17,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0-preview.2.23153.2" />
         <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0-preview.2.23153.2" />
         <PackageReference Include="MudBlazor" Version="6.2.0" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0-preview.2.23153.2" />
     </ItemGroup>
 
     <ItemGroup>
@@ -39,6 +40,23 @@
       <Compile Update="Components\PoopCarousel.razor.cs">
         <DependentUpon>PoopCarousel.razor</DependentUpon>
       </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\Resource.en-US.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resource.en-US.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\Resource.ru-RU.resx">
+        <Generator>ResXFileCodeGenerator</Generator>
+        <LastGenOutput>Resource.ru-RU.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Microsoft.Extensions.Localization.Abstractions">
+        <HintPath>..\..\..\program files\dotnet\shared\Microsoft.AspNetCore.App\8.0.0-preview.2.23153.2\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+      </Reference>
     </ItemGroup>
 
 </Project>
