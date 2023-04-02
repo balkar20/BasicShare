@@ -1,5 +1,6 @@
 using Core.Transfer;
 using MediatR;
+using Microsoft.Extensions.Localization;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
@@ -11,11 +12,13 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
 {
     private readonly IAuthService _authService;
     private readonly ILogger _logger;
+    private readonly IStringLocalizer<GetAllAuthsQueryHandler> _stringLocalizer;
 
-    public GetAllAuthsQueryHandler(IAuthService productService, ILogger logger)
+    public GetAllAuthsQueryHandler(IAuthService productService, ILogger logger, IStringLocalizer<GetAllAuthsQueryHandler> stringLocalizer)
     {
         _authService = productService;
         _logger = logger;
+        _stringLocalizer = stringLocalizer;
     }
     
     public async Task<ResponseResultWithData<List<PooperModel>>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
@@ -29,6 +32,7 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
             var result = await _authService.GetAllPoopers();
             response.Data = result;
             response.IsSuccess = true;
+            response.Message = _stringLocalizer.GetString("LoadSuccess", result.Count);
             _logger.Information("Successfully returned list of products, count: {ResultCount}", result.Count);
         }
         catch(Exception ex)

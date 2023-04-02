@@ -1,4 +1,6 @@
+using System.Globalization;
 using System.Reflection;
+using System.Resources;
 using System.Text;
 using Blazored.LocalStorage;
 using Core.Auh.Entities;
@@ -8,10 +10,12 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using Mod.Auth.Base.Handlers;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Root.Configuration;
 using Mod.Auth.Services;
@@ -54,7 +58,7 @@ public class ModAuthExternalServicesConfigurator
         _services.AddOptions();
         _services.AddControllersWithViews();
         _services.AddRazorPages();
-        _services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
+        _services.AddAutoMapper(typeof(RegisterCommandHandler).Assembly); 
         // _services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
         // _services.AddMediatR(configuration => configuration.)
         // _services.AddMediatR(typeof(CreateOrderCommandHand).Assembly);
@@ -64,8 +68,10 @@ public class ModAuthExternalServicesConfigurator
 
 
         ConfigureDataBase();
+        ConfigureLocalization();
         ConfigureAuthentication();
         ConfigureLogging();
+        
     }
 
     private void ConfigureDataBase()
@@ -105,6 +111,15 @@ public class ModAuthExternalServicesConfigurator
         {
             options.Configuration = _authEnvironmentContext.AppConfiguration.RedisUrl;
         });
+    }
+
+    private void ConfigureLocalization()
+    {
+        _services.AddSingleton<ResourceManager>(new ResourceManager("Mod.Auth.Base.Resources.Handlers.RegisterCommandHandler",
+            typeof(RegisterCommandHandler).GetTypeInfo().Assembly));
+        _services.AddSingleton<ResourceManager>(new ResourceManager("Mod.Auth.Base.Resources.Handlers.GetAllAuthsQueryHandler",
+            typeof(RegisterCommandHandler).GetTypeInfo().Assembly));
+        _services.AddLocalization(op => op.ResourcesPath = "Resources");
     }
 
     private void ConfigureLogging()

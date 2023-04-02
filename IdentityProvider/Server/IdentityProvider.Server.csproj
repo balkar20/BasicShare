@@ -17,5 +17,9 @@
     <ProjectReference Include="..\Client\IdentityProvider.Client.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="logs" />
+  </ItemGroup>
+
 
 </Project>

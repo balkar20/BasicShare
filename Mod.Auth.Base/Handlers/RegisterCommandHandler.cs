@@ -1,6 +1,7 @@
 using AutoMapper;
 using Core.Transfer;
 using MediatR;
+using Microsoft.Extensions.Localization;
 using Mod.Auth.Base.Commands;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
@@ -13,12 +14,14 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResponseR
     private readonly IAuthService _authService;
     private readonly IMapper _mapper;
     private readonly ILogger _logger;
+    private readonly IStringLocalizer<RegisterCommandHandler> _stringLocalizer;
 
-    public RegisterCommandHandler(IAuthService authService, IMapper mapper, ILogger logger)
+    public RegisterCommandHandler(IAuthService authService, IMapper mapper, ILogger logger, IStringLocalizer<RegisterCommandHandler> stringLocalizer)
     {
         _authService = authService;
         _mapper = mapper;
         _logger = logger;
+        this._stringLocalizer = stringLocalizer;
     }
 
     public async Task<ResponseResultWithData<RegisterResponseModel>> Handle(RegisterCommand request, CancellationToken cancellationToken)
@@ -32,6 +35,7 @@ public class RegisterCommandHandler : IRequestHandler<RegisterCommand, ResponseR
             var result =  await _authService.RegisterUser(_mapper.Map<RegisterModel>(request.RegisterViewModel));
             responseModel.Data = result;
             responseModel.IsSuccess = true;
+            responseModel.Message = _stringLocalizer.GetString("UserCreated", request.RegisterViewModel.UserName);
         }
         catch (Exception e)
         {

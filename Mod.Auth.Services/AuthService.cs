@@ -79,7 +79,10 @@ public class AuthService: IAuthService
     {
         if (registerModel == null)
             return new RegisterResponseModel { Errors = new List<string> { "Null" }, IsSuccess = false };
-        var user = new UserEntity { UserName = registerModel.UserName, Email = registerModel.Email, Year = registerModel.Year };
+
+        var guestRole = _roleManager.Roles.FirstOrDefault(h => h.Name == UserRolesEnum.Viewer.ToString());
+        
+        var user = new UserEntity { UserName = registerModel.UserName, Email = registerModel.Email, Year = registerModel.Year, RoleId = guestRole.Id};
 
         var result = await _userManager.CreateAsync(user, registerModel.Password);
         if (!result.Succeeded)
