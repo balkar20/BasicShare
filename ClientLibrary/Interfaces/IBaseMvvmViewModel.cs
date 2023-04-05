@@ -1,6 +1,6 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using BaseClientLibrary.Enums;
+using ClientLibrary.Enums;
 using ClientLibrary.Validators;
 using FluentValidation;
 using IdentityProvider.Shared.Interfaces;

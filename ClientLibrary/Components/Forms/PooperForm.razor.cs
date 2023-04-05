@@ -1,4 +1,5 @@
-using BaseClientLibrary.Enums;
+
+using ClientLibrary.Enums;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Resources;
 using Core.Transfer;

@@ -155,8 +155,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Product.Root", "Mod.Pro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mod.Auth.Root", "Mod.Auth.Root\Mod.Auth.Root.csproj", "{8F488F19-8FC8-460B-BACC-63E09070CC80}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBaseCommon", "DataBaseCommon\DataBaseCommon.csproj", "{2581E871-D0B7-4078-9B0F-14E0813BFC31}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -375,10 +373,6 @@ Global
 		{8F488F19-8FC8-460B-BACC-63E09070CC80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F488F19-8FC8-460B-BACC-63E09070CC80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F488F19-8FC8-460B-BACC-63E09070CC80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2581E871-D0B7-4078-9B0F-14E0813BFC31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2581E871-D0B7-4078-9B0F-14E0813BFC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2581E871-D0B7-4078-9B0F-14E0813BFC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2581E871-D0B7-4078-9B0F-14E0813BFC31}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -450,7 +444,6 @@ Global
 		{326E1D55-FD78-49E8-8037-D6856C53AB41} = {5F28A828-E427-4F6E-BF99-7B42746B0051}
 		{4406B416-9634-483F-9E94-20E645CD2D3F} = {B717C5FC-1805-444C-B738-8A60E36AB082}
 		{8F488F19-8FC8-460B-BACC-63E09070CC80} = {A2AD73BD-E0E0-4270-A4DA-7C57106855D9}
-		{2581E871-D0B7-4078-9B0F-14E0813BFC31} = {5B60B5A2-B1FB-4DF1-8CE3-95C12617276F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEF22E60-9505-4791-B3FA-697E4DB2FE75}

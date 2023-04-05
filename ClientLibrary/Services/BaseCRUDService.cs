@@ -1,5 +1,5 @@
 using System.Net.Http.Json;
-using BaseClientLibrary.Enums;
+using ClientLibrary.Enums;
 using ClientLibrary.Interfaces;
 // using System.Net.Http.Json;
 using Core.Transfer;
