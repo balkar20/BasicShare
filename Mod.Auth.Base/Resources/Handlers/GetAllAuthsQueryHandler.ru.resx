@@ -1,11 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-
 <root>
-    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xsd:element name="root" msdata:IsDataSet="true">
-            
-        </xsd:element>
-    </xsd:schema>
     <resheader name="resmimetype">
         <value>text/microsoft-resx</value>
     </resheader>
@@ -18,10 +11,10 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="UserCreated" xml:space="preserve">
-        <value>Пользователь с именем {0} создан</value>
-    </data>
     <data name="LoadSuccess" xml:space="preserve">
         <value>Загрузка прошла успешно, количество профилей: {0}</value>
+    </data>
+    <data name="UserCreated" xml:space="preserve">
+        <value>Пользователь с именем {0} создан</value>
     </data>
 </root>

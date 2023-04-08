@@ -66,7 +66,7 @@ public class ClientServicesConfiguratorContext
         var supportedCultures = new[]
         {
             new CultureInfo("en-US"),
-            new CultureInfo("ru-RU"),//you can add more language as you want...
+            new CultureInfo("ru"),//you can add more language as you want...
         };
         _services.AddLocalization();
     }

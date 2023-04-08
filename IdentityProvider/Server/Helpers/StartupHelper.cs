@@ -43,12 +43,12 @@ public static class StartupHelper
         var supportedCultures = new[]
         {
             new CultureInfo("en-US"),
-            new CultureInfo("ru-RU"),//you can add more language as you want...
+            new CultureInfo("ru"),//you can add more language as you want...
         };
         
             app.UseRequestLocalization(new RequestLocalizationOptions
         {
-            DefaultRequestCulture = new RequestCulture("ru-RU"),
+            // DefaultRequestCulture = new RequestCulture("ru-RU"),
             // Formatting numbers, dates, etc.
             SupportedCultures = supportedCultures,
             // UI strings that we have localized.
