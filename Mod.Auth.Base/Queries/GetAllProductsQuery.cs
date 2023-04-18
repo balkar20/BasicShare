@@ -6,4 +6,4 @@ using Mod.Auth.Models;
 
 namespace Mod.Auth.Base.Queries;
 
-public record GetAllUsersQuery : IRequest<ResponseResultWithData<List<PooperModel>>>;
+public record GetAllUsersQuery(DataListPagingModel DataListPagingModel) : IRequest<ResponseResultWithData<List<PooperModel>>>;

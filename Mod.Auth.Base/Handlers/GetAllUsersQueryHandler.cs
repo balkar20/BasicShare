@@ -30,7 +30,9 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
         };
         try
         {
-            var result = await _authService.GetAllPoopers();
+            _logger.Information("PagingModel: {SortDirection}", request.DataListPagingModel.SortDirection);
+
+            var result = await _authService.GetAllPoopers(request.DataListPagingModel);
             response.Data = result;
             response.IsSuccess = true;
             response.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.LOadSuccess, result.Count);

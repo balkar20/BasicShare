@@ -8,6 +8,7 @@ using IdentityProvider.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor;
 using Severity = MudBlazor.Severity;
+using SortDirection = Core.Transfer.SortDirection;
 
 namespace ClientLibrary.Services;
 
@@ -51,8 +52,22 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
     {
         await SetHttpLanguageHeaderFromLocalStorage();
         MvvmViewModel.StatusType = StatusTypes.Loading;
+        var dataListPagingModel = new DataListPagingModel()
+        {
+            CurrentPage = 1,
+            PageCount = 6,
+            SortBy = "Op",
+            SortDirection = SortDirection.Asc
+        };
+        var url = $"{MvvmViewModel.DataListApiString}?" +
+                  $"sortBy={dataListPagingModel.SortBy}" +
+                  $"&sortDir={dataListPagingModel.SortDirection}" +
+                  $"&filterBy={dataListPagingModel.FilterBy}" +
+                  $"&filter={dataListPagingModel.Filter}" +
+                  $"&pageCount={dataListPagingModel.PageCount}" +
+                  $"&page={dataListPagingModel.CurrentPage}";
         var response =
-            await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(MvvmViewModel.DataListApiString);
+            await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(url);
         return HandleResponseResult(response);
     }
 

@@ -43,7 +43,7 @@ public class AuthService: IAuthService
         _mapper = mapper;
     }
 
-    public async Task<List<PooperModel>> GetAllPoopers()
+    public async Task<List<PooperModel>> GetAllPoopers(DataListPagingModel dataListPagingModel)
     {
         var usersWithClaims = await _context.Users.GroupJoin(
             _context.UserClaims,
@@ -57,7 +57,9 @@ public class AuthService: IAuthService
                 Description = u.Description,
                 Image = u.Image,
                 Claims = cl.Select(c => c.ClaimValue).ToList()
-            }).ToListAsync();
+            })
+            .Skip(dataListPagingModel.PageCount * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageCount)
+            .ToListAsync();
 
         return usersWithClaims;
     }
