@@ -6,10 +6,14 @@ namespace Mod.Auth.Interfaces;
 public interface IAuthService
 {
     Task<List<PooperModel>> GetAllPoopers(DataListPagingModel dataListPagingModel);
+
+    Task<PooperDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel);
+    
     Task<LoginResponseModel> LogIn(LoginModel userForAuthentication);
 
     Task<RegisterResponseModel> RegisterUser(RegisterModel userForAuthentication);
 
     Task<BaseResponseResult> SavePooper(PooperModel pooperModel);
+    
     //Task LogOut();
 }

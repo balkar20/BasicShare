@@ -32,11 +32,12 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
         {
             _logger.Information("PagingModel: {SortDirection}", request.DataListPagingModel.SortDirection);
 
-            var result = await _authService.GetAllPoopers(request.DataListPagingModel);
-            response.Data = result;
+            var result = await _authService.GetPaginatedUsers(request.DataListPagingModel);
+            response.Data = result.PooperModels;
+            response.Count = result.TotalDataCount;
             response.IsSuccess = true;
-            response.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.LOadSuccess, result.Count);
-            _logger.Information("Successfully returned list of products, count: {ResultCount}", result.Count);
+            response.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.LOadSuccess, result.DataCount);
+            _logger.Information("Successfully returned list of products, count: {ResultCount}", result.DataCount);
         }
         catch(Exception ex)
         {

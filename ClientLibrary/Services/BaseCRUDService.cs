@@ -4,11 +4,11 @@ using ClientLibrary.Enums;
 using ClientLibrary.Interfaces;
 // using System.Net.Http.Json;
 using Core.Transfer;
+using Core.Transfer.Constants;
 using IdentityProvider.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor;
 using Severity = MudBlazor.Severity;
-using SortDirection = Core.Transfer.SortDirection;
 
 namespace ClientLibrary.Services;
 
@@ -48,24 +48,12 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
 
     #region PublicMethods
 
-    public virtual async Task<ResponseResultWithData<List<TModel>>> GetModelListAsync()
+    public virtual async Task<ResponseResultWithData<List<TModel>>> GetModelListAsync(DataListPagingModel dataListPagingModel)
     {
         await SetHttpLanguageHeaderFromLocalStorage();
         MvvmViewModel.StatusType = StatusTypes.Loading;
-        var dataListPagingModel = new DataListPagingModel()
-        {
-            CurrentPage = 1,
-            PageCount = 6,
-            SortBy = "Op",
-            SortDirection = SortDirection.Asc
-        };
-        var url = $"{MvvmViewModel.DataListApiString}?" +
-                  $"sortBy={dataListPagingModel.SortBy}" +
-                  $"&sortDir={dataListPagingModel.SortDirection}" +
-                  $"&filterBy={dataListPagingModel.FilterBy}" +
-                  $"&filter={dataListPagingModel.Filter}" +
-                  $"&pageCount={dataListPagingModel.PageCount}" +
-                  $"&page={dataListPagingModel.CurrentPage}";
+
+        var url = dataListPagingModel.GetRoutingUrl(MvvmViewModel.DataListApiString);
         var response =
             await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(url);
         return HandleResponseResult(response);
@@ -173,6 +161,8 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
         if (result.IsSuccess)
         {
             MvvmViewModel.DataList = responseResult.Data;
+            // MvvmViewModel.TotalPages = responseResult.Count % MvvmViewModel.PageSize;
+            MvvmViewModel.TotalPages = (int) Math.Ceiling((double) responseResult.Count / MvvmViewModel.PageSize);
         }
 
         return responseResult;

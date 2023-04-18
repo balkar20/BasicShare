@@ -27,6 +27,10 @@ public interface IBaseMvvmViewModel<TData>: INotifyPropertyChanged where TData: 
     public bool IsFailed { get; set; }
     
     BaseModelValidator<TData> Validator { get; set; }
+    
+    int TotalPages { get; set; }
+    
+    int PageSize { get; set; }
 
     void OnPropertyChanged([CallerMemberName] string propertyName = null);
 

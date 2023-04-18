@@ -9,6 +9,7 @@ using Core.Transfer;
 using IdentityProvider.Client.Shared;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
+using SortDirection = Core.Transfer.SortDirection;
 
 namespace IdentityProvider.Client.Pages;
 
@@ -24,6 +25,17 @@ public partial class PoopPeople : ComponentBase
     private int girlAge;
     private string girlCity;
     private bool isOpen = true;
+
+    public DataListPagingModel DataListPagingModel { get; set; }
+
+    private async Task SetSelected(int value)
+    {
+        DataListPagingModel.CurrentPage = value;
+
+        await CrudService.GetModelListAsync(DataListPagingModel);
+    }
+
+    private int _countOfPages;
 
     [Inject] IDialogService DialogService { get; set; }
     [Inject] public AuthStateProvider AuthStateProvider { get; set; }
@@ -43,8 +55,16 @@ public partial class PoopPeople : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
+        DataListPagingModel = new DataListPagingModel()
+        {
+            CurrentPage = 1,
+            PageSize = 6,
+            SortBy = "Op",
+            SortDirection = SortDirection.Asc
+        };
         PooperViewModel = CrudService.MvvmViewModel;
-        await CrudService.GetModelListAsync();
+        PooperViewModel.PageSize = DataListPagingModel.PageSize;
+        await CrudService.GetModelListAsync(DataListPagingModel);
         AuthStateProvider.AuthenticationStateChanged += AuthStateProviderOnAuthenticationStateChanged; 
         PooperViewModel.PropertyChanged += async (sender, e) => { await InvokeAsync(() => { StateHasChanged(); }); };
         await base.OnInitializedAsync();

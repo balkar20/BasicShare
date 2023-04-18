@@ -40,6 +40,11 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
     public bool IsFailed { get; set; }
     
     public BaseModelValidator<TData> Validator { get; set; }
+    
+    public int TotalPages { get; set; }
+    
+    public int PageSize { get; set; }
+    
 
     public void OnPropertyChanged([CallerMemberName] string propertyName = null)
     {

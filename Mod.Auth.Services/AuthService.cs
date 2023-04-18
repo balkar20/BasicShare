@@ -45,7 +45,8 @@ public class AuthService: IAuthService
 
     public async Task<List<PooperModel>> GetAllPoopers(DataListPagingModel dataListPagingModel)
     {
-        var usersWithClaims = await _context.Users.GroupJoin(
+        var filteredUsers = _context.Users;
+        var usersWithClaims = await filteredUsers.GroupJoin(
             _context.UserClaims,
             u => u.Id,
             c => c.UserId,
@@ -58,10 +59,37 @@ public class AuthService: IAuthService
                 Image = u.Image,
                 Claims = cl.Select(c => c.ClaimValue).ToList()
             })
-            .Skip(dataListPagingModel.PageCount * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageCount)
+            .Skip(dataListPagingModel.PageSize * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageSize)
             .ToListAsync();
 
         return usersWithClaims;
+    }
+
+    public async Task<PooperDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel)
+    {
+        var result = new PooperDataListResult();
+        var filteredUsers = _context.Users;
+        result.TotalDataCount = filteredUsers.Count();
+        
+        result.PooperModels = await filteredUsers.GroupJoin(
+            _context.UserClaims,
+            u => u.Id,
+            c => c.UserId,
+            (u, cl) => new PooperModel()
+            {
+                Id = u.Id,
+                AmountOfPoops = u.AmountOfPoops,
+                PooperAlias = u.UserName,
+                Description = u.Description,
+                Image = u.Image,
+                Claims = cl.Select(c => c.ClaimValue).ToList()
+            })
+            .Skip(dataListPagingModel.PageSize * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageSize)
+            .ToListAsync();
+
+        result.DataCount = result.PooperModels.Count();
+
+        return result;
     }
 
     public async Task<LoginResponseModel> LogIn(LoginModel userForAuthentication)

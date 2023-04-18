@@ -39,7 +39,7 @@
                                         <MudIconButton OnClick="@(() => OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark"/>
                                     </Authorized>
                                     <NotAuthorized>
-                                    <MudText Typo="Typo.body2">Just Poo</MudText>
+                                        <MudText Typo="Typo.body2">Just Poo</MudText>
                                     </NotAuthorized>
                                 </AuthorizeView>
                                 <AuthorizeView Roles="Pooper">
@@ -75,5 +75,6 @@
                 </MudItem>
             }
         </MudGrid>
+        <MudPagination Color="Color.Primary" Count="PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
     </CascadingValue>
 }
