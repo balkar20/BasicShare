@@ -6,19 +6,12 @@
 
 @inject IBaseMvvmViewModel<PooperViewModel> ViewModel
 
-@* @if (!string.IsNullOrWhiteSpace(ViewModel.StatusMessage)) *@
-@* { *@
-@*     <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ViewModel.StatusMessage</MudAlert> *@
-@* } *@
-
 @if (ViewModel.StatusType == StatusTypes.Loading)
 {
     <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
 }
 @if (ViewModel.StatusType == StatusTypes.Success)
 {
-    @* <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" /> *@
-    <h3>Pooper Gridik</h3>
     <CascadingValue Value=@ViewModel Name="ViewModel">
         <MudGrid Justify="Justify.Center">
             @foreach (var pooper in ViewModel.DataList)

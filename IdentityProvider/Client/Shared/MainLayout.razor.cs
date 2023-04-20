@@ -24,6 +24,7 @@ public partial class MainLayout
     };
     
     Justify _justify = Justify.FlexStart;
+    Justify _justifyUserConfig = Justify.FlexEnd;
     private string _selectedLanguageValue;
 
     [Inject]
