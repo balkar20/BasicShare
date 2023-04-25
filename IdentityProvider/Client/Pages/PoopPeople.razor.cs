@@ -49,7 +49,7 @@ public partial class PoopPeople : ComponentBase
     {
         PooperViewModel.Data = pooperViewModel;
 
-        DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true, MaxWidth = MaxWidth.Large };
+        DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true, FullScreen = true};
         DialogService.Show<PooperFormDialog>("Edit Pooper", closeOnEscapeKey);
     }
 
