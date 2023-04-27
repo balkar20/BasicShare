@@ -1,3 +1,4 @@
+using System.Globalization;
 using Blazored.LocalStorage;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Interfaces.Particular;
@@ -8,6 +9,7 @@ using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor.Services;
+using Microsoft.Extensions.Localization;
 
 namespace ClientLibrary.ClientServicesConfiguration;
 
@@ -42,6 +44,7 @@ public class ClientServicesConfiguratorContext
         ConfigureAppServices();
         ConfigureMvvmViewModels();
         ConfigureCrudServices();
+        ConfigureLocalization();
     }
 
     public void ConfigureMvvmViewModels()
@@ -56,6 +59,16 @@ public class ClientServicesConfiguratorContext
         _mvvmRegisterViewModel.ConfigureCrudService<LoginResponseViewModel>(_services);
         _mvvmLoginViewModel.ConfigureCrudService<LoginResponseViewModel>(_services);
         _mvvmPooperViewModel.ConfigureCrudService<PooperViewModel>(_services);
+    }
+
+    public void ConfigureLocalization()
+    {
+        var supportedCultures = new[]
+        {
+            new CultureInfo("en-US"),
+            new CultureInfo("ru"),//you can add more language as you want...
+        };
+        _services.AddLocalization();
     }
 
     public void ConfigureAppServices()
@@ -76,6 +89,4 @@ public class ClientServicesConfiguratorContext
         _services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(_builder.HostEnvironment.BaseAddress) });
 
     }
-    
-    
 }

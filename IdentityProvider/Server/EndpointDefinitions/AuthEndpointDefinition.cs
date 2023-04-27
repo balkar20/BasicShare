@@ -1,3 +1,4 @@
+using Core.Transfer;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;
@@ -13,7 +14,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
 {
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("api/poopers", ([FromServices] IMediator _mediator) => _mediator.Send(new GetAllUsersQuery()));
+        app.MapGet("api/poopers", ([FromServices] IMediator _mediator, DataListPagingModel pagingModel) => _mediator.Send(new GetAllUsersQuery(pagingModel)));
         app.MapPut("api/pooper", ([FromServices] IMediator _mediator, [FromBody] PooperModel pooperModel) => _mediator.Send(new SavePooperCommand(pooperModel)));
         app.MapPost("api/order", ([FromServices] IMediator _mediator, [FromBody] OrderModel orderModel) => _mediator.Send(new CreateOrderCommand(orderModel)));
         app.MapPost("api/login",

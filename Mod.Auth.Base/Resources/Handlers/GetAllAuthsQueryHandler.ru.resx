@@ -1,0 +1,20 @@
+<root>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="LoadSuccess" xml:space="preserve">
+        <value>Загрузка прошла успешно, количество профилей: {0}</value>
+    </data>
+    <data name="UserCreated" xml:space="preserve">
+        <value>Пользователь с именем {0} создан</value>
+    </data>
+</root>

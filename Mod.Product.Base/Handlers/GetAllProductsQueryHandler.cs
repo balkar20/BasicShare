@@ -1,5 +1,6 @@
 using AutoMapper;
 using Core.Base.Output;
+using Core.Transfer;
 using Core.Transfer.Mods.Order;
 using Infrastructure.Interfaces;
 using MediatR;
@@ -11,7 +12,7 @@ using Mod.Product.Models;
 
 namespace Mod.Product.Base.Handlers;
 
-public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, OutputViewModelWithData<List<ProductViewModel>>>
+public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, ResponseResultWithData<List<ProductModel>>>
 {
     private readonly IProductService _productService;
     private readonly IMapper _mapper;
@@ -26,23 +27,30 @@ public class GetAllProductsQueryHandler: IRequestHandler<GetAllProductsQuery, Ou
         _productService = productService;
     }
     
-    public async Task<OutputViewModelWithData<List<ProductViewModel>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
+    public async Task<ResponseResultWithData<List<ProductModel>>> Handle(GetAllProductsQuery request, CancellationToken cancellationToken)
     {
+        var result =  new ResponseResultWithData<List<ProductModel>>{IsSuccess = false};
         try
         {
             var products =  await _productService.GetAllProducts();
-            var data = products.Select(p => _mapper.Map<ProductModel, ProductViewModel>(p)).ToList();
+            var data = products.Select(p => _mapper.Map<ProductModel, ProductModel>(p)).ToList();
             if (data.Any())
             {
                 _logger.Information("Some products exists in DataBase");
+                result.Count = data.Count;
+                result.Data = data;
+                result.IsSuccess = true;
             }
-            return  new OutputViewModelWithData<List<ProductViewModel>>(true, null, data);
+            
         }
         catch (Exception e)
         {
             _logger.Error(e.Message);
-            return new OutputViewModelWithData<List<ProductViewModel>>(false, e.Message, null);
+            ;
+            result.Message = e.Message;
         }
+
+        return result;
     }
 
     #endregion Public Methods

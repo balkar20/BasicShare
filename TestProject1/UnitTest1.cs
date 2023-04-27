@@ -14,15 +14,16 @@ public class Tests
     public void Test1()
     {
         //Arrange
-        int one = 1;
-        int two = 2;
+        int one = 9;
+        int two = 7;
         
         //Act
-        int three = one + two;
-        int four = one + 3;
-        
+        var del = one / two;
+        int three = one % two;
+        int four = 3;
+        int count = del;
         //Assert
-        Assert.AreEqual(3, four);
+        Assert.AreEqual(three, four);
     }
 
     [Test]

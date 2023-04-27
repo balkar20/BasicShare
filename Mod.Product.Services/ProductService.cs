@@ -27,4 +27,16 @@ public class ProductService: IProductService
         var products =  await _repository.GetAllMappedToModelAsync<ProductEntity>(o => o.OrderBy(j => j.Description), null, null, null);
         return products.ToList();
     }
+
+    public async Task<ProductModel> UpdateProduct(ProductModel product)
+    {
+        var productModel = await _repository.UpdateAsync(product);
+        return productModel;
+    }
+
+    public async Task<ProductModel> CreateAsync(ProductModel requestProduct)
+    {
+        var productModel = await _repository.AddAsync(requestProduct);
+        return productModel;
+    }
 }

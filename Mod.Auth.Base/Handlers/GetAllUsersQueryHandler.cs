@@ -1,6 +1,8 @@
 using Core.Transfer;
 using MediatR;
+using Microsoft.Extensions.Localization;
 using Mod.Auth.Base.Queries;
+using Mod.Auth.Base.Resources;
 using Mod.Auth.Interfaces;
 using Mod.Auth.Models;
 using Serilog;
@@ -11,11 +13,13 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
 {
     private readonly IAuthService _authService;
     private readonly ILogger _logger;
+    private readonly IStringLocalizer<GetAllAuthsQueryHandler> _stringLocalizer;
 
-    public GetAllAuthsQueryHandler(IAuthService productService, ILogger logger)
+    public GetAllAuthsQueryHandler(IAuthService productService, ILogger logger, IStringLocalizer<GetAllAuthsQueryHandler> stringLocalizer)
     {
         _authService = productService;
         _logger = logger;
+        _stringLocalizer = stringLocalizer;
     }
     
     public async Task<ResponseResultWithData<List<PooperModel>>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
@@ -26,10 +30,14 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
         };
         try
         {
-            var result = await _authService.GetAllPoopers();
-            response.Data = result;
+            _logger.Information("PagingModel: {SortDirection}", request.DataListPagingModel.SortDirection);
+
+            var result = await _authService.GetPaginatedUsers(request.DataListPagingModel);
+            response.Data = result.PooperModels;
+            response.Count = result.TotalDataCount;
             response.IsSuccess = true;
-            _logger.Information("Successfully returned list of products, count: {ResultCount}", result.Count);
+            response.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.LOadSuccess, result.DataCount);
+            _logger.Information("Successfully returned list of products, count: {ResultCount}", result.DataCount);
         }
         catch(Exception ex)
         {

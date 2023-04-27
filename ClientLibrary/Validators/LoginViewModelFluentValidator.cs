@@ -3,12 +3,12 @@ using IdentityProvider.Shared;
 
 namespace ClientLibrary.Validators;
 
-public class LoginViewModelFluentValidator: AbstractValidator<LoginViewModel>
+public class LoginViewModelFluentValidator: BaseModelValidator<LoginViewModel>
 {
     public LoginViewModelFluentValidator()
     {
         RuleFor(x => x.Email)
-            .Cascade(CascadeMode.StopOnFirstFailure)
+            .Cascade(CascadeMode.Stop)
             .NotEmpty()
             .EmailAddress()
             .MustAsync(async (value, cancellationToken) => await IsUniqueAsync(value));

@@ -7,6 +7,10 @@ public interface IAuthenticationService
 {
     public bool IsAuthenticated { get; set; }
     
+    public string UserName { get; set; }
+    
+    public string UserRole { get; set; }
+    
     IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> LoginCrudService { get; }
     
     IBaseCrudService<RegisterViewModel, BaseResponseResult, LoginResponseViewModel> RegisterCrudService { get; }
@@ -16,4 +20,6 @@ public interface IAuthenticationService
     Task<ResponseResultWithData<LoginResponseViewModel>> RegisterAsync();
     
     Task Logout();
+    
+    Task GetClaimsPrincipalData();
 }
