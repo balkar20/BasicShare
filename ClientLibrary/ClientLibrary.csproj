@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net7.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
@@ -14,10 +14,10 @@
 <!--        <PackageReference Include="FluentValidatdion" Version="7.2.1" />-->
         <PackageReference Include="FluentValidation" Version="11.5.1" />
         <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.5.1" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0-preview.2.23153.2" />
-        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.0-preview.2.23153.2" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.7" />
         <PackageReference Include="MudBlazor" Version="6.2.0" />
-        <PackageReference Include="Microsoft.Extensions.Localization" Version="8.0.0-preview.2.23153.2" />
+        <PackageReference Include="Microsoft.Extensions.Localization" Version="7.0.7" />
     </ItemGroup>
 
     <ItemGroup>
@@ -55,7 +55,7 @@
 
     <ItemGroup>
       <Reference Include="Microsoft.Extensions.Localization.Abstractions">
-        <HintPath>..\..\..\program files\dotnet\shared\Microsoft.AspNetCore.App\8.0.0-preview.2.23153.2\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
+        <HintPath>..\..\..\program files\dotnet\shared\Microsoft.AspNetCore.App\7.0.7\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
       </Reference>
     </ItemGroup>
 

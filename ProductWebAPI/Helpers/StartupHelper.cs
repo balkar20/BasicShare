@@ -1,5 +1,6 @@
 using Apps.ProductWebAPI.Extensions;
 using Apps.EndpointDefinitions.ProductWebAPI;
+using Data.Db;
 using Mod.Product.Root;
 using ProductWebApi.Middlewares;
 using Serilog;
@@ -34,6 +35,12 @@ public class StartupHelper
         }
 
         app.UseMiddleware<ErrorHandlerMiddleware>();
+
+        // using (var serviceScope = app.ApplicationServices?.CreateScope())
+        // {
+        //     var context = serviceScope?.ServiceProvider.GetRequiredService<ApiDbContext>();
+        //     context?.Database.EnsureCreated();
+        // }
         //to log Requests
         app.UseSerilogRequestLogging();
 

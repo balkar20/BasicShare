@@ -2,10 +2,9 @@ version: '3.4'
 
 services:
   ProductWebApi:
-    image: ${DOCKER_REGISTRY-}productwebapi
+    image: productwebapi:1.0.0
     build:
       context: .
-      dockerfile: productwebapi/Dockerfile
     environment:
         LOKI_CONNECTION: http://loki:3100
         LOKI_USER_NAME: admin
@@ -15,18 +14,42 @@ services:
         USE_CACHE: 'true'
         ASPNETCORE_ENVIRONMENT: Development
         ASPNETCORE_URLS: http://+:80
-        DB_CONNECTION: Host=db;Database=productDb;Port=5432;User Id=postgres;Password=postgres
+        DB_CONNECTION: Host=postgresql;Database=productdb;Port=5432;username=postgres;password=postgres
         CONTAINER_RUN: 'true'
+        RABBIT_HOST_NAME: rabbitmq
+        RABBIT_QUE_NAME: order
+        RABBIT_USER_NAME: guest
+        RABBIT_PASSWORD: guest
+        RABBIT_PORT: 5672
+        SECURITY_KEY: order
+        VALID_ISSUER: order
+        EXPIRY_IN_MINUTES: 60
+        RABBIT_EXCHANGE_NAME: 
     ports:
         - "8085:80"
     depends_on:
-      db:
+      postgresql:
           condition: service_started
       redis:
           condition: service_started
       loki:
           condition: service_healthy
-
+      rabbitmq:
+        condition: service_started
+    networks:
+      - rabbitmq_go_net
+        
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: 'rabbitmq'
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - ~/.docker-conf/rabbitmq/data/:/var/lib/rabbitmq/
+      - ~/.docker-conf/rabbitmq/log/:/var/log/rabbitmq
+    networks:
+      - rabbitmq_go_net
   loki:
     container_name: loki
     image: grafana/loki:master
@@ -51,17 +74,22 @@ services:
     image: redis
     ports:
       - "6379:6379"
-  db:
-    image: postgres:latest
+    networks:
+      - rabbitmq_go_net
+  postgresql:
+    image: postgres
     restart: always
     ports:
       - "5432:5432"
     container_name: postgresql
-    # connect this container to the user-defined network my-network
+  # connect this container to the user-defined network my-network
     volumes:
       - ./data/db:/var/lib/postgresql/data
-    configs:
-      - /etc/postgresql/postgresql.conf
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
+    networks:
+      - rabbitmq_go_net
+networks:
+  rabbitmq_go_net:
+    driver: bridge

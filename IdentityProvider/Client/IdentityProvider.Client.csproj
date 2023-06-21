@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <Nullable>annotations</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
@@ -10,8 +10,8 @@
         <SupportedPlatform Include="browser" />
     </ItemGroup>
   <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="8.0.0-preview.2.23153.2" PrivateAssets="all" />
-      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.0-preview.2.23153.2" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0" PrivateAssets="all" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.7" />
       <PackageReference Include="NPOI" Version="2.6.0" />
     <PackageReference Include="TinyCsvParser" Version="2.7.0" />
   </ItemGroup>

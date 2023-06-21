@@ -5,3 +5,4 @@ docker inspect c1 -f "{{json .NetworkSettings.Networks }}"
 docker-compose-env.yml (docker-compose -f docker-compose-env.yml up)
 file which contains postgres, redis, rabbit, grafana, loki
 4) to start docker environment for application 
+5) dotnet publish --os linux --arch x64 -p:PublishProfile=DefaultContainer

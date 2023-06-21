@@ -18,11 +18,11 @@ public static class StartupHelper
         app.UseEndpointDefinitions();
         app.UseMiddleware<ErrorHandlerMiddleware>();
 
-        using (var serviceScope = app.Services?.CreateScope())
-        {
-            var context = serviceScope?.ServiceProvider.GetRequiredService<ApplicationContext>();
-            context?.Database.EnsureCreated();
-        }
+        // using (var serviceScope = app.Services?.CreateScope())
+        // {
+        //     var context = serviceScope?.ServiceProvider.GetRequiredService<ApplicationContext>();
+        //     context?.Database.EnsureCreated();
+        // }
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())

@@ -58,13 +58,9 @@ public class ModAuthExternalServicesConfigurator
         _services.AddOptions();
         _services.AddControllersWithViews();
         _services.AddRazorPages();
-        _services.AddAutoMapper(typeof(RegisterCommandHandler).Assembly); 
-        // _services.AddMediatR(typeof(GetAllUsersQuery).Assembly);
-        // _services.AddMediatR(configuration => configuration.)
-        // _services.AddMediatR(typeof(CreateOrderCommandHand).Assembly);
+        _services.AddAutoMapper(typeof(RegisterCommandHandler).Assembly);
         _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllUsersQuery).Assembly));
         _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateOrderCommand).Assembly));
-        // _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllUsersQuery).Assembly));
 
 
         ConfigureDataBase();
