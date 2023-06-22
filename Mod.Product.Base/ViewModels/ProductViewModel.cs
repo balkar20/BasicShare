@@ -1,3 +1,3 @@
 namespace Mod.Product.Base.ViewModels;
 
-public record ProductViewModel(string Id, string? BusinessChannelAlias, string? ProductAlias);
+public record ProductViewModel(string Id, string? Name, string? Description);
