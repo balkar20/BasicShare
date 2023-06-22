@@ -11,4 +11,5 @@ public interface IMessageBrokerConfiguration
     public string? ExchangeName { get; }
     string UserName { get; }
     string Password { get;  }
+    bool UseMessageBroker { get; }
 }

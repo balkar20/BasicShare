@@ -22,7 +22,11 @@ public class ConsumeRabbitMQHostedService<TDataModel>: BackgroundService
         _logger = logger;
         _configuration = configuration;
 
-        InitRabbitMQ();
+        if (configuration.UseMessageBroker)
+        {
+            InitRabbitMQ();
+        }
+        
     }  
   
     private void InitRabbitMQ()  
@@ -54,6 +58,10 @@ public class ConsumeRabbitMQHostedService<TDataModel>: BackgroundService
   
     protected override Task ExecuteAsync(CancellationToken stoppingToken)  
     {  
+        if (!_configuration.UseMessageBroker)
+        {
+            return Task.CompletedTask;
+        }
         stoppingToken.ThrowIfCancellationRequested();  
   
         var consumer = new EventingBasicConsumer(_channel);  
