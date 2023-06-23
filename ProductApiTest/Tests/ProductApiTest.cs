@@ -43,7 +43,7 @@ namespace ProductApiTest.Tests
                 await response.Content.ReadFromJsonAsync<OutputViewModelWithData<List<ProductViewModel>>>();
 
             //Assert
-            Assert.Equal(jsonResult?.Data[0].ProductAlias, expResult[0].Description);
+            Assert.Equal(jsonResult?.Data[0].Description, expResult[0].Description);
         }
     }
 }

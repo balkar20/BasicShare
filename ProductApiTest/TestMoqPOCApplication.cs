@@ -21,8 +21,14 @@ internal class TestMoqPOCApplication: WebApplicationFactory<Program>
             
             foreach ((var interfaceType, var serviceMock) in _mockServices.GetMocks())
             {
-                var service = services.SingleOrDefault(d => d.ServiceType == interfaceType);
-                services.Remove(service);
+                var interfaceServices = services.Where(d => d.ServiceType == interfaceType).ToList();
+
+                foreach (var service in interfaceServices)
+                {
+                    services.Remove(service);
+                }
+
+                
                 TypeImplementaitionDictionary.Add(interfaceType, serviceMock);
             }
             
