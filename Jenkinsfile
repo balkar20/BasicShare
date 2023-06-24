@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-    PATH = "$PATH:/root/.dotnet"
+    PATH = "$HOME/.dotnet"
 }
     stages {
         stage('Build') {
