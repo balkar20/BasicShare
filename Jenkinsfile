@@ -7,7 +7,6 @@ pipeline {
                 echo 'Building..'
                 withDotNet(
                     sdk: '7.0.305',
-                    buildFile: 'StartupToolTemplate.sln'
                 ){
                     sh 'dotnet build'
                 }
