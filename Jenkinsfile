@@ -5,8 +5,10 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                withDotNet(){
-                    sdk: '3.1',
+                withDotNet(
+                    sdk: '3.1'
+                ){
+        
                     sh 'dotnet build'
                 }
             }
