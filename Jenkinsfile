@@ -8,6 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                 sh 'export PATH="$PATH:$HOME/.dotnet"'
                 withDotNet(
                     sdk: '7.0.305'
                 ){
