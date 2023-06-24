@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 withDotNet(
-                    sdk: '3.1'
+                    sdk: '7.0'
                 ){
         
                     sh 'dotnet build'
