@@ -9,7 +9,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 withDotNet(
-                    sdk: '/root/.dotnet/sdk/7.0.305'
+                    sdk: '7.0.305'
                 ){
                     sh 'dotnet build'
                 }
