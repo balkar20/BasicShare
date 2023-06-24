@@ -1,9 +1,6 @@
 pipeline {
     agent any
 
-    environment {
-    PATH = "$HOME/.dotnet"
-}
     stages {
         stage('Build') {
             steps {
