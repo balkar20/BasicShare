@@ -8,7 +8,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo $(pwd)
+                echo pwd()
             }
         }
         stage('Test') {
