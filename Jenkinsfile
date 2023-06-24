@@ -9,8 +9,12 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo pwd()
-                sh 'export PATH="$PATH:$HOME/.dotnet"'
-                echo dotnet --list-sdks()
+                withDotNet(
+                    sdk: '7.0.304'
+                ){
+                    sh 'dotnet build'
+                }
+
             }
         }
         stage('Test') {
