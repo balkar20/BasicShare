@@ -4,7 +4,7 @@ using IdentityProvider.Shared;
 
 namespace ClientLibrary.Validators;
 
-public class RegisterViewModelFluentValidator: AbstractValidator<RegisterViewModel>
+public class RegisterViewModelFluentValidator: BaseModelValidator<RegisterViewModel>
 {
     public RegisterViewModelFluentValidator()
     {
@@ -14,10 +14,10 @@ public class RegisterViewModelFluentValidator: AbstractValidator<RegisterViewMod
             .NotEmpty()
             .Length(1,30);
         RuleFor(x => x.Email)
-            .Cascade(CascadeMode.StopOnFirstFailure)
+            .Cascade(CascadeMode.Stop)
             .NotEmpty()
             .EmailAddress()
-            .Must(IsUniqueAsync);
+            .MustAsync(async (value, cancellationToken) => await IsUniqueAsync(value));
         RuleFor(p => p.Password).NotEmpty().WithMessage("Your password cannot be empty")
             .MinimumLength(8).WithMessage("Your password length must be at least 8.")
             .Must(HasValidPassword);
@@ -35,11 +35,11 @@ public class RegisterViewModelFluentValidator: AbstractValidator<RegisterViewMod
         throw new NotImplementedException();
     }
 
-    private bool IsUniqueAsync(string email)
+    private async Task<bool> IsUniqueAsync(string email)
     {
         
         // Simulates a long running http call
-        // await Task.Delay(500);
+        await Task.Delay(500);
         return email.ToLower() != "test@test.com";
     }
 

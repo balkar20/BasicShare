@@ -27,8 +27,14 @@ public class ConsumeRabbitMQHostedService<TDataModel>: BackgroundService
   
     private void InitRabbitMQ()  
     {  
-        var factory = new ConnectionFactory { HostName = "localhost" };  
+        var factory = new ConnectionFactory { HostName = _configuration.HostName, Port = _configuration.Port, UserName = _configuration.UserName, Password = _configuration.Password};  
   
+        _logger.Information("RabbitIInfo start");
+        _logger.Information("HostName: {ConfigurationHostName}", _configuration.HostName);
+        _logger.Information("Port: {ConfigurationPort}", _configuration.Port);
+        _logger.Information("UserName: {ConfigurationUserName}", _configuration.UserName);
+        _logger.Information("Password: {ConfigurationPassword}", _configuration.Password);
+        _logger.Information("RabbitIInfo end");
         // create connection  
         _connection = factory.CreateConnection();  
   

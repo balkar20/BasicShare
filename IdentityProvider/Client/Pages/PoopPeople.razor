@@ -1,22 +1,17 @@
 ﻿@page "/"
 @using IdentityProvider.Shared
 @using ClientLibrary.Interfaces
-@using BaseClientLibrary.Enums
+@using Microsoft.Extensions.Localization
+@using ClientLibrary.Enums
 
 @inject IBaseMvvmViewModel<PooperViewModel> ViewModel
-
-@if (!string.IsNullOrWhiteSpace(ViewModel.StatusMessage))
-{
-    <MudAlert Severity="Severity.Error" Variant="Variant.Filled">@ViewModel.StatusMessage</MudAlert>
-}
 
 @if (ViewModel.StatusType == StatusTypes.Loading)
 {
     <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
 }
-else
+@if (ViewModel.StatusType == StatusTypes.Success)
 {
-    <h3>Pooper Gridik</h3>
     <CascadingValue Value=@ViewModel Name="ViewModel">
         <MudGrid Justify="Justify.Center">
             @foreach (var pooper in ViewModel.DataList)
@@ -37,12 +32,12 @@ else
                                         <MudIconButton OnClick="@(() => OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark"/>
                                     </Authorized>
                                     <NotAuthorized>
-                                    <MudText Typo="Typo.body2">Just Poo</MudText>
+                                        <MudText Typo="Typo.body2">Just Poo</MudText>
                                     </NotAuthorized>
                                 </AuthorizeView>
                                 <AuthorizeView Roles="Pooper">
                                     <Authorized>
-                                        <MudText Typo="Typo.body2">Fucking Poo</MudText>
+                                        <MudText Typo="Typo.body2">@Localizer.GetString("FuckingPoo").Value</MudText>
                                     </Authorized>
                                 </AuthorizeView>
                             </CardHeaderActions>
@@ -73,5 +68,6 @@ else
                 </MudItem>
             }
         </MudGrid>
+        <MudPagination Color="Color.Primary" Count="PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
     </CascadingValue>
 }

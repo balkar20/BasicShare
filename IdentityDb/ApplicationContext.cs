@@ -22,6 +22,7 @@ namespace Data.IdentityDb
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
         {
+            Database.EnsureCreated();
         }
 
         // public new DbSet<ClaimEntity> UserClaims { get; set; }
@@ -42,7 +43,7 @@ namespace Data.IdentityDb
             
             var claims = new List<Claim>();
             claims.AddRange(types.Select(t => new Claim("PooperClaim", t)));
-
+        
             builder.ApplyConfiguration(roleConfig);
             builder.ApplyConfiguration(userConfig);
             
@@ -70,7 +71,7 @@ namespace Data.IdentityDb
             
             var userRoleConfig = new UserRoleConfiguration(userRoleDictionary);
             builder.ApplyConfiguration(userRoleConfig);
-
+        
             List<IdentityUserClaim<string>> claimEntities = new List<IdentityUserClaim<string>>();
             foreach (var keyValuePair in userClaimsDictionary)
             {
@@ -86,7 +87,7 @@ namespace Data.IdentityDb
                     });
                 }
             }
-
+        
             builder.Entity<IdentityUserClaim<string>>().Property(p => p.UserId).IsRequired();
             builder.Entity<IdentityUserClaim<string>>().HasOne<UserEntity>()
                 .WithMany(u => u.Claims)
@@ -94,7 +95,6 @@ namespace Data.IdentityDb
                 .HasPrincipalKey(cl => cl.Id);
             
             builder.Entity<IdentityUserClaim<string>>().HasData(claimEntities);
-
             base.OnModelCreating(builder);
         }
     }

@@ -29,6 +29,10 @@ public class OrderCreationListener: IOrderCreationListener
 
     private async Task SaveProductFromOrder(OrderModel orderModel)
     {
-        await _productRepository.AddAsync(new ProductModel());
+        await _productRepository.AddAsync(new ProductModel()
+        {
+            Name = orderModel.Description,
+            Description = orderModel.Description
+        });
     }
 }

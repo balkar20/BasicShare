@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using Blazored.LocalStorage;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Interfaces.Particular;
@@ -25,6 +26,10 @@ public class AuthenticationService : IAuthenticationService
     }
 
     public bool IsAuthenticated { get; set; }
+    
+    public string UserName { get; set; }
+    
+    public string UserRole { get; set; }
     public IBaseCrudService<LoginViewModel, BaseResponseResult, LoginResponseViewModel> LoginCrudService { get; }
     public IBaseCrudService<RegisterViewModel, BaseResponseResult, LoginResponseViewModel> RegisterCrudService { get; }
 
@@ -35,6 +40,7 @@ public class AuthenticationService : IAuthenticationService
         {
             await _localStorage.SetItemAsync(TokenKey, loginResult?.Data?.Token);
             IsAuthenticated = true;
+            await GetClaimsPrincipalData();
             await _authenticationStateProvider.NotifyUserAuthentication(LoginCrudService.MvvmViewModel.Data.Email);
         }
 
@@ -48,6 +54,7 @@ public class AuthenticationService : IAuthenticationService
         {
             await _localStorage.SetItemAsync(TokenKey, loginResult?.Data?.Token);
             IsAuthenticated = true;
+            await GetClaimsPrincipalData();
             await _authenticationStateProvider.NotifyUserAuthentication(LoginCrudService.MvvmViewModel.Data.Email);
         }
 
@@ -59,5 +66,22 @@ public class AuthenticationService : IAuthenticationService
         await _localStorage.RemoveItemAsync(TokenKey);
         IsAuthenticated = false;
         _authenticationStateProvider.NotifyUserLogout();
+    }
+    
+    public async Task GetClaimsPrincipalData()
+    {
+        var authState = await _authenticationStateProvider.GetAuthenticationStateAsync();
+        var user = authState.User;
+
+        if (user.Identity.IsAuthenticated)
+        {
+            UserName = user.Identity.Name;
+            
+            var claims = user.Claims;
+            UserRole = $"Role: {user.FindFirst(c => c.Type == ClaimTypes.Role)?.Value}";
+        }
+        else
+        {
+        }
     }
 }

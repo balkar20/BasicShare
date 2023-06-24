@@ -1,5 +1,3 @@
-@using BaseClientLibrary.Enums
-
 <MudForm  OnValidSubmit="@(async () => await OnValidSubmit())" Model="@_mvvmViewModel.Data">
     <MudTextField @bind-Value="_mvvmViewModel.Data.Email"                              
                   For="@(() => _mvvmViewModel.Data.Email)"
