@@ -6,6 +6,8 @@
       <Nullable>enable</Nullable>
       <LangVersion>11.0</LangVersion>
       <RootNamespace>ProductWebAPI</RootNamespace>
+      <PublishProfile>DefaultContainer</PublishProfile>
+      <ContainerImageTags>1.1.0</ContainerImageTags>
   </PropertyGroup>
 
   <ItemGroup>

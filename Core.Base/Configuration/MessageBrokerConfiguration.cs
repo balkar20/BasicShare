@@ -16,4 +16,5 @@ public class MessageBrokerConfiguration: BaseConfiguration, IMessageBrokerConfig
     public int Port { get => GetConfigFuncInt("RABBIT_PORT"); }
     public string UserName { get => GetConfigFuncString("RABBIT_USER_NAME"); }
     public string Password { get => GetConfigFuncString("RABBIT_PASSWORD"); }
+    public bool UseMessageBroker { get => GetConfigFuncBool("USE_MESSAGE_BROKER"); }
 }

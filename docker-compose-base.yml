@@ -24,7 +24,8 @@ services:
         SECURITY_KEY: order
         VALID_ISSUER: order
         EXPIRY_IN_MINUTES: 60
-        RABBIT_EXCHANGE_NAME: 
+        RABBIT_EXCHANGE_NAME:
+        USE_MESSAGE_BROKER: 'true'
     ports:
         - "8085:80"
     depends_on:
