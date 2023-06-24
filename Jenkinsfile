@@ -1,8 +1,7 @@
 pipeline {
     agent any
     tools {
-        dotnet 'dotnet-7.0.100'
-    }
+        dotnet 'dotnet-7.0.7'
     }
 
     stages {
