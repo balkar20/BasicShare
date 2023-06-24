@@ -1,14 +1,16 @@
 pipeline {
     agent any
 
+    environment {
+    PATH = "$PATH:$HOME/.dotnet"
+    }
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
                 withDotNet(
-                    sdk: '/home/user/.dotnet/sdk/7.0.305'
+                    sdk: '7.0.305'
                 ){
-        
                     sh 'dotnet build'
                 }
             }
