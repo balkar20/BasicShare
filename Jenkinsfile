@@ -5,7 +5,12 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                withDotNet("dotnetBuild")
+                withDotNet(
+                    sdk: '7.0.305',
+                    buildFile: 'StartupToolTemplate.sln'
+                ){
+                    sh 'dotnet build'
+                }
             }
         }
         stage('Test') {
