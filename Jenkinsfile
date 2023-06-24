@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh(script: "dotnet bild StartupToolTemplate.sln")
+                sh(script: "dotnet build StartupToolTemplate.sln")
             }
         }
         stage('Test') {
