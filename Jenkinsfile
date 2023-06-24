@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        withDotNet
-    }
 
     stages {
         stage('Build') {
