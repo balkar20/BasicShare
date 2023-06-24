@@ -10,7 +10,7 @@ pipeline {
                 echo 'Building..'
                  sh 'export PATH="$PATH:$HOME/.dotnet"'
                 withDotNet(
-                    sdk: '7.0.305'
+                    sdk: '7.0.100'
                 ){
                     sh 'dotnet build'
                 }
