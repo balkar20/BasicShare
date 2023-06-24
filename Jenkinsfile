@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        dotnet-sdk
+        withDotNet
     }
 
     stages {
