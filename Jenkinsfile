@@ -10,7 +10,7 @@ pipeline {
                 echo 'Building..'
                 echo pwd()
                 sh 'export PATH="$PATH:$HOME/.dotnet"'
-                sh 'dotnet --list-sdks'
+                echo dotnet --list-sdks()
             }
         }
         stage('Test') {
