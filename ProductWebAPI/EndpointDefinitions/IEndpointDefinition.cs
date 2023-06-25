@@ -1,6 +1,6 @@
 namespace Apps.EndpointDefinitions.ProductWebAPI;
 
-public interfac IEndpointDefinition
+public interface IEndpointDefinition
 {
     void DefineServices(IServiceCollection services);
     void DefineEndpoints(WebApplication app);
