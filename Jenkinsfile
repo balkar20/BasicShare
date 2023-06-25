@@ -6,12 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo pwd()
-                withDotNet(
-                    sdk: '7.0.304'
-                ){
-                    sh 'dotnet build'
-                }
-
+               dotnetBuild
             }
         }
         stage('Test') {
