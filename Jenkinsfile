@@ -6,7 +6,7 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo pwd()
-               dotnetBuild
+               dotnetBuild()
             }
         }
         stage('Test') {
