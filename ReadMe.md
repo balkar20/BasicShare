@@ -8,7 +8,8 @@ to start docker environment for application
 1.  create image
 2. dotnet publish --os linux --arch x64 -p:PublishProfile=DefaultContainer
     Login
-docker login --username username
+docker login --username username 
+docker login -u="${DOCKER_LOGIN}" -p="${DOCKER_PASSWORD}"
     push it to hub
 docker tag 50acceeb2c457fd45be2f3dd7c9859[it is image id] balkar20/productwebapi
 docker push balkar20/productwebapi:latest
@@ -47,5 +48,20 @@ RUN jenkins-plugin-cli --plugins "blueocean docker-workflow"
   --publish 8080:8080 --publish 50000:50000 myjenkins-blueocean:2.401.1-1
 
 
-
+Environments:
   DOTNET_SYSTEM_GLOBALIZATION_INVARIANT=1
+  DOCKER_LOGIN=balkar20
+  DOCKER_-PASSWORD=PASS
+
+
+  Steps with .net sdk plugin 
+1/Build for sln 
+2/test
+3/publish with linux-x64
+4/ publish to dockerhub:
+ADD STEP WITH shell command:
+docker login -u="${DOCKER_LOGIN}" -p="${DOCKER_PASSWORD}"
+docker tag productwebapi:1.1.0 balkar20/productwebapi
+docker push balkar20/productwebapi:latest
+
+Front -- left stick navbar ====>Drawer mudblazor
