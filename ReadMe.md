@@ -64,4 +64,5 @@ docker login -u="${DOCKER_LOGIN}" -p="${DOCKER_PASSWORD}"
 docker tag productwebapi:1.1.0 balkar20/productwebapi
 docker push balkar20/productwebapi:latest
 
+jenkins_home/backups
 Front -- left stick navbar ====>Drawer mudblazor
