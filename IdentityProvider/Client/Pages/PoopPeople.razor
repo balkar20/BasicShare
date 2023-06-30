@@ -67,7 +67,8 @@
                     </MudCard>
                 </MudItem>
             }
-                    <MudPagination Color="Color.Primary" Count="PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
+                    
         </MudGrid>
+        <MudPagination Color="Color.Primary"  Count="PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
     </CascadingValue>
 }
