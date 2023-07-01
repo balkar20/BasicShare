@@ -16,6 +16,7 @@ namespace IdentityProvider.Client.Pages;
 public partial class PoopPeople : ComponentBase
 {
     [CascadingParameter] public MainLayout Layout { get; set; }
+    private bool _overrideStyles;
     private string authMessage;
     private string surnameMessage;
     private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();

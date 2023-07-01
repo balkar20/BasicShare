@@ -13,6 +13,14 @@
 @if (ViewModel.StatusType == StatusTypes.Success)
 {
     <CascadingValue Value=@ViewModel Name="ViewModel">
+        <MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined" OverrideStyles="_overrideStyles">
+            <MudButton Color="Color.Primary" Variant="Variant.Outlined">One</MudButton>
+            <MudButton Color="Color.Warning" Variant="Variant.Outlined">Two</MudButton>
+            <MudButton Color="Color.Secondary" Variant="Variant.Outlined">Three</MudButton>
+            <MudDivider Vertical="true" FlexItem="true" Class="my-6"/>
+             <MudSwitch @bind-Checked="@_overrideStyles" Label="Override styles" Color="Color.Primary" />
+        </MudButtonGroup>
+        
         <MudGrid Justify="Justify.Center">
             @foreach (var pooper in ViewModel.DataList)
             {
@@ -20,7 +28,7 @@
                     <MudCard>
                         <MudCardHeader>
                             <CardHeaderAvatar>
-                                <MudAvatar Image="poop.svg.png"  Color="Color.Secondary">I</MudAvatar>
+                                <MudAvatar Image="poop.svg.png" Color="Color.Secondary">I</MudAvatar>
                             </CardHeaderAvatar>
                             <CardHeaderContent>
                                 <MudText Typo="Typo.body1">@pooper.PooperAlias</MudText>
@@ -44,15 +52,15 @@
                         </MudCardHeader>
                         @if (!string.IsNullOrWhiteSpace(pooper.Image))
                         {
-                            <MudCardMedia Image="@pooper.Image" />
+                            <MudCardMedia Image="@pooper.Image"/>
                         }
                         else
                         {
-                            <MudCardMedia Image="poop.svg.png" />
-                        }                       
+                            <MudCardMedia Image="poop.svg.png"/>
+                        }
                         <MudCardContent>
                             <MudText Typo="Typo.body2">@pooper.Description</MudText>
-                        </MudCardContent>                       
+                        </MudCardContent>
                         <MudCardContent>
                             @foreach (var tag in pooper.Claims)
                             {
@@ -60,15 +68,15 @@
                             }
                         </MudCardContent>
                         <MudCardActions>
-                            <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default" />
-                            <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default" />
-                            <MudIcon Icon="@Icons.TwoTone.Animation" Color="Color.Info" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default"/>
+                            <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default"/>
+                            <MudIcon Icon="@Icons.TwoTone.Animation" Color="Color.Info"/>
                         </MudCardActions>
                     </MudCard>
                 </MudItem>
             }
-                    
+
         </MudGrid>
-        <MudPagination Color="Color.Primary"  Count="PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
+        <MudPagination Color="Color.Primary" Count="PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
     </CascadingValue>
 }

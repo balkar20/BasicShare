@@ -6,19 +6,45 @@
 @*@inject IAlertService AlertService*@
 @inject NavigationManager NavigationManager
 @inject ILocalStorageService _localStorage
-<MudThemeProvider/>
+@* <MudThemeProvider/> *@
 <MudDialogProvider/>
 <MudSnackbarProvider/>
+<MudThemeProvider  Theme="_theme"/>
 
-<MudLayout Style="background-color: #1a1e21">
+@* <MudLayout Style="background-color: #1a1e21"> *@
+<MudLayout>
     <MudAppBar Style="background-color: #1a1e21" Elevation="1">
-        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleLeftDrawer" />
-        <MudSpacer />
-        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Inherit" OnClick="@ToggleRightDrawer" Target="_blank" />
+    <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleLeftDrawer" />
+    <MudSpacer />
+    <AuthorizeView>
+        <Authorized>
+            <MudText>@AuthenticationService.UserName</MudText>
+            <MudText>@AuthenticationService.UserRole</MudText>
+            <MudMenu >
+                <ActivatorContent>
+                    <MudAvatar Image="Pritty.png" Color="Color.Secondary"></MudAvatar>
+                </ActivatorContent>
+                <ChildContent>
+                    <MudMenuItem>@AuthenticationService.UserName</MudMenuItem>
+                    <MudMenuItem>@AuthenticationService.UserRole</MudMenuItem>
+                    <MudMenuItem>
+                        <MudButton IconColor="Color.Dark" StartIcon="@Icons.Material.Filled.Logout" OnClick="@(async () => await Logout())" Color="Color.Warning" Variant="Variant.Outlined">Sign Out</MudButton>
+                    </MudMenuItem>
+                </ChildContent>
+            </MudMenu>
+            @* <MudAvatar Image="Pritty.png" OnClick="@ShowAccountOptions" Color="Color.Secondary"></MudAvatar> *@
+        </Authorized>
+        <NotAuthorized>
+            <MudButton IconColor="Color.Surface" OnClick="@(async () => await Login())" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Login" Variant="Variant.Outlined">Login</MudButton>
+            <MudButton IconColor="Color.Tertiary" OnClick="Register" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.AppRegistration" Variant="Variant.Outlined">Register</MudButton>
+        </NotAuthorized>
+    </AuthorizeView>
+    <MudIconButton Icon="@Icons.Custom.Uncategorized.BioHazard" Color="Color.Inherit" OnClick="@ToggleRightDrawer" Target="_blank" />
     </MudAppBar>
-    <MudDrawer @bind-Open="@openLeft" Breakpoint="@breakpoint" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState">
+    @* <MudDrawer Style="background-color: #1a1e21" @bind-Open="@openLeft" Breakpoint="@breakpoint" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState"> *@
+    <MudDrawer  @bind-Open="@openLeft" Breakpoint="@breakpoint" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState">
         <MudDrawerHeader>
-            <MudText Typo="Typo.h6">My App</MudText>
+            <MudText Class="nav-caption" Typo="Typo.h6">My App</MudText>
         </MudDrawerHeader>
         <MudNavMenu>
             <MudNavLink Match="NavLinkMatch.All">Store</MudNavLink>
@@ -26,17 +52,29 @@
             <MudNavLink Match="NavLinkMatch.All">Community</MudNavLink>
         </MudNavMenu>
     </MudDrawer>
-    <MudDrawer   Anchor="Anchor.Right" @bind-Open="@openRight" Breakpoint="@breakpoint2" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState">
+    @* <MudDrawer  Style="background-color: #1a1e21" Anchor="Anchor.Right" @bind-Open="@openRight" Breakpoint="@breakpoint2" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState"> *@
+    <MudDrawer  Anchor="Anchor.Right" @bind-Open="@openRight" Breakpoint="@breakpoint2" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState">
         <MudDrawerHeader>
             <MudText Typo="Typo.h6">Settings</MudText>
         </MudDrawerHeader>
         <MudNavMenu>
+            <MudSelect T="string" Style="width: 4em; z-index: 1000;" MultiSelection="false" @bind-Value="@SelectedLanguageValue">
+                @foreach (var language in Languages)
+                {
+                    <MudSelectItem T="string" Value="language">@language</MudSelectItem>
+                }
+            </MudSelect>
             <MudNavLink Match="NavLinkMatch.All">Store</MudNavLink>
             <MudNavLink Match="NavLinkMatch.All">Library</MudNavLink>
             <MudNavLink Match="NavLinkMatch.All">Community</MudNavLink>
         </MudNavMenu>
     </MudDrawer>
-    <MudMainContent Style="background-color: #842029" Class="pt-16 px-16">
+    @* <MudMainContent Style="background-color: #2f2f2f" Class="pt-16 px-16"> *@
+    <MudMainContent  Class="pt-16 px-16">
+        <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
+
+        <PoopCarousel></PoopCarousel>
+        <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
         @Body
     </MudMainContent>
 </MudLayout>
@@ -131,8 +169,8 @@
 
 @code {
     
-    bool openLeft = false;
-    bool openRight = false;
+    bool openLeft = true;
+    bool openRight = true;
     bool preserveOpenState = false;
     Breakpoint breakpoint = Breakpoint.Lg;
     Breakpoint breakpoint2 = Breakpoint.Lg;
