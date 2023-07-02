@@ -33,4 +33,16 @@
     <data name="FuckingPoo" xml:space="preserve">
         <value>Fucking Poo</value>
     </data>
+    <data name="CreateProduct" xml:space="preserve">
+        <value>Create Product</value>
+    </data>
+    <data name="CreateService" xml:space="preserve">
+        <value>Create Service</value>
+    </data>
+    <data name="CreateCommunity" xml:space="preserve">
+        <value>Create Community</value>
+    </data>
+    <data name="CreateBusiness" xml:space="preserve">
+        <value>Create Business</value>
+    </data>
 </root>

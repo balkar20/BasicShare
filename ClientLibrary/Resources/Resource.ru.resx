@@ -33,4 +33,16 @@
     <data name="FuckingPoo" xml:space="preserve">
         <value>Чертов Какашечник</value>
     </data>
+    <data name="CreateProduct" xml:space="preserve">
+        <value>Создай Товар</value>
+    </data>
+    <data name="CreateService" xml:space="preserve">
+        <value>Создай Услугу</value>
+    </data>
+    <data name="CreateCommunity" xml:space="preserve">
+        <value>Создай Сообщество</value>
+    </data>
+    <data name="CreateBusiness" xml:space="preserve">
+        <value>Создай Бизнес</value>
+    </data>
 </root>

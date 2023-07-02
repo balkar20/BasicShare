@@ -38,7 +38,7 @@ namespace ClientLibrary.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("IdentityProvider.Client.Shared.Resources.Resource.en-US", typeof(Resource_en_US).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ClientLibrary.Resources.Resource.en-US", typeof(Resource_en_US).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -65,6 +65,42 @@ namespace ClientLibrary.Resources {
         internal static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Business.
+        /// </summary>
+        internal static string CreateBusiness {
+            get {
+                return ResourceManager.GetString("CreateBusiness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Community.
+        /// </summary>
+        internal static string CreateCommunity {
+            get {
+                return ResourceManager.GetString("CreateCommunity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Product.
+        /// </summary>
+        internal static string CreateProduct {
+            get {
+                return ResourceManager.GetString("CreateProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create Service.
+        /// </summary>
+        internal static string CreateService {
+            get {
+                return ResourceManager.GetString("CreateService", resourceCulture);
             }
         }
         

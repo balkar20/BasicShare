@@ -7,10 +7,10 @@
   </PropertyGroup>
 
     <ItemGroup>
-        <Watch Include="..\**\*.razor"/>
-        <Watch Include="..\**\*.scss"/>
-        <Watch Include="..\**\*.css"/>
-        <Watch Include="..\**\*.cs"/>
+        <Watch Include="..\**\*.razor" />
+        <Watch Include="..\**\*.scss" />
+        <Watch Include="..\**\*.css" />
+        <Watch Include="..\**\*.cs" />
     </ItemGroup>
 
     <ItemGroup>

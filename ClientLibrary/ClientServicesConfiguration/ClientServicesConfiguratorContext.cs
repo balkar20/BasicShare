@@ -5,6 +5,7 @@ using ClientLibrary.Interfaces.Particular;
 using ClientLibrary.Services;
 using ClientLibrary.Validators;
 using IdentityProvider.Shared;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -68,7 +69,13 @@ public class ClientServicesConfiguratorContext
             new CultureInfo("en-US"),
             new CultureInfo("ru"),//you can add more language as you want...
         };
-        _services.AddLocalization();
+        _services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+        _services.Configure<RequestLocalizationOptions>(options =>
+        {
+            options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+            options.SupportedUICultures = supportedCultures;
+        });
+        
     }
 
     public void ConfigureAppServices()
