@@ -8,6 +8,7 @@ using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor.Services;
 using Microsoft.Extensions.Localization;
@@ -67,15 +68,18 @@ public class ClientServicesConfiguratorContext
         var supportedCultures = new[]
         {
             new CultureInfo("en-US"),
-            new CultureInfo("ru"),//you can add more language as you want...
+            new CultureInfo("ru")//you can add more language as you want...
         };
-        _services.AddLocalization(options => { options.ResourcesPath = "Resources"; });
+        _services.AddLocalization();
         _services.Configure<RequestLocalizationOptions>(options =>
         {
-            options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture("en");
+            options.DefaultRequestCulture = new Microsoft.AspNetCore.Localization.RequestCulture(supportedCultures[0], supportedCultures[0]);
             options.SupportedUICultures = supportedCultures;
+            options.SupportedCultures = supportedCultures;
+            CultureInfo.DefaultThreadCurrentCulture = supportedCultures[0];
+            CultureInfo.DefaultThreadCurrentUICulture = supportedCultures[0];
         });
-        
+
     }
 
     public void ConfigureAppServices()

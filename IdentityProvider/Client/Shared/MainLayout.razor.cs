@@ -3,20 +3,21 @@ using System.Text;
 using Blazored.LocalStorage;
 using ClientLibrary.Components.Dialogs;
 using ClientLibrary.Interfaces.Particular;
-using ClientLibrary.Resources;
+using IdentityProvider.Client.Resources;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using MudBlazor.Utilities;
 using Microsoft.Extensions.Localization;
+using Microsoft.JSInterop;
 using NPOI.OpenXmlFormats;
+using Org.BouncyCastle.Asn1.Ocsp;
 
 namespace IdentityProvider.Client.Shared;
 
 public partial class MainLayout
 {
     private string selectedValue;
-    private const string LanguageKey = "language";
-    [Inject] public IStringLocalizer<Resource> Localizer { get; set; }
+    private const string LanguageKey = "blazorCulture";
 
     bool openLeft = true;
     bool openRight = true;
@@ -41,9 +42,10 @@ public partial class MainLayout
     }
 
 
-    private string[] Languages =
+    private Dictionary<string, string> _languagesDictionary = new()
     {
-        "en", "ru",
+        { "en", "en-US" },
+        { "ru", "ru" },
     };
 
     Justify _justify = Justify.FlexStart;
@@ -57,6 +59,9 @@ public partial class MainLayout
     [Inject] public ISnackbar SnackBarService { get; set; }
 
     [Inject] IDialogService DialogService { get; set; }
+    
+    [Inject] public IStringLocalizer<Resource> Localizer { get; set; }
+    [Inject] IJSRuntime JSRuntime { get; set; }
 
     public RenderFragment MyMarkup { get; set; }
 
@@ -126,36 +131,72 @@ public partial class MainLayout
         Console.WriteLine("ChangeLang");
         Console.WriteLine($"OldSelectedLanguageValue {_selectedLanguageValue}");
         Console.WriteLine($"Lang {lang}");
+        _selectedLanguageValue = lang;
+        var jsInvoke = (IJSInProcessRuntime)JSRuntime;
+        jsInvoke.InvokeVoid("blazorCulture.set", _selectedLanguageValue);
+
+        var newCultureInfo = new CultureInfo(_selectedLanguageValue);
+        // var newCultureInfo = CultureInfo.GetCultures(CultureTypes.AllCultures)
+        //     .First(c => c.Name.Contains(_selectedLanguageValue));
 
         // if (_selectedLanguageValue, lang,  StringComparison.InvariantCultureIgnoreCase))
         // {
-            // Thread.CurrentThread.CurrentCulture = new CultureInfo(lang);
-            Console.WriteLine($"NewLang {lang}");
-            Console.WriteLine("Localizer.ToString() ---- OnInitializedAsync");
-            // var cc = CultureInfo.GetCultures(CultureTypes.AllCultures)
-            //     .First(c => c.Name.Contains(lang));
-            var sb = new StringBuilder(); 
-            CultureInfo.CurrentCulture = new CultureInfo(lang);
-
+        Console.WriteLine($"CultureInfo.CurrentCulture ---- SetLanguage: {_selectedLanguageValue}");
+        // foreach (var cultureInfo in cc)
+        // {
+        //     Console.WriteLine($"cultureInfo ---- SetLanguage cycle: {cultureInfo.Name}");
         // }
-        
-        _selectedLanguageValue = lang;
-        
+        //     .First(c => c.Name.Contains(lang));
+        CultureInfo.CurrentCulture = newCultureInfo;
+        CultureInfo.CurrentUICulture = newCultureInfo;
+        CultureInfo.DefaultThreadCurrentCulture = newCultureInfo;
+        CultureInfo.DefaultThreadCurrentUICulture = newCultureInfo;
+        // }
+
         await LocalStorage.SetItemAsStringAsync(LanguageKey, lang);
+        StateHasChanged();
     }
 
     protected override async Task OnInitializedAsync()
     {
         var langFromLocalStorage = await LocalStorage.ContainKeyAsync(LanguageKey)
             ? await _localStorage.GetItemAsStringAsync(LanguageKey)
-            : Languages[0];
+            : _languagesDictionary["en"];
+
+        var k = Localizer.GetAllStrings(true);
+        Console.WriteLine($"GetAllStrings start");
+        // foreach (var localizedString in k)
+        // {
+        //     Console.WriteLine($"GetAllStrings Name--val: {localizedString.Name}-{localizedString.Value}");
+        // }
 
         _selectedLanguageValue = langFromLocalStorage;
-        
-        Console.WriteLine("Localizer.ToString() ---- OnInitializedAsync");
 
+        Console.WriteLine($"langFromLocalStorage ---- OnInitializedAsync: {_selectedLanguageValue}");
+        var newCultureInfo = CultureInfo.GetCultures(CultureTypes.AllCultures)
+            .First(c => c.Name.Contains(_selectedLanguageValue));
+
+        CultureInfo.CurrentCulture = newCultureInfo;
+        CultureInfo.CurrentUICulture = newCultureInfo;
+        CultureInfo.DefaultThreadCurrentCulture = newCultureInfo;
+        CultureInfo.DefaultThreadCurrentUICulture = newCultureInfo;
+
+        Console.WriteLine(
+            $"Thread.CurrentThread.CurrentCulture ---- OnInitializedAsync: {Thread.CurrentThread.CurrentCulture.Name}");
+        Console.WriteLine($"CultureInfo.CurrentCulture ---- OnInitializedAsync: {CultureInfo.CurrentCulture.Name}");
+        Console.WriteLine($"_selectedLanguageValue ---- OnInitializedAsync: {_selectedLanguageValue}");
+
+        Console.WriteLine($"GetAllStrings end");
+        k = Localizer.GetAllStrings(true);
+        // foreach (var localizedString in k)
+        // {
+        //     Console.WriteLine($"GetAllStrings Name--val: {localizedString.Name}-{localizedString.Value}");
+        // }
         // var val = Localizer.GetString(ClientResourceConstants.CreateProduct).Value;
         // Console.WriteLine($"_selectedLanguageValue ---- OnInitializedAsync: {val}");
+
+
+        // Console.WriteLine($"cc ---- OnInitializedAsync: {cc.Name}");
         await base.OnInitializedAsync();
     }
 

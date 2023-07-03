@@ -44,17 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources\Resource.en-US.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resource.en-US.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-      <EmbeddedResource Update="Resources\Resource.ru.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-        <LastGenOutput>Resource.ru-RU.Designer.cs</LastGenOutput>
-      </EmbeddedResource>
-    </ItemGroup>
-
-    <ItemGroup>
       <Reference Include="Microsoft.Extensions.Localization.Abstractions">
         <HintPath>..\..\..\program files\dotnet\shared\Microsoft.AspNetCore.App\7.0.7\Microsoft.Extensions.Localization.Abstractions.dll</HintPath>
       </Reference>

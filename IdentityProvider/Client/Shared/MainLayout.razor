@@ -80,9 +80,9 @@
         </MudDrawerHeader>
         <MudNavMenu>
             <MudSelect T="string" Style="width: 4em; z-index: 1000;" MultiSelection="false" @bind-Value="@SelectedLanguageValue">
-                @foreach (var language in Languages)
+                @foreach (var language in _languagesDictionary)
                 {
-                    <MudSelectItem T="string" Value="language">@language</MudSelectItem>
+                    <MudSelectItem T="string" Value="language.Value">@language.Key</MudSelectItem>
                 }
             </MudSelect>
             <MudNavLink Match="NavLinkMatch.All">Store</MudNavLink>

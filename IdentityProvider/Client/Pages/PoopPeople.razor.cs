@@ -6,6 +6,7 @@ using MudBlazor;
 using ClientLibrary.Components.Dialogs;
 using ClientLibrary.Resources;
 using Core.Transfer;
+using IdentityProvider.Client.Resources;
 using IdentityProvider.Client.Shared;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
