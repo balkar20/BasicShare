@@ -1,1 +1,0 @@
-var locTest = Localizer.GetString(ClientResourceConstants.SavePooper);

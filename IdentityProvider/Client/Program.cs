@@ -1,5 +1,6 @@
 using ClientLibrary.ClientServicesConfiguration;
 using IdentityProvider.Client;
+using IdentityProvider.Client.Extensions;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
@@ -13,5 +14,7 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 var clientServicesConfiguratorContext = new ClientServicesConfiguratorContext(builder);
 clientServicesConfiguratorContext.Configure();
 
-await builder.Build().RunAsync();
+var host = builder.Build();
+await host.SetDefaultCulture();
+await host.RunAsync();
 

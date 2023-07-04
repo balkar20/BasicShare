@@ -8,6 +8,7 @@ using ClientLibrary.Resources;
 using Core.Transfer;
 using IdentityProvider.Client.Resources;
 using IdentityProvider.Client.Shared;
+using IdentityProvider.Client.Shared.Resources;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Extensions.Localization;
 using SortDirection = Core.Transfer.SortDirection;
@@ -16,7 +17,7 @@ namespace IdentityProvider.Client.Pages;
 
 public partial class PoopPeople : ComponentBase
 {
-    [CascadingParameter] public MainLayout Layout { get; set; }
+    [CascadingParameter] public Shared.MainLayout Layout { get; set; }
     private bool _overrideStyles;
     private string authMessage;
     private string surnameMessage;
@@ -41,7 +42,7 @@ public partial class PoopPeople : ComponentBase
 
     [Inject] IDialogService DialogService { get; set; }
     [Inject] public AuthStateProvider AuthStateProvider { get; set; }
-    [Inject] public IStringLocalizer<Resource> Localizer { get; set; }
+    [Inject] IStringLocalizer<Resource> Localizer { get; set; }
 
     IBaseMvvmViewModel<PooperViewModel> PooperViewModel { get; set; }
 

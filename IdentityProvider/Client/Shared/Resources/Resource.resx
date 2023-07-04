@@ -18,76 +18,76 @@
     <resheader name="writer">
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
-    <data name="CreateBusiness" xml:space="preserve">
-        <value>Создай Бизнес</value>
-    </data>
-    <data name="CreateCommunity" xml:space="preserve">
-        <value>Создай Сообщество</value>
-    </data>
     <data name="CreateProduct" xml:space="preserve">
-        <value>Создай Товар</value>
+        <value>Create Product</value>
     </data>
     <data name="CreateService" xml:space="preserve">
-        <value>Создай Сервис</value>
+        <value>Create Service</value>
+    </data>
+    <data name="CreateCommunity" xml:space="preserve">
+        <value>Create Community</value>
+    </data>
+    <data name="CreateBusiness" xml:space="preserve">
+        <value>Create Business</value>
     </data>
     <data name="Cancel" xml:space="preserve">
-        <value>Отмена</value>
+        <value>Cancel</value>
     </data>
     <data name="Register" xml:space="preserve">
-        <value>Зарегестрироваться</value>
+        <value>Register</value>
     </data>
     <data name="FuckingPoo" xml:space="preserve">
-        <value>Чертов Какашечник</value>
+        <value>Fucking Poo</value>
     </data>
     <data name="Login" xml:space="preserve">
-        <value>Войти</value>
+        <value>Login</value>
     </data>
     <data name="SavePooper" xml:space="preserve">
-        <value>Сохранить Какашечника</value>
+        <value>Save Pooper</value>
     </data>
     <data name="Save" xml:space="preserve">
-        <value>Сохранить</value>
-    </data>
-    <data name="Amend" xml:space="preserve">
-        <value>Править</value>
+        <value>Save</value>
     </data>
     <data name="Create" xml:space="preserve">
-        <value>Создать</value>
+        <value>Create</value>
+    </data>
+    <data name="Amend" xml:space="preserve">
+        <value>Amend</value>
     </data>
     <data name="Products" xml:space="preserve">
-        <value>Товары</value>
-    </data>
-    <data name="PayByCache" xml:space="preserve">
-        <value>Оплатить наличными</value>
-    </data>
-    <data name="PayByCard" xml:space="preserve">
-        <value>Оплатить картой</value>
-    </data>
-    <data name="Order" xml:space="preserve">
-        <value>Сделать заказ</value>
-    </data>
-    <data name="Like" xml:space="preserve">
-        <value>Нравиться</value>
-    </data>
-    <data name="Dislike" xml:space="preserve">
-        <value>Ненравиться</value>
-    </data>
-    <data name="Services" xml:space="preserve">
-        <value>Сервисы</value>
-    </data>
-    <data name="Сourier" xml:space="preserve">
-        <value>Курьер</value>
+        <value>Products</value>
     </data>
     <data name="Communities" xml:space="preserve">
-        <value>Сообщества</value>
-    </data>
-    <data name="Buy" xml:space="preserve">
-        <value>Купить</value>
+        <value>Communities</value>
     </data>
     <data name="Business" xml:space="preserve">
-        <value>Бизнес</value>
+        <value>Business</value>
+    </data>
+    <data name="Services" xml:space="preserve">
+        <value>Services</value>
+    </data>
+    <data name="Like" xml:space="preserve">
+        <value>Like</value>
+    </data>
+    <data name="Dislike" xml:space="preserve">
+        <value>Dislike</value>
     </data>
     <data name="Agree" xml:space="preserve">
-        <value>Соглашуть</value>
+        <value>Agree</value>
+    </data>
+    <data name="Order" xml:space="preserve">
+        <value>Order</value>
+    </data>
+    <data name="Buy" xml:space="preserve">
+        <value>Buy</value>
+    </data>
+    <data name="PayByCache" xml:space="preserve">
+        <value>PayByCache</value>
+    </data>
+    <data name="PayByCard" xml:space="preserve">
+        <value>PayByCard</value>
+    </data>
+    <data name="Сourier" xml:space="preserve">
+        <value>Сourier</value>
     </data>
 </root>
