@@ -25,5 +25,14 @@ public static class ClientResourceConstants
     public const string Order = "Order";
     public const string PayByCache = "PayByCache";
     public const string PayByCard = "PayByCard";
+    public const string CardNumber = "CardNumber";
     public const string Сourier = "Сourier";
+    public const string Name = "Name";
+    public const string LastName = "LastName";
+    public const string UserName = "UserName";
+    public const string Address = "Address";
+    public const string Age = "Age";
+    public const string DateOfBirth = "DateOfBirth";
+    public const string UserAgreement = "UserAgreement";
+    public const string Deliver = "Deliver";
 }

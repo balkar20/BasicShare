@@ -3,7 +3,6 @@ using ClientLibrary.Enums;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Resources;
 using Core.Transfer;
-using IdentityProvider.Client.Resources;
 using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Forms;
@@ -18,7 +17,7 @@ public partial class PooperForm: ComponentBase
     public IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService{ get; set; }
     
     [Inject]
-    public IStringLocalizer<LibResource> Localizer{ get; set; }
+     IStringLocalizer<LibResource> Localizer{ get; set; }
 
     
     public IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
