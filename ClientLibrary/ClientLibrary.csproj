@@ -22,7 +22,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
       <ProjectReference Include="..\IdentityProvider\Shared\IdentityProvider.Shared.csproj" />
     </ItemGroup>
 

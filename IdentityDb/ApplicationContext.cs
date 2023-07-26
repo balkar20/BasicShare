@@ -22,12 +22,9 @@ namespace Data.IdentityDb
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
         : base(options)
         {
-            Database.EnsureCreated();
+            // Database.EnsureCreated();
         }
-
-        // public new DbSet<ClaimEntity> UserClaims { get; set; }
-
-
+        
         public DbSet<PooperEntity> Poopers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -42,7 +39,7 @@ namespace Data.IdentityDb
             var types = Enum.GetNames(typeof(UserClaimEnum));
             
             var claims = new List<Claim>();
-            claims.AddRange(types.Select(t => new Claim("PooperClaim", t)));
+            claims.AddRange(types.Select(t => new Claim(UserClaimTypeEnum.PoopClaim.ToString(), t)));
         
             builder.ApplyConfiguration(roleConfig);
             builder.ApplyConfiguration(userConfig);
@@ -82,7 +79,7 @@ namespace Data.IdentityDb
                     {
                         Id = Math.Abs(String.GetHashCode(claim.Value + keyValuePair.Key)),
                         UserId = user.Id,
-                        ClaimType = "SmellyGuy",
+                        ClaimType = UserClaimTypeEnum.PoopClaim.ToString(),
                         ClaimValue = claim.Value
                     });
                 }

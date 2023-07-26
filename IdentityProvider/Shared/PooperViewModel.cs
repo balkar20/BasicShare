@@ -2,7 +2,7 @@ using IdentityProvider.Shared.Interfaces;
 
 namespace IdentityProvider.Shared;
 
-public class PooperViewModel: IViewModel
+public class  PooperViewModel: IViewModel
 {
 public string Id { get; set; }
 

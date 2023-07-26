@@ -12,7 +12,7 @@ namespace ClientLibrary.Services;
 
 public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: IViewModel, new()
 {
-    public BaseMvvmViewModel(BaseModelValidator<TData> validator)
+    public BaseMvvmViewModel(BaseModelValidator<TData> validator, Func<TData, string, bool>? viewDataListFilter = null)
     {
         Data = new();
         StatusType = StatusTypes.StatusCanceled;
@@ -20,6 +20,8 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
         
         DataApiString = $"api/{typeof(TData).Name.Replace("ViewModel", "" ).ToLower()}";
         DataListApiString = $"api/{typeof(TData).Name.Replace("ViewModel", "s" ).ToLower()}";
+        CachedDataListDictionary = new Dictionary<int, List<TData>>();
+        ViewDataListFilter = viewDataListFilter ?? ((data, s) => false);
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -27,7 +29,10 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
 
     public StatusTypes StatusType{ get; set; }
 
-    public List<TData> DataList { get; set; }
+    public List<TData> ViewDataList { get; set; }
+    public Func<TData, string, bool> ViewDataListFilter { get; set; }
+
+    public IDictionary<int, List<TData>> CachedDataListDictionary { get; set; }
 
     public string DataApiString { get; set; }
 
@@ -42,7 +47,10 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
     public BaseModelValidator<TData> Validator { get; set; }
     
     public int TotalPages { get; set; }
+    public int TotalFilteredPages { get; set; }
     
+    public bool IsFiltered { get; set; }
+
     public int PageSize { get; set; }
     
 
@@ -56,5 +64,14 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
         services.AddScoped<
             IBaseCrudService<TData, BaseResponseResult, TResponseData>, 
             BaseCrudService<TData, BaseResponseResult, TResponseData>>();
+    }
+
+    public void SetAndCacheDataList(int page, List<TData> list)
+    {
+        ViewDataList = list;
+        if (!CachedDataListDictionary.ContainsKey(page) || !CachedDataListDictionary[page].Any())
+        {
+            CachedDataListDictionary[page] = list;
+        }
     }
 }

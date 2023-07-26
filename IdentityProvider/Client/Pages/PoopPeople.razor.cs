@@ -7,6 +7,7 @@ using ClientLibrary.Components.Dialogs;
 using Core.Transfer;
 using IdentityProvider.Client.Shared.Resources;
 using Microsoft.AspNetCore.Components.Authorization;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Localization;
 using SortDirection = Core.Transfer.SortDirection;
 
@@ -18,7 +19,12 @@ public partial class PoopPeople : ComponentBase
     private bool _overrideStyles;
     private string authMessage;
     private string surnameMessage;
-    private IEnumerable<Claim> claims = Enumerable.Empty<Claim>();
+    
+    
+    
+    public string searchString{ get; set; }
+
+    private List<string> claims = Enumerable.Empty<string>().ToList();
 
     private string girlName;
     private string girlEmail;
@@ -32,10 +38,11 @@ public partial class PoopPeople : ComponentBase
     {
         DataListPagingModel.CurrentPage = value;
 
-        await CrudService.GetModelListAsync(DataListPagingModel);
+        await CrudService.ShowModelListAsync(DataListPagingModel);
     }
 
     private int _countOfPages;
+    private bool _processing;
 
     [Inject] IDialogService DialogService { get; set; }
     [Inject] public AuthStateProvider AuthStateProvider { get; set; }
@@ -64,7 +71,9 @@ public partial class PoopPeople : ComponentBase
         };
         PooperViewModel = CrudService.MvvmViewModel;
         PooperViewModel.PageSize = DataListPagingModel.PageSize;
-        await CrudService.GetModelListAsync(DataListPagingModel);
+        await CrudService.ShowModelListAsync(DataListPagingModel);
+        claims =  CrudService.MvvmViewModel.ViewDataList.SelectMany(p => p.Claims ?? new List<string>()).Distinct().ToList();
+        // claims.AddRange(new []{"async","async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async"});
         AuthStateProvider.AuthenticationStateChanged += AuthStateProviderOnAuthenticationStateChanged; 
         PooperViewModel.PropertyChanged += async (sender, e) => { await InvokeAsync(() => { StateHasChanged(); }); };
         await base.OnInitializedAsync();
@@ -75,5 +84,23 @@ public partial class PoopPeople : ComponentBase
         var state = task.Result;
         var user = state.User;
         StateHasChanged();
+    }
+
+    private async Task FindThem()
+    {
+        CrudService.MvvmViewModel.ViewDataList.Any(o => o.PooperAlias.Contains(searchString));
+        DataListPagingModel.Filter = searchString;
+        await CrudService.ShowModelListAsync(DataListPagingModel);
+    }
+
+    private async Task FindThemLoaded()
+    {
+
+        await CrudService.ShowModelListAsync(DataListPagingModel);
+    }
+    
+    private void FilterDataListOnKeyUp(KeyboardEventArgs obj)
+    {
+        CrudService.FilterDataListOnClient(DataListPagingModel);
     }
 }

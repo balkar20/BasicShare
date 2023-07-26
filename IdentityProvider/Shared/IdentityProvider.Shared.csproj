@@ -16,4 +16,8 @@
   <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core.Transfer\Core.Transfer.csproj" />
+  </ItemGroup>
 </Project>

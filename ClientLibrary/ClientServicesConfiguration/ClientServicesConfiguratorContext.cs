@@ -37,7 +37,7 @@ public class ClientServicesConfiguratorContext
         
         _mvvmRegisterViewModel = new BaseMvvmViewModel<RegisterViewModel>(new RegisterViewModelFluentValidator());
         _mvvmLoginViewModel = new BaseMvvmViewModel<LoginViewModel>(new LoginViewModelFluentValidator());
-        _mvvmPooperViewModel = new BaseMvvmViewModel<PooperViewModel>(new PooperViewModelFluentValidator());
+        _mvvmPooperViewModel = new BaseMvvmViewModel<PooperViewModel>(new PooperViewModelFluentValidator(), (t, str) => string.IsNullOrWhiteSpace(str) || t.PooperAlias.Contains(str));
     }
 
     public void Configure()

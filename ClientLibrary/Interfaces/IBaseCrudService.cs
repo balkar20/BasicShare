@@ -1,7 +1,6 @@
 using Core.Transfer;
-using FluentValidation.Results;
 using IdentityProvider.Shared.Interfaces;
-using Microsoft.Extensions.DependencyInjection;
+
 
 namespace ClientLibrary.Interfaces;
 
@@ -10,7 +9,7 @@ public interface IBaseCrudService<TModel, TResponseViewModel, TResponseData>
 where TModel: IViewModel
 {
     IBaseMvvmViewModel<TModel> MvvmViewModel { get; set; }
-    Task<ResponseResultWithData<List<TModel>>> GetModelListAsync(DataListPagingModel dataListPagingModel);
+    ValueTask ShowModelListAsync(DataListPagingModel dataListPagingModel);
     
     Task<ResponseResultWithData<TModel>> GetModelAsync(string id);
 
@@ -20,7 +19,5 @@ where TModel: IViewModel
 
     Task<ResponseResultWithData<TResponseData>> CreateDataAsync();
 
-    // void ConfigureCrudService(IServiceCollection services);
-    
-    // Task<ValidationResult> ValidateModelValue(); 
+    bool FilterDataListOnClient(DataListPagingModel dataListPagingModel);
 }

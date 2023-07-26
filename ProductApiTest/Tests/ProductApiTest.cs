@@ -1,4 +1,5 @@
 using System.Net.Http.Json;
+using System.Text;
 using Core.Base.Output;
 using Mod.Product.Base.ViewModels;
 using Mod.Product.Models;
@@ -20,6 +21,15 @@ namespace ProductApiTest.Tests
  
             _client = _testMoqPOCApplication.CreateClient();
         }
+
+        [Fact]
+        public void TestString()
+        {
+            var str1 = "Hello";
+            var str2 = "Hello";
+            
+        }
+        
         [Fact]
         public async Task  IsGetProductsApiReturnsExpectedResult()
         {
@@ -34,6 +44,9 @@ namespace ProductApiTest.Tests
                     Description = "Manel"
                 }
             };
+
+            var sb = new StringBuilder();
+            sb.Append("jhjh");
             
             _mockServices.ProductServiceMock.Setup(m => m.GetAllProducts()).ReturnsAsync(expResult);
             

@@ -14,7 +14,10 @@ public interface IBaseMvvmViewModel<TData>: INotifyPropertyChanged where TData: 
     
     public StatusTypes StatusType { get; set; }
 
-    public List<TData> DataList { get; set; }
+    public List<TData> ViewDataList { get; set; }
+
+    public Func<TData, string, bool> ViewDataListFilter { get; set; }
+    public IDictionary<int, List<TData>> CachedDataListDictionary { get; set; }
 
     public string DataApiString { get; set; }
 
@@ -30,9 +33,15 @@ public interface IBaseMvvmViewModel<TData>: INotifyPropertyChanged where TData: 
     
     int TotalPages { get; set; }
     
+    int TotalFilteredPages { get; set; }
+    
+    bool IsFiltered { get; set; }
+    
     int PageSize { get; set; }
 
     void OnPropertyChanged([CallerMemberName] string propertyName = null);
 
     void ConfigureCrudService<TResponseData>(IServiceCollection services);
+
+    void SetAndCacheDataList(int page, List<TData> list);
 }

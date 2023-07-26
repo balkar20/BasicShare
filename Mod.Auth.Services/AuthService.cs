@@ -68,11 +68,14 @@ public class AuthService: IAuthService
     public async Task<PooperDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel)
     {
         var result = new PooperDataListResult();
-        var filteredUsers = _context.Users;
-        result.TotalDataCount = filteredUsers.Count();
         
-        result.PooperModels = await filteredUsers.GroupJoin(
-            _context.UserClaims,
+        var users = _context.Users.Where(u => 
+            string.IsNullOrWhiteSpace(dataListPagingModel.Filter) || u.UserName.Contains(dataListPagingModel.Filter));
+        result.TotalDataCount = users.Count();
+
+        result.PooperModels = await users.
+            GroupJoin(
+            _context.UserClaims.Where(cc => cc.ClaimType.Equals(UserClaimTypeEnum.PoopClaim.ToString())),
             u => u.Id,
             c => c.UserId,
             (u, cl) => new PooperModel()
@@ -86,6 +89,7 @@ public class AuthService: IAuthService
             })
             .Skip(dataListPagingModel.PageSize * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageSize)
             .ToListAsync();
+        
 
         result.DataCount = result.PooperModels.Count();
 

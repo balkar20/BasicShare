@@ -3,6 +3,8 @@
 @using ClientLibrary.Interfaces
 @using Microsoft.Extensions.Localization
 @using ClientLibrary.Enums
+@using ClientLibrary.Resources
+
 
 @inject IBaseMvvmViewModel<PooperViewModel> ViewModel
 
@@ -13,16 +15,38 @@
 @if (ViewModel.StatusType == StatusTypes.Success)
 {
     <CascadingValue Value=@ViewModel Name="ViewModel">
-        <MudButtonGroup Color="Color.Primary" Variant="Variant.Outlined" OverrideStyles="_overrideStyles">
-            <MudButton Color="Color.Primary" Variant="Variant.Outlined">One</MudButton>
-            <MudButton Color="Color.Warning" Variant="Variant.Outlined">Two</MudButton>
-            <MudButton Color="Color.Secondary" Variant="Variant.Outlined">Three</MudButton>
-            <MudDivider Vertical="true" FlexItem="true" Class="my-6"/>
-             <MudSwitch @bind-Checked="@_overrideStyles" Label="Override styles" Color="Color.Primary" />
-        </MudButtonGroup>
-        
+        <MudPaper Style="background-color: inherit" Elevation="0" Class="d-flex justify-space-between flex-grow-1 gap-1">
+            <MudPaper Elevation="0" Style="background-color: inherit; border-right: 3px solid #78003b" class="d-flex align-self-center">
+                <MudIconButton Icon="@Icons.Material.Filled.Explore" aria-label="explore"></MudIconButton >
+            </MudPaper>
+            
+            <MudPaper Style="background-color: inherit" Elevation="0" Class="d-flex justify-space-between flex-grow-1 flex-wrap" >
+                @foreach (var label in claims)
+                {
+                    <MudChip Color="Color.Default">@label</MudChip>
+                }
+            </MudPaper>
+
+            <MudPaper Elevation="0" Style="background-color: inherit; border-left: 3px solid #78003b;"  Class="d-flex" >
+                <MudTextField @bind-Value="DataListPagingModel.Filter" OnKeyUp="FilterDataListOnKeyUp" Immediate="true" Placeholder="@Localizer.GetString(ClientResourceConstants.Search)" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                <MudButton Disabled="@_processing" OnClick="FindThemLoaded" Variant="Variant.Filled" Color="Color.Primary">
+                    @if (_processing)
+                    {
+                        <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true"/>
+                        <MudText Class="ms-2">Processing</MudText>
+                    }
+                    else
+                    {
+                        <MudText>@Localizer.GetString(ClientResourceConstants.Find)</MudText>
+                    }
+                </MudButton>
+            </MudPaper>
+        </MudPaper>
+
+        <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
+
         <MudGrid Justify="Justify.Center">
-            @foreach (var pooper in ViewModel.DataList)
+            @foreach (var pooper in ViewModel.ViewDataList)
             {
                 <MudItem Style="width: 70vh;">
                     <MudCard>
@@ -77,6 +101,6 @@
             }
 
         </MudGrid>
-        <MudPagination Color="Color.Primary" Count="PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
+        <MudPagination Color="Color.Primary" Count=" PooperViewModel.IsFailed ? PooperViewModel.TotalFilteredPages : PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
     </CascadingValue>
 }

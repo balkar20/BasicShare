@@ -52,12 +52,12 @@ namespace IdentityDb
             UserManager<UserEntity> _userManager = serviceProvider.GetService<UserManager<UserEntity>>();
             var roleStore = new RoleStore<IdentityRole>(context);
             var allRoles = roleStore.Roles;
-            var types = Enum.GetNames(typeof(UserClaimEnum));
+            var claimNames = Enum.GetNames(typeof(UserClaimEnum));
             var claims = new List<Claim>();
             
-            foreach (var type in types)
+            foreach (var name in claimNames)
             {
-                claims.Add(new Claim("PoopClaim", type));
+                claims.Add(new Claim(UserClaimTypeEnum.PoopClaim.ToString(), name));
             }
             
             foreach (var poppName in poppNames)

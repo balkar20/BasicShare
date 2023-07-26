@@ -35,4 +35,7 @@ public static class ClientResourceConstants
     public const string DateOfBirth = "DateOfBirth";
     public const string UserAgreement = "UserAgreement";
     public const string Deliver = "Deliver";
+    public const string Settings = "Settings";
+    public const string Find = "Find";
+    public const string Search = "Search";
 }

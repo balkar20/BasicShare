@@ -90,4 +90,13 @@
     <data name="Сourier" xml:space="preserve">
         <value>Сourier</value>
     </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Settings</value>
+    </data>
+    <data name="Find" xml:space="preserve">
+        <value>Find</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+        <value>Search</value>
+    </data>
 </root>

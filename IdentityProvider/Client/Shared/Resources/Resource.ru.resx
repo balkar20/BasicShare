@@ -90,4 +90,13 @@
     <data name="Agree" xml:space="preserve">
         <value>Соглашуть</value>
     </data>
+    <data name="Settings" xml:space="preserve">
+        <value>Настройки</value>
+    </data>
+    <data name="Search" xml:space="preserve">
+        <value>Поиск</value>
+    </data>
+    <data name="Find" xml:space="preserve">
+        <value>Искать</value>
+    </data>
 </root>
