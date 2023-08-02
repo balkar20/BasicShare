@@ -20,11 +20,13 @@
                 <MudIconButton Icon="@Icons.Material.Filled.Explore" aria-label="explore"></MudIconButton >
             </MudPaper>
             
-            <MudPaper Style="background-color: inherit" Elevation="0" Class="d-flex justify-space-between flex-grow-1 flex-wrap" >
-                @foreach (var label in claims)
-                {
-                    <MudChip Color="Color.Default">@label</MudChip>
-                }
+            <MudPaper Style="background-color: inherit" Elevation="0" Class="d-flex justify-space-between flex-grow-1 flex-wrap">
+                <MudChipSet Class="d-flex justify-space-between flex-grow-1 flex-wrap" @bind-SelectedChips="selectedChips" MultiSelection="true" Filter="true" >
+                    @foreach (var label in claims)
+                    {
+                        <MudChip OnClick="ClickChipHandle" SelectedColor="Color.Primary" Color="Color.Default">@label</MudChip>
+                    }
+                </MudChipSet>
             </MudPaper>
 
             <MudPaper Elevation="0" Style="background-color: inherit; border-left: 3px solid #78003b;"  Class="d-flex" >

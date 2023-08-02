@@ -20,6 +20,10 @@ public partial class PoopPeople : ComponentBase
     private string authMessage;
     private string surnameMessage;
     
+    bool mandatory = true;
+    
+    private MudChip[] selectedChips;
+    
     
     
     public string searchString{ get; set; }
@@ -100,6 +104,11 @@ public partial class PoopPeople : ComponentBase
     }
     
     private void FilterDataListOnKeyUp(KeyboardEventArgs obj)
+    {
+        CrudService.FilterDataListOnClient(DataListPagingModel);
+    }
+
+    private void ClickChipHandle(MouseEventArgs arg)
     {
         CrudService.FilterDataListOnClient(DataListPagingModel);
     }
