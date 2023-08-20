@@ -44,47 +44,28 @@ public class AuthService: IAuthService
         _mapper = mapper;
     }
 
-    public async Task<List<UserModel>> GetAllPoopers(DataListPagingModel dataListPagingModel)
-    {
-
-        var filteredUsers = _context.Users;
-        var usersWithClaims = await filteredUsers.GroupJoin(
-            _context.UserClaims,
-            u => u.Id,
-            c => c.UserId,
-            (u, cl) => new UserModel()
-            {
-                Id = u.Id,
-                AmountOfPoints = u.AmountOfPoints,
-                UserName = u.UserName,
-                Description = u.Description,
-                Image = u.Image,
-                Claims = cl.Select(c => c.ClaimValue).ToList()
-            })
-            .Skip(dataListPagingModel.PageSize * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageSize)
-            .ToListAsync();
-
-        return usersWithClaims;
-    }
-
     public async Task<UserDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel)
     {
         var result = new UserDataListResult();
 
-        var users = await _userManager.Users
+        var allUsersQuery = _userManager.Users
             .Include(u => u.Claims)
             .Where(o => o.Claims.Any(j =>
                             j.ClaimType == UserClaimTypeEnum.SharerClaim.ToString()) &&
-                        (string.IsNullOrWhiteSpace(dataListPagingModel.Filter!.StringValue) || o.UserName!.Contains(dataListPagingModel.Filter.StringValue)) &&
+                        (string.IsNullOrWhiteSpace(dataListPagingModel.Filter!.StringValue) ||
+                         o.UserName!.Contains(dataListPagingModel.Filter.StringValue)) &&
                         (dataListPagingModel.Filter.Labels == null || !dataListPagingModel.Filter.Labels.Any() ||
-                         o.Claims.Any(c => dataListPagingModel.Filter.Labels.Contains(c.ClaimValue))))
+                         o.Claims.Any(c => dataListPagingModel.Filter.Labels.Contains(c.ClaimValue))));
+
+        var userModels = await allUsersQuery
             .Skip(dataListPagingModel.PageSize * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageSize)
             .Select(e => _mapper.Map<UserModel>(e)).ToListAsync();
 
         var claims =_context.UserClaims.Where(cc => cc.ClaimType.Equals(UserClaimTypeEnum.SharerClaim.ToString()));
 
-        result.UserModels = users;
-        result.DataCount = result.UserModels.Count();
+        result.UserModels = userModels;
+        result.TotalDataCount = allUsersQuery.Count();
+        result.DataCount = userModels.Count();
         //todo optimize
         var uniqueClaims = (await claims.ToListAsync()).Select(c => c.ClaimValue).Distinct().ToList();
         result.Claims = uniqueClaims;
