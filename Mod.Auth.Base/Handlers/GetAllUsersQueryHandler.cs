@@ -9,7 +9,7 @@ using Serilog;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, ResponseResultWithData<List<PooperModel>>>
+public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, ResponseResultWithData<List<UserModel>>>
 {
     private readonly IAuthService _authService;
     private readonly ILogger _logger;
@@ -22,9 +22,9 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
         _stringLocalizer = stringLocalizer;
     }
     
-    public async Task<ResponseResultWithData<List<PooperModel>>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
+    public async Task<ResponseResultWithData<List<UserModel>>> Handle(GetAllUsersQuery request, CancellationToken cancellationToken)
     {
-        var response = new ResponseResultWithData<List<PooperModel>>()
+        var response = new ResponseResultWithData<List<UserModel>>()
         {
             IsSuccess = false
         };
@@ -33,10 +33,11 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
             _logger.Information("PagingModel: {SortDirection}", request.DataListPagingModel.SortDirection);
 
             var result = await _authService.GetPaginatedUsers(request.DataListPagingModel);
-            response.Data = result.PooperModels;
+            response.Data = result.UserModels;
             response.Count = result.TotalDataCount;
             response.IsSuccess = true;
             response.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.LOadSuccess, result.DataCount);
+            response.DataLabels = result.Claims;
             _logger.Information("Successfully returned list of products, count: {ResultCount}", result.DataCount);
         }
         catch(Exception ex)

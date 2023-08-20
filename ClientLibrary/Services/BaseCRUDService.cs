@@ -44,11 +44,11 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
 
     #region PublicMethods
 
-    public virtual async ValueTask ShowModelListAsync(DataListPagingModel dataListPagingModel)
+    public virtual async ValueTask LoadModelListAsync(DataListPagingModel dataListPagingModel)
     {
-        var isFindOnClint = FilterDataListOnClient(dataListPagingModel);
+        var isFindOnClient = FilterDataListOnClient(dataListPagingModel);
 
-        if (isFindOnClint)
+        if (isFindOnClient)
         {
             return;
         }
@@ -160,8 +160,9 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
         var result = HandleResponseResult((BaseResponseResult)responseResult);
         if (result.IsSuccess)
         {
+            MvvmViewModel.DataLabels = responseResult.DataLabels.ToHashSet();
             MvvmViewModel.SetAndCacheDataList(dataListPagingModel.CurrentPage, responseResult.Data);
-            if (!string.IsNullOrWhiteSpace(dataListPagingModel.Filter))
+            if (!string.IsNullOrWhiteSpace(dataListPagingModel.Filter.StringValue) || dataListPagingModel.Filter.Labels.Any())
             {
                 MvvmViewModel.TotalFilteredPages = responseResult.Count >=  0 ? (int)Math.Ceiling((double)responseResult.Count / MvvmViewModel.PageSize) : 1;
                 MvvmViewModel.IsFiltered= true;
@@ -177,8 +178,8 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
         {
             return false;
         }
-        
-        if (string.IsNullOrWhiteSpace(dataListPagingModel.Filter))
+         
+        if (string.IsNullOrWhiteSpace(dataListPagingModel.Filter.StringValue) && !dataListPagingModel.Filter.Labels.Any())
         {
             MvvmViewModel.IsFiltered = false;
             MvvmViewModel.ViewDataList = MvvmViewModel.CachedDataListDictionary[dataListPagingModel.CurrentPage];
@@ -186,7 +187,8 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
         else
         {
             MvvmViewModel.ViewDataList = MvvmViewModel.CachedDataListDictionary.Values
-                .SelectMany(x => x.Where(y => MvvmViewModel.ViewDataListFilter(y, dataListPagingModel.Filter)))
+                .SelectMany(x => x.ToList())
+                .Where(o => MvvmViewModel.ViewDataListFilter(o, dataListPagingModel.Filter))
                 .ToList();
             MvvmViewModel.IsFiltered = true;
         }
@@ -203,7 +205,6 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
         {
             MvvmViewModel.TotalFilteredPages = 1;
         }
-        
         
         return isFoundedOnClient;
     }

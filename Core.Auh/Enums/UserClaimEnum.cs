@@ -8,5 +8,5 @@ public enum UserClaimEnum
     Front = 4,
     Back = 5,
     Dba = 6,
-    Stinky = 7, 
+    Stinky = 7
 }

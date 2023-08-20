@@ -1,5 +1,6 @@
 using System.Reflection;
 using Core.Transfer.Constants;
+using Core.Transfer.Filtering;
 using Microsoft.AspNetCore.Http;
 
 namespace Core.Transfer;
@@ -15,7 +16,7 @@ public class DataListPagingModel
     
     public string? FilterBy { get; set; }
     
-    public string? Filter { get; set; }
+    public Filter? Filter { get; set; }
 
     public static ValueTask<DataListPagingModel?> BindAsync(HttpContext context,
         ParameterInfo parameter)
@@ -35,7 +36,10 @@ public class DataListPagingModel
             CurrentPage = page,
             PageSize = pageCount,
             FilterBy = context.Request.Query[RoutingConstants.FilterByKey],
-            Filter = context.Request.Query[RoutingConstants.FilterKey],
+            Filter = new Filter()
+            {
+                StringValue = context.Request.Query[RoutingConstants.FilterKey],
+            }
         };
     
         return ValueTask.FromResult<DataListPagingModel?>(result);
@@ -47,7 +51,7 @@ public class DataListPagingModel
                          $"{RoutingConstants.SortByKey}={this.SortBy}" +
                          $"&{RoutingConstants.SortDirectionKey}={this.SortDirection}" +
                          $"&{RoutingConstants.FilterByKey}={this.FilterBy}" +
-                         $"&{RoutingConstants.FilterKey}={this.Filter}" +
+                         $"&{RoutingConstants.FilterKey}={this.Filter.StringValue}" +
                          $"&{RoutingConstants.PageCountKey}={this.PageSize}" +
                          $"&{RoutingConstants.CurrentPageKey}={this.CurrentPage}";
     }

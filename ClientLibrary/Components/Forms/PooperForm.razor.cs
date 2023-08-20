@@ -14,13 +14,13 @@ namespace ClientLibrary.Components.Forms;
 public partial class PooperForm: ComponentBase
 {
     [Inject]
-    public IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService{ get; set; }
+    public IBaseCrudService<UserViewModel, BaseResponseResult, UserViewModel> CrudService{ get; set; }
     
     [Inject]
      IStringLocalizer<LibResource> Localizer{ get; set; }
 
     
-    public IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
+    public IBaseMvvmViewModel<UserViewModel> ViewModel { get; set; }
 
     async Task SavePooper()
     {

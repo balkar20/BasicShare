@@ -20,79 +20,70 @@ namespace Data.IdentityDb
         IdentityUserToken<string>>
     {
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
-        : base(options)
+            : base(options)
         {
             // Database.EnsureCreated();
         }
-        
+
         public DbSet<PooperEntity> Poopers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             //todo:  decompose logic from user to pooper
             builder.Entity<PooperEntity>().ToTable("Poopers");
             builder.Entity<PooperEntity>().HasOne<UserEntity>();
-            
+
             var roleConfig = new RoleConfiguration();
             var userConfig = new UserConfiguration();
             
-            var types = Enum.GetNames(typeof(UserClaimEnum));
             
-            var claims = new List<Claim>();
-            claims.AddRange(types.Select(t => new Claim(UserClaimTypeEnum.PoopClaim.ToString(), t)));
-        
+            var types = Enum.GetNames(typeof(UserClaimEnum));
+
+            var userClaims = new List<Claim>();
+            userClaims.AddRange(types.Select(t => new Claim(UserClaimTypeEnum.SharerClaim.ToString(), t)));
+
+            var adminClaims = new List<Claim>();
+            adminClaims.Add(new Claim(UserClaimTypeEnum.BossClaim.ToString(), UserClaimTypeEnum.BossClaim.ToString()));
+            
             builder.ApplyConfiguration(roleConfig);
             builder.ApplyConfiguration(userConfig);
-            
+
             var adminRoleId = roleConfig.Roles.First(r => r.Name == UserRolesEnum.Administrator.ToString()).Id;
-            var pooperRoleId = roleConfig.Roles.First(r => r.Name == UserRolesEnum.Pooper.ToString()).Id;
-            var userRoleDictionary = new Dictionary<string, string>();
-            var userClaimsDictionary = new Dictionary<UserEntity, List<Claim>>();
+            var userEntityRoleId = roleConfig.Roles.First(r => r.Name == UserRolesEnum.Pooper.ToString()).Id;
+
+            var (userClaimsDictionary, userRoleDictionary) = CreateRoleClaimDictionaries(userConfig, adminRoleId, adminClaims, userEntityRoleId, userClaims);
             
+            var userRoleConfig = new UserRoleConfiguration(userRoleDictionary);
+            builder.ApplyConfiguration(userRoleConfig);
+
+            var userClaimConfig = new UserClaimConfiguration(userClaimsDictionary);
+            builder.ApplyConfiguration(userClaimConfig);
+        }
+        
+        private static (Dictionary<UserEntity, List<Claim>>, Dictionary<string, string> userRoleDictionary) CreateRoleClaimDictionaries(UserConfiguration userConfig, string adminRoleId, List<Claim> adminClaims, string userEntityRoleId, List<Claim> userClaims)
+        {
+            Dictionary<UserEntity, List<Claim>> userClaimsDictionary = new();
+            Dictionary<string, string> userRoleDictionary = new();
             foreach (var userEntity in userConfig.Users)
             {
                 if (userEntity.UserName.Contains("Balkar"))
                 {
                     userEntity.RoleId = adminRoleId;
                     userRoleDictionary.Add(userEntity.Id, adminRoleId);
+                    userClaimsDictionary.Add(userEntity, adminClaims);
                     continue;
                 }
-                else if (userEntity.UserName != null)
-                {
-                    userEntity.RoleId = pooperRoleId;
-                    userRoleDictionary.Add(userEntity.Id, pooperRoleId);
-                    userClaimsDictionary.Add(userEntity, claims);
-                }
+
+                userEntity.RoleId = userEntityRoleId;
+                userRoleDictionary.Add(userEntity.Id, userEntityRoleId);
+
+                Random rand = new Random();
+                List<Claim> randomClaims = userClaims.OrderBy(x => rand.Next()).Take(rand.Next(1, userClaims.Count)).ToList();
+                userClaimsDictionary.Add(userEntity, randomClaims);
             }
-            
-            
-            var userRoleConfig = new UserRoleConfiguration(userRoleDictionary);
-            builder.ApplyConfiguration(userRoleConfig);
-        
-            List<IdentityUserClaim<string>> claimEntities = new List<IdentityUserClaim<string>>();
-            foreach (var keyValuePair in userClaimsDictionary)
-            {
-                foreach (var claim in keyValuePair.Value)
-                {
-                    var user = keyValuePair.Key;
-                    claimEntities.Add(new IdentityUserClaim<string>()
-                    {
-                        Id = Math.Abs(String.GetHashCode(claim.Value + keyValuePair.Key)),
-                        UserId = user.Id,
-                        ClaimType = UserClaimTypeEnum.PoopClaim.ToString(),
-                        ClaimValue = claim.Value
-                    });
-                }
-            }
-        
-            builder.Entity<IdentityUserClaim<string>>().Property(p => p.UserId).IsRequired();
-            builder.Entity<IdentityUserClaim<string>>().HasOne<UserEntity>()
-                .WithMany(u => u.Claims)
-                .HasForeignKey(c => c.UserId)
-                .HasPrincipalKey(cl => cl.Id);
-            
-            builder.Entity<IdentityUserClaim<string>>().HasData(claimEntities);
-            base.OnModelCreating(builder);
+
+            return (userClaimsDictionary, userRoleDictionary);
         }
     }
 }

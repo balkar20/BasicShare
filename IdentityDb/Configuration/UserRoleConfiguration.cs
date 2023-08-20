@@ -22,11 +22,10 @@ namespace IdentityDb.Configuration
         public void Configure(EntityTypeBuilder<IdentityUserRole<string>> builder)
         {
             // Each Role can have many entries in the UserRole join table
-            // builder.HasMany(e => e.)
-            //     .WithOne(e => e.Role)
-            //     .HasForeignKey(ur => ur.RoleId)
-            //     .IsRequired();
+            // builder.Navigation(o => o.UserId).
             builder.HasData(identityUserRoles);
         }
+        
+        
     }
 }

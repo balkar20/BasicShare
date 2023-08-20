@@ -21,7 +21,7 @@ public class ClientServicesConfiguratorContext
 
     private readonly IBaseMvvmViewModel<RegisterViewModel> _mvvmRegisterViewModel;
         private readonly IBaseMvvmViewModel<LoginViewModel> _mvvmLoginViewModel;
-        private readonly IBaseMvvmViewModel<PooperViewModel> _mvvmPooperViewModel;
+        private readonly IBaseMvvmViewModel<UserViewModel> _mvvmPooperViewModel;
 
     #endregion
 
@@ -37,7 +37,9 @@ public class ClientServicesConfiguratorContext
         
         _mvvmRegisterViewModel = new BaseMvvmViewModel<RegisterViewModel>(new RegisterViewModelFluentValidator());
         _mvvmLoginViewModel = new BaseMvvmViewModel<LoginViewModel>(new LoginViewModelFluentValidator());
-        _mvvmPooperViewModel = new BaseMvvmViewModel<PooperViewModel>(new PooperViewModelFluentValidator(), (t, str) => string.IsNullOrWhiteSpace(str) || t.PooperAlias.Contains(str));
+        _mvvmPooperViewModel = new BaseMvvmViewModel<UserViewModel>(new UserViewModelFluentValidator(), (t, filter) => 
+            (string.IsNullOrWhiteSpace(filter.StringValue) || t.UserName.Contains(filter.StringValue))
+            && (!filter.Labels.Any() || filter.Labels.Intersect(t.Claims).Any()));
     }
 
     public void Configure()
@@ -60,7 +62,7 @@ public class ClientServicesConfiguratorContext
     {
         _mvvmRegisterViewModel.ConfigureCrudService<LoginResponseViewModel>(_services);
         _mvvmLoginViewModel.ConfigureCrudService<LoginResponseViewModel>(_services);
-        _mvvmPooperViewModel.ConfigureCrudService<PooperViewModel>(_services);
+        _mvvmPooperViewModel.ConfigureCrudService<UserViewModel>(_services);
     }
 
     public void ConfigureLocalization()

@@ -57,7 +57,7 @@ namespace IdentityDb
             
             foreach (var name in claimNames)
             {
-                claims.Add(new Claim(UserClaimTypeEnum.PoopClaim.ToString(), name));
+                claims.Add(new Claim(UserClaimTypeEnum.SharerClaim.ToString(), name));
             }
             
             foreach (var poppName in poppNames)

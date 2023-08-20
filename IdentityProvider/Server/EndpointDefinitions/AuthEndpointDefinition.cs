@@ -14,8 +14,8 @@ public class AuthEndpointDefinition : IEndpointDefinition
 {
     public void DefineEndpoints(WebApplication app)
     {
-        app.MapGet("api/poopers", ([FromServices] IMediator _mediator, DataListPagingModel pagingModel) => _mediator.Send(new GetAllUsersQuery(pagingModel)));
-        app.MapPut("api/pooper", ([FromServices] IMediator _mediator, [FromBody] PooperModel pooperModel) => _mediator.Send(new SavePooperCommand(pooperModel)));
+        app.MapGet("api/users", ([FromServices] IMediator _mediator, DataListPagingModel pagingModel) => _mediator.Send(new GetAllUsersQuery(pagingModel)));
+        app.MapPut("api/users", ([FromServices] IMediator _mediator, [FromBody] UserModel pooperModel) => _mediator.Send(new SaveUserCommand(pooperModel)));
         app.MapPost("api/order", ([FromServices] IMediator _mediator, [FromBody] OrderModel orderModel) => _mediator.Send(new CreateOrderCommand(orderModel)));
         app.MapPost("api/login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>

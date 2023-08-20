@@ -4,5 +4,6 @@ public enum UserClaimTypeEnum
 {
     GuestClaim = 7,
     CouirerClaim = 7,
-    PoopClaim
+    SharerClaim,
+    BossClaim
 }

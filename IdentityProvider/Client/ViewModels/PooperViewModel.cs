@@ -13,7 +13,7 @@ public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
     public PooperVM(HttpClient httpClient)
     {
         _httpClient = httpClient;
-        PooperList = new List<PooperViewModel>();
+        PooperList = new List<UserViewModel>();
     }
     
     private bool isBusy =  false;
@@ -28,9 +28,9 @@ public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
 
     public int Poopers { get; }
     
-    public PooperViewModel Pooper { get; set; }
+    public UserViewModel User { get; set; }
 
-    public List<PooperViewModel> PooperList { get; set; }
+    public List<UserViewModel> PooperList { get; set; }
 
     public string StatusMessage { get; set; }
 
@@ -39,7 +39,7 @@ public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
     
     public async Task<BaseResponseResult> SavePooper()
     {
-        var result = await _httpClient.PutAsJsonAsync<PooperViewModel>("api/poopers", Pooper);
+        var result = await _httpClient.PutAsJsonAsync<UserViewModel>("api/poopers", User);
         var respose = await result.Content.ReadFromJsonAsync<BaseResponseResult>();
         if (respose.IsSuccess)
         {
@@ -49,9 +49,9 @@ public class PooperVM  : INotifyPropertyChanged, IPooperViewModel
         return respose;
     }
     
-    public async Task<ResponseResultWithData<List<PooperViewModel>>> GetPoopers()
+    public async Task<ResponseResultWithData<List<UserViewModel>>> GetPoopers()
     {
-        var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<PooperViewModel>>>("api/poopers");
+        var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<UserViewModel>>>("api/poopers");
         if (response != null && response.IsSuccess)
         {
             PooperList = response.Data;

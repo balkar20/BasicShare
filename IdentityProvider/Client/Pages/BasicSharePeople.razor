@@ -6,7 +6,7 @@
 @using ClientLibrary.Resources
 
 
-@inject IBaseMvvmViewModel<PooperViewModel> ViewModel
+@inject IBaseMvvmViewModel<UserViewModel> ViewModel
 
 @if (ViewModel.StatusType == StatusTypes.Loading)
 {
@@ -22,16 +22,16 @@
             
             <MudPaper Style="background-color: inherit" Elevation="0" Class="d-flex justify-space-between flex-grow-1 flex-wrap">
                 <MudChipSet Class="d-flex justify-space-between flex-grow-1 flex-wrap" @bind-SelectedChips="selectedChips" MultiSelection="true" Filter="true" >
-                    @foreach (var label in claims)
+                    @foreach (var label in ViewModel.DataLabels)
                     {
-                        <MudChip OnClick="ClickChipHandle" SelectedColor="Color.Primary" Color="Color.Default">@label</MudChip>
+                        <MudChip OnClick="ClickChipHandle" Value="@label" SelectedColor="Color.Primary" Color="Color.Default">@label</MudChip>
                     }
                 </MudChipSet>
             </MudPaper>
 
             <MudPaper Elevation="0" Style="background-color: inherit; border-left: 3px solid #78003b;"  Class="d-flex" >
-                <MudTextField @bind-Value="DataListPagingModel.Filter" OnKeyUp="FilterDataListOnKeyUp" Immediate="true" Placeholder="@Localizer.GetString(ClientResourceConstants.Search)" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
-                <MudButton Disabled="@_processing" OnClick="FindThemLoaded" Variant="Variant.Filled" Color="Color.Primary">
+                <MudTextField @bind-Value="DataListPagingModel.Filter.StringValue" OnKeyUp="FilterDataListOnKeyUp" Immediate="true" Placeholder="@Localizer.GetString(ClientResourceConstants.Search)" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                <MudButton Disabled="@_processing" OnClick="FindUsersInCache" Variant="Variant.Filled" Color="Color.Primary">
                     @if (_processing)
                     {
                         <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true"/>
@@ -57,8 +57,8 @@
                                 <MudAvatar Image="poop.svg.png" Color="Color.Secondary">I</MudAvatar>
                             </CardHeaderAvatar>
                             <CardHeaderContent>
-                                <MudText Typo="Typo.body1">@pooper.PooperAlias</MudText>
-                                <MudText Typo="Typo.body1">@pooper.AmountOfPoops</MudText>
+                                <MudText Typo="Typo.body1">@pooper.UserName</MudText>
+                                <MudText Typo="Typo.body1">@pooper.AmountOfPoints</MudText>
                             </CardHeaderContent>
                             <CardHeaderActions>
                                 <AuthorizeView Roles="Administrator">

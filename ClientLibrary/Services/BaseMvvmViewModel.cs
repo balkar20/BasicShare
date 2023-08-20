@@ -4,7 +4,7 @@ using ClientLibrary.Enums;
 using ClientLibrary.Interfaces;
 using ClientLibrary.Validators;
 using Core.Transfer;
-using FluentValidation;
+using Core.Transfer.Filtering;
 using IdentityProvider.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,7 +12,7 @@ namespace ClientLibrary.Services;
 
 public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: IViewModel, new()
 {
-    public BaseMvvmViewModel(BaseModelValidator<TData> validator, Func<TData, string, bool>? viewDataListFilter = null)
+    public BaseMvvmViewModel(BaseModelValidator<TData> validator, Func<TData, Filter, bool>? viewDataListFilter = null)
     {
         Data = new();
         StatusType = StatusTypes.StatusCanceled;
@@ -30,7 +30,10 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
     public StatusTypes StatusType{ get; set; }
 
     public List<TData> ViewDataList { get; set; }
-    public Func<TData, string, bool> ViewDataListFilter { get; set; }
+    
+    public HashSet<string> DataLabels { get; set; }
+    
+    public Func<TData, Filter, bool> ViewDataListFilter { get; set; }
 
     public IDictionary<int, List<TData>> CachedDataListDictionary { get; set; }
 
@@ -69,6 +72,7 @@ public  class BaseMvvmViewModel<TData>: IBaseMvvmViewModel<TData> where TData: I
     public void SetAndCacheDataList(int page, List<TData> list)
     {
         ViewDataList = list;
+        
         if (!CachedDataListDictionary.ContainsKey(page) || !CachedDataListDictionary[page].Any())
         {
             CachedDataListDictionary[page] = list;

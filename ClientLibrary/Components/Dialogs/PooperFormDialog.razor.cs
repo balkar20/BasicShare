@@ -10,7 +10,7 @@ public partial class PooperFormDialog : ComponentBase
     [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
     [CascadingParameter]
-    private IBaseMvvmViewModel<PooperViewModel> ViewModel { get; set; }
+    private IBaseMvvmViewModel<UserViewModel> ViewModel { get; set; }
     
     [Parameter]
     public EventCallback OnClosed { get; set; }

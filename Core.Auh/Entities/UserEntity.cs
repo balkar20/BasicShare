@@ -8,7 +8,7 @@ namespace Core.Auh.Entities
 
         public int? Year { get; set; }
         
-        public int AmountOfPoops { get; set; }
+        public int AmountOfPoints { get; set; }
         
         public string RoleId { get; set; }
         
@@ -16,12 +16,12 @@ namespace Core.Auh.Entities
 
         public string? Image { get; set; }
 
-        public List<IdentityUserClaim<string>>? Claims { get; set; }
         
-        public List<IdentityUserLogin<string>>? Logins { get; set; }
+        public virtual List<IdentityUserLogin<string>> Logins { get; set; }
+        public virtual ICollection<IdentityUserClaim<string>> Claims { get; set; }
         
-        public List<IdentityUserToken<string>>? Tokens { get; set; }
+        public virtual List<IdentityUserToken<string>> Tokens { get; set; }
 
-        public List<IdentityUserRole<string>>? UserRoles { get; set; }
+        public virtual List<IdentityUserRole<string>> UserRoles { get; set; }
     }
 }

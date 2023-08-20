@@ -6,7 +6,7 @@ using Core.Transfer;
 
 namespace Mod.Auth.Base.Handlers;
 
-public class SavePooperCommandHandler: IRequestHandler<SavePooperCommand, BaseResponseResult>
+public class SavePooperCommandHandler: IRequestHandler<SaveUserCommand, BaseResponseResult>
 {
     private readonly IAuthService _authService;
     private readonly IMapper _mapper;
@@ -16,8 +16,8 @@ public class SavePooperCommandHandler: IRequestHandler<SavePooperCommand, BaseRe
         _mapper = mapper;
     }
     
-    public async Task<BaseResponseResult> Handle(SavePooperCommand request, CancellationToken cancellationToken)
+    public async Task<BaseResponseResult> Handle(SaveUserCommand request, CancellationToken cancellationToken)
     {
-        return await _authService.SavePooper(request.PooperModel);
+        return await _authService.SavePooper(request.UserModel);
     }
 }

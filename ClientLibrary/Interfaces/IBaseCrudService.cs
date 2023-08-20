@@ -9,7 +9,7 @@ public interface IBaseCrudService<TModel, TResponseViewModel, TResponseData>
 where TModel: IViewModel
 {
     IBaseMvvmViewModel<TModel> MvvmViewModel { get; set; }
-    ValueTask ShowModelListAsync(DataListPagingModel dataListPagingModel);
+    ValueTask LoadModelListAsync(DataListPagingModel dataListPagingModel);
     
     Task<ResponseResultWithData<TModel>> GetModelAsync(string id);
 

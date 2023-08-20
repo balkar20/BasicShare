@@ -1,64 +1,51 @@
 using System.Security.Claims;
 using Core.Auh.Entities;
-using Core.Auh.Enums;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace IdentityDb.Configuration;
 
-internal class UserClaimConfiguration : IEntityTypeConfiguration<ClaimEntity>
+internal class UserClaimConfiguration : IEntityTypeConfiguration<IdentityUserClaim<string>>
 {
-    //public List<IdentityUserRole> Users { get; set; }
-    // private Dictionary<string, List<Claim>> UserClaimDictionary;
     private List<ClaimEntity> identityUserClaims;
-    private List<int> randomList = new List<int>();
-    private Random Random = new Random();
+
+    private Dictionary<UserEntity, List<Claim>> UserClaimDictionary;
 
     public UserClaimConfiguration(Dictionary<UserEntity, List<Claim>> userClaimDictionary)
     {
-        identityUserClaims = new List<ClaimEntity>();
+        UserClaimDictionary = userClaimDictionary;
+    }
 
-        foreach (var keyValuePair in userClaimDictionary)
+    public void Configure(EntityTypeBuilder<IdentityUserClaim<string>> builder)
+    {
+        builder.HasKey(u => u.Id);
+        builder.HasOne<UserEntity>()
+            .WithMany(e => e.Claims)
+            .HasForeignKey(k => k.UserId);
+
+        var userClaims = CreateClaimEntities();
+        builder.HasData(userClaims);
+    }
+    
+    private List<IdentityUserClaim<string>> CreateClaimEntities()
+    {
+        List<IdentityUserClaim<string>> claimEntities = new List<IdentityUserClaim<string>>();
+        foreach (var keyValuePair in UserClaimDictionary)
         {
             foreach (var claim in keyValuePair.Value)
             {
-                UserClaimEnum userClaimEnum  = (UserClaimEnum)Enum.Parse(typeof(UserClaimEnum), claim.Value);
-                identityUserClaims.Add(new ClaimEntity()
+                var user = keyValuePair.Key;
+                claimEntities.Add(new IdentityUserClaim<string>()
                 {
-                    UserId = keyValuePair.Key.Id,
-                    ClaimType = claim.Type,
-                    ClaimValue = claim.Value,
                     Id = Math.Abs(String.GetHashCode(claim.Value + keyValuePair.Key)),
-                    // User = keyValuePair.Key
+                    UserId = user.Id,
+                    ClaimType = claim.Type,
+                    ClaimValue = claim.Value
                 });
             }
         }
-    }
 
-    public void Configure(EntityTypeBuilder<ClaimEntity> builder)
-    {
-        // builder.HasKey(u => u.Id);
-        // builder.HasOne<UserEntity>(u => u.User)
-        //     .WithMany(e => e.Claims)
-        //     .HasForeignKey(k => k.UserId);
-        foreach (var userClaim in identityUserClaims)
-        {
-            // if (string.IsNullOrWhiteSpace(userClaim.Id.ToString()))
-            // {
-            //     throw new NullReferenceException();
-            // }
-            // Console.WriteLine(userClaim.User.UserName);
-            // if (userClaim.Id >= 0)
-            // {
-            //     Console.WriteLine($"Fuck Fuck Fuck Fuck: {userClaim.Id}");
-            // }
-            // if (string.IsNullOrWhiteSpace(userClaim.User.Id))
-            // {
-            //     Console.WriteLine($"Fuck Fuck Fuck Fuck: {userClaim.User.Id}");
-            // }
-            // Console.WriteLine(userClaim.Id);
-            // Console.WriteLine(userClaim.User.Id);
-        }
-        builder.HasData(identityUserClaims);
+        return claimEntities;
     }
 }

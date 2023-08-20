@@ -13,6 +13,7 @@ using Core.Auh.Enums;
 using Core.Transfer;
 using Data.IdentityDb;
 using Microsoft.EntityFrameworkCore;
+using Turner.Infrastructure.Crud.Configuration;
 
 namespace Mod.Auth.Base.Repositories;
 
@@ -43,18 +44,19 @@ public class AuthService: IAuthService
         _mapper = mapper;
     }
 
-    public async Task<List<PooperModel>> GetAllPoopers(DataListPagingModel dataListPagingModel)
+    public async Task<List<UserModel>> GetAllPoopers(DataListPagingModel dataListPagingModel)
     {
+
         var filteredUsers = _context.Users;
         var usersWithClaims = await filteredUsers.GroupJoin(
             _context.UserClaims,
             u => u.Id,
             c => c.UserId,
-            (u, cl) => new PooperModel()
+            (u, cl) => new UserModel()
             {
                 Id = u.Id,
-                AmountOfPoops = u.AmountOfPoops,
-                PooperAlias = u.UserName,
+                AmountOfPoints = u.AmountOfPoints,
+                UserName = u.UserName,
                 Description = u.Description,
                 Image = u.Image,
                 Claims = cl.Select(c => c.ClaimValue).ToList()
@@ -65,33 +67,27 @@ public class AuthService: IAuthService
         return usersWithClaims;
     }
 
-    public async Task<PooperDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel)
+    public async Task<UserDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel)
     {
-        var result = new PooperDataListResult();
-        
-        var users = _context.Users.Where(u => 
-            string.IsNullOrWhiteSpace(dataListPagingModel.Filter) || u.UserName.Contains(dataListPagingModel.Filter));
-        result.TotalDataCount = users.Count();
+        var result = new UserDataListResult();
 
-        result.PooperModels = await users.
-            GroupJoin(
-            _context.UserClaims.Where(cc => cc.ClaimType.Equals(UserClaimTypeEnum.PoopClaim.ToString())),
-            u => u.Id,
-            c => c.UserId,
-            (u, cl) => new PooperModel()
-            {
-                Id = u.Id,
-                AmountOfPoops = u.AmountOfPoops,
-                PooperAlias = u.UserName,
-                Description = u.Description,
-                Image = u.Image,
-                Claims = cl.Select(c => c.ClaimValue).ToList()
-            })
+        var users = await _userManager.Users
+            .Include(u => u.Claims)
+            .Where(o => o.Claims.Any(j =>
+                            j.ClaimType == UserClaimTypeEnum.SharerClaim.ToString()) &&
+                        (string.IsNullOrWhiteSpace(dataListPagingModel.Filter!.StringValue) || o.UserName!.Contains(dataListPagingModel.Filter.StringValue)) &&
+                        (dataListPagingModel.Filter.Labels == null || !dataListPagingModel.Filter.Labels.Any() ||
+                         o.Claims.Any(c => dataListPagingModel.Filter.Labels.Contains(c.ClaimValue))))
             .Skip(dataListPagingModel.PageSize * (dataListPagingModel.CurrentPage - 1)).Take(dataListPagingModel.PageSize)
-            .ToListAsync();
-        
+            .Select(e => _mapper.Map<UserModel>(e)).ToListAsync();
 
-        result.DataCount = result.PooperModels.Count();
+        var claims =_context.UserClaims.Where(cc => cc.ClaimType.Equals(UserClaimTypeEnum.SharerClaim.ToString()));
+
+        result.UserModels = users;
+        result.DataCount = result.UserModels.Count();
+        //todo optimize
+        var uniqueClaims = (await claims.ToListAsync()).Select(c => c.ClaimValue).Distinct().ToList();
+        result.Claims = uniqueClaims;
 
         return result;
     }
@@ -134,14 +130,14 @@ public class AuthService: IAuthService
         return new RegisterResponseModel { IsSuccess = true, Token = token};
     }
 
-    public async Task<BaseResponseResult> SavePooper(PooperModel pooperModel)
+    public async Task<BaseResponseResult> SavePooper(UserModel userModel)
     {
         var responce = new BaseResponseResult()
         {
             IsSuccess = false
         };
         
-        var user = await _userManager.FindByIdAsync(pooperModel.Id);
+        var user = await _userManager.FindByIdAsync(userModel.Id);
         if (user == null)
         {
             return responce;
@@ -149,9 +145,9 @@ public class AuthService: IAuthService
 
         if (user != null)
         {
-            user.UserName = pooperModel.PooperAlias;
-            user.AmountOfPoops = pooperModel.AmountOfPoops;
-            user.Image = pooperModel.Image;
+            user.UserName = userModel.UserName;
+            user.AmountOfPoints = userModel.AmountOfPoints;
+            user.Image = userModel.Image;
             await _userManager.UpdateAsync(user);
             responce.IsSuccess = true;
         }

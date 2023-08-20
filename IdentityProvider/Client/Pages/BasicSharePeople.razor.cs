@@ -4,16 +4,19 @@ using IdentityProvider.Shared;
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using ClientLibrary.Components.Dialogs;
+using ClientLibrary.Resources;
 using Core.Transfer;
+using Core.Transfer.Filtering;
 using IdentityProvider.Client.Shared.Resources;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.Extensions.Localization;
+using NPOI.OpenXmlFormats.Spreadsheet;
 using SortDirection = Core.Transfer.SortDirection;
 
 namespace IdentityProvider.Client.Pages;
 
-public partial class PoopPeople : ComponentBase
+public partial class BasicSharePeople : ComponentBase
 {
     [CascadingParameter] public Shared.MainLayout Layout { get; set; }
     private bool _overrideStyles;
@@ -23,18 +26,6 @@ public partial class PoopPeople : ComponentBase
     bool mandatory = true;
     
     private MudChip[] selectedChips;
-    
-    
-    
-    public string searchString{ get; set; }
-
-    private List<string> claims = Enumerable.Empty<string>().ToList();
-
-    private string girlName;
-    private string girlEmail;
-    private int girlAge;
-    private string girlCity;
-    private bool isOpen = true;
 
     public DataListPagingModel DataListPagingModel { get; set; }
 
@@ -42,26 +33,25 @@ public partial class PoopPeople : ComponentBase
     {
         DataListPagingModel.CurrentPage = value;
 
-        await CrudService.ShowModelListAsync(DataListPagingModel);
+        await CrudService.LoadModelListAsync(DataListPagingModel);
     }
-
-    private int _countOfPages;
+    
     private bool _processing;
 
     [Inject] IDialogService DialogService { get; set; }
     [Inject] public AuthStateProvider AuthStateProvider { get; set; }
     [Inject] IStringLocalizer<Resource> Localizer { get; set; }
 
-    IBaseMvvmViewModel<PooperViewModel> PooperViewModel { get; set; }
+    IBaseMvvmViewModel<UserViewModel> PooperViewModel { get; set; }
 
-    [Inject] IBaseCrudService<PooperViewModel, BaseResponseResult, PooperViewModel> CrudService { get; set; }
+    [Inject] IBaseCrudService<UserViewModel, BaseResponseResult, UserViewModel> CrudService { get; set; }
 
-    private void OpenDialog(PooperViewModel pooperViewModel)
+    private void OpenDialog(UserViewModel userViewModel)
     {
-        PooperViewModel.Data = pooperViewModel;
+        PooperViewModel.Data = userViewModel;
 
         DialogOptions closeOnEscapeKey = new DialogOptions() { CloseOnEscapeKey = true, FullScreen = true};
-        DialogService.Show<PooperFormDialog>("Edit Pooper", closeOnEscapeKey);
+        DialogService.Show<PooperFormDialog>(Localizer.GetString(ClientResourceConstants.Amend), closeOnEscapeKey);
     }
 
     protected override async Task OnInitializedAsync()
@@ -71,13 +61,17 @@ public partial class PoopPeople : ComponentBase
             CurrentPage = 1,
             PageSize = 6,
             SortBy = "Op",
-            SortDirection = SortDirection.Asc
+            SortDirection = SortDirection.Asc,
+            Filter = new Filter()
+            {
+                Labels = new HashSet<string>(),
+                StringValue = string.Empty,
+                Location = string.Empty,
+            }
         };
         PooperViewModel = CrudService.MvvmViewModel;
         PooperViewModel.PageSize = DataListPagingModel.PageSize;
-        await CrudService.ShowModelListAsync(DataListPagingModel);
-        claims =  CrudService.MvvmViewModel.ViewDataList.SelectMany(p => p.Claims ?? new List<string>()).Distinct().ToList();
-        // claims.AddRange(new []{"async","async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async", "async"});
+        await CrudService.LoadModelListAsync(DataListPagingModel);
         AuthStateProvider.AuthenticationStateChanged += AuthStateProviderOnAuthenticationStateChanged; 
         PooperViewModel.PropertyChanged += async (sender, e) => { await InvokeAsync(() => { StateHasChanged(); }); };
         await base.OnInitializedAsync();
@@ -90,17 +84,10 @@ public partial class PoopPeople : ComponentBase
         StateHasChanged();
     }
 
-    private async Task FindThem()
-    {
-        CrudService.MvvmViewModel.ViewDataList.Any(o => o.PooperAlias.Contains(searchString));
-        DataListPagingModel.Filter = searchString;
-        await CrudService.ShowModelListAsync(DataListPagingModel);
-    }
-
-    private async Task FindThemLoaded()
+    private async Task FindUsersInCache()
     {
 
-        await CrudService.ShowModelListAsync(DataListPagingModel);
+        await CrudService.LoadModelListAsync(DataListPagingModel);
     }
     
     private void FilterDataListOnKeyUp(KeyboardEventArgs obj)
@@ -110,6 +97,8 @@ public partial class PoopPeople : ComponentBase
 
     private void ClickChipHandle(MouseEventArgs arg)
     {
+        DataListPagingModel.Filter.Labels = new HashSet<string>(selectedChips.Select(c => c.Value.ToString()));
+
         CrudService.FilterDataListOnClient(DataListPagingModel);
     }
 }

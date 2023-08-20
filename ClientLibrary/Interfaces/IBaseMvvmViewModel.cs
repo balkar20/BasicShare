@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using ClientLibrary.Enums;
 using ClientLibrary.Validators;
-using FluentValidation;
+using Core.Transfer.Filtering;
 using IdentityProvider.Shared.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -16,7 +16,9 @@ public interface IBaseMvvmViewModel<TData>: INotifyPropertyChanged where TData: 
 
     public List<TData> ViewDataList { get; set; }
 
-    public Func<TData, string, bool> ViewDataListFilter { get; set; }
+    public HashSet<string> DataLabels { get; set; }
+
+    public Func<TData, Filter, bool> ViewDataListFilter { get; set; }
     public IDictionary<int, List<TData>> CachedDataListDictionary { get; set; }
 
     public string DataApiString { get; set; }
