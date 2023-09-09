@@ -47,7 +47,6 @@ public class AuthService: IAuthService
     public async Task<UserDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel)
     {
         var result = new UserDataListResult();
-
         var allUsersQuery = _userManager.Users
             .Include(u => u.Claims)
             .Where(o => o.Claims.Any(j =>

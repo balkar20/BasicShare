@@ -7,5 +7,6 @@ public class RoutingConstants
     public const string CurrentPageKey = "page";
     public const string PageCountKey = "pageCount";
     public const string FilterByKey = "filterBy";
-    public const string FilterKey = "filter";
+    public const string FilterStringValueKey = "Filter";
+    public const string FilterLabelsValueKey = "Filter.Labels";
 }

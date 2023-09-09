@@ -38,7 +38,7 @@ public class GetAllAuthsQueryHandler: IRequestHandler<GetAllUsersQuery, Response
             response.IsSuccess = true;
             response.Message = _stringLocalizer.GetString(ResourceKeysSuccessConstants.LOadSuccess, result.DataCount);
             response.DataLabels = result.Claims;
-            _logger.Information("Successfully returned list of products, count: {ResultCount}", result.DataCount);
+            _logger.Information("Successfully returned list of users, count: {ResultCount}", result.DataCount);
         }
         catch(Exception ex)
         {
