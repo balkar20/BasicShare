@@ -1,4 +1,5 @@
-﻿using EventStore.Events;
+﻿using Core.Base.EventSourcing;
+using EventStore.Events;
 using Newtonsoft.Json;
 
 namespace EventStore;

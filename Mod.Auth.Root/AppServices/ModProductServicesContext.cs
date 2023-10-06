@@ -5,7 +5,7 @@ namespace Mod.Auth.Root.AppServices;
 
 public class ModAuthServicesContext
 {
-    public IRabbitMqProducer RabbitMqProducer { get; set; }
+    public IMessageBusService MessageBusService { get; set; }
     
     // public IAuthRepository AuthRepository { get; set; }
     

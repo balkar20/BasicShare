@@ -72,6 +72,7 @@ public class ModAuthExternalServicesConfigurator
 
     private void ConfigureDataBase()
     {
+        
         _services.AddDbContext<DbContext, ApplicationContext>(options =>
         {
             options.UseNpgsql(_authEnvironmentContext.AppConfiguration.DbConnection);

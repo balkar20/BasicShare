@@ -10,7 +10,7 @@ using StackExchange.Redis;
 
 namespace Infrastructure.Services;
 
-public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepository<TEntity, TModel> where TEntity : class, IEntity
+public abstract class CachedSqlRepositoryService<TEntity, TModel>: GenericSqlRepository<TEntity, TModel> where TEntity : class, IEntity
     where TModel : class
 {
     private readonly IDatabaseAsync _redisDbAsync;
@@ -19,7 +19,7 @@ public abstract class CachedRepositoryService<TEntity, TModel>: GenericRepositor
     
     private const string AllDataCacheKey = $"{EntityName}-AllData";
 
-    protected CachedRepositoryService(
+    protected CachedSqlRepositoryService(
         DbContext customDbContext,
         IMapper mapper,
         AppConfiguration configurationOptions): base(customDbContext, mapper)

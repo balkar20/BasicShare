@@ -1,3 +1,4 @@
+using Core.Base.EventSourcing;
 using EventStore.Events;
 
 namespace EventTrain;

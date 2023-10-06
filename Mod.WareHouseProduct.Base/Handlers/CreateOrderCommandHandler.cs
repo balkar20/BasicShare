@@ -9,11 +9,11 @@ namespace Mod.WareHouseProduct.Base.Handlers;
 public class CreateWareHouseProductCommandHandler: IRequestHandler<CreateWareHouseProductCommand, WareHouseProductModel>
 {
     private readonly IWareHouseProductRepository _WareHouseProductRepository;
-    private readonly IRabbitMqProducer _rabbitMqProducer;
-    public CreateWareHouseProductCommandHandler(IWareHouseProductRepository WareHouseProductRepository, IRabbitMqProducer rabbitMqProducer)
+    private readonly IMessageBusService _messageBusService;
+    public CreateWareHouseProductCommandHandler(IWareHouseProductRepository WareHouseProductRepository, IMessageBusService messageBusService)
     {
         _WareHouseProductRepository = WareHouseProductRepository;
-        _rabbitMqProducer = rabbitMqProducer;
+        _messageBusService = messageBusService;
     }
 
     public async Task<WareHouseProductModel> Handle(CreateWareHouseProductCommand request, CancellationToken cancellationToken)

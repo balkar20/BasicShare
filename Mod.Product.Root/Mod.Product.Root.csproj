@@ -8,16 +8,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Listeners" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\Mod.Product.Base\Mod.Product.Base.csproj" />
       <ProjectReference Include="..\Mod.Product.Services\Mod.Product.Services.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-<!--      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />-->
+    <ItemGroup><!--      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />-->
+    
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.1.1-develop.1544" />
     </ItemGroup>
 
 </Project>

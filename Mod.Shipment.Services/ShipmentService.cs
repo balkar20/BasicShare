@@ -13,21 +13,21 @@ public class ShipmentService: IShipmentService
     private readonly IShipmentRepository _repository;
     private readonly ILogger _logger;
     private readonly ShipmentApiConfiguration _configuration;
-    private readonly  IRabbitMQReader _rabbitMqReader;
+    private readonly  IMessageBusReader _messageBusReader;
 
 
     public ShipmentService(
         ILogger logger,
         IOptions<ShipmentApiConfiguration> options,
         IShipmentRepository repository, 
-        IRabbitMQReader rabbitMqReader)
+        IMessageBusReader messageBusReader)
     {
         _repository = repository;
-        _rabbitMqReader = rabbitMqReader;
+        _messageBusReader = messageBusReader;
         _logger = logger;
         _configuration = options.Value;
         
-        rabbitMqReader.ListenEventsFromQue<OrderMessage>(HandleOrder);
+        messageBusReader.ListenEventsFromQue<OrderMessage>(HandleOrder);
     }
 
     #region Public Methods

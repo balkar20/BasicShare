@@ -1,3 +1,4 @@
+using Core.Base.EventSourcing.Intefaces;
 using Core.Transfer.Mods.Order;
 
 namespace Mod.Product.Base.Listeners.Interfaces;

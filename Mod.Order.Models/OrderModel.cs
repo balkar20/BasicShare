@@ -1,4 +1,6 @@
-﻿namespace Mod.Order.Models;
+﻿using Mod.Order.Models.Enums;
+
+namespace Mod.Order.Models;
 
 public class OrderModel
 {
@@ -7,6 +9,8 @@ public class OrderModel
     public string Description { get; set; }
     
     public OrderType OrderType { get; set; }
+    
+    public OrderStatus OrderStatus { get; set; }
 
     public long OrderPayloadId { get; set; }
     

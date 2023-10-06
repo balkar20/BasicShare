@@ -6,14 +6,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
 
-public class GenericRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity
+public class GenericSqlRepository<TEntity, TModel> : IRepository<TEntity, TModel> where TEntity : class, IEntity
     where TModel : class
 {
     protected readonly DbContext _context;
     protected readonly IMapper _mapper;
     private DbSet<TEntity> _table;
 
-    public GenericRepository(DbContext customDbContext, IMapper mapper)
+    public GenericSqlRepository(DbContext customDbContext, IMapper mapper)
     {
         _context = customDbContext;
         _mapper = mapper;

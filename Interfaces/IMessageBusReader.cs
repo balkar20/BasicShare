@@ -1,6 +1,6 @@
 namespace Infrastructure.Interfaces;
 
-public interface IRabbitMQReader
+public interface IMessageBusReader
 {
     void ListenEventsFromQue<TModel>(Action<TModel> handler);
 }

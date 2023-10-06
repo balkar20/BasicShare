@@ -1,6 +1,7 @@
 using Core.Base.ConfigurationInterfaces;
 using Core.Transfer.Mods.Order;
 using Infrastructure.Services;
+using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Mod.Product.Interfaces;
 using Mod.Product.Models;
@@ -25,17 +26,18 @@ public class OrderCreationListener:  ConsumeRabbitMQHostedService<OrderModel>
 
     private async Task SaveProductFromOrder(OrderModel orderModel)
     {
-        using (var scope = scopeFactory.CreateScope())
+        using var scope = scopeFactory.CreateScope();
+        var repo = scope.ServiceProvider.GetRequiredService<IProductRepository>();
+
+        await repo.AddAsync(new ProductModel()
         {
-            var repo = scope.ServiceProvider.GetRequiredService<IProductRepository>();
+            Name = $"BusinessChannelAlias For {orderModel.Description}",
+            Description = $"ProductAlias For {orderModel.Description}"
+        });
 
-            await repo.AddAsync(new ProductModel()
-            {
-                Name = $"BusinessChannelAlias For {orderModel.Description}",
-                Description = $"ProductAlias For {orderModel.Description}"
-            });
-
-            _logger.Information("ProductModel for {OrderModelDescription} created", orderModel.Description);
-        }
+        _logger.Information("ProductModel for {OrderModelDescription} created", orderModel.Description);
     }
+
+    
 }
+

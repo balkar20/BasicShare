@@ -1,6 +1,8 @@
+using Core.Base.ConfigurationInterfaces;
+
 namespace Core.Base.Configuration;
 
-public class OrderApiConfiguration
+public class OrderApiConfiguration: BaseConfiguration, IOrderApiConfiguration
 {
     public const string AuthConfiguration = "AuthConfiguration";
     
@@ -23,4 +25,8 @@ public class OrderApiConfiguration
     public bool CorsAllowAnyOrigin { get; set; }
 
     public string[]? CorsAllowOrigins { get; set; }
+
+    public OrderApiConfiguration(Func<string, string> getConfigFunc) : base(getConfigFunc)
+    {
+    }
 }

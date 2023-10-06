@@ -27,7 +27,7 @@ public class ProductEndpointDefinition : IEndpointDefinition
 
     public void DefineServices(IServiceCollection services)
     {
-        services.AddScoped<IProductRepository, ProductRepository>();
+        services.AddScoped<IProductRepository, ProductSqlRepository>();
         services.AddScoped<IProductService, ProductService>();
     }
 }

@@ -2,19 +2,21 @@ using Core.Transfer;
 using Infrastructure.Interfaces;
 using MediatR;
 using Mod.Order.Base.Commands;
+using Mod.Order.Interfaces;
 
 namespace Mod.Order.Base.Handlers;
 
 public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, BaseResponseResult>
 {
     // private readonly IOrderRepository _orderRepository;
-    private readonly IRabbitMqProducer _rabbitMqProducer;
+    private readonly IMessageBusService _messageBusService;
+    private IOrderWriteService _orderSevice;
 
     // public CreateOrderCommandHandler(IOrderRepository orderRepository, IRabbitMqProducer rabbitMqProducer)
-    public CreateOrderCommandHandler(IRabbitMqProducer rabbitMqProducer)
+    public CreateOrderCommandHandler(IMessageBusService messageBusService)
     {
         // _orderRepository = orderRepository;
-        _rabbitMqProducer = rabbitMqProducer;
+        _messageBusService = messageBusService;
     }
 
     public async Task<BaseResponseResult> Handle(CreateOrderCommand request, CancellationToken cancellationToken)
@@ -23,18 +25,10 @@ public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, Base
         {
             IsSuccess = false
         };
-        try
-        {
-            // var createdOrder = await _orderRepository.AddAsync(request.Order);
-            // _rabbitMqProducer.SendMessage(createdOrder);
-            _rabbitMqProducer.SendMessage(request.Order);
-            result.IsSuccess = true;
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
+
+        await _orderSevice.CreateOrder(request.Order);
+        result.IsSuccess = true;
+
         
         return result;
     }

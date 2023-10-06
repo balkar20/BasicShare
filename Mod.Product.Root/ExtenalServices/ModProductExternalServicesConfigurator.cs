@@ -1,6 +1,7 @@
 using System.Reflection;
 using Data.Db;
 using Infrastructure.Interfaces;
+using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +39,33 @@ public class ModProductExternalServicesConfigurator
         ConfigureDataBase();
         ConfigureLogging();
         ConfigureListeners();
+        ConfigureMessaging();
+    }
+
+    private void ConfigureMessaging()
+    {
+        _services.AddMassTransit(x =>
+        {
+            x.SetKebabCaseEndpointNameFormatter();
+           
+            x.SetInMemorySagaRepositoryProvider();
+
+            var entryAssembly = Assembly.GetEntryAssembly();
+            x.AddSagaStateMachines(entryAssembly);
+            x.AddSagas(entryAssembly);
+            x.AddActivities(entryAssembly);
+
+            x.UsingRabbitMq((context, configurator) =>
+            {
+                configurator.Host("localhost", "/", h =>
+                {
+                    h.Password("guest");
+                    h.Username("guest");
+                });
+               
+                configurator.ConfigureEndpoints(context);
+            });
+        });
     }
 
     public void ConfigureLogging()

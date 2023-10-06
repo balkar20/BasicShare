@@ -1,6 +1,8 @@
+using Core.Base.EventSourcing;
+
 namespace EventStore.Events;
 
-public class MoneyTransfered : Event
+public record MoneyTransfered : Event
 {
     public decimal Amount { get; set; }
 

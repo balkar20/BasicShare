@@ -1,8 +1,10 @@
 
 
+using Core.Base.EventSourcing;
+
 namespace EventStore.Events;
 
-public class AccountOpened : Event
+public record AccountOpened : Event
 {
     public Guid Id { get; set; }
     private string Owner { get; set; }

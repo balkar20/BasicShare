@@ -7,13 +7,13 @@ using Serilog;
 
 namespace Mod.Order.Base.Repositories;
 
-public class OrderService: IOrderService
+public class OrderReadService: IOrderReadService
 {
     private readonly IOrderRepository _repository;
     private readonly ILogger _logger;
     private readonly OrderApiConfiguration _configuration;
 
-    public OrderService(
+    public OrderReadService(
         ILogger logger,
         IOptions<OrderApiConfiguration> options,
         IOrderRepository repository)

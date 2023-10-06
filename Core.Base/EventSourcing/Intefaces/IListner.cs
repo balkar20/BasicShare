@@ -1,4 +1,4 @@
-namespace Mod.Product.Base.Listeners.Interfaces;
+namespace Core.Base.EventSourcing.Intefaces;
 
 public interface IListener
 {

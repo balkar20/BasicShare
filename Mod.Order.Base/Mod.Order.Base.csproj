@@ -13,4 +13,8 @@
       <ProjectReference Include="..\Mod.Order.Models\Mod.Order.Models.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Listeners\" />
+    </ItemGroup>
+
 </Project>

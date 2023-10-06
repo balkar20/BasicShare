@@ -1,5 +1,6 @@
 using System.Text;
 using Core.Base.ConfigurationInterfaces;
+using MassTransit;
 using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json;
@@ -16,6 +17,7 @@ public class ConsumeRabbitMQHostedService<TDataModel>: BackgroundService
     private IModel _channel;  
     private readonly IMessageBrokerConfiguration _configuration;
     protected Action<TDataModel> handler;
+    private readonly IBus _bus;
   
     public ConsumeRabbitMQHostedService(ILogger logger, IMessageBrokerConfiguration configuration)
     {
@@ -47,6 +49,7 @@ public class ConsumeRabbitMQHostedService<TDataModel>: BackgroundService
 
         _channel = connection.CreateModel();
         _channel.QueueDeclare(_configuration.QueName, exclusive: false);
+        
 
         // _channel.ExchangeDeclare(_configuration.ExchangeName, ExchangeType.Topic);  
         // _channel.QueueDeclare(_configuration.QueName, false, false, false, null);  
@@ -65,6 +68,7 @@ public class ConsumeRabbitMQHostedService<TDataModel>: BackgroundService
         stoppingToken.ThrowIfCancellationRequested();  
   
         var consumer = new EventingBasicConsumer(_channel);  
+        
         consumer.Received += (ch, ea) =>  
         {  
             // received message  

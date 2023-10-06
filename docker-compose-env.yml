@@ -32,6 +32,19 @@ services:
       - "6379:6379"
     networks:
       - common_network
+  mongodb:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+    ports:
+      - 27017:27017
+    volumes:
+      - type: bind
+        source: ./data
+        target: /data/db
+    networks:
+      - common_network
   db:
     image: postgres
     restart: always
