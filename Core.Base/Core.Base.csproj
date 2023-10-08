@@ -18,4 +18,8 @@
       <Folder Include="Interfaces" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\data\MongoObjects\MongoObjects.csproj" />
+    </ItemGroup>
+
 </Project>

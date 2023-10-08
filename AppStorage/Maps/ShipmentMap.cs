@@ -2,7 +2,7 @@ using Core.Base.DataBase.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Data.Db.Maps;
+namespace Storage.AppStorage.Maps;
 
 #pragma warning disable CS1591
 public class ShipmentMap

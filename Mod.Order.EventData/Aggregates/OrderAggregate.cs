@@ -15,7 +15,7 @@ public class OrderAggregate: AggregateRoot
     public OrderAggregate(Guid id, OrderModel model)
     {
         var orderCreatedEvent = new OrderCreatedEvent(
-            id,
+            Guid.NewGuid(),
             model.Description,
             model.OrderType,
             model.OrderPayloadId,
@@ -23,7 +23,8 @@ public class OrderAggregate: AggregateRoot
             model.Notification,
             model.CustomerInfo
         );
-        ApplyChange(orderCreatedEvent);
+        
+        // ApplyChange(orderCreatedEvent);
     }
     
     public OrderAggregate(OrderModel state)

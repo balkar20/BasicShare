@@ -1,7 +1,7 @@
 using AutoMapper;
 using Core.Base.Configuration;
 using Core.Base.DataBase.Entities;
-using Data.Db;
+using Storage.AppStorage;
 using Infrastructure.Services;
 using Mod.Pooper.Interfaces;
 using Mod.Pooper.Models;

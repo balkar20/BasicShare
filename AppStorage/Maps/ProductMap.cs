@@ -2,18 +2,18 @@ using Core.Base.DataBase.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Data.Db.Maps;
+namespace Storage.AppStorage.Maps;
 
 #pragma warning disable CS1591
-public class OrderMap
+public class ProductMap
 {
-    public OrderMap(EntityTypeBuilder<OrderEntity> entityBuilder)
+    public ProductMap(EntityTypeBuilder<ProductEntity> entityBuilder)
     {
         entityBuilder.HasKey(x => x.Id);
-        entityBuilder.ToTable("order");
+        entityBuilder.ToTable("product");
 
         entityBuilder.Property(x => x.Id).HasColumnName("id");
-        entityBuilder.Property(x => x.Description).HasColumnName("name");
+        entityBuilder.Property(x => x.Name).HasColumnName("name");
         entityBuilder.Property(x => x.Description).HasColumnName("description");
     }
 }

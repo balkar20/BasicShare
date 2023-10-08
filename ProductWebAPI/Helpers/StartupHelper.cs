@@ -1,6 +1,6 @@
 using Apps.ProductWebAPI.Extensions;
 using Apps.EndpointDefinitions.ProductWebAPI;
-using Data.Db;
+using Storage.AppStorage;
 using Mod.Product.Root;
 using ProductWebApi.Middlewares;
 using Serilog;

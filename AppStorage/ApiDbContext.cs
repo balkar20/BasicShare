@@ -1,10 +1,10 @@
 using Core.Base.DataBase.Entities;
 using Core.Base.Models.Enums;
-using Data.Db.Configuration;
-using Data.Db.Maps;
+using Storage.AppStorage.Configuration;
+using Storage.AppStorage.Maps;
 using Microsoft.EntityFrameworkCore;
 
-namespace Data.Db;
+namespace Storage.AppStorage;
 
 public class ApiDbContext : DbContext
 {

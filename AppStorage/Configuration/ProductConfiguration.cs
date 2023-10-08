@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Data.Db.Configuration;
+namespace Storage.AppStorage.Configuration;
 
 public class ProductConfiguration: IEntityTypeConfiguration<ProductEntity>
 {
