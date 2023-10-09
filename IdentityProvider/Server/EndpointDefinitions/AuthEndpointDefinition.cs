@@ -5,8 +5,6 @@ using Mod.Auth.Base.Commands;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Models;
-using Mod.Order.Base.Commands;
-using Mod.Order.Models;
 
 namespace Apps.Blazor.Identity.IdentityProvider.Server.EndpointDefinitions;
 
@@ -16,7 +14,7 @@ public class AuthEndpointDefinition : IEndpointDefinition
     {
         app.MapGet("api/users", ([FromServices] IMediator _mediator, DataListPagingModel pagingModel) => _mediator.Send(new GetAllUsersQuery(pagingModel)));
         app.MapPut("api/users", ([FromServices] IMediator _mediator, [FromBody] UserModel pooperModel) => _mediator.Send(new SaveUserCommand(pooperModel)));
-        app.MapPost("api/order", ([FromServices] IMediator _mediator, [FromBody] OrderModel orderModel) => _mediator.Send(new CreateOrderCommand(orderModel)));
+        // app.MapPost("api/order", ([FromServices] IMediator _mediator, [FromBody] OrderModel orderModel) => _mediator.Send(new CreateOrderCommand(orderModel)));
         app.MapPost("api/login",
             ([FromServices] IMediator _mediator, [FromBody] LoginViewModel product) =>
                 _mediator.Send(new LoginCommand(product)));

@@ -19,8 +19,6 @@ using Mod.Auth.Base.Handlers;
 using Mod.Auth.Base.Queries;
 using Mod.Auth.Root.Configuration;
 using Mod.Auth.Services;
-using Mod.Order.Base.Commands;
-using Mod.Order.Base.Handlers;
 using Serilog;
 using Serilog.Sinks.GrafanaLoki;
 
@@ -60,7 +58,7 @@ public class ModAuthExternalServicesConfigurator
         _services.AddRazorPages();
         _services.AddAutoMapper(typeof(RegisterCommandHandler).Assembly);
         _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllUsersQuery).Assembly));
-        _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateOrderCommand).Assembly));
+        // _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateOrderCommand).Assembly));
 
 
         ConfigureDataBase();

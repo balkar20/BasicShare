@@ -15,7 +15,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\Mod.Auth.Root\Mod.Auth.Root.csproj" />
-        <ProjectReference Include="..\..\Mod.Order.Base\Mod.Order.Base.csproj" />
         <ProjectReference Include="..\Client\IdentityProvider.Client.csproj" />
     </ItemGroup>
 

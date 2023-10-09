@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Mod.Order.Root</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Mod.Order.Base\Mod.Order.Base.csproj" />
+      <ProjectReference Include="..\Mod.Order.Services\Mod.Order.Services.csproj" />
+    </ItemGroup>
+
+    <ItemGroup><!--      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />-->
+    
+      <PackageReference Include="MassTransit.RabbitMQ" Version="8.1.1-develop.1544" />
+    </ItemGroup>
+
+</Project>

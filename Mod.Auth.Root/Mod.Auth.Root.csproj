@@ -17,9 +17,9 @@
       <ProjectReference Include="..\Mod.Auth.Base\Mod.Auth.Base.csproj" />
       <ProjectReference Include="..\Mod.Auth.Interfaces\Mod.Auth.Interfaces.csproj" />
       <ProjectReference Include="..\Mod.Auth.Services\Mod.Auth.Services.csproj" />
-      <ProjectReference Include="..\Mod.Order.Base\Mod.Order.Base.csproj" />
-      <ProjectReference Include="..\Mod.Order.Interfaces\Mod.Order.Interfaces.csproj" />
-      <ProjectReference Include="..\Mod.Order.Services\Mod.Order.Services.csproj" />
+<!--      <ProjectReference Include="..\Mod.Order.Base\Mod.Order.Base.csproj" />-->
+<!--      <ProjectReference Include="..\Mod.Order.Interfaces\Mod.Order.Interfaces.csproj" />-->
+<!--      <ProjectReference Include="..\Mod.Order.Services\Mod.Order.Services.csproj" />-->
     </ItemGroup>
 
     <ItemGroup>

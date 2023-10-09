@@ -32,7 +32,10 @@
         "EXPIRY_IN_MINUTES": 60,
         "VALID_ISSUER": "IdentityProviderAPI",
         "VALID_AUDIENCE": "https://localhost:5011",
-        "SECURITY_KEY": "IdentityProviderSecretKey"
+        "SECURITY_KEY": "IdentityProviderSecretKey",
+        "EVENT_CONNECTION": "mongodb://localhost:27017",
+        "EVENT_DATA_BASE": "orderApp",
+        "EVENT_COLLECTION": "orderEvents"
       }
     },
     "IIS Express": {

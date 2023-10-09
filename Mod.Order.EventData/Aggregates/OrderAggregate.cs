@@ -15,7 +15,6 @@ public class OrderAggregate: AggregateRoot
     public OrderAggregate(Guid id, OrderModel model)
     {
         var orderCreatedEvent = new OrderCreatedEvent(
-            Guid.NewGuid(),
             model.Description,
             model.OrderType,
             model.OrderPayloadId,
@@ -24,13 +23,54 @@ public class OrderAggregate: AggregateRoot
             model.CustomerInfo
         );
         
-        // ApplyChange(orderCreatedEvent);
+        ApplyChange(orderCreatedEvent);
+    }
+    
+    private void Apply(OrderCreatedEvent e)
+    {
+        this.Description = e.Description;
+        this.OrderType = e.OrderType;
+        this.PaymentInfo = e.PaymentInfo;
+        this.Notification = e.Notification;
+        this.CustomerInfo = e.CustomerInfo;
+        this.OrderStatus = OrderStatus.Created;
+    }
+    
+    private void Apply(OrderUpdatedEvent e)
+    {
+        this.Description = e.Description;
+        this.PaymentInfo = e.PaymentInfo;
+        this.Notification = e.Notification;
+        this.CustomerInfo = e.CustomerInfo;
+        this.OrderStatus = OrderStatus.Updated;
+    }
+    
+    private void Apply(OrderCanceledEvent e)
+    {
+        this.OrderStatus = OrderStatus.Canceled;
+    }
+    
+    private void Apply(OrderCompletedEvent e)
+    {
+        this.OrderStatus = OrderStatus.Completed;
     }
     
     public OrderAggregate(OrderModel state)
     {
         
     }
+    
+    public string Description { get; set; }
+    
+    public OrderType OrderType { get; set; }
+
+    public long OrderPayloadId { get; set; }
+    
+    public PaymentInfo PaymentInfo { get; set; }
+           
+    public OrderNotification Notification { get; set; }
+           
+    public CustomerInfo CustomerInfo { get; set; }
     
     public override Guid Id { get; }
 

@@ -8,7 +8,7 @@ public class DocumentDataConfiguration: BaseConfiguration, IDocumentDataConfigur
     {
     }
     
-    public string ConnectionString { get => GetConfigFuncString("RABBIT_HOST_NAME"); }
-    public string DatabaseName { get => GetConfigFuncString("RABBIT_HOST_NAME"); }
-    public string DataCollectionName { get => GetConfigFuncString("RABBIT_HOST_NAME"); }
+    public string ConnectionString { get => GetConfigFuncString("EVENT_CONNECTION"); }
+    public string DatabaseName { get => GetConfigFuncString("EVENT_DATA_BASE"); }
+    public string DataCollectionName { get => GetConfigFuncString("EVENT_COLLECTION"); }
 }
