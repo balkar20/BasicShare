@@ -13,6 +13,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Core.Transfer\Core.Transfer.csproj" />
       <ProjectReference Include="..\AppStorage\AppStorage.csproj" />
+      <ProjectReference Include="..\Mod.Order.EventData\Mod.Order.EventData.csproj" />
       <ProjectReference Include="..\Mod.Product.Interfaces\Mod.Product.Interfaces.csproj" />
       <ProjectReference Include="..\Mod.Product.Models\Mod.Product.Models.csproj" />
       <ProjectReference Include="..\Services\Services.csproj" />

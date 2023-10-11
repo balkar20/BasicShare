@@ -1,6 +1,8 @@
+using AutoMapper;
 using Core.Base.DataBase.Interfaces;
 using Core.Base.EventSourcing;
 using Core.Base.Exceptions;
+using Data.Ordering.Objects;
 using Infrastructure.Interfaces;
 using MongoDataServices;
 using MongoDB.Driver;
@@ -11,24 +13,25 @@ namespace Infrastructure.Services;
 public class AggregateStorage : IAggregateStorage
 {
     private readonly IMessageBusService _publisher;
-    // private readonly MongoClient  _eventStorage;
+    protected readonly IMapper _mapper;
+    
     private IDataCollectionService<EventDocument> _eventStorage;
     
-    private readonly Dictionary<Guid, List<EventDescriptor>> _current = new Dictionary<Guid, List<EventDescriptor>>();
+    private readonly Dictionary<Guid, List<EventDescriptor>> _current = new();
     
-    public AggregateStorage(IMessageBusService publisher, IDataCollectionService<EventDocument> eventStorage)
+    public AggregateStorage(IMessageBusService publisher, IDataCollectionService<EventDocument> eventStorage, IMapper mapper)
     {
         _publisher = publisher;
         _eventStorage = eventStorage;
+        _mapper = mapper;
     }
 
-    public async Task SaveEvents(Guid aggregateId, IEnumerable<EventDocument> events, int expectedVersion)
+    public async Task SaveEvents(Guid aggregateId, IEnumerable<EventObject> events, int expectedVersion)
     {
         List<EventDescriptor> eventDescriptors;
-
         // try to get event descriptors list for given aggregate id
         // otherwise -> create empty dictionary
-        var eventsForAggregate  = await _eventStorage.GetAsync(aggregateId.ToString());
+        // var eventsForAggregate  = await _eventStorage.GetAsync(aggregateId.ToString());
         if(!_current.TryGetValue(aggregateId, out eventDescriptors))
         {
             eventDescriptors = new List<EventDescriptor>();
@@ -48,8 +51,9 @@ public class AggregateStorage : IAggregateStorage
             i++;
             @event.Version = i;
 
+            var eventDocument = _mapper.Map<EventDocument>(@event);
             // push event to the event descriptors list for current aggregate
-            await _eventStorage.CreateAsync(@event);
+            await _eventStorage.CreateAsync(eventDocument);
             // eventDescriptors.Add(new EventDescriptor(aggregateId,@event,i));
 
             // publish current event to the bus for further processing by subscribers
@@ -59,6 +63,6 @@ public class AggregateStorage : IAggregateStorage
 
     public async Task<List<EventDocument>> GetEventsForAggregate(Guid aggregateId)
     {
-        return await _eventStorage.GetListByIdAsync(aggregateId.ToString());
+        return await _eventStorage.GetListByIdAsync(aggregateId);
     }
 }

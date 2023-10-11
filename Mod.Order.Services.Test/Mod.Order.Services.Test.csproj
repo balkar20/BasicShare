@@ -25,6 +25,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Mod.Order.EventData\Mod.Order.EventData.csproj" />
+      <ProjectReference Include="..\Mod.Order.Models\Mod.Order.Models.csproj" />
       <ProjectReference Include="..\Services\Services.csproj" />
     </ItemGroup>
 

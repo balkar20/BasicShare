@@ -21,8 +21,7 @@ public class AggregateRepository<T>: IAggregateRepository<T> where T: AggregateR
     public async Task Save(AggregateRoot aggregate, int expectedVersion)
     {
         var changes = aggregate
-            .GetUncommittedChanges()
-            .Select(m => _mapper.Map<EventDocument>(m));
+            .GetUncommittedChanges();
         await _storage.SaveEvents(aggregate.Id, changes, expectedVersion);
     }
 

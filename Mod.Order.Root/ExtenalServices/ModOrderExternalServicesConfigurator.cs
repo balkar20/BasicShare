@@ -25,7 +25,8 @@ public class ModOrderExternalServicesConfigurator
     private readonly OrderEnvironmentContext _OrderEnvironmentContext;
     private readonly WebApplicationBuilder _builder;
 
-    public ModOrderExternalServicesConfigurator(WebApplicationBuilder builder, OrderEnvironmentContext OrderEnvironmentContext)
+    public ModOrderExternalServicesConfigurator(WebApplicationBuilder builder,
+        OrderEnvironmentContext OrderEnvironmentContext)
     {
         _services = builder.Services;
         _OrderEnvironmentContext = OrderEnvironmentContext;
@@ -35,7 +36,7 @@ public class ModOrderExternalServicesConfigurator
     public void Configure()
     {
         _services.AddOptions();
-        _services.AddAutoMapper(typeof(GetAllOrdersQuery).Assembly); 
+        _services.AddAutoMapper(typeof(GetAllOrdersQuery).Assembly);
         // _services.AddMediatR(typeof(GetAllOrdersQuery).Assembly);
         _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllOrdersQuery).Assembly));
 
@@ -49,25 +50,37 @@ public class ModOrderExternalServicesConfigurator
     {
         _services.AddMassTransit(x =>
         {
-           x.SetKebabCaseEndpointNameFormatter();
-           
-           x.SetInMemorySagaRepositoryProvider();
+            x.SetKebabCaseEndpointNameFormatter();
 
-           var entryAssembly = Assembly.GetEntryAssembly();
-           x.AddSagaStateMachines(entryAssembly);
-           x.AddSagas(entryAssembly);
-           x.AddActivities(entryAssembly);
+            x.SetInMemorySagaRepositoryProvider();
 
-           x.UsingRabbitMq((context, configurator) =>
-           {
-               configurator.Host("localhost", "/", h =>
-               {
-                   h.Password("guest");
-                   h.Username("guest");
-               });
-               
-               configurator.ConfigureEndpoints(context);
-           });
+            var entryAssembly = Assembly.GetEntryAssembly();
+            x.AddSagaStateMachines(entryAssembly);
+            x.AddSagas(entryAssembly);
+            x.AddActivities(entryAssembly);
+
+            // x.AddConsumers(typeof(OrderCreationConsumer).Assembly);
+
+            x.UsingRabbitMq((context, configurator) =>
+            {
+                // configurator.UseBind(o =>
+                // {
+                //     
+                // });
+                configurator.Host("localhost", "/", h =>
+                {
+                    h.Password("guest");
+                    h.Username("guest");
+                });
+                // configurator.OverrideDefaultBusEndpointQueueName("ordering");
+                // configurator.ReceiveEndpoint("product-service", endpointConfigurator =>
+                // {
+                //     endpointConfigurator.Lazy = true;
+                //     endpointConfigurator.PrefetchCount = 20;
+                // });
+
+                configurator.ConfigureEndpoints(context);
+            });
         });
     }
 
@@ -87,7 +100,8 @@ public class ModOrderExternalServicesConfigurator
             .WriteTo.GrafanaLoki(
                 "http://localhost:3100",
                 credentials,
-                new Dictionary<string, string>() { { "app", "Serilog.Sinks.GrafanaLoki.OrderWebApi" } }, // Global labels
+                new Dictionary<string, string>()
+                    { { "app", "Serilog.Sinks.GrafanaLoki.OrderWebApi" } }, // Global labels
                 Serilog.Events.LogEventLevel.Debug
             )
             .CreateLogger();
@@ -107,6 +121,6 @@ public class ModOrderExternalServicesConfigurator
 
     private void ConfigureListeners()
     {
-        _services.AddHostedService<OrderEventCreationListener>();
+        // _services.AddHostedService<OrderEventCreationListener>();
     }
 }

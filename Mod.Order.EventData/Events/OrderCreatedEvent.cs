@@ -1,10 +1,10 @@
-﻿using Core.Base.EventSourcing;
-using Data.Ordering.Objects;
-using MongoObjects;
-using CustomerInfo = Mod.Order.Models.CustomerInfo;
-using OrderNotification = Mod.Order.Models.OrderNotification;
-using OrderType = Mod.Order.Models.OrderType;
-using PaymentInfo = Mod.Order.Models.PaymentInfo;
+﻿using Data.Ordering.Objects;
+using Mod.Order.EventData.Enums;
+using Mod.Order.EventData.Events.Models;
+
+// using Data.Ordering.Objects;
+// using OrderNotification = Mod.Order.EventData.Events.Models.OrderNotification;
+// using PaymentInfo = Mod.Order.EventData.Events.Models.PaymentInfo;
 
 namespace Mod.Order.EventData.Events;
 

@@ -21,7 +21,7 @@ public class ModOrderServicesConfigurator
 
     public void Configure()
     {
-        _services.AddSingleton<IOrderRepository, OrderSqlRepository>();
+        // _services.AddSingleton<IOrderRepository, OrderSqlRepository>();
         _services.AddSingleton<IOrderWriteService, OrderWriteService>();
         _services.AddSingleton<IAggregateRepository<OrderAggregate>, AggregateRepository<OrderAggregate>>();
         _services.AddSingleton<IAggregateStorage, AggregateStorage>();

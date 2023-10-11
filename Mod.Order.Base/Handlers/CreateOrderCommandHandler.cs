@@ -13,10 +13,11 @@ public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, Base
     private IOrderWriteService _orderSevice;
 
     // public CreateOrderCommandHandler(IOrderRepository orderRepository, IRabbitMqProducer rabbitMqProducer)
-    public CreateOrderCommandHandler(IMessageBusService messageBusService)
+    public CreateOrderCommandHandler(IMessageBusService messageBusService, IOrderWriteService orderSevice)
     {
         // _orderRepository = orderRepository;
         _messageBusService = messageBusService;
+        _orderSevice = orderSevice;
     }
 
     public async Task<BaseResponseResult> Handle(CreateOrderCommand request, CancellationToken cancellationToken)

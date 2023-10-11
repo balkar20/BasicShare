@@ -20,33 +20,3 @@ public class OrderModel
            
     public CustomerInfo CustomerInfo { get; set; }
 }
-
-public class CustomerInfo
-{
-    public string UserId { get; set; }
-}
-
-public class PaymentInfo
-{
-    public decimal Price { get; set; }
-}
-
-public class OrderNotification
-{
-    public NotificationType NotificationType { get; set; }
-}
-
-public enum NotificationType
-{
-    Email,
-    Phone,
-    Telegram,
-    InApplication,
-}
-
-public enum OrderType
-{
-    Work,
-    Product,
-    Shipment
-}

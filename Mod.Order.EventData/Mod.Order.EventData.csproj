@@ -12,8 +12,9 @@
 
     <ItemGroup>
       <ProjectReference Include="..\data\Objects\Objects.csproj" />
-      <ProjectReference Include="..\Mod.Order.Models\Mod.Order.Models.csproj" />
     </ItemGroup>
+
+
 
 
 </Project>

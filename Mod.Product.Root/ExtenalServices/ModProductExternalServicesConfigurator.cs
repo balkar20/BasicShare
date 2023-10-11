@@ -55,6 +55,7 @@ public class ModProductExternalServicesConfigurator
             x.AddSagas(entryAssembly);
             x.AddActivities(entryAssembly);
 
+            x.AddConsumers(typeof(OrderCreationConsumer).Assembly);
             x.UsingRabbitMq((context, configurator) =>
             {
                 configurator.Host("localhost", "/", h =>
@@ -62,6 +63,12 @@ public class ModProductExternalServicesConfigurator
                     h.Password("guest");
                     h.Username("guest");
                 });
+
+                // configurator.ReceiveEndpoint("ordering", endpointConfigurator =>
+                // {
+                //     endpointConfigurator.Lazy = true;
+                //     endpointConfigurator.PrefetchCount = 20;
+                // });
                
                 configurator.ConfigureEndpoints(context);
             });
@@ -103,6 +110,6 @@ public class ModProductExternalServicesConfigurator
 
     private void ConfigureListeners()
     {
-        _services.AddHostedService<OrderCreationListener>();
+        // _services.AddHostedService<OrderCreationListener>();
     }
 }

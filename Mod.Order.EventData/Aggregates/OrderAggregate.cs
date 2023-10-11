@@ -1,18 +1,28 @@
 ﻿using Core.Base.EventSourcing;
+using Mod.Order.EventData.Enums;
 using Mod.Order.EventData.Events;
-using Mod.Order.Models;
-using Mod.Order.Models.Enums;
+using Mod.Order.EventData.Events.Models;
+// using Mod.Order.EventData.Events.Models;
+using OrderNotification = Mod.Order.EventData.Events.Models.OrderNotification;
 
 namespace Mod.Order.EventData.Aggregates;
 
 public class OrderAggregate: AggregateRoot
 {
+    
+    private Guid _id;
+
     public OrderAggregate()
     {
         
     }
     
-    public OrderAggregate(Guid id, OrderModel model)
+    public override Guid Id
+    {
+        get { return _id; }
+    }
+    
+    public OrderAggregate(Guid id, OrderCreationData model)
     {
         var orderCreatedEvent = new OrderCreatedEvent(
             model.Description,
@@ -28,6 +38,7 @@ public class OrderAggregate: AggregateRoot
     
     private void Apply(OrderCreatedEvent e)
     {
+        _id = Guid.NewGuid();
         this.Description = e.Description;
         this.OrderType = e.OrderType;
         this.PaymentInfo = e.PaymentInfo;
@@ -55,9 +66,9 @@ public class OrderAggregate: AggregateRoot
         this.OrderStatus = OrderStatus.Completed;
     }
     
-    public OrderAggregate(OrderModel state)
+    public OrderAggregate(OrderCreationData state)
     {
-        
+        ApplyChange(new OrderCreatedEvent(state.Description, state.OrderType, state.OrderPayloadId, state.PaymentInfo, state.Notification, state.CustomerInfo));
     }
     
     public string Description { get; set; }
@@ -71,8 +82,6 @@ public class OrderAggregate: AggregateRoot
     public OrderNotification Notification { get; set; }
            
     public CustomerInfo CustomerInfo { get; set; }
-    
-    public override Guid Id { get; }
 
     public string Order { get; set; }
 

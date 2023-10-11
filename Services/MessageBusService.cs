@@ -14,7 +14,6 @@ public class MessageBusService : IMessageBusService
     private readonly ILogger _logger;
     private readonly IBus _bus;
     
-
     public MessageBusService(IMessageBrokerConfiguration configuration, ILogger logger, IBus bus)
     {
         _configuration = configuration;
@@ -22,7 +21,7 @@ public class MessageBusService : IMessageBusService
         _bus = bus;
     }
     
-    public void PublishMessage<T>(T message)
+    public async Task PublishMessage<T>(T message)
     {
         //Here we specify the Rabbit MQ Server. we use rabbitmq docker image and use it
         // var factory = new ConnectionFactory
@@ -42,7 +41,11 @@ public class MessageBusService : IMessageBusService
 
         if (message != null)
         {
-            _bus.Publish(message);
+            // var uri = new Uri("rabbitmq://localhost:15672/product-service");
+            // var endpoint = _bus.GetSendEndpoint(uri);
+            var t = _bus.Publish(message);
+            
+            // var res = endpoint.Result;
         }
         
         // var body = Encoding.UTF8.GetBytes(json);
