@@ -7,27 +7,27 @@ namespace Mod.Order.EventData.Events;
 
 public class OrderUpdatedEvent : EventObject
 {
-    public OrderUpdatedEvent(string Description, long OrderPayloadId, PaymentInfo PaymentInfo, OrderNotification Notification, CustomerInfo CustomerInfo): base(Guid.NewGuid())
+    public OrderUpdatedEvent(string Description, long OrderPayloadId, PaymentInfo PaymentInfo, OrderNotification Notification, string CustomerId): base(Guid.NewGuid())
     {
         this.Description = Description;
         this.OrderPayloadId = OrderPayloadId;
         this.PaymentInfo = PaymentInfo;
         this.Notification = Notification;
-        this.CustomerInfo = CustomerInfo;
+        this.CustomerId = CustomerId;
     }
 
     public string Description { get; init; }
     public long OrderPayloadId { get; init; }
     public PaymentInfo PaymentInfo { get; init; }
     public OrderNotification Notification { get; init; }
-    public CustomerInfo CustomerInfo { get; init; }
+    public string CustomerId { get; init; }
 
-    public void Deconstruct(out string Description, out long OrderPayloadId, out PaymentInfo PaymentInfo, out OrderNotification Notification, out CustomerInfo CustomerInfo)
+    public void Deconstruct(out string Description, out long OrderPayloadId, out PaymentInfo PaymentInfo, out OrderNotification Notification, out string CustomerId)
     {
         Description = this.Description;
         OrderPayloadId = this.OrderPayloadId;
         PaymentInfo = this.PaymentInfo;
         Notification = this.Notification;
-        CustomerInfo = this.CustomerInfo;
+        CustomerId = this.CustomerId;
     }
 } 

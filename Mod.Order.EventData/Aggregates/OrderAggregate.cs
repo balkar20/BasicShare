@@ -30,7 +30,7 @@ public class OrderAggregate: AggregateRoot
             model.OrderPayloadId,
             model.PaymentInfo,
             model.Notification,
-            model.CustomerInfo
+            model.CustomerId
         );
         
         ApplyChange(orderCreatedEvent);
@@ -43,7 +43,7 @@ public class OrderAggregate: AggregateRoot
         this.OrderType = e.OrderType;
         this.PaymentInfo = e.PaymentInfo;
         this.Notification = e.Notification;
-        this.CustomerInfo = e.CustomerInfo;
+        this.CustomerId = e.CustomerId;
         this.OrderStatus = OrderStatus.Created;
     }
     
@@ -52,7 +52,7 @@ public class OrderAggregate: AggregateRoot
         this.Description = e.Description;
         this.PaymentInfo = e.PaymentInfo;
         this.Notification = e.Notification;
-        this.CustomerInfo = e.CustomerInfo;
+        this.CustomerId = e.CustomerId;
         this.OrderStatus = OrderStatus.Updated;
     }
     
@@ -68,7 +68,7 @@ public class OrderAggregate: AggregateRoot
     
     public OrderAggregate(OrderCreationData state)
     {
-        ApplyChange(new OrderCreatedEvent(state.Description, state.OrderType, state.OrderPayloadId, state.PaymentInfo, state.Notification, state.CustomerInfo));
+        ApplyChange(new OrderCreatedEvent(state.Description, state.OrderType, state.OrderPayloadId, state.PaymentInfo, state.Notification, state.CustomerId));
     }
     
     public string Description { get; set; }
@@ -81,7 +81,7 @@ public class OrderAggregate: AggregateRoot
            
     public OrderNotification Notification { get; set; }
            
-    public CustomerInfo CustomerInfo { get; set; }
+    public string CustomerId { get; set; }
 
     public string Order { get; set; }
 

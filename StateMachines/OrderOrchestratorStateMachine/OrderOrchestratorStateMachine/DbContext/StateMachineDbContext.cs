@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using MassTransit.EntityFrameworkCoreIntegration;
 using Microsoft.EntityFrameworkCore;
-using OrderOrchestratorStateMachine.StateMaps;
+using SagaOrchestrationStateMachine.StateMaps;
 
-namespace OrderOrchestratorStateMachine.DbContext;
+namespace SagaOrchestrationStateMachine.DbContext;
 
 public class StateMachineDbContext: SagaDbContext
 {

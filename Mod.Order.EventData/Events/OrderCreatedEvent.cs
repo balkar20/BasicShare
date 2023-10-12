@@ -10,14 +10,14 @@ namespace Mod.Order.EventData.Events;
 
 public class OrderCreatedEvent : EventObject
 {
-    public OrderCreatedEvent(string Description, OrderType OrderType, long OrderProductId, PaymentInfo PaymentInfo, OrderNotification Notification, CustomerInfo CustomerInfo): base(Guid.NewGuid())
+    public OrderCreatedEvent(string Description, OrderType OrderType, long OrderProductId, PaymentInfo PaymentInfo, OrderNotification Notification, string customerId): base(Guid.NewGuid())
     {
         this.Description = Description;
         this.OrderType = OrderType;
         this.OrderProductId = OrderProductId;
         this.PaymentInfo = PaymentInfo;
         this.Notification = Notification;
-        this.CustomerInfo = CustomerInfo;
+        this.CustomerId = customerId;
     }
 
     public string Description { get; init; }
@@ -25,15 +25,15 @@ public class OrderCreatedEvent : EventObject
     public long OrderProductId { get; init; }
     public PaymentInfo PaymentInfo { get; init; }
     public OrderNotification Notification { get; init; }
-    public CustomerInfo CustomerInfo { get; init; }
+    public string CustomerId { get; init; }
 
-    public void Deconstruct(out string Description, out OrderType OrderType, out long OrderProductId, out PaymentInfo PaymentInfo, out OrderNotification Notification, out CustomerInfo CustomerInfo)
+    public void Deconstruct(out string Description, out OrderType OrderType, out long OrderProductId, out PaymentInfo PaymentInfo, out OrderNotification Notification, out string CustomerId)
     {
         Description = this.Description;
         OrderType = this.OrderType;
         OrderProductId = this.OrderProductId;
         PaymentInfo = this.PaymentInfo;
         Notification = this.Notification;
-        CustomerInfo = this.CustomerInfo;
+        CustomerId = this.CustomerId;
     }
 } 

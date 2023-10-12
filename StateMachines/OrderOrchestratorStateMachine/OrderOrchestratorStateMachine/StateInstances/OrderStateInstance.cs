@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using MassTransit;
 
-namespace OrderOrchestratorStateMachine.StateInstances;
+namespace SagaOrchestrationStateMachine.StateInstances;
 
 public class OrderStateInstance : SagaStateMachineInstance
 {

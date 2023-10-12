@@ -2,7 +2,7 @@
 
 namespace MassTransitBase;
 
-public interface IBaseMessage: CorrelatedBy<Guid>
+public interface IBaseSagaMessage
 {
     
 }

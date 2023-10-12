@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using EventBus.Events;
+using MassTransitBase;
 
 namespace EventBus.Messages.Interfaces;
 
-public interface ICreateOrderMessage
+public interface ICreateOrderMessage: IBaseSagaMessage
 {
     public int OrderId { get; set; }
     public string CustomerId { get; set; }

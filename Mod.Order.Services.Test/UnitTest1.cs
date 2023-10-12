@@ -1,14 +1,21 @@
 using AutoMapper;
+using Data.Base.Objects;
+using EventBus.Messages;
 using Infrastructure.Interfaces;
 using Infrastructure.Services;
+using MassTransitBase;
 using Mod.Order.EventData.Aggregates;
+using Mod.Order.EventData.Events;
 using Mod.Order.EventData.Events.Models;
 using Mod.Order.Models;
 using Mod.Order.Models.Enums;
 using MongoDataServices;
 using MongoObjects;
 using Moq;
+using CustomerInfo = Mod.Order.EventData.Events.Models.CustomerInfo;
 using OrderNotification = Mod.Order.Models.OrderNotification;
+using OrderType = Mod.Order.EventData.Enums.OrderType;
+using PaymentInfo = Mod.Order.EventData.Events.Models.PaymentInfo;
 
 namespace Mod.Order.Services.Test;
 
@@ -51,6 +58,49 @@ public class UnitTest1
     {
         public string  Mail { get; set; }
     }
+
+    [Fact]
+    public async Task TestMapperEvents()
+    {
+        var configuration = new MapperConfiguration(cfg => {
+            cfg.CreateMap<Order, OrderDto>()
+                .Include<OnlineOrder, OnlineOrderDto>()
+                .Include<MailOrder, MailOrderDto>();
+            cfg.CreateMap<OnlineOrder, OnlineOrderDto>();
+            cfg.CreateMap<MailOrder, MailOrderDto>();
+            
+            
+            cfg.CreateMap<CreateOrderMessage, OrderCreatedEvent>()
+                .ForMember(x=> x.OrderProductId, 
+                    opt => 
+                        opt.MapFrom(src => src.OrderId))
+                .ForMember(x=> x.Description, 
+                    opt => 
+                        opt.MapFrom(src => src.CustomerId))
+                .ReverseMap();
+            cfg.CreateMap<EventObject, IBaseSagaMessage>()
+                .Include<OrderCreatedEvent, CreateOrderMessage>()
+                .ReverseMap();
+        });
+        var mapper = configuration.CreateMapper();
+        // var orderCreatedEvent = 
+        
+        OrderCreatedEvent evt = new OrderCreatedEvent(
+            Description: "Default description",
+            OrderType: OrderType.Product,
+            OrderProductId: 123,
+            PaymentInfo: new PaymentInfo(),
+            Notification: new EventData.Events.Models.OrderNotification(),
+            customerId: "hj"
+        );
+
+        IBaseSagaMessage msg = mapper.Map<IBaseSagaMessage>(evt);
+
+        CreateOrderMessage cmg = msg as CreateOrderMessage;
+        
+        Assert.Equal(cmg.OrderId, evt.OrderProductId);
+        Assert.Equal(cmg.CustomerId, evt.Description);
+    }
     
     [Fact]
     public async Task TestMapper()
@@ -61,6 +111,11 @@ public class UnitTest1
                 .Include<MailOrder, MailOrderDto>();
             cfg.CreateMap<OnlineOrder, OnlineOrderDto>();
             cfg.CreateMap<MailOrder, MailOrderDto>();
+            
+            
+            // cfg.CreateMap<CreateOrderMessage, OrderCreatedEvent>();
+            cfg.CreateMap<EventObject, IBaseSagaMessage>()
+                .Include<OrderCreatedEvent, CreateOrderMessage>().ReverseMap();
         });
 
         var mapper = configuration.CreateMapper();
