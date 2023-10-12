@@ -1,11 +1,7 @@
 using AutoMapper;
 using Core.Base.DataBase.Entities;
-using Data.Ordering.Objects;
-using Mod.Order.EventData.Events;
 using Mod.Order.EventData.Events.Models;
 using Mod.Order.Models;
-using MongoObjects;
-using MongoObjects.Order;
 using EventsPaymentInfo = Mod.Order.EventData.Events.Models.PaymentInfo;
 using EventsCustomerInfo = Mod.Order.EventData.Events.Models.CustomerInfo;
 using EventsOrderNotification = Mod.Order.EventData.Events.Models.OrderNotification;

@@ -28,4 +28,12 @@
     <ProjectReference Include="..\Mod.Product.Root\Mod.Product.Root.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="logs\log2023101117.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
 </Project>

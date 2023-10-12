@@ -1,4 +1,4 @@
-﻿using Data.Ordering.Objects;
+﻿using Data.Base.Objects;
 
 namespace Mod.Order.EventData.Events;
 

@@ -1,5 +1,4 @@
-﻿using Core.Base.EventSourcing;
-using Data.Ordering.Objects;
+﻿using Data.Base.Objects;
 using CustomerInfo = Mod.Order.EventData.Events.Models.CustomerInfo;
 using OrderNotification = Mod.Order.EventData.Events.Models.OrderNotification;
 using PaymentInfo = Mod.Order.EventData.Events.Models.PaymentInfo;

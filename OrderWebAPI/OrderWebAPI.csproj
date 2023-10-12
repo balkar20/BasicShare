@@ -28,4 +28,19 @@
     <ProjectReference Include="..\Mod.Order.Root\Mod.Order.Root.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="logs\log2023101117.txt" />
+    <None Remove="logs\log2023101116.txt" />
+    <None Remove="logs\log2023101115.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="WeatherForecast.cs" />
+    <Compile Remove="EndpointDefinitions\SwaggerEndpointDefinition.cs" />
+  </ItemGroup>
+
 </Project>

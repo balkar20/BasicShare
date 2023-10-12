@@ -15,6 +15,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\data\MassTransitBase\MassTransitBase.csproj" />
       <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
       <ProjectReference Include="..\MongoDataServices\MongoDataServices.csproj" />
       <ProjectReference Include="..\RedisCache\RedisCache.csproj" />

@@ -1,7 +1,9 @@
 using System.Text;
+using AutoMapper;
 using Core.Base.ConfigurationInterfaces;
 using Infrastructure.Interfaces;
 using MassTransit;
+using MassTransitBase.Messages;
 using Newtonsoft.Json;
 using RabbitMQ.Client;
 using Serilog;
@@ -13,6 +15,7 @@ public class MessageBusService : IMessageBusService
     private readonly IMessageBrokerConfiguration _configuration;
     private readonly ILogger _logger;
     private readonly IBus _bus;
+    private readonly IMapper _mapper;
     
     public MessageBusService(IMessageBrokerConfiguration configuration, ILogger logger, IBus bus)
     {
@@ -43,7 +46,8 @@ public class MessageBusService : IMessageBusService
         {
             // var uri = new Uri("rabbitmq://localhost:15672/product-service");
             // var endpoint = _bus.GetSendEndpoint(uri);
-            var t = _bus.Publish(message);
+            var maaped = _mapper.Map<IBaseMessage>(message);
+            var t = _bus.Publish(maaped);
             
             // var res = endpoint.Result;
         }

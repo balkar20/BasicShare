@@ -1,4 +1,4 @@
-namespace Data.Ordering.Objects;
+namespace Data.Base.Objects;
 
 public class EventObject: BaseObject
 {

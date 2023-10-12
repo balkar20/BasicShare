@@ -1,9 +1,7 @@
 using AutoMapper;
 using Core.Base.EventSourcing;
-using Data.Ordering.Objects;
+using Data.Base.Objects;
 using Infrastructure.Interfaces;
-using MassTransit.Initializers;
-using MongoObjects;
 
 namespace Infrastructure.Services;
 
