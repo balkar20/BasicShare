@@ -1,11 +1,8 @@
-using System.Text;
 using AutoMapper;
 using Core.Base.ConfigurationInterfaces;
 using Infrastructure.Interfaces;
 using MassTransit;
-using MassTransitBase.Messages;
-using Newtonsoft.Json;
-using RabbitMQ.Client;
+using MassTransitBase;
 using Serilog;
 
 namespace Infrastructure.Services;

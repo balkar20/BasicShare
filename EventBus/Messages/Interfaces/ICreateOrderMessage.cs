@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using EventBus.Events;
-using MassTransitBase.Messages;
 
 namespace EventBus.Messages.Interfaces;
 

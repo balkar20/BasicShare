@@ -1,6 +1,6 @@
 ﻿using MassTransit;
 
-namespace MassTransitBase.Messages;
+namespace MassTransitBase;
 
 public interface IBaseMessage: CorrelatedBy<Guid>
 {
