@@ -11,15 +11,15 @@ namespace ProductApiTest.Tests
 {
     public class ProductApiTest
     {
-        private readonly TestMoqPOCApplication _testMoqPOCApplication;
+        private readonly TestProductApiApplication _testProductApiApplication;
         private readonly MockServices _mockServices;
         public readonly HttpClient _client;
         public ProductApiTest()
         {
             _mockServices = new MockServices();
-            _testMoqPOCApplication = new TestMoqPOCApplication(_mockServices);
+            _testProductApiApplication = new TestProductApiApplication(_mockServices);
  
-            _client = _testMoqPOCApplication.CreateClient();
+            _client = _testProductApiApplication.CreateClient();
         }
 
         [Fact]

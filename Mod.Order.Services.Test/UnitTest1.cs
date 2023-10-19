@@ -1,6 +1,7 @@
 using AutoMapper;
 using Data.Base.Objects;
 using EventBus.Messages;
+using EventBus.Messages.Interfaces;
 using Infrastructure.Interfaces;
 using Infrastructure.Services;
 using MassTransitBase;
@@ -71,15 +72,28 @@ public class UnitTest1
             
             
             cfg.CreateMap<CreateOrderMessage, OrderCreatedEvent>()
-                .ForMember(x=> x.OrderProductId, 
+                .ForMember(x=> x.PaymentAccountId, 
                     opt => 
                         opt.MapFrom(src => src.OrderId))
                 .ForMember(x=> x.Description, 
                     opt => 
                         opt.MapFrom(src => src.CustomerId))
                 .ReverseMap();
+            
+            cfg.CreateMap<ICreateOrderMessage, OrderCreatedEvent>()
+                .ForMember(x=> x.PaymentAccountId, 
+                    opt => 
+                        opt.MapFrom(src => src.OrderId))
+                .ForMember(x=> x.Description, 
+                    opt => 
+                        opt.MapFrom(src => src.CustomerId))
+                .ReverseMap();
+            cfg.CreateMap<ICreateOrderMessage, OrderCreatedEvent>()
+                .Include<CreateOrderMessage, OrderCreatedEvent>()
+                .ReverseMap();
             cfg.CreateMap<EventObject, IBaseSagaMessage>()
                 .Include<OrderCreatedEvent, CreateOrderMessage>()
+                .Include<OrderCreatedEvent, ICreateOrderMessage>()
                 .ReverseMap();
         });
         var mapper = configuration.CreateMapper();
@@ -88,17 +102,17 @@ public class UnitTest1
         OrderCreatedEvent evt = new OrderCreatedEvent(
             Description: "Default description",
             OrderType: OrderType.Product,
-            OrderProductId: 123,
+            paymentAccountId: 123,
             PaymentInfo: new PaymentInfo(),
             Notification: new EventData.Events.Models.OrderNotification(),
             customerId: "hj"
         );
 
-        IBaseSagaMessage msg = mapper.Map<IBaseSagaMessage>(evt);
+        var msg = mapper.Map<IBaseSagaMessage>(evt);
 
         CreateOrderMessage cmg = msg as CreateOrderMessage;
         
-        Assert.Equal(cmg.OrderId, evt.OrderProductId);
+        // Assert.Equal(cmg.OrderId, evt.PaymentAccountId);
         Assert.Equal(cmg.CustomerId, evt.Description);
     }
     

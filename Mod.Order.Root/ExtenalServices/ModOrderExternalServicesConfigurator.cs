@@ -2,6 +2,8 @@ using System.Formats.Tar;
 using System.Reflection;
 using Storage.AppStorage;
 using Infrastructure.Interfaces;
+using Infrastructure.Interfaces.MassTransit;
+using Infrastructure.Services.MassTransit;
 using MassTransit;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
@@ -67,7 +69,7 @@ public class ModOrderExternalServicesConfigurator
                 // {
                 //     
                 // });
-                configurator.Host("localhost", "/", h =>
+                configurator.Host("localhost", h =>
                 {
                     h.Password("guest");
                     h.Username("guest");
@@ -82,6 +84,7 @@ public class ModOrderExternalServicesConfigurator
                 configurator.ConfigureEndpoints(context);
             });
         });
+        _services.AddScoped<IMassTransitService, MassTransitService>();
     }
 
     public void ConfigureLogging()

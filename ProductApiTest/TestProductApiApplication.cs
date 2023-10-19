@@ -4,13 +4,13 @@ using Microsoft.Extensions.Hosting;
 
 namespace ProductApiTest;
 
-internal class TestMoqPOCApplication: WebApplicationFactory<Program>
+internal class TestProductApiApplication: WebApplicationFactory<Program>
 {
     private readonly MockServices _mockServices;
     
     private readonly Dictionary<Type, object> TypeImplementaitionDictionary;
 
-    public TestMoqPOCApplication(MockServices mockServices)
+    public TestProductApiApplication(MockServices mockServices)
     {
         _mockServices = mockServices;
         TypeImplementaitionDictionary = new Dictionary<Type, object>();

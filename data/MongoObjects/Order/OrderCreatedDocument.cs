@@ -15,6 +15,11 @@ public class OrderCreatedDocument: EventDocument
             this.CustomerInfo = CustomerInfo;
         }
 
+        public OrderCreatedDocument()
+        {
+            
+        }
+
         public string Description { get; init; }
         public OrderType OrderType { get; init; }
         

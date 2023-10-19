@@ -6,7 +6,7 @@ namespace EventBus.Messages.Interfaces;
 
 public interface ICreateOrderMessage: IBaseSagaMessage
 {
-    public int OrderId { get; set; }
+    public Guid OrderId { get; set; }
     public string CustomerId { get; set; }
     public string PaymentAccountId { get; set; }
     public decimal TotalPrice { get; set; }

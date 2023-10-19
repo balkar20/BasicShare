@@ -2,7 +2,7 @@ using Serilog;
 using System.Runtime.CompilerServices;
 using Apps.OrderWebAPI.Helpers;
 
-[assembly:InternalsVisibleTo("OrderApiTest")]
+// [assembly:InternalsVisibleTo("EventIntegrationTest")]
 
 try
 {

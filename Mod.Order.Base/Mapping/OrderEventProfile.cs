@@ -24,7 +24,26 @@ public class OrderEventProfile: Profile
     {
         CreateMap<OrderModel, OrderEntity>().ReverseMap();
         
-        CreateMap<OrderModel, OrderCreationData>().ReverseMap();
+        CreateMap<OrderModel, OrderCreationData>()
+            .ForCtorParam(ctorParamName: "Description", 
+                m => 
+                    m.MapFrom(k => k.Description))
+            .ForCtorParam(ctorParamName: "OrderType", 
+                m => 
+                    m.MapFrom(k => k.OrderType))
+            .ForCtorParam(ctorParamName: "OrderPayloadId", 
+                m => 
+                    m.MapFrom(k => k.OrderPayloadId))
+            .ForCtorParam(ctorParamName: "PaymentInfo", 
+                m => 
+                    m.MapFrom(k => k.PaymentInfo))
+            .ForCtorParam(ctorParamName: "Notification", 
+                m => 
+                    m.MapFrom(k => k.Notification))
+            .ForCtorParam(ctorParamName: "CustomerId", 
+                m => 
+                    m.MapFrom(k => k.CustomerId))
+            .ReverseMap();
         
         CreateMap<EventsPaymentInfo, OrderModelPaymentInfo>().ReverseMap();
         CreateMap<EventsCustomerInfo, OrderModelCustomerInfo>().ReverseMap();

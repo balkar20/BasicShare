@@ -9,7 +9,7 @@ public class OrderStateInstance : SagaStateMachineInstance
 {
     public Guid CorrelationId { get; set; }
     public string CurrentState { get; set; }
-    public int OrderId { get; set; }
+    public Guid OrderId { get; set; }
     public string CustomerId { get; set; }
     public string PaymentAccountId { get; set; }
     public decimal TotalPrice { get; set; }

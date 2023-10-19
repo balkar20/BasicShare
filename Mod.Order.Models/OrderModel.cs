@@ -18,5 +18,5 @@ public class OrderModel
            
     public OrderNotification Notification { get; set; }
            
-    public CustomerInfo CustomerInfo { get; set; }
+    public string CustomerId { get; set; }
 }

@@ -193,6 +193,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MassTransitBase", "data\Mas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderOrchestratorStateMachine", "StateMachines\OrderOrchestratorStateMachine\OrderOrchestratorStateMachine\OrderOrchestratorStateMachine.csproj", "{3D9E2D7D-105E-4D42-8C7B-E97ACFD1A1A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventIntegrationTest", "EventIntegrationTest\EventIntegrationTest.csproj", "{897FCBB7-9615-4F9B-AD32-6E12DD5E01D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -459,6 +461,10 @@ Global
 		{3D9E2D7D-105E-4D42-8C7B-E97ACFD1A1A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D9E2D7D-105E-4D42-8C7B-E97ACFD1A1A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D9E2D7D-105E-4D42-8C7B-E97ACFD1A1A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{897FCBB7-9615-4F9B-AD32-6E12DD5E01D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{897FCBB7-9615-4F9B-AD32-6E12DD5E01D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{897FCBB7-9615-4F9B-AD32-6E12DD5E01D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{897FCBB7-9615-4F9B-AD32-6E12DD5E01D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -547,6 +553,7 @@ Global
 		{C81374E2-0BCF-4D12-A7A4-1CE8DA76ACC7} = {64300116-8FEB-4A8F-BD7D-8C5583E752D5}
 		{6663755B-A831-4BB1-B73C-9DD945B1AB55} = {7BFF4D7E-655B-4A2C-A229-8214D6E3D0BF}
 		{3D9E2D7D-105E-4D42-8C7B-E97ACFD1A1A2} = {5125A2CB-631C-4E90-BE05-E02DBF64AAF9}
+		{897FCBB7-9615-4F9B-AD32-6E12DD5E01D2} = {1950A7EB-C866-4978-9F9C-FFAB5A8AB217}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEF22E60-9505-4791-B3FA-697E4DB2FE75}
