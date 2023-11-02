@@ -21,9 +21,12 @@ public class OrderEndpointDefinition : IEndpointDefinition
         app.MapPost("api/orders",
             ([FromServices] IMediator _mediator, [FromBody] OrderModel Order) =>
                 _mediator.Send(new CreateOrderCommand(Order)));
-        app.MapPut("api/orders",
-            ([FromServices] IMediator _mediator, [FromBody] OrderModel Order) =>
-                _mediator.Send(new UpdateOrderCommand(Order)));
+        app.MapPost("api/orders/update-notification",
+            ([FromServices] IMediator _mediator, [FromBody] OrderNotificationModel Order) =>
+                _mediator.Send(new UpdateOrderNotificationCommand(Order)));
+        app.MapPost("api/orders/update-payment",
+            ([FromServices] IMediator _mediator, [FromBody] OrderPaymentInfoModel Order) =>
+                _mediator.Send(new UpdateOrderPaymentInfoCommand(Order)));
     }
 
     public void DefineServices(IServiceCollection services)

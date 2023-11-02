@@ -22,10 +22,10 @@ public class MockServices
         // ProductRepositoryMock = new Mock<IProductRepository>();
         // ProductApiConfigurationMock = new Mock<IProductApiConfiguration>();
         
-        var mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<OrderEventObjectDocumentProfile>());
-        var mapperConfiguration1 = new MapperConfiguration(cfg => cfg.AddProfile<OrderEventProfile>());
-        var mapperConfiguration2 = new MapperConfiguration(cfg => cfg.AddProfile<OrderEventSagaMessageProfile>());
-        var mapperConfiguration3 = new MapperConfiguration(cfg => cfg.AddProfile<OrderModelProfile>());
+        // var mapperConfiguration = new MapperConfiguration(cfg => cfg.AddProfile<OrderEventObjectDocumentProfile>());
+        // var mapperConfiguration1 = new MapperConfiguration(cfg => cfg.AddProfile<OrderEventProfile>());
+        // var mapperConfiguration2 = new MapperConfiguration(cfg => cfg.AddProfile<OrderEventSagaMessageProfile>());
+        // var mapperConfiguration3 = new MapperConfiguration(cfg => cfg.AddProfile<OrderModelProfile>());
         
         Logger = new Mock<ILogger>();
     }

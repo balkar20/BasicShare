@@ -12,6 +12,7 @@ public class GenericSqlRepository<TEntity, TModel> : IRepository<TEntity, TModel
     protected readonly DbContext _context;
     protected readonly IMapper _mapper;
     private DbSet<TEntity> _table;
+    private List<TEntity> guids = new List<TEntity>();
 
     public GenericSqlRepository(DbContext customDbContext, IMapper mapper)
     {
@@ -41,8 +42,14 @@ public class GenericSqlRepository<TEntity, TModel> : IRepository<TEntity, TModel
     public virtual async Task<TModel> AddAsync(TModel model)
     {
         ArgumentNullException.ThrowIfNull(model);
- 
-        await _context.AddAsync(_mapper.Map<TEntity>(model));
+        var entity = _mapper.Map<TEntity>(model);
+        entity.Id = entity.Id == (Guid.Empty) ? Guid.NewGuid(): entity.Id;
+        if (guids.Any(g => g.Id == entity.Id))
+        {
+            throw new Exception("lkljlkjlkj");
+        }
+        guids.Add(entity);
+        await _context.AddAsync(entity);
         await _context.SaveChangesAsync();
  
         return model;

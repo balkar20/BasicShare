@@ -1,6 +1,7 @@
 using AutoMapper;
 using Data.Base.Objects;
 using Mod.Order.EventData.Events;
+using Mod.Order.EventData.Events.Models;
 using MongoObjects;
 using MongoObjects.Order;
 
@@ -10,10 +11,6 @@ using ObjectOrderCustomerInfo = MongoObjects.Order.CustomerInfo;
 using ObjectOrderType = MongoObjects.Order.Enums.OrderType;
 using ObjectOrderStatus = MongoObjects.Order.Enums.OrderStatus;
 using ObjectOrderNotificationType = MongoObjects.Order.Enums.NotificationType;
-
-using DocumentOrderNotification = Mod.Order.EventData.Events.Models.OrderNotification;
-using DocumentOrderPaymentInfo = Mod.Order.EventData.Events.Models.PaymentInfo;
-using DocumentOrderCustomerInfo = Mod.Order.EventData.Events.Models.CustomerInfo;
 using DocumentOrderType = Mod.Order.EventData.Enums.OrderType;
 using DocumentOrderStatus = Mod.Order.EventData.Enums.OrderStatus;
 using DocumentOrderNotificationType = Mod.Order.EventData.Enums.NotificationType;
@@ -28,9 +25,9 @@ public class OrderEventObjectDocumentProfile : Profile
             .Include<OrderCreatedEvent, OrderCreatedDocument>();
         CreateMap<OrderCreatedEvent, OrderCreatedDocument>().ReverseMap();
         
-        CreateMap<ObjectOrderNotification, DocumentOrderNotification>().ReverseMap();
-        CreateMap<ObjectOrderPaymentInfo, DocumentOrderPaymentInfo>().ReverseMap();
-        CreateMap<ObjectOrderCustomerInfo, DocumentOrderCustomerInfo>().ReverseMap();
+        CreateMap<ObjectOrderNotification, OrderNotificationEventModel>().ReverseMap();
+        CreateMap<ObjectOrderPaymentInfo, OrderPaymentInfoEventModel>().ReverseMap();
+        CreateMap<ObjectOrderCustomerInfo, CustomerInfoEventModel>().ReverseMap();
         CreateMap<ObjectOrderType, DocumentOrderType>().ReverseMap();
         CreateMap<ObjectOrderStatus, DocumentOrderStatus>().ReverseMap();
         CreateMap<ObjectOrderNotificationType, DocumentOrderNotificationType>().ReverseMap();

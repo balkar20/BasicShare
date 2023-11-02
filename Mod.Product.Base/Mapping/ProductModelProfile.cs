@@ -8,6 +8,7 @@ public class ProductModelProfile: Profile
 {
     public ProductModelProfile()
     {
-        CreateMap<ProductModel, ProductEntity>().ReverseMap();
+        CreateMap<ProductModel, ProductEntity>()
+            .ReverseMap();
     }
 }

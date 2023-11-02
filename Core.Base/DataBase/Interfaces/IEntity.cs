@@ -1,6 +1,9 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Core.Base.DataBase.Interfaces;
 
 public interface IEntity
 {
-    long Id { get; set; }
+    public Guid Id { get; set; } 
 }

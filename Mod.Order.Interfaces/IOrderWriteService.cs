@@ -4,7 +4,10 @@ namespace Mod.Order.Interfaces;
 
 public interface IOrderWriteService
 {
-    Task UpdateOrder(OrderModel order);
+        
+    Task<OrderIdModel> CreateOrder(OrderModel order);
     
-    Task CreateOrder(OrderModel order);
+    Task UpdateOrderNotification(OrderNotificationModel orderNotificationModel);
+
+    Task UpdateOrderPaymentInfo(OrderPaymentInfoModel orderNotificationModel);
 }

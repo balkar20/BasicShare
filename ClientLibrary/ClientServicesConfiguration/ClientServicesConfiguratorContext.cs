@@ -4,14 +4,18 @@ using ClientLibrary.Interfaces;
 using ClientLibrary.Interfaces.Particular;
 using ClientLibrary.Services;
 using ClientLibrary.Validators;
+using Grpc.Net.Client;
 using IdentityProvider.Shared;
+using IdentityProvider.Shared.Interfaces;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.DependencyInjection;
 using MudBlazor.Services;
 using Microsoft.Extensions.Localization;
+using Grpc.Net.Client.Web;
 
 namespace ClientLibrary.ClientServicesConfiguration;
 
@@ -87,6 +91,7 @@ public class ClientServicesConfiguratorContext
     public void ConfigureAppServices()
     {
         _services.AddScoped<IAuthenticationService, AuthenticationService>();
+        _services.AddScoped<IClientOrderCreationService, ClientOrderCreationService>();
     }
 
     public void ConfigureExternalServices()
@@ -100,6 +105,12 @@ public class ClientServicesConfiguratorContext
         _services.AddScoped<AuthenticationStateProvider>( o => o.GetRequiredService<AuthStateProvider>());
 
         _services.AddSingleton(sp => new HttpClient { BaseAddress = new Uri(_builder.HostEnvironment.BaseAddress) });
-
+        _services.AddSingleton(services =>
+        {
+            var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler())); 
+            var baseUri = services.GetRequiredService<NavigationManager>().BaseUri; 
+            var channel = GrpcChannel.ForAddress(baseUri, new GrpcChannelOptions { HttpClient = httpClient }); 
+            return new CreateOrder.CreateOrderClient(channel); 
+        });
     }
 }

@@ -15,14 +15,15 @@ public static class StartupHelper
 
     public static void Configure(WebApplication app)
     {
+       
         app.UseEndpointDefinitions();
         app.UseMiddleware<ErrorHandlerMiddleware>();
 
-        using (var serviceScope = app.Services?.CreateScope())
-        {
-            var context = serviceScope?.ServiceProvider.GetRequiredService<ApplicationContext>();
-            context?.Database.EnsureCreated();
-        }
+        // using (var serviceScope = app.Services?.CreateScope())
+        // {
+        //     var context = serviceScope?.ServiceProvider.GetRequiredService<ApplicationContext>();
+        //     context?.Database.EnsureCreated();
+        // }
 
         // Configure the HTTP request pipeline.
         if (app.Environment.IsDevelopment())
@@ -38,6 +39,8 @@ public static class StartupHelper
         app.UseStaticFiles();
 
         app.UseRouting();
+        // must be added after UseRouting and before UseEndpoints 
+        app.UseGrpcWeb(); 
         app.MapBlazorHub();
         
         var supportedCultures = new[]

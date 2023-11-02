@@ -1,8 +1,9 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProductApiTest;
 
-namespace ProductApiTest;
+namespace Mod.ProductTest;
 
 internal class TestProductApiApplication: WebApplicationFactory<Program>
 {

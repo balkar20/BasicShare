@@ -111,7 +111,7 @@ public class OrderStateMachine : MassTransitStateMachine<OrderStateInstance>
                             context.Saga);
                 })
         );
-
+        
         During(StockReserved,
             When(PaymentCompletedEvent)
                 .Then(context =>

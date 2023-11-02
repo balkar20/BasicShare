@@ -10,30 +10,41 @@ namespace Mod.Order.Services;
 
 public class OrderWriteService: IOrderWriteService
 {
-    private readonly IMessageBusService _messageBusService;
-    // private readonly IOrderRepository _orderRepository;
     private readonly IAggregateRepository<OrderAggregate> _oerderAggregateRepository;
     protected readonly IMapper _mapper;
     
 
-    public OrderWriteService(IMessageBusService messageBusService, IMapper mapper, IAggregateRepository<OrderAggregate> oerderAggregateRepository)
+    public OrderWriteService(IMapper mapper, IAggregateRepository<OrderAggregate> oerderAggregateRepository)
     {
-        _messageBusService = messageBusService;
-        // _orderRepository = orderRepository;
         _mapper = mapper;
         _oerderAggregateRepository = oerderAggregateRepository;
     }
 
-    public async Task UpdateOrder(OrderModel order)
+    public async Task UpdateOrderNotification(OrderNotificationModel orderNotificationModel)
     {
-        // var aggregate = new OrderAggregate(order);
-        // await _oerderAggregateRepository.Save(aggregate, -1);
+        var notificationEventModel = _mapper.Map<OrderNotificationEventModel>(orderNotificationModel);
+        var orderAggregate = await _oerderAggregateRepository.GetById(orderNotificationModel.OrderId);
+        orderAggregate.UpdateNotification(notificationEventModel);
+        await _oerderAggregateRepository.Save(orderAggregate, -1);
     }
 
-    public async Task CreateOrder(OrderModel order)
+    public async Task UpdateOrderPaymentInfo(OrderPaymentInfoModel orderNotificationModel)
     {
-        var creationData = _mapper.Map<OrderCreationData>(order);
+        var paymentInfoEventModel = _mapper.Map<OrderPaymentInfoEventModel>(orderNotificationModel);
+        var orderAggregate = await _oerderAggregateRepository.GetById(orderNotificationModel.OrderId);
+        orderAggregate.UpdatePaymentInfo(paymentInfoEventModel);
+        await _oerderAggregateRepository.Save(orderAggregate, -1);
+    }
+
+    public async Task<OrderIdModel> CreateOrder(OrderModel order)
+    {
+        var creationData = _mapper.Map<OrderCreationDataModel>(order);
         var aggregate = new OrderAggregate(creationData);
-        await _oerderAggregateRepository.Save(aggregate, -1);
+        var model = new OrderIdModel
+        {
+            Version = await _oerderAggregateRepository.Save(aggregate, -1),
+            OrderId = aggregate.Id
+        };
+        return model;
     }
 }

@@ -4,7 +4,7 @@ namespace Mod.Order.Models;
 
 public class OrderModel
 {
-    public long Id { get; set; }
+    public Guid Id { get; set; }
     
     public string Description { get; set; }
     
@@ -14,9 +14,11 @@ public class OrderModel
 
     public long OrderPayloadId { get; set; }
     
-    public PaymentInfo PaymentInfo { get; set; }
+    public OrderPaymentInfoModel OrderPaymentInfoModel { get; set; }
            
-    public OrderNotification Notification { get; set; }
+    public OrderNotificationModel NotificationModel { get; set; }
            
     public string CustomerId { get; set; }
+    
+    public List<OrderItemModel> OrderItemList { get; set; }
 }

@@ -3,6 +3,7 @@ using System.Text;
 using Core.Base.Output;
 using Mod.Product.Base.ViewModels;
 using Mod.Product.Models;
+using Mod.ProductTest;
 using Moq;
 
 // using Microsoft.VisualStudio.TestPlatform.TestHost;
@@ -39,7 +40,7 @@ namespace ProductApiTest.Tests
                 // ("Koko", "Chanell", "Manel")
                 new()
                 {
-                    Id = "Koko",
+                    Id = Guid.NewGuid(),
                     Name = "Chanell",
                     Description = "Manel"
                 }

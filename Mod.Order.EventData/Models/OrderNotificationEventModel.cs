@@ -2,7 +2,7 @@
 
 namespace Mod.Order.EventData.Events.Models;
 
-public class OrderNotification
+public class OrderNotificationEventModel
 {
     public NotificationType NotificationType { get; set; }
 }

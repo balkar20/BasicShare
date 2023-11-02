@@ -5,7 +5,7 @@ namespace Core.Base.DataBase.Entities;
 
 public class OrderEntity: IEntity
 {
-    public long Id { get; set; }
+    public Guid Id { get; set; }
     
     public string Description { get; set; }
     

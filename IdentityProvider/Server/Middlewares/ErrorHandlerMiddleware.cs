@@ -22,6 +22,7 @@ public class ErrorHandlerMiddleware
         catch (Exception error)
         {
             var response = context.Response;
+            // var str = context.Response.Body;
             response.ContentType = "application/json";
 
             response.StatusCode = error switch

@@ -1,6 +1,6 @@
 ﻿namespace Mod.Order.EventData.Events.Models;
 
-public class CustomerInfo
+public class CustomerInfoEventModel
 {
     public string UserId { get; set; }
 }

@@ -8,7 +8,7 @@ public class PooperEntity: IEntity
     
     public int? AmountOfPoops { get; set; }
     
-    public long Id { get; set; }
+    public Guid Id { get; set; }
 
     public string UserId { get; set; }
 

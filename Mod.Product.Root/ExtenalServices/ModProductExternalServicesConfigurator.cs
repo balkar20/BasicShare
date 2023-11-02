@@ -56,9 +56,10 @@ public class ModProductExternalServicesConfigurator
             x.AddActivities(entryAssembly);
 
             x.AddConsumers(typeof(OrderCreationConsumer).Assembly);
+            
             x.UsingRabbitMq((context, configurator) =>
             {
-                configurator.Host("localhost", "/", h =>
+                configurator.Host("localhost",h =>
                 {
                     h.Password("guest");
                     h.Username("guest");

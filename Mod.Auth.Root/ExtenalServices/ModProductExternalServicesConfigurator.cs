@@ -54,18 +54,16 @@ public class ModAuthExternalServicesConfigurator
                 new[] { "application/octet-stream" });
         });
         _services.AddOptions();
+        _services.AddGrpc();
         _services.AddControllersWithViews();
         _services.AddRazorPages();
         _services.AddAutoMapper(typeof(RegisterCommandHandler).Assembly);
         _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllUsersQuery).Assembly));
-        // _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(CreateOrderCommand).Assembly));
-
 
         ConfigureDataBase();
         ConfigureLocalization();
         ConfigureAuthentication();
         ConfigureLogging();
-        
     }
 
     private void ConfigureDataBase()
@@ -110,9 +108,9 @@ public class ModAuthExternalServicesConfigurator
 
     private void ConfigureLocalization()
     {
-        _services.AddSingleton<ResourceManager>(new ResourceManager("Mod.Auth.Base.Resources.Handlers.RegisterCommandHandler",
+        _services.AddSingleton(new ResourceManager("Mod.Auth.Base.Resources.Handlers.RegisterCommandHandler",
             typeof(RegisterCommandHandler).GetTypeInfo().Assembly));
-        _services.AddSingleton<ResourceManager>(new ResourceManager("Mod.Auth.Base.Resources.Handlers.GetAllAuthsQueryHandler",
+        _services.AddSingleton(new ResourceManager("Mod.Auth.Base.Resources.Handlers.GetAllAuthsQueryHandler",
             typeof(RegisterCommandHandler).GetTypeInfo().Assembly));
         _services.AddLocalization(op => op.ResourcesPath = "Resources");
     }

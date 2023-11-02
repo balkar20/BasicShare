@@ -1,5 +1,9 @@
-﻿using Mod.Order.Models;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using Mod.Order.Models;
 using Mod.Order.Models.Enums;
+using Mod.Product.Models;
+using RandomNameGeneratorLibrary;
+
 namespace EventIntegrationTest;
 
 public class Randomizer
@@ -14,19 +18,29 @@ public class Randomizer
     }
 
     private static readonly Random random = new Random();
+    private static readonly PersonNameGenerator personNameGenerator = new ();
+    private static readonly ParameterNameGenerator parameterNameGenerator = new ();
 
     public static OrderModel CreateRandomOrderModel()
     {
         return new OrderModel()
         {
-            Id = random.Next(1000000),
+            Id = Guid.NewGuid(),
             Description = Guid.NewGuid().ToString(),
             OrderType = (OrderType)random.Next(3),
             OrderStatus = (OrderStatus)random.Next(4),
             OrderPayloadId = random.Next(1000000),
-            PaymentInfo = new PaymentInfo() { Price = random.Next(1000) },
-            Notification = new OrderNotification() { NotificationType = (NotificationType)random.Next(4) },
+            OrderPaymentInfoModel = new OrderPaymentInfoModel() { Price = 50 },
+            NotificationModel = new OrderNotificationModel() { NotificationType = (NotificationType)random.Next(4) },
             CustomerId = Guid.NewGuid().ToString()
+        };
+    }
+    public static ProductModel CreateRandomProductModel()
+    {
+        return new ProductModel()
+        {
+            Description = parameterNameGenerator.GenerateNext(),
+            Name = parameterNameGenerator.GenerateNext()
         };
     }
 }

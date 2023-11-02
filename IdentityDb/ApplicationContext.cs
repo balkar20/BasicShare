@@ -22,7 +22,7 @@ namespace Data.IdentityDb
         public ApplicationContext(DbContextOptions<ApplicationContext> options)
             : base(options)
         {
-            // Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         public DbSet<PooperEntity> Poopers { get; set; }

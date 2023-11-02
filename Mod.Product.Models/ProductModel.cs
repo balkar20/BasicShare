@@ -2,7 +2,7 @@
 
 public record ProductModel
 {
-    public string Id { get; init; }
+    public Guid Id { get; init; }
     
     public string? Name { get; init; }
     

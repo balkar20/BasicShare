@@ -16,11 +16,12 @@ public class AggregateRepository<T>: IAggregateRepository<T> where T: AggregateR
         _mapper = mapper;
     }
 
-    public async Task Save(AggregateRoot aggregate, int expectedVersion)
+    public async Task<int> Save(AggregateRoot aggregate, int expectedVersion)
     {
         var changes = aggregate
             .GetUncommittedChanges();
-        await _storage.SaveEvents(aggregate.Id, changes, expectedVersion);
+        aggregate.Version =  await _storage.SaveEvents(aggregate.Id, changes, expectedVersion);
+        return aggregate.Version;
     }
 
     public async Task<T> GetById(Guid id)

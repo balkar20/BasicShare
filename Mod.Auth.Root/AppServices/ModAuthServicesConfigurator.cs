@@ -17,9 +17,9 @@ public class ModAuthServicesConfigurator
 
     public void Configure()
     {
-        _services.AddSingleton<IMessageBusService, MessageBusService>();
-        
+        // _services.AddSingleton<IMessageBusService, MessageBusService>();
         // _services.AddScoped<IOrderRepository, OrderRepository>();
+        
         _services.AddScoped<IAuthService, AuthService>();
     }
 }

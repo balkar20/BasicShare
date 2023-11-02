@@ -10,13 +10,13 @@ namespace Mod.Order.EventData.Events;
 
 public class OrderCreatedEvent : EventObject
 {
-    public OrderCreatedEvent(string Description, OrderType OrderType, long paymentAccountId, PaymentInfo PaymentInfo, OrderNotification Notification, string customerId): base(Guid.NewGuid())
+    public OrderCreatedEvent(string Description, OrderType OrderType, long paymentAccountId, OrderPaymentInfoEventModel orderPaymentInfoEventModel, OrderNotificationEventModel notificationEventModel, string customerId): base(Guid.NewGuid())
     {
         this.Description = Description;
         this.OrderType = OrderType;
         this.PaymentAccountId = paymentAccountId;
-        this.PaymentInfo = PaymentInfo;
-        this.Notification = Notification;
+        this.OrderPaymentInfoEventModel = orderPaymentInfoEventModel;
+        this.NotificationEventModel = notificationEventModel;
         this.CustomerId = customerId;
     }
 
@@ -28,17 +28,17 @@ public class OrderCreatedEvent : EventObject
     public string Description { get; init; }
     public OrderType OrderType { get; init; }
     public long PaymentAccountId { get; init; }
-    public PaymentInfo PaymentInfo { get; init; }
-    public OrderNotification Notification { get; init; }
+    public OrderPaymentInfoEventModel OrderPaymentInfoEventModel { get; init; }
+    public OrderNotificationEventModel NotificationEventModel { get; init; }
     public string CustomerId { get; init; }
 
-    public void Deconstruct(out string Description, out OrderType OrderType, out long OrderProductId, out PaymentInfo PaymentInfo, out OrderNotification Notification, out string CustomerId)
+    public void Deconstruct(out string Description, out OrderType OrderType, out long OrderProductId, out OrderPaymentInfoEventModel orderPaymentInfoEventModel, out OrderNotificationEventModel notificationEventModel, out string CustomerId)
     {
         Description = this.Description;
         OrderType = this.OrderType;
         OrderProductId = this.PaymentAccountId;
-        PaymentInfo = this.PaymentInfo;
-        Notification = this.Notification;
+        orderPaymentInfoEventModel = this.OrderPaymentInfoEventModel;
+        notificationEventModel = this.NotificationEventModel;
         CustomerId = this.CustomerId;
     }
 } 

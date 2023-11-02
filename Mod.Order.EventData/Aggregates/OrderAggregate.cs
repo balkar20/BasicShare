@@ -3,7 +3,6 @@ using Mod.Order.EventData.Enums;
 using Mod.Order.EventData.Events;
 using Mod.Order.EventData.Events.Models;
 // using Mod.Order.EventData.Events.Models;
-using OrderNotification = Mod.Order.EventData.Events.Models.OrderNotification;
 
 namespace Mod.Order.EventData.Aggregates;
 
@@ -11,25 +10,24 @@ public class OrderAggregate: AggregateRoot
 {
     
     private Guid _id;
-
-    public OrderAggregate()
-    {
-        
-    }
     
     public override Guid Id
     {
         get { return _id; }
     }
-    
-    public OrderAggregate(Guid id, OrderCreationData model)
+
+    public OrderAggregate()
+    {
+        
+    }
+    public OrderAggregate(Guid id, OrderCreationDataModel model)
     {
         var orderCreatedEvent = new OrderCreatedEvent(
             model.Description,
             model.OrderType,
             model.OrderPayloadId,
-            model.PaymentInfo,
-            model.Notification,
+            model.OrderPaymentInfoEventModel,
+            model.NotificationEventModel,
             model.CustomerId
         );
         
@@ -41,8 +39,8 @@ public class OrderAggregate: AggregateRoot
         _id = Guid.NewGuid();
         this.Description = e.Description;
         this.OrderType = e.OrderType;
-        this.PaymentInfo = e.PaymentInfo;
-        this.Notification = e.Notification;
+        this.OrderPaymentInfoEventModel = e.OrderPaymentInfoEventModel;
+        this.NotificationEventModel = e.NotificationEventModel;
         this.CustomerId = e.CustomerId;
         this.OrderStatus = OrderStatus.Created;
     }
@@ -50,8 +48,8 @@ public class OrderAggregate: AggregateRoot
     private void Apply(OrderUpdatedEvent e)
     {
         this.Description = e.Description;
-        this.PaymentInfo = e.PaymentInfo;
-        this.Notification = e.Notification;
+        this.OrderPaymentInfoEventModel = e.OrderPaymentInfoEventModel;
+        this.NotificationEventModel = e.NotificationEventModel;
         this.CustomerId = e.CustomerId;
         this.OrderStatus = OrderStatus.Updated;
     }
@@ -66,9 +64,29 @@ public class OrderAggregate: AggregateRoot
         this.OrderStatus = OrderStatus.Completed;
     }
     
-    public OrderAggregate(OrderCreationData state)
+    private void Apply(OrderUpdatedNotificationEvent e)
     {
-        ApplyChange(new OrderCreatedEvent(state.Description, state.OrderType, state.OrderPayloadId, state.PaymentInfo, state.Notification, state.CustomerId));
+        this.NotificationEventModel = e.NotificationEventModel;
+    }
+    
+    private void Apply(OrderUpdatedPaymentInfoEvent e)
+    {
+        this.OrderPaymentInfoEventModel = e.OrderPaymentInfoEventModel;
+    }
+    
+    public OrderAggregate(OrderCreationDataModel state)
+    {
+        ApplyChange(new OrderCreatedEvent(state.Description, state.OrderType, state.OrderPayloadId, state.OrderPaymentInfoEventModel, state.NotificationEventModel, state.CustomerId));
+    }
+    
+    public void UpdateNotification(OrderNotificationEventModel state)
+    {
+        ApplyChange(new OrderUpdatedNotificationEvent(this.Id, state));
+    }
+    
+    public void UpdatePaymentInfo(OrderPaymentInfoEventModel state)
+    {
+        ApplyChange(new OrderUpdatedPaymentInfoEvent(this.Id, state));
     }
     
     public string Description { get; set; }
@@ -77,9 +95,9 @@ public class OrderAggregate: AggregateRoot
 
     public long OrderPayloadId { get; set; }
     
-    public PaymentInfo PaymentInfo { get; set; }
+    public OrderPaymentInfoEventModel OrderPaymentInfoEventModel { get; set; }
            
-    public OrderNotification Notification { get; set; }
+    public OrderNotificationEventModel NotificationEventModel { get; set; }
            
     public string CustomerId { get; set; }
 

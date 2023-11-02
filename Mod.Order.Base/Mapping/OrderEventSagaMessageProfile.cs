@@ -19,6 +19,12 @@ public class OrderEventSagaMessageProfile: Profile
             .ForMember(x=> x.CustomerId, 
                 opt => 
                     opt.MapFrom(src => src.CustomerId))
+            .ForPath(x=> x.OrderPaymentInfoEventModel.Price, 
+                opt => 
+                    opt.MapFrom(src => src.TotalPrice))
+            .ForMember(x=> x.PaymentAccountId, 
+                opt => 
+                    opt.MapFrom(src => src.PaymentAccountId))
             .ReverseMap();
         CreateMap<EventObject, IBaseSagaMessage>()
             .Include<OrderCreatedEvent, CreateOrderMessage>().ReverseMap();

@@ -1,6 +1,6 @@
 namespace Mod.Order.Models;
 
-public class PaymentInfo
+public class OrderPaymentInfoModel:OrderIdModel
 {
     public decimal Price { get; set; }
 }

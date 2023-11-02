@@ -2,6 +2,7 @@
 
 @using Blazored.LocalStorage
 @using ClientLibrary.Components;
+@using ClientLibrary.Components.Forms;
 @using ClientLibrary.Resources
 @inject ILocalStorageService _localStorage
 <MudDialogProvider/>
@@ -90,6 +91,7 @@
     <MudMainContent Class="pt-16 px-16">
         <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
         <PoopCarousel></PoopCarousel>
+        <OrderCreationForm></OrderCreationForm>
         <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
         @Body
     </MudMainContent>

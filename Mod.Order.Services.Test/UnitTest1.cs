@@ -13,10 +13,7 @@ using Mod.Order.Models.Enums;
 using MongoDataServices;
 using MongoObjects;
 using Moq;
-using CustomerInfo = Mod.Order.EventData.Events.Models.CustomerInfo;
-using OrderNotification = Mod.Order.Models.OrderNotification;
 using OrderType = Mod.Order.EventData.Enums.OrderType;
-using PaymentInfo = Mod.Order.EventData.Events.Models.PaymentInfo;
 
 namespace Mod.Order.Services.Test;
 
@@ -95,6 +92,25 @@ public class UnitTest1
                 .Include<OrderCreatedEvent, CreateOrderMessage>()
                 .Include<OrderCreatedEvent, ICreateOrderMessage>()
                 .ReverseMap();
+            
+                cfg.CreateMap<CreateOrderMessage, OrderCreatedEvent>()
+                    .ForMember(x=> x.Id, 
+                        opt => 
+                            opt.MapFrom(src => src.OrderId))
+                    .ForMember(x=> x.CustomerId, 
+                        opt => 
+                            opt.MapFrom(src => src.CustomerId))
+                    .ForPath(x=> x.OrderPaymentInfoEventModel.Price, 
+                        opt => 
+                            opt.MapFrom(src => src.TotalPrice))
+                    .ForMember(x=> x.PaymentAccountId, 
+                        opt => 
+                            opt.MapFrom(src => src.PaymentAccountId))
+                    .ReverseMap();
+                cfg.CreateMap<EventObject, IBaseSagaMessage>()
+                    .Include<OrderCreatedEvent, CreateOrderMessage>().ReverseMap();
+                cfg.CreateMap<EventObject, ICreateOrderMessage>()
+                    .Include<OrderCreatedEvent, CreateOrderMessage>().ReverseMap();
         });
         var mapper = configuration.CreateMapper();
         // var orderCreatedEvent = 
@@ -103,8 +119,8 @@ public class UnitTest1
             Description: "Default description",
             OrderType: OrderType.Product,
             paymentAccountId: 123,
-            PaymentInfo: new PaymentInfo(),
-            Notification: new EventData.Events.Models.OrderNotification(),
+            orderPaymentInfoEventModel: new OrderPaymentInfoEventModel(),
+            notificationEventModel: new EventData.Events.Models.OrderNotificationEventModel(),
             customerId: "hj"
         );
 

@@ -1,10 +1,13 @@
 using Core.Transfer;
+using IdentityProvider.Shared;
+using IdentityProvider.Shared.GrpcServices;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Mod.Auth.Base.Commands;
 using Mod.Auth.Base.Queries;
-using Mod.Auth.Base.ViewModels;
 using Mod.Auth.Models;
+using LoginViewModel = Mod.Auth.Base.ViewModels.LoginViewModel;
+using RegisterViewModel = Mod.Auth.Models.RegisterViewModel;
 
 namespace Apps.Blazor.Identity.IdentityProvider.Server.EndpointDefinitions;
 
@@ -21,6 +24,8 @@ public class AuthEndpointDefinition : IEndpointDefinition
         app.MapPost("api/register",
             ([FromServices] IMediator _mediator, [FromBody] RegisterViewModel product) =>
                 _mediator.Send(new RegisterCommand(product)));
+        
+        app.MapGrpcService<OrderCreationService>().EnableGrpcWeb(); 
 
         AddSomeRoutes(app);
     }
@@ -32,9 +37,5 @@ public class AuthEndpointDefinition : IEndpointDefinition
 
     public void DefineServices(IServiceCollection services)
     {
-        //services.AddScoped<IAuthRepository, AuthRepository>();
-        // services.AddScoped<IAuthService, AuthService>();
-        //services.AddScoped<AuthStateProvider>();
-        //services.AddScoped<AuthenticationStateProvider>(s => s.GetRequiredService<AuthStateProvider>());
     }
 }

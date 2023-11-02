@@ -7,7 +7,7 @@ public abstract class AggregateRoot
     private readonly List<EventObject> _changes = new ();
 
     public abstract Guid Id { get; }
-    public int Version { get; internal set; }
+    public int Version { get; set; }
 
     public IEnumerable<EventObject> GetUncommittedChanges()
     {
