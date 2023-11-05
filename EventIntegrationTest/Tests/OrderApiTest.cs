@@ -73,7 +73,7 @@ namespace EventIntegrationTest.Tests
                     ((ICreateOrderMessage)o.MessageObject).TotalPrice == orderPostDataModel.OrderPaymentInfoModel.Price);
             var publishedOrderCreatedEvent =await  harness.Published.Any<EventBus.Events.OrderCreatedEvent>();
             var publishedStockReservedEvent =await  harness.Consumed.Any<IStockReservedEvent>();
-            
+
             var productsNewResult = await CallGetProducts();
             
             // Assert.Equal(productsJsonResult?.Data.Description, );
