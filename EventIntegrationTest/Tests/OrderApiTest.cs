@@ -54,9 +54,11 @@ namespace EventIntegrationTest.Tests
         [Fact]
         public async Task IsPostOrderPublishCorrectEventStateMachine()
         {
-            var harness = await StartHarnessWithRabbitMq("guest", "guest", QueuesConsts.CreateOrderMessageQueueName);
-            
             var productsResult = await CallGetProducts();
+            
+            await using var provider = BuildRabbitMqProvider("guest", "guest", QueuesConsts.CreateOrderMessageQueueName);
+            var harness = provider.GetRequiredService<ITestHarness>();
+            await harness.Start();
             
             var orderPostDataModel = Randomizer.CreateRandomOrderModel();
             var json = JsonSerializer.Serialize(orderPostDataModel);
@@ -65,9 +67,11 @@ namespace EventIntegrationTest.Tests
             var orderResponseResult =
                 await orderResponse.Content.ReadFromJsonAsync<ResponseResultWithData<OrderIdModel>>();
             
-            var sagaHarness = harness.GetSagaStateMachineHarness<OrderStateMachine, OrderStateInstance>();
             
-            var consumedCreatedOrderMessage = await  harness.Consumed.Any<ICreateOrderMessage>();
+
+            // var sagaHarness = harness.GetSagaStateMachineHarness<OrderStateMachine, OrderStateInstance>();
+            
+            var consumedCreatedOrderMessage = await harness.Consumed.Any<ICreateOrderMessage>();
             var doesPriceCorresponding =
                 await harness.Consumed.Any<ICreateOrderMessage>(o =>
                     ((ICreateOrderMessage)o.MessageObject).TotalPrice == orderPostDataModel.OrderPaymentInfoModel.Price);
@@ -113,9 +117,9 @@ namespace EventIntegrationTest.Tests
             return await productsResponse.Content.ReadFromJsonAsync<ResponseResultWithData<List<ProductModel>>>();
         }
 
-        private async Task<ITestHarness> StartHarnessWithRabbitMq(string username, string password, string createOrderMessageQueueName)
+        private ServiceProvider BuildRabbitMqProvider(string username, string password, string createOrderMessageQueueName)
         {
-            await using var provider = new ServiceCollection()
+            return new ServiceCollection()
                 .AddMassTransitTestHarness(cfg =>
                 {
                     cfg.AddSagaStateMachine<OrderStateMachine, OrderStateInstance>();
@@ -131,10 +135,6 @@ namespace EventIntegrationTest.Tests
                     });
                 })
                 .BuildServiceProvider(true);
-            
-            var harness = provider.GetRequiredService<ITestHarness>();
-            await harness.Start();
-            return harness;
         }
     }
 }
