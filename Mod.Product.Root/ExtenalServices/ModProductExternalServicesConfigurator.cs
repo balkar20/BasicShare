@@ -1,17 +1,13 @@
 using System.Reflection;
 using Storage.AppStorage;
-using Infrastructure.Interfaces;
 using MassTransit;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Mod.Product.Base.Queries;
-using Mod.Product.Root.AppServices;
 using Mod.Product.Root.Configuration;
-using Mod.Product.Services.Listeners;
+using Mod.Product.Services.Consumers;
 using Serilog;
-using Serilog.Core;
 using Serilog.Sinks.GrafanaLoki;
 
 namespace Mod.Product.Root.ExtenalServices;

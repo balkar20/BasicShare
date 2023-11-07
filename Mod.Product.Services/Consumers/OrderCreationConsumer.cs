@@ -1,14 +1,12 @@
 ﻿using EventBus.Events;
 using EventBus.Events.Interfaces;
-using EventBus.Messages.Interfaces;
 using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-// using Mod.Order.EventData.Events;
 using Mod.Product.Interfaces;
 using Mod.Product.Models;
 
-namespace Mod.Product.Services.Listeners;
+namespace Mod.Product.Services.Consumers;
 
 public class OrderCreationConsumer: IConsumer<OrderCreatedEvent>
 {
@@ -24,9 +22,6 @@ public class OrderCreationConsumer: IConsumer<OrderCreatedEvent>
 
     public async Task Consume(ConsumeContext<OrderCreatedEvent> context)
     {
-        // using var scope = scopeFactory.CreateScope();
-        //  var repo = scope.ServiceProvider.GetRequiredService<IProductRepository>();
-
         try
         {
             await _productRepository.AddAsync(new ProductModel()
