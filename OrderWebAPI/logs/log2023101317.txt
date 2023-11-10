@@ -1,0 +1,37 @@
+2023-10-13 17:10:30.271 +03:00 [VRB] Connection id "0HMUBU95S3D0V" received "HEADERS" frame for stream ID 3 with length 21 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-13 17:10:30.283 +03:00 [VRB] Connection id "0HMUBU95S3D0V" received "PING" frame for stream ID 0 with length 8 and flags "NONE".
+2023-10-13 17:10:30.284 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-13 17:10:30.284 +03:00 [VRB] Connection id "0HMUBU95S3D0V" sending "PING" frame for stream ID 0 with length 8 and flags "ACK".
+2023-10-13 17:10:30.284 +03:00 [VRB] All hosts are allowed.
+2023-10-13 17:10:30.284 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-13 17:10:30.284 +03:00 [DBG] Request did not match any endpoints
+2023-10-13 17:10:30.285 +03:00 [INF] HTTP GET / responded 404 in 0.5402 ms
+2023-10-13 17:10:30.285 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 1.2227ms
+2023-10-13 17:10:30.285 +03:00 [VRB] Connection id "0HMUBU95S3D0V" sending "HEADERS" frame for stream ID 3 with length 37 and flags "END_STREAM, END_HEADERS".
+2023-10-13 17:10:31.357 +03:00 [VRB] Connection id "0HMUBU95S3D0V" received "HEADERS" frame for stream ID 5 with length 21 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-13 17:10:31.363 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-13 17:10:31.363 +03:00 [VRB] All hosts are allowed.
+2023-10-13 17:10:31.363 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-13 17:10:31.363 +03:00 [DBG] Request did not match any endpoints
+2023-10-13 17:10:31.363 +03:00 [INF] HTTP GET / responded 404 in 0.1431 ms
+2023-10-13 17:10:31.363 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 0.5819ms
+2023-10-13 17:10:31.363 +03:00 [VRB] Connection id "0HMUBU95S3D0V" sending "HEADERS" frame for stream ID 5 with length 37 and flags "END_STREAM, END_HEADERS".
+2023-10-13 17:26:59.964 +03:00 [DBG] Connection id "0HMUBU95S3D11" accepted.
+2023-10-13 17:26:59.964 +03:00 [DBG] Connection id "0HMUBU95S3D11" started.
+2023-10-13 17:26:59.969 +03:00 [DBG] Connection 0HMUBU95S3D11 established using the following protocol: "Tls13"
+2023-10-13 17:26:59.974 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-13 17:27:00.005 +03:00 [VRB] All hosts are allowed.
+2023-10-13 17:27:00.005 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-13 17:27:00.006 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-13 17:27:00.006 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-13 17:27:00.006 +03:00 [DBG] Connection id "0HMUBU95S3D11", Request id "0HMUBU95S3D11:00000001": started reading request body.
+2023-10-13 17:27:00.007 +03:00 [DBG] Connection id "0HMUBU95S3D11", Request id "0HMUBU95S3D11:00000001": done reading request body.
+2023-10-13 17:28:03.329 +03:00 [INF] Executed endpoint 'HTTP: POST api/orders'
+2023-10-13 17:28:03.333 +03:00 [INF] HTTP POST /api/orders responded 200 in 63327.5882 ms
+2023-10-13 17:28:03.333 +03:00 [DBG] SEND "rabbitmq://localhost/MassTransitBase:IBaseSagaMessage" "609c0000-cdd8-9c2d-acda-08dbcbf89c04" MassTransitBase.IBaseSagaMessage
+2023-10-13 17:28:03.333 +03:00 [DBG] Connection id "0HMUBU95S3D11" completed keep alive response.
+2023-10-13 17:28:03.334 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63245/api/orders application/json 213 - 200 - application/json;+charset=utf-8 63359.1316ms
+2023-10-13 17:28:03.336 +03:00 [DBG] Connection id "0HMUBU95S3D11" received FIN.
+2023-10-13 17:28:03.336 +03:00 [DBG] Connection id "0HMUBU95S3D11" disconnecting.
+2023-10-13 17:28:03.337 +03:00 [DBG] Connection id "0HMUBU95S3D11" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-13 17:28:03.350 +03:00 [DBG] Connection id "0HMUBU95S3D11" stopped.

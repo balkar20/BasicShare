@@ -1,0 +1,514 @@
+2023-10-16 14:01:51.711 +03:00 [DBG] Connection id "0HMUE6RA9VT59" received FIN.
+2023-10-16 14:01:51.741 +03:00 [DBG] Connection id "0HMUE6RA9VT59" is closed. The last processed stream ID was 1.
+2023-10-16 14:01:51.742 +03:00 [DBG] Connection id "0HMUE6RA9VT59" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:01:51.749 +03:00 [DBG] The connection queue processing loop for 0HMUE6RA9VT59 completed.
+2023-10-16 14:01:51.752 +03:00 [DBG] Connection id "0HMUE6RA9VT59" stopped.
+2023-10-16 14:28:17.889 +03:00 [DBG] Hosting starting
+2023-10-16 14:28:18.063 +03:00 [DBG] Starting bus instances: IBus
+2023-10-16 14:28:18.068 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2023-10-16 14:28:18.153 +03:00 [DBG] Connect: guest@localhost:5672/
+2023-10-16 14:28:18.183 +03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2023-10-16 14:28:18.239 +03:00 [INF] Now listening on: https://localhost:63245
+2023-10-16 14:28:18.239 +03:00 [INF] Now listening on: http://localhost:63244
+2023-10-16 14:28:18.240 +03:00 [DBG] Loaded hosting startup assembly OrderWebAPI
+2023-10-16 14:28:18.240 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-16 14:28:18.240 +03:00 [INF] Hosting environment: Development
+2023-10-16 14:28:18.240 +03:00 [INF] Content root path: C:\My\BasicShare\OrderWebAPI
+2023-10-16 14:28:18.240 +03:00 [DBG] Hosting started
+2023-10-16 14:28:18.280 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 56306)
+2023-10-16 14:28:18.313 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/VLADBALKAROV_OrderWebAPI_bus_znuyyygp5nqn47rbbdphhqz6fs?temporary=true"
+2023-10-16 14:28:18.317 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2023-10-16 14:28:18.644 +03:00 [DBG] Connection id "0HMUE7BVHM3TG" received FIN.
+2023-10-16 14:28:18.651 +03:00 [DBG] Connection id "0HMUE7BVHM3TG" accepted.
+2023-10-16 14:28:18.652 +03:00 [DBG] Connection id "0HMUE7BVHM3TG" started.
+2023-10-16 14:28:18.680 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:28:18.735 +03:00 [DBG] Connection id "0HMUE7BVHM3TG" stopped.
+2023-10-16 14:28:18.740 +03:00 [DBG] Connection id "0HMUE7BVHM3TG" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:28:18.784 +03:00 [DBG] Connection id "0HMUE7BVHM3TH" accepted.
+2023-10-16 14:28:18.784 +03:00 [DBG] Connection id "0HMUE7BVHM3TH" started.
+2023-10-16 14:28:18.829 +03:00 [DBG] Connection id "0HMUE7BVHM3TH" received FIN.
+2023-10-16 14:28:18.830 +03:00 [DBG] Connection id "0HMUE7BVHM3TI" accepted.
+2023-10-16 14:28:18.830 +03:00 [DBG] Connection id "0HMUE7BVHM3TI" started.
+2023-10-16 14:28:18.839 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:28:18.840 +03:00 [DBG] Connection id "0HMUE7BVHM3TH" stopped.
+2023-10-16 14:28:18.841 +03:00 [DBG] Connection id "0HMUE7BVHM3TH" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:28:18.846 +03:00 [DBG] Connection 0HMUE7BVHM3TI established using the following protocol: "Tls13"
+2023-10-16 14:28:18.865 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:28:18.868 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:28:18.868 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:28:18.870 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:28:18.872 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:28:18.873 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" received "HEADERS" frame for stream ID 1 with length 443 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-16 14:28:18.885 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:28:18.907 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-16 14:28:18.909 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-16 14:28:18.909 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:28:19.012 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-16 14:28:19.013 +03:00 [DBG] Request did not match any endpoints
+2023-10-16 14:28:19.015 +03:00 [INF] HTTP GET / responded 404 in 102.2350 ms
+2023-10-16 14:28:19.016 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 110.3295ms
+2023-10-16 14:28:19.017 +03:00 [VRB] Connection id "0HMUE7BVHM3TI" sending "HEADERS" frame for stream ID 1 with length 45 and flags "END_STREAM, END_HEADERS".
+2023-10-16 14:31:29.914 +03:00 [DBG] Connection id "0HMUE7BVHM3TJ" accepted.
+2023-10-16 14:31:29.914 +03:00 [DBG] Connection id "0HMUE7BVHM3TJ" started.
+2023-10-16 14:31:29.928 +03:00 [DBG] Connection 0HMUE7BVHM3TJ established using the following protocol: "Tls13"
+2023-10-16 14:31:29.949 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:31:29.949 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:31:29.957 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:31:29.958 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:31:29.974 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:31:30.037 +03:00 [DBG] Connection id "0HMUE7BVHM3TJ", Request id "0HMUE7BVHM3TJ:00000001": started reading request body.
+2023-10-16 14:31:30.038 +03:00 [DBG] Connection id "0HMUE7BVHM3TJ", Request id "0HMUE7BVHM3TJ:00000001": done reading request body.
+2023-10-16 14:32:01.568 +03:00 [DBG] Hosting starting
+2023-10-16 14:32:01.716 +03:00 [DBG] Starting bus instances: IBus
+2023-10-16 14:32:01.721 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2023-10-16 14:32:01.812 +03:00 [DBG] Connect: guest@localhost:5672/
+2023-10-16 14:32:01.841 +03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2023-10-16 14:32:01.902 +03:00 [INF] Now listening on: https://localhost:63245
+2023-10-16 14:32:01.902 +03:00 [INF] Now listening on: http://localhost:63244
+2023-10-16 14:32:01.902 +03:00 [DBG] Loaded hosting startup assembly OrderWebAPI
+2023-10-16 14:32:01.903 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-16 14:32:01.903 +03:00 [INF] Hosting environment: Development
+2023-10-16 14:32:01.903 +03:00 [INF] Content root path: C:\My\BasicShare\OrderWebAPI
+2023-10-16 14:32:01.903 +03:00 [DBG] Hosting started
+2023-10-16 14:32:01.940 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 56820)
+2023-10-16 14:32:01.965 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/VLADBALKAROV_OrderWebAPI_bus_9bzyyygp5nqn5uj7bdphhqhryg?temporary=true"
+2023-10-16 14:32:01.969 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2023-10-16 14:32:01.972 +03:00 [DBG] Connection id "0HMUE7E23G8LM" received FIN.
+2023-10-16 14:32:01.976 +03:00 [DBG] Connection id "0HMUE7E23G8LM" accepted.
+2023-10-16 14:32:01.977 +03:00 [DBG] Connection id "0HMUE7E23G8LM" started.
+2023-10-16 14:32:01.998 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:32:02.046 +03:00 [DBG] Connection id "0HMUE7E23G8LM" stopped.
+2023-10-16 14:32:02.051 +03:00 [DBG] Connection id "0HMUE7E23G8LM" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:32:02.089 +03:00 [DBG] Connection id "0HMUE7E23G8LN" accepted.
+2023-10-16 14:32:02.089 +03:00 [DBG] Connection id "0HMUE7E23G8LN" started.
+2023-10-16 14:32:02.140 +03:00 [DBG] Connection id "0HMUE7E23G8LN" received FIN.
+2023-10-16 14:32:02.141 +03:00 [DBG] Connection id "0HMUE7E23G8LO" accepted.
+2023-10-16 14:32:02.142 +03:00 [DBG] Connection id "0HMUE7E23G8LO" started.
+2023-10-16 14:32:02.153 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:32:02.154 +03:00 [DBG] Connection id "0HMUE7E23G8LN" stopped.
+2023-10-16 14:32:02.155 +03:00 [DBG] Connection id "0HMUE7E23G8LN" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:32:02.159 +03:00 [DBG] Connection 0HMUE7E23G8LO established using the following protocol: "Tls13"
+2023-10-16 14:32:02.179 +03:00 [VRB] Connection id "0HMUE7E23G8LO" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:32:02.182 +03:00 [VRB] Connection id "0HMUE7E23G8LO" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:32:02.183 +03:00 [VRB] Connection id "0HMUE7E23G8LO" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:32:02.183 +03:00 [VRB] Connection id "0HMUE7E23G8LO" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:32:02.184 +03:00 [VRB] Connection id "0HMUE7E23G8LO" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:32:02.184 +03:00 [VRB] Connection id "0HMUE7E23G8LO" received "HEADERS" frame for stream ID 1 with length 443 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-16 14:32:02.196 +03:00 [VRB] Connection id "0HMUE7E23G8LO" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:32:02.220 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-16 14:32:02.221 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-16 14:32:02.221 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:32:02.334 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-16 14:32:02.334 +03:00 [DBG] Request did not match any endpoints
+2023-10-16 14:32:02.336 +03:00 [INF] HTTP GET / responded 404 in 112.3107 ms
+2023-10-16 14:32:02.338 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 120.0268ms
+2023-10-16 14:32:02.339 +03:00 [VRB] Connection id "0HMUE7E23G8LO" sending "HEADERS" frame for stream ID 1 with length 45 and flags "END_STREAM, END_HEADERS".
+2023-10-16 14:32:14.300 +03:00 [DBG] Connection id "0HMUE7E23G8LP" accepted.
+2023-10-16 14:32:14.300 +03:00 [DBG] Connection id "0HMUE7E23G8LP" started.
+2023-10-16 14:32:14.313 +03:00 [DBG] Connection 0HMUE7E23G8LP established using the following protocol: "Tls13"
+2023-10-16 14:32:14.324 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:32:14.324 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:32:14.329 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:32:14.330 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:32:14.344 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:32:14.386 +03:00 [DBG] Connection id "0HMUE7E23G8LP", Request id "0HMUE7E23G8LP:00000001": started reading request body.
+2023-10-16 14:32:14.387 +03:00 [DBG] Connection id "0HMUE7E23G8LP", Request id "0HMUE7E23G8LP:00000001": done reading request body.
+2023-10-16 14:34:52.283 +03:00 [DBG] Hosting starting
+2023-10-16 14:34:52.441 +03:00 [DBG] Starting bus instances: IBus
+2023-10-16 14:34:52.445 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2023-10-16 14:34:52.538 +03:00 [DBG] Connect: guest@localhost:5672/
+2023-10-16 14:34:52.553 +03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2023-10-16 14:34:52.603 +03:00 [INF] Now listening on: https://localhost:63245
+2023-10-16 14:34:52.603 +03:00 [INF] Now listening on: http://localhost:63244
+2023-10-16 14:34:52.606 +03:00 [DBG] Loaded hosting startup assembly OrderWebAPI
+2023-10-16 14:34:52.609 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-16 14:34:52.609 +03:00 [INF] Hosting environment: Development
+2023-10-16 14:34:52.615 +03:00 [INF] Content root path: C:\My\BasicShare\OrderWebAPI
+2023-10-16 14:34:52.615 +03:00 [DBG] Hosting started
+2023-10-16 14:34:52.659 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 57041)
+2023-10-16 14:34:52.685 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/VLADBALKAROV_OrderWebAPI_bus_eo1yyygp5nqn51gubdphhq9jgj?temporary=true"
+2023-10-16 14:34:52.688 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2023-10-16 14:34:52.837 +03:00 [DBG] Connection id "0HMUE7FL101M1" accepted.
+2023-10-16 14:34:52.839 +03:00 [DBG] Connection id "0HMUE7FL101M1" started.
+2023-10-16 14:34:52.892 +03:00 [DBG] Connection id "0HMUE7FL101M2" accepted.
+2023-10-16 14:34:52.892 +03:00 [DBG] Connection id "0HMUE7FL101M1" received FIN.
+2023-10-16 14:34:52.893 +03:00 [DBG] Connection id "0HMUE7FL101M2" started.
+2023-10-16 14:34:52.896 +03:00 [DBG] Connection id "0HMUE7FL101M2" received FIN.
+2023-10-16 14:34:52.897 +03:00 [DBG] Connection id "0HMUE7FL101M3" accepted.
+2023-10-16 14:34:52.897 +03:00 [DBG] Connection id "0HMUE7FL101M3" started.
+2023-10-16 14:34:52.907 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:34:52.910 +03:00 [DBG] Connection 0HMUE7FL101M3 established using the following protocol: "Tls13"
+2023-10-16 14:34:52.907 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:34:52.992 +03:00 [DBG] Connection id "0HMUE7FL101M2" stopped.
+2023-10-16 14:34:52.992 +03:00 [DBG] Connection id "0HMUE7FL101M1" stopped.
+2023-10-16 14:34:52.995 +03:00 [DBG] Connection id "0HMUE7FL101M2" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:34:52.995 +03:00 [DBG] Connection id "0HMUE7FL101M1" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:34:53.007 +03:00 [VRB] Connection id "0HMUE7FL101M3" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:34:53.010 +03:00 [VRB] Connection id "0HMUE7FL101M3" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:34:53.011 +03:00 [VRB] Connection id "0HMUE7FL101M3" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:34:53.011 +03:00 [VRB] Connection id "0HMUE7FL101M3" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:34:53.012 +03:00 [VRB] Connection id "0HMUE7FL101M3" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:34:53.012 +03:00 [VRB] Connection id "0HMUE7FL101M3" received "HEADERS" frame for stream ID 1 with length 452 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-16 14:34:53.020 +03:00 [VRB] Connection id "0HMUE7FL101M3" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:34:53.041 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-16 14:34:53.042 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-16 14:34:53.042 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:34:53.142 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-16 14:34:53.143 +03:00 [DBG] Request did not match any endpoints
+2023-10-16 14:34:53.145 +03:00 [INF] HTTP GET / responded 404 in 99.4905 ms
+2023-10-16 14:34:53.146 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 106.7549ms
+2023-10-16 14:34:53.147 +03:00 [VRB] Connection id "0HMUE7FL101M3" sending "HEADERS" frame for stream ID 1 with length 45 and flags "END_STREAM, END_HEADERS".
+2023-10-16 14:35:01.025 +03:00 [DBG] Connection id "0HMUE7FL101M4" accepted.
+2023-10-16 14:35:01.026 +03:00 [DBG] Connection id "0HMUE7FL101M4" started.
+2023-10-16 14:35:01.033 +03:00 [DBG] Connection 0HMUE7FL101M4 established using the following protocol: "Tls13"
+2023-10-16 14:35:01.040 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:35:01.040 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:35:01.042 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:35:01.043 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:35:01.055 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:35:01.084 +03:00 [DBG] Connection id "0HMUE7FL101M4", Request id "0HMUE7FL101M4:00000001": started reading request body.
+2023-10-16 14:35:01.084 +03:00 [DBG] Connection id "0HMUE7FL101M4", Request id "0HMUE7FL101M4:00000001": done reading request body.
+2023-10-16 14:35:17.086 +03:00 [DBG] Create send transport: "rabbitmq://localhost/create-order-message-queue?bind=true"
+2023-10-16 14:35:33.144 +03:00 [DBG] Declare queue: name: create-order-message-queue, durable, consumer-count: 1 message-count: 0
+2023-10-16 14:35:33.168 +03:00 [DBG] Declare exchange: name: create-order-message-queue, type: fanout, durable
+2023-10-16 14:35:33.169 +03:00 [INF] Executed endpoint 'HTTP: POST api/orders'
+2023-10-16 14:35:33.170 +03:00 [INF] HTTP POST /api/orders responded 200 in 32129.7395 ms
+2023-10-16 14:35:33.172 +03:00 [DBG] Connection id "0HMUE7FL101M4" completed keep alive response.
+2023-10-16 14:35:33.173 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63245/api/orders application/json 213 - 200 - application/json;+charset=utf-8 32133.5678ms
+2023-10-16 14:35:33.178 +03:00 [DBG] Connection id "0HMUE7FL101M4" received FIN.
+2023-10-16 14:35:33.179 +03:00 [DBG] Connection id "0HMUE7FL101M4" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:35:33.179 +03:00 [DBG] Connection id "0HMUE7FL101M4" disconnecting.
+2023-10-16 14:35:33.185 +03:00 [DBG] Connection id "0HMUE7FL101M4" stopped.
+2023-10-16 14:35:33.187 +03:00 [DBG] Bind queue: source: create-order-message-queue, destination: create-order-message-queue
+2023-10-16 14:35:33.389 +03:00 [DBG] SEND "rabbitmq://localhost/create-order-message-queue?bind=true" "44240000-cdd8-9c2d-543f-08dbce3c020c" EventBus.Messages.Interfaces.ICreateOrderMessage
+2023-10-16 14:39:42.543 +03:00 [DBG] Hosting starting
+2023-10-16 14:39:42.715 +03:00 [DBG] Starting bus instances: IBus
+2023-10-16 14:39:42.719 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2023-10-16 14:39:42.807 +03:00 [DBG] Connect: guest@localhost:5672/
+2023-10-16 14:39:42.840 +03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2023-10-16 14:39:42.888 +03:00 [INF] Now listening on: https://localhost:63245
+2023-10-16 14:39:42.889 +03:00 [INF] Now listening on: http://localhost:63244
+2023-10-16 14:39:42.889 +03:00 [DBG] Loaded hosting startup assembly OrderWebAPI
+2023-10-16 14:39:42.889 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-16 14:39:42.889 +03:00 [INF] Hosting environment: Development
+2023-10-16 14:39:42.889 +03:00 [INF] Content root path: C:\My\BasicShare\OrderWebAPI
+2023-10-16 14:39:42.889 +03:00 [DBG] Hosting started
+2023-10-16 14:39:42.923 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 57346)
+2023-10-16 14:39:42.948 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/VLADBALKAROV_OrderWebAPI_bus_b15oyygp5nqn487ibdphhxrsgc?temporary=true"
+2023-10-16 14:39:42.952 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2023-10-16 14:39:43.014 +03:00 [DBG] Connection id "0HMUE7IBGB85H" received FIN.
+2023-10-16 14:39:43.019 +03:00 [DBG] Connection id "0HMUE7IBGB85H" accepted.
+2023-10-16 14:39:43.020 +03:00 [DBG] Connection id "0HMUE7IBGB85H" started.
+2023-10-16 14:39:43.042 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:39:43.086 +03:00 [DBG] Connection id "0HMUE7IBGB85H" stopped.
+2023-10-16 14:39:43.091 +03:00 [DBG] Connection id "0HMUE7IBGB85H" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:39:43.129 +03:00 [DBG] Connection id "0HMUE7IBGB85I" accepted.
+2023-10-16 14:39:43.129 +03:00 [DBG] Connection id "0HMUE7IBGB85I" started.
+2023-10-16 14:39:43.174 +03:00 [DBG] Connection id "0HMUE7IBGB85I" received FIN.
+2023-10-16 14:39:43.175 +03:00 [DBG] Connection id "0HMUE7IBGB85J" accepted.
+2023-10-16 14:39:43.176 +03:00 [DBG] Connection id "0HMUE7IBGB85J" started.
+2023-10-16 14:39:43.185 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:39:43.186 +03:00 [DBG] Connection id "0HMUE7IBGB85I" stopped.
+2023-10-16 14:39:43.186 +03:00 [DBG] Connection id "0HMUE7IBGB85I" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:39:43.190 +03:00 [DBG] Connection 0HMUE7IBGB85J established using the following protocol: "Tls13"
+2023-10-16 14:39:43.208 +03:00 [VRB] Connection id "0HMUE7IBGB85J" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:39:43.212 +03:00 [VRB] Connection id "0HMUE7IBGB85J" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:39:43.212 +03:00 [VRB] Connection id "0HMUE7IBGB85J" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:39:43.213 +03:00 [VRB] Connection id "0HMUE7IBGB85J" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:39:43.213 +03:00 [VRB] Connection id "0HMUE7IBGB85J" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:39:43.213 +03:00 [VRB] Connection id "0HMUE7IBGB85J" received "HEADERS" frame for stream ID 1 with length 443 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-16 14:39:43.224 +03:00 [VRB] Connection id "0HMUE7IBGB85J" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:39:43.249 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-16 14:39:43.251 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-16 14:39:43.251 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:39:43.364 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-16 14:39:43.364 +03:00 [DBG] Request did not match any endpoints
+2023-10-16 14:39:43.367 +03:00 [INF] HTTP GET / responded 404 in 112.9787 ms
+2023-10-16 14:39:43.368 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 120.5024ms
+2023-10-16 14:39:43.369 +03:00 [VRB] Connection id "0HMUE7IBGB85J" sending "HEADERS" frame for stream ID 1 with length 45 and flags "END_STREAM, END_HEADERS".
+2023-10-16 14:40:02.984 +03:00 [DBG] Connection id "0HMUE7IBGB85K" accepted.
+2023-10-16 14:40:02.985 +03:00 [DBG] Connection id "0HMUE7IBGB85K" started.
+2023-10-16 14:40:02.991 +03:00 [DBG] Connection 0HMUE7IBGB85K established using the following protocol: "Tls13"
+2023-10-16 14:40:02.999 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:40:02.999 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:40:03.002 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:40:03.002 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:40:03.014 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:40:03.044 +03:00 [DBG] Connection id "0HMUE7IBGB85K", Request id "0HMUE7IBGB85K:00000001": started reading request body.
+2023-10-16 14:40:03.044 +03:00 [DBG] Connection id "0HMUE7IBGB85K", Request id "0HMUE7IBGB85K:00000001": done reading request body.
+2023-10-16 14:40:43.619 +03:00 [DBG] Hosting starting
+2023-10-16 14:40:43.785 +03:00 [DBG] Starting bus instances: IBus
+2023-10-16 14:40:43.790 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2023-10-16 14:40:43.877 +03:00 [DBG] Connect: guest@localhost:5672/
+2023-10-16 14:40:43.904 +03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2023-10-16 14:40:43.948 +03:00 [INF] Now listening on: https://localhost:63245
+2023-10-16 14:40:43.948 +03:00 [INF] Now listening on: http://localhost:63244
+2023-10-16 14:40:43.948 +03:00 [DBG] Loaded hosting startup assembly OrderWebAPI
+2023-10-16 14:40:43.959 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-16 14:40:43.959 +03:00 [INF] Hosting environment: Development
+2023-10-16 14:40:43.959 +03:00 [INF] Content root path: C:\My\BasicShare\OrderWebAPI
+2023-10-16 14:40:43.959 +03:00 [DBG] Hosting started
+2023-10-16 14:40:43.997 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 57432)
+2023-10-16 14:40:44.024 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/VLADBALKAROV_OrderWebAPI_bus_ey9yyygp5nqn4pixbdphhxf5bu?temporary=true"
+2023-10-16 14:40:44.028 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2023-10-16 14:40:44.373 +03:00 [DBG] Connection id "0HMUE7ITPGGOJ" received FIN.
+2023-10-16 14:40:44.378 +03:00 [DBG] Connection id "0HMUE7ITPGGOJ" accepted.
+2023-10-16 14:40:44.380 +03:00 [DBG] Connection id "0HMUE7ITPGGOJ" started.
+2023-10-16 14:40:44.409 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:40:44.471 +03:00 [DBG] Connection id "0HMUE7ITPGGOJ" stopped.
+2023-10-16 14:40:44.479 +03:00 [DBG] Connection id "0HMUE7ITPGGOJ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:40:44.552 +03:00 [DBG] Connection id "0HMUE7ITPGGOK" accepted.
+2023-10-16 14:40:44.553 +03:00 [DBG] Connection id "0HMUE7ITPGGOK" started.
+2023-10-16 14:40:44.616 +03:00 [DBG] Connection id "0HMUE7ITPGGOK" received FIN.
+2023-10-16 14:40:44.617 +03:00 [DBG] Connection id "0HMUE7ITPGGOL" accepted.
+2023-10-16 14:40:44.617 +03:00 [DBG] Connection id "0HMUE7ITPGGOL" started.
+2023-10-16 14:40:44.634 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:40:44.636 +03:00 [DBG] Connection id "0HMUE7ITPGGOK" stopped.
+2023-10-16 14:40:44.636 +03:00 [DBG] Connection id "0HMUE7ITPGGOK" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:40:44.644 +03:00 [DBG] Connection 0HMUE7ITPGGOL established using the following protocol: "Tls13"
+2023-10-16 14:40:44.677 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:40:44.683 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:40:44.683 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:40:44.685 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:40:44.685 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:40:44.685 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" received "HEADERS" frame for stream ID 1 with length 443 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-16 14:40:44.703 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:40:44.733 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-16 14:40:44.736 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-16 14:40:44.736 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:40:44.891 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-16 14:40:44.892 +03:00 [DBG] Request did not match any endpoints
+2023-10-16 14:40:44.895 +03:00 [INF] HTTP GET / responded 404 in 153.6679 ms
+2023-10-16 14:40:44.897 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 166.5077ms
+2023-10-16 14:40:44.899 +03:00 [VRB] Connection id "0HMUE7ITPGGOL" sending "HEADERS" frame for stream ID 1 with length 45 and flags "END_STREAM, END_HEADERS".
+2023-10-16 14:40:54.431 +03:00 [DBG] Connection id "0HMUE7ITPGGOM" accepted.
+2023-10-16 14:40:54.432 +03:00 [DBG] Connection id "0HMUE7ITPGGOM" started.
+2023-10-16 14:40:54.439 +03:00 [DBG] Connection 0HMUE7ITPGGOM established using the following protocol: "Tls13"
+2023-10-16 14:40:54.445 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:40:54.445 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:40:54.447 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:40:54.448 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:40:54.459 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:40:54.485 +03:00 [DBG] Connection id "0HMUE7ITPGGOM", Request id "0HMUE7ITPGGOM:00000001": started reading request body.
+2023-10-16 14:40:54.485 +03:00 [DBG] Connection id "0HMUE7ITPGGOM", Request id "0HMUE7ITPGGOM:00000001": done reading request body.
+2023-10-16 14:41:55.732 +03:00 [DBG] Hosting starting
+2023-10-16 14:41:55.907 +03:00 [DBG] Starting bus instances: IBus
+2023-10-16 14:41:55.912 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2023-10-16 14:41:56.055 +03:00 [DBG] Connect: guest@localhost:5672/
+2023-10-16 14:41:56.095 +03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2023-10-16 14:41:56.162 +03:00 [INF] Now listening on: https://localhost:63245
+2023-10-16 14:41:56.162 +03:00 [INF] Now listening on: http://localhost:63244
+2023-10-16 14:41:56.162 +03:00 [DBG] Loaded hosting startup assembly OrderWebAPI
+2023-10-16 14:41:56.163 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-16 14:41:56.163 +03:00 [INF] Hosting environment: Development
+2023-10-16 14:41:56.163 +03:00 [INF] Content root path: C:\My\BasicShare\OrderWebAPI
+2023-10-16 14:41:56.163 +03:00 [DBG] Hosting started
+2023-10-16 14:41:56.218 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 57555)
+2023-10-16 14:41:56.261 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/VLADBALKAROV_OrderWebAPI_bus_3o1yyygp5nqn4gu7bdphhx8gbp?temporary=true"
+2023-10-16 14:41:56.267 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2023-10-16 14:41:56.575 +03:00 [DBG] Connection id "0HMUE7JJA2KBI" received FIN.
+2023-10-16 14:41:56.582 +03:00 [DBG] Connection id "0HMUE7JJA2KBI" accepted.
+2023-10-16 14:41:56.584 +03:00 [DBG] Connection id "0HMUE7JJA2KBI" started.
+2023-10-16 14:41:56.611 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:41:56.668 +03:00 [DBG] Connection id "0HMUE7JJA2KBI" stopped.
+2023-10-16 14:41:56.675 +03:00 [DBG] Connection id "0HMUE7JJA2KBI" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:41:56.743 +03:00 [DBG] Connection id "0HMUE7JJA2KBJ" accepted.
+2023-10-16 14:41:56.743 +03:00 [DBG] Connection id "0HMUE7JJA2KBJ" started.
+2023-10-16 14:41:56.827 +03:00 [DBG] Connection id "0HMUE7JJA2KBJ" received FIN.
+2023-10-16 14:41:56.828 +03:00 [DBG] Connection id "0HMUE7JJA2KBK" accepted.
+2023-10-16 14:41:56.828 +03:00 [DBG] Connection id "0HMUE7JJA2KBK" started.
+2023-10-16 14:41:56.833 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:41:56.834 +03:00 [DBG] Connection id "0HMUE7JJA2KBK" received FIN.
+2023-10-16 14:41:56.835 +03:00 [DBG] Connection id "0HMUE7JJA2KBJ" stopped.
+2023-10-16 14:41:56.835 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:41:56.836 +03:00 [DBG] Connection id "0HMUE7JJA2KBJ" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:41:56.836 +03:00 [DBG] Connection id "0HMUE7JJA2KBL" accepted.
+2023-10-16 14:41:56.837 +03:00 [DBG] Connection id "0HMUE7JJA2KBL" started.
+2023-10-16 14:41:56.838 +03:00 [DBG] Connection id "0HMUE7JJA2KBK" stopped.
+2023-10-16 14:41:56.845 +03:00 [DBG] Connection id "0HMUE7JJA2KBK" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:41:56.861 +03:00 [DBG] Connection 0HMUE7JJA2KBL established using the following protocol: "Tls13"
+2023-10-16 14:41:56.897 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:41:56.904 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:41:56.905 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:41:56.907 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:41:56.907 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:41:56.907 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" received "HEADERS" frame for stream ID 1 with length 443 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-16 14:41:56.926 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:41:56.960 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-16 14:41:56.962 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-16 14:41:56.962 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:41:57.127 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-16 14:41:57.128 +03:00 [DBG] Request did not match any endpoints
+2023-10-16 14:41:57.133 +03:00 [INF] HTTP GET / responded 404 in 163.7480 ms
+2023-10-16 14:41:57.136 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 180.0593ms
+2023-10-16 14:41:57.138 +03:00 [VRB] Connection id "0HMUE7JJA2KBL" sending "HEADERS" frame for stream ID 1 with length 45 and flags "END_STREAM, END_HEADERS".
+2023-10-16 14:43:13.704 +03:00 [DBG] Connection id "0HMUE7JJA2KBM" accepted.
+2023-10-16 14:43:13.705 +03:00 [DBG] Connection id "0HMUE7JJA2KBM" started.
+2023-10-16 14:43:13.715 +03:00 [DBG] Connection 0HMUE7JJA2KBM established using the following protocol: "Tls13"
+2023-10-16 14:43:13.728 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:43:13.728 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:43:13.734 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:43:13.735 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:43:13.750 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:43:13.814 +03:00 [DBG] Connection id "0HMUE7JJA2KBM", Request id "0HMUE7JJA2KBM:00000001": started reading request body.
+2023-10-16 14:43:13.814 +03:00 [DBG] Connection id "0HMUE7JJA2KBM", Request id "0HMUE7JJA2KBM:00000001": done reading request body.
+2023-10-16 14:43:20.414 +03:00 [DBG] Create send transport: "rabbitmq://localhost/create-order-message-queue?bind=true"
+2023-10-16 14:43:29.559 +03:00 [DBG] Declare queue: name: create-order-message-queue, durable, consumer-count: 1 message-count: 0
+2023-10-16 14:43:29.576 +03:00 [INF] Executed endpoint 'HTTP: POST api/orders'
+2023-10-16 14:43:29.576 +03:00 [DBG] Declare exchange: name: create-order-message-queue, type: fanout, durable
+2023-10-16 14:43:29.577 +03:00 [INF] HTTP POST /api/orders responded 200 in 15848.9437 ms
+2023-10-16 14:43:29.579 +03:00 [DBG] Connection id "0HMUE7JJA2KBM" completed keep alive response.
+2023-10-16 14:43:29.579 +03:00 [DBG] Connection id "0HMUE7JJA2KBM" received FIN.
+2023-10-16 14:43:29.580 +03:00 [DBG] Connection id "0HMUE7JJA2KBM" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:43:29.580 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63245/api/orders application/json 213 - 200 - application/json;+charset=utf-8 15851.9458ms
+2023-10-16 14:43:29.580 +03:00 [DBG] Connection id "0HMUE7JJA2KBM" disconnecting.
+2023-10-16 14:43:29.582 +03:00 [DBG] Connection id "0HMUE7JJA2KBM" stopped.
+2023-10-16 14:43:29.590 +03:00 [DBG] Bind queue: source: create-order-message-queue, destination: create-order-message-queue
+2023-10-16 14:43:29.695 +03:00 [DBG] SEND "rabbitmq://localhost/create-order-message-queue?bind=true" "cc240000-cdd8-9c2d-83c6-08dbce3d1e05" Mod.Order.EventData.Events.OrderCreatedEvent
+2023-10-16 14:45:47.044 +03:00 [DBG] Connection id "0HMUE7JJA2KBN" accepted.
+2023-10-16 14:45:47.044 +03:00 [DBG] Connection id "0HMUE7JJA2KBN" started.
+2023-10-16 14:45:47.048 +03:00 [DBG] Connection 0HMUE7JJA2KBN established using the following protocol: "Tls13"
+2023-10-16 14:45:47.049 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:45:47.049 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:45:47.049 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:45:47.049 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:45:47.049 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:45:47.049 +03:00 [DBG] Connection id "0HMUE7JJA2KBN", Request id "0HMUE7JJA2KBN:00000001": started reading request body.
+2023-10-16 14:45:47.049 +03:00 [DBG] Connection id "0HMUE7JJA2KBN", Request id "0HMUE7JJA2KBN:00000001": done reading request body.
+2023-10-16 14:55:28.891 +03:00 [DBG] Hosting starting
+2023-10-16 14:55:29.038 +03:00 [DBG] Starting bus instances: IBus
+2023-10-16 14:55:29.041 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2023-10-16 14:55:29.130 +03:00 [DBG] Connect: guest@localhost:5672/
+2023-10-16 14:55:29.159 +03:00 [WRN] The ASP.NET Core developer certificate is not trusted. For information about trusting the ASP.NET Core developer certificate, see https://aka.ms/aspnet/https-trust-dev-cert.
+2023-10-16 14:55:29.197 +03:00 [INF] Now listening on: https://localhost:63245
+2023-10-16 14:55:29.201 +03:00 [INF] Now listening on: http://localhost:63244
+2023-10-16 14:55:29.206 +03:00 [DBG] Loaded hosting startup assembly OrderWebAPI
+2023-10-16 14:55:29.207 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-16 14:55:29.207 +03:00 [INF] Hosting environment: Development
+2023-10-16 14:55:29.207 +03:00 [INF] Content root path: C:\My\BasicShare\OrderWebAPI
+2023-10-16 14:55:29.207 +03:00 [DBG] Hosting started
+2023-10-16 14:55:29.241 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 58346)
+2023-10-16 14:55:29.267 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/VLADBALKAROV_OrderWebAPI_bus_h1pyyygp5nqn4qoubdphhxskg5?temporary=true"
+2023-10-16 14:55:29.270 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2023-10-16 14:55:29.617 +03:00 [DBG] Connection id "0HMUE7R5JRH9J" received FIN.
+2023-10-16 14:55:29.622 +03:00 [DBG] Connection id "0HMUE7R5JRH9J" accepted.
+2023-10-16 14:55:29.623 +03:00 [DBG] Connection id "0HMUE7R5JRH9J" started.
+2023-10-16 14:55:29.644 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:55:29.690 +03:00 [DBG] Connection id "0HMUE7R5JRH9J" stopped.
+2023-10-16 14:55:29.695 +03:00 [DBG] Connection id "0HMUE7R5JRH9J" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:55:29.755 +03:00 [DBG] Connection id "0HMUE7R5JRH9K" accepted.
+2023-10-16 14:55:29.755 +03:00 [DBG] Connection id "0HMUE7R5JRH9K" started.
+2023-10-16 14:55:29.795 +03:00 [DBG] Connection id "0HMUE7R5JRH9K" received FIN.
+2023-10-16 14:55:29.796 +03:00 [DBG] Connection id "0HMUE7R5JRH9L" accepted.
+2023-10-16 14:55:29.796 +03:00 [DBG] Connection id "0HMUE7R5JRH9L" started.
+2023-10-16 14:55:29.806 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.Security.Authentication.AuthenticationException: Authentication failed, see inner exception.
+ ---> System.ComponentModel.Win32Exception (0x80090327): An unknown error occurred while processing the certificate.
+   --- End of inner exception stack trace ---
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2023-10-16 14:55:29.807 +03:00 [DBG] Connection id "0HMUE7R5JRH9K" stopped.
+2023-10-16 14:55:29.807 +03:00 [DBG] Connection id "0HMUE7R5JRH9K" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:55:29.812 +03:00 [DBG] Connection 0HMUE7R5JRH9L established using the following protocol: "Tls13"
+2023-10-16 14:55:29.831 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:55:29.834 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:55:29.835 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2023-10-16 14:55:29.835 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:55:29.836 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2023-10-16 14:55:29.836 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" received "HEADERS" frame for stream ID 1 with length 443 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2023-10-16 14:55:29.846 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2023-10-16 14:55:29.870 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63245/ - -
+2023-10-16 14:55:29.871 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-16 14:55:29.872 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:55:29.974 +03:00 [DBG] No candidates found for the request path '/'
+2023-10-16 14:55:29.974 +03:00 [DBG] Request did not match any endpoints
+2023-10-16 14:55:29.977 +03:00 [INF] HTTP GET / responded 404 in 101.6594 ms
+2023-10-16 14:55:29.978 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63245/ - - - 404 0 - 109.3704ms
+2023-10-16 14:55:29.980 +03:00 [VRB] Connection id "0HMUE7R5JRH9L" sending "HEADERS" frame for stream ID 1 with length 45 and flags "END_STREAM, END_HEADERS".
+2023-10-16 14:55:55.665 +03:00 [DBG] Connection id "0HMUE7R5JRH9M" accepted.
+2023-10-16 14:55:55.666 +03:00 [DBG] Connection id "0HMUE7R5JRH9M" started.
+2023-10-16 14:55:55.673 +03:00 [DBG] Connection 0HMUE7R5JRH9M established using the following protocol: "Tls13"
+2023-10-16 14:55:55.684 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-16 14:55:55.685 +03:00 [VRB] All hosts are allowed.
+2023-10-16 14:55:55.689 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-16 14:55:55.689 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-16 14:55:55.702 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-16 14:55:55.746 +03:00 [DBG] Connection id "0HMUE7R5JRH9M", Request id "0HMUE7R5JRH9M:00000001": started reading request body.
+2023-10-16 14:55:55.747 +03:00 [DBG] Connection id "0HMUE7R5JRH9M", Request id "0HMUE7R5JRH9M:00000001": done reading request body.
+2023-10-16 14:56:06.765 +03:00 [DBG] Create send transport: "rabbitmq://localhost/create-order-message-queue?bind=true"
+2023-10-16 14:56:13.864 +03:00 [DBG] Declare queue: name: create-order-message-queue, durable, consumer-count: 1 message-count: 0
+2023-10-16 14:56:13.879 +03:00 [INF] Executed endpoint 'HTTP: POST api/orders'
+2023-10-16 14:56:13.880 +03:00 [INF] HTTP POST /api/orders responded 200 in 18195.0165 ms
+2023-10-16 14:56:13.881 +03:00 [DBG] Connection id "0HMUE7R5JRH9M" completed keep alive response.
+2023-10-16 14:56:13.881 +03:00 [DBG] Connection id "0HMUE7R5JRH9M" received FIN.
+2023-10-16 14:56:13.882 +03:00 [DBG] Connection id "0HMUE7R5JRH9M" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-16 14:56:13.882 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63245/api/orders application/json 213 - 200 - application/json;+charset=utf-8 18197.6088ms
+2023-10-16 14:56:13.882 +03:00 [DBG] Connection id "0HMUE7R5JRH9M" disconnecting.
+2023-10-16 14:56:13.884 +03:00 [DBG] Connection id "0HMUE7R5JRH9M" stopped.
+2023-10-16 14:56:13.890 +03:00 [DBG] Declare exchange: name: create-order-message-queue, type: fanout, durable
+2023-10-16 14:56:13.903 +03:00 [DBG] Bind queue: source: create-order-message-queue, destination: create-order-message-queue
+2023-10-16 14:56:13.997 +03:00 [DBG] SEND "rabbitmq://localhost/create-order-message-queue?bind=true" "e49a0000-cdd8-9c2d-0c57-08dbce3ee596" MassTransitBase.IBaseSagaMessage

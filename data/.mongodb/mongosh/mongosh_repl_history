@@ -1,8 +1,0 @@
-whoami
-db.system.users.find()
-use admin
-..
-cd ..
-cd ../
-mongosh
-mongo

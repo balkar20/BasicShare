@@ -1,0 +1,24 @@
+2023-10-18 18:00:28.540 +03:00 [DBG] Connection id "0HMUFTBF8PSRR" accepted.
+2023-10-18 18:00:28.544 +03:00 [DBG] Connection id "0HMUFTBF8PSRR" started.
+2023-10-18 18:00:28.576 +03:00 [DBG] Connection 0HMUFTBF8PSRR established using the following protocol: "Tls13"
+2023-10-18 18:00:28.657 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63245/api/orders application/json 213
+2023-10-18 18:00:28.660 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2023-10-18 18:00:28.661 +03:00 [VRB] All hosts are allowed.
+2023-10-18 18:00:28.818 +03:00 [DBG] 1 candidate(s) found for the request path '/api/orders'
+2023-10-18 18:00:28.820 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/orders'
+2023-10-18 18:00:28.832 +03:00 [INF] Executing endpoint 'HTTP: POST api/orders'
+2023-10-18 18:00:28.871 +03:00 [DBG] Connection id "0HMUFTBF8PSRR", Request id "0HMUFTBF8PSRR:00000001": started reading request body.
+2023-10-18 18:00:28.871 +03:00 [DBG] Connection id "0HMUFTBF8PSRR", Request id "0HMUFTBF8PSRR:00000001": done reading request body.
+2023-10-18 18:00:30.042 +03:00 [DBG] Create send transport: "rabbitmq://localhost/create-order-message-queue?bind=true"
+2023-10-18 18:00:35.027 +03:00 [DBG] Declare queue: name: create-order-message-queue, durable, consumer-count: 1 message-count: 0
+2023-10-18 18:00:35.060 +03:00 [DBG] Declare exchange: name: create-order-message-queue, type: fanout, durable
+2023-10-18 18:00:35.062 +03:00 [INF] Executed endpoint 'HTTP: POST api/orders'
+2023-10-18 18:00:35.066 +03:00 [INF] HTTP POST /api/orders responded 200 in 6396.1518 ms
+2023-10-18 18:00:35.071 +03:00 [DBG] Connection id "0HMUFTBF8PSRR" completed keep alive response.
+2023-10-18 18:00:35.072 +03:00 [DBG] Connection id "0HMUFTBF8PSRR" received FIN.
+2023-10-18 18:00:35.072 +03:00 [DBG] Connection id "0HMUFTBF8PSRR" sending FIN because: "The Socket transport's send loop completed gracefully."
+2023-10-18 18:00:35.073 +03:00 [DBG] Connection id "0HMUFTBF8PSRR" disconnecting.
+2023-10-18 18:00:35.074 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63245/api/orders application/json 213 - 200 - application/json;+charset=utf-8 6422.1767ms
+2023-10-18 18:00:35.078 +03:00 [DBG] Connection id "0HMUFTBF8PSRR" stopped.
+2023-10-18 18:00:35.081 +03:00 [DBG] Bind queue: source: create-order-message-queue, destination: create-order-message-queue
+2023-10-18 18:00:35.271 +03:00 [DBG] SEND "rabbitmq://localhost/create-order-message-queue?bind=true" "54710000-cdd8-9c2d-a533-08dbcfeafb5b" EventBus.Messages.Interfaces.ICreateOrderMessage
