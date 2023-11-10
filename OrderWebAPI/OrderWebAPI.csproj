@@ -35,10 +35,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="logs\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Remove="WeatherForecast.cs" />
     <Compile Remove="EndpointDefinitions\SwaggerEndpointDefinition.cs" />
   </ItemGroup>

@@ -32,8 +32,5 @@
     <None Remove="logs\log2023101117.txt" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="logs\" />
-  </ItemGroup>
 
 </Project>
