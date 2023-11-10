@@ -26,7 +26,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\ClientLibrary\ClientLibrary.csproj" />
-    <ProjectReference Include="..\..\Mod.Auth.Models\Mod.Auth.Models.csproj" />
+    <ProjectReference Include="..\..\Mods\Auth\Mod.Auth.Models\Mod.Auth.Models.csproj" />
   </ItemGroup>
 
 <!--    <ItemGroup>-->

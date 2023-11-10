@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Mod.Order.Root\Mod.Order.Root.csproj" />
+    <ProjectReference Include="$(ProjectModsDir)\Order\Mod.Order.Root\Mod.Order.Root.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -13,7 +13,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\Mod.Auth.Root\Mod.Auth.Root.csproj" />
+        <ProjectReference Include="..\..\Mods\Auth\Mod.Auth.Root\Mod.Auth.Root.csproj" />
         <ProjectReference Include="..\Client\IdentityProvider.Client.csproj" />
     </ItemGroup>
 

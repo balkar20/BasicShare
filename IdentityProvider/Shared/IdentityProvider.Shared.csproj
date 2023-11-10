@@ -26,6 +26,6 @@
     </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Core.Transfer\Core.Transfer.csproj" />
+    <ProjectReference Include="$(ProjectCoreDir)\Core.Transfer\Core.Transfer.csproj" />
   </ItemGroup>
 </Project>

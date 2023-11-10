@@ -1,10 +1,8 @@
 using System.Globalization;
 using Apps.Blazor.Identity.IdentityProvider.Server.EndpointDefinitions;
 using Apps.Blazor.Identity.IdentityProvider.Server.Extensions;
-using Data.IdentityDb;
 using Apps.Blazor.Identity.IdentityProvider.Server.Middlewares;
 using IdentityProvider.Server.Hubs;
-using Microsoft.AspNetCore.Localization;
 using Mod.Auth.Root;
 
 namespace Apps.Blazor.Identity.IdentityProvider.Server.Helpers;
