@@ -6,5 +6,7 @@
     <ProjectCoreDir>$(ProjectRootDir)\Core\</ProjectCoreDir>
     <ProjectInfrastructureDir>$(ProjectRootDir)\Infrastructure\</ProjectInfrastructureDir>
     <ProjectDataDir>$(ProjectRootDir)\Data\</ProjectDataDir>
+    <ProjectAppsDir>$(ProjectRootDir)\Apps\</ProjectAppsDir>
+    <ProjectStateMachinesDir>$(ProjectRootDir)\StateMachines\</ProjectStateMachinesDir>
   </PropertyGroup>
 </Project>
