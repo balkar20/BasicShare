@@ -8,5 +8,10 @@
     <ProjectDataDir>$(ProjectRootDir)\Data\</ProjectDataDir>
     <ProjectAppsDir>$(ProjectRootDir)\Apps\</ProjectAppsDir>
     <ProjectStateMachinesDir>$(ProjectRootDir)\StateMachines\</ProjectStateMachinesDir>
+    <ProjectDeploymentDir>$(ProjectRootDir)\Deployment\</ProjectDeploymentDir>
+    <ProjectDeploymentKubDir>$(ProjectDeploymentDir)\Kub\</ProjectDeploymentKubDir>
+    <ProjectDeploymentJenkinsDir>$(ProjectDeploymentDir)\Jenkins\</ProjectDeploymentJenkinsDir>
+    <ProjectDeploymentTeamCityDir>$(ProjectDeploymentDir)\TeamCity\</ProjectDeploymentTeamCityDir>
+    <ProjectDeploymentDockerDir>$(ProjectDeploymentDir)\Docker\</ProjectDeploymentDockerDir>
   </PropertyGroup>
 </Project>
