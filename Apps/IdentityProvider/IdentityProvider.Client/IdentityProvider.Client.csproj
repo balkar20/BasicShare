@@ -1,0 +1,94 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>annotations</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+      <BlazorWebAssemblyLoadAllGlobalizationData>true</BlazorWebAssemblyLoadAllGlobalizationData>
+  </PropertyGroup>
+
+    <ItemGroup>
+        <Watch Include="..\**\*.razor" />
+        <Watch Include="..\**\*.scss" />
+        <Watch Include="..\**\*.css" />
+        <Watch Include="..\**\*.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <SupportedPlatform Include="browser" />
+    </ItemGroup>
+  <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0" PrivateAssets="all" />
+      <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.7" />
+      <PackageReference Include="NPOI" Version="2.6.0" />
+    <PackageReference Include="TinyCsvParser" Version="2.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityProvider.ClientLibrary\ClientLibrary.csproj" />
+    <ProjectReference Include="$(ProjectModsDir)\Auth\Mod.Auth.Models\Mod.Auth.Models.csproj" />
+  </ItemGroup>
+
+<!--    <ItemGroup>-->
+<!--        <PackageReference Include="Google.Protobuf" Version="3.24.4"/>-->
+<!--        <PackageReference Include="Grpc.Net.Client" Version="2.58.0"/>-->
+<!--        <PackageReference Include="Grpc.Tools" Version="2.59.0">-->
+<!--            <PrivateAssets>all</PrivateAssets>-->
+<!--            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>-->
+<!--        </PackageReference>-->
+<!--    </ItemGroup>-->
+
+  <ItemGroup>
+    <EmbeddedResource Update="Shared\Resources\Resource.ru-RU.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resource.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Resource.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Resources\Resource.en-US.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en-US.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Resources\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Shared\Resources\Resource.ru.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ru.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Shared\Resources\Resource.ru-RU.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.ru-RU.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Shared\Resources\Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Shared\Resources\Resource.ru.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.ru.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Resources\MainLayout.resx" />
+    <EmbeddedResource Remove="Resources\MainLayout.ru-RU.resx" />
+    <EmbeddedResource Remove="Resources\MainLayout.en-us.resx" />
+    <EmbeddedResource Remove="Resources\MainLayout.ru.resx" />
+  </ItemGroup>
+    
+
+</Project>

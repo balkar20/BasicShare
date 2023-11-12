@@ -1,0 +1,108 @@
+﻿@page "/"
+@using IdentityProvider.Shared
+@using ClientLibrary.Interfaces
+@using Microsoft.Extensions.Localization
+@using ClientLibrary.Enums
+@using ClientLibrary.Resources
+
+
+@inject IBaseMvvmViewModel<UserViewModel> ViewModel
+
+@if (ViewModel.StatusType == StatusTypes.Loading)
+{
+    <MudProgressLinear Color="Color.Primary" Indeterminate="true" Class="my-7" />
+}
+@if (ViewModel.StatusType == StatusTypes.Success)
+{
+    <CascadingValue Value=@ViewModel Name="ViewModel">
+        <MudPaper Style="background-color: inherit" Elevation="0" Class="d-flex justify-space-between flex-grow-1 gap-1">
+            <MudPaper Elevation="0" Style="background-color: inherit; border-right: 3px solid #78003b" class="d-flex align-self-center">
+                <MudIconButton Icon="@Icons.Material.Filled.Explore" aria-label="explore"></MudIconButton >
+            </MudPaper>
+            
+            <MudPaper Style="background-color: inherit" Elevation="0" Class="d-flex justify-space-between flex-grow-1 flex-wrap">
+                <MudChipSet Class="d-flex justify-space-between flex-grow-1 flex-wrap" @bind-SelectedChips="selectedChips" MultiSelection="true" Filter="true" >
+                    @foreach (var label in ViewModel.DataLabels)
+                    {
+                        <MudChip OnClick="ClickChipHandle" Value="@label" SelectedColor="Color.Primary" Color="Color.Default">@label</MudChip>
+                    }
+                </MudChipSet>
+            </MudPaper>
+
+            <MudPaper Elevation="0" Style="background-color: inherit; border-left: 3px solid #78003b;"  Class="d-flex" >
+                <MudTextField @bind-Value="DataListPagingModel.Filter.StringValue" OnKeyUp="FilterDataListOnKeyUp" Immediate="true" Placeholder="@Localizer.GetString(ClientResourceConstants.Search)" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                <MudButton Disabled="@_processing" OnClick="FindUsersInCache" Variant="Variant.Filled" Color="Color.Primary">
+                    @if (_processing)
+                    {
+                        <MudProgressCircular Class="ms-n1" Size="Size.Small" Indeterminate="true"/>
+                        <MudText Class="ms-2">Processing</MudText>
+                    }
+                    else
+                    {
+                        <MudText>@Localizer.GetString(ClientResourceConstants.Find)</MudText>
+                    }
+                </MudButton>
+            </MudPaper>
+        </MudPaper>
+
+        <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
+
+        <MudGrid Justify="Justify.Center">
+            @foreach (var pooper in ViewModel.ViewDataList)
+            {
+                <MudItem Class="rounded-xl" Style="width: 50vh;">
+                    <MudCard>
+                        <MudCardHeader>
+                            <CardHeaderAvatar>
+                                <MudAvatar Image="poop.svg.png" Color="Color.Secondary">I</MudAvatar>
+                            </CardHeaderAvatar>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.body1">@pooper.UserName</MudText>
+                                <MudText Typo="Typo.body1">@pooper.AmountOfPoints</MudText>
+                            </CardHeaderContent>
+                            <CardHeaderActions>
+                                <AuthorizeView Roles="Administrator">
+                                    <Authorized>
+                                        <MudIconButton OnClick="@(() => OpenDialog(pooper))" Icon="@Icons.Material.Filled.Edit" Color="Color.Dark"/>
+                                    </Authorized>
+                                    <NotAuthorized>
+                                        <MudText Typo="Typo.body2">Just Poo</MudText>
+                                    </NotAuthorized>
+                                </AuthorizeView>
+                                <AuthorizeView Roles="Pooper">
+                                    <Authorized>
+                                        @* <MudText Typo="Typo.body2">@Localizer.GetString("FuckingPoo").Value</MudText> *@
+                                    </Authorized>
+                                </AuthorizeView>
+                            </CardHeaderActions>
+                        </MudCardHeader>
+                        @if (!string.IsNullOrWhiteSpace(pooper.Image))
+                        {
+                            <MudCardMedia Image="@pooper.Image"/>
+                        }
+                        else
+                        {
+                            <MudCardMedia Image="poop.svg.png"/>
+                        }
+                        <MudCardContent>
+                            <MudText Typo="Typo.body2">@pooper.Description</MudText>
+                        </MudCardContent>
+                        <MudCardContent>
+                            @foreach (var tag in pooper.Claims)
+                            {
+                                <MudChip Disabled="true" Color="Color.Secondary">@tag</MudChip>
+                            }
+                        </MudCardContent>
+                        <MudCardActions>
+                            <MudIconButton Icon="@Icons.Material.Filled.Favorite" Color="Color.Default"/>
+                            <MudIconButton Icon="@Icons.Material.Filled.Share" Color="Color.Default"/>
+                            <MudIcon Icon="@Icons.TwoTone.Animation" Color="Color.Info"/>
+                        </MudCardActions>
+                    </MudCard>
+                </MudItem>
+            }
+
+        </MudGrid>
+        <MudPagination Color="Color.Primary" Count=" PooperViewModel.IsFailed ? PooperViewModel.TotalFilteredPages : PooperViewModel.TotalPages" Selected="@DataListPagingModel.CurrentPage" SelectedChanged="SetSelected"/>
+    </CascadingValue>
+}

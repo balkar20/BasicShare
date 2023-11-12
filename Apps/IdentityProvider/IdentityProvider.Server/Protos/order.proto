@@ -1,0 +1,21 @@
+//syntax = "proto3";
+//
+//option csharp_namespace = "IdentityProvider.Server";
+//
+//package order;
+//
+//// The greeting service definition.
+//service CreateOrder {
+//  // Sends a greeting
+//  rpc SayDoze (CreateOrderRequest) returns (CreateOrderReply);
+//}
+//
+//// The request message containing the user's name.
+//message CreateOrderRequest {
+//  string name = 1;
+//}
+//
+//// The response message containing the greetings.
+//message CreateOrderReply {
+//  string message = 1;
+//}

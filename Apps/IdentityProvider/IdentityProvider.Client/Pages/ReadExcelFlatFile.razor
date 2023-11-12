@@ -1,0 +1,57 @@
+﻿@* @page "/Readexcelflatfile" *@
+@* @using IdentityProvider.Shared *@
+@* *@
+@* <h3>ReadExcelFlatFile</h3> *@
+@* <InputFile OnChange="@LoadFiles" multiple /> *@
+@* @if (productPricingViewModelList == null) *@
+@* { *@
+@*     <p><em>Loading...</em></p> *@
+@* } *@
+@* else{ *@
+@*      <p> *@
+@*         <MudSelect Label="Business Channels"  ValueChanged="BusinessChannelOptionChanged" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" T="DropDownModel<BusinessChannelViewModel>"> *@
+@* *@
+@*             @foreach (var item in DdBusnessChannelList) *@
+@*             {    *@
+@*             <MudSelectItem Value="@item" /> *@
+@*             } *@
+@*             *@
+@*         </MudSelect> *@
+@*         <MudSelect Label="Products"  ValueChanged="ProductOptionChanged" Variant="Variant.Filled" AnchorOrigin="Origin.BottomCenter" T="DropDownModel<ProductViewModel>"> *@
+@* *@
+@*             @foreach (var item in DdProductlList) *@
+@*             {    *@
+@*             <MudSelectItem Value="@item" /> *@
+@*             } *@
+@*             *@
+@*         </MudSelect> *@
+@*      </p> *@
+@*     <h3>Table</h3> *@
+@*     <table class="table"> *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th>Rate</th> *@
+@*             <th>PriceByCommitment15</th> *@
+@*             <th>PriceByCommitment30</th> *@
+@*             <th>PriceByCommitment45</th> *@
+@*             <th>PriceByCommitment60</th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@*         @foreach (var productPricing in productPricingViewModelList) *@
+@*         { *@
+@*             <tr> *@
+@*                 <td>@productPricing.Rate</td> *@
+@*                 <td>@productPricing.PriceByCommitment15</td> *@
+@*                 <td>@productPricing.PriceByCommitment30</td> *@
+@*                 <td>@productPricing.PriceByCommitment45</td> *@
+@*                 <td>@productPricing.PriceByCommitment60</td> *@
+@*             </tr> *@
+@*         } *@
+@*     </tbody> *@
+@* </table> *@
+@* } *@
+@* *@
+@* *@
+@* *@
+@* *@

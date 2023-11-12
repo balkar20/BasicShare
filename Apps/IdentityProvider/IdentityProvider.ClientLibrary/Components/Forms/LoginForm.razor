@@ -1,0 +1,22 @@
+<MudForm  OnValidSubmit="@(async () => await OnValidSubmit())" Model="@_mvvmViewModel.Data">
+    <MudTextField @bind-Value="_mvvmViewModel.Data.Email"                              
+                  For="@(() => _mvvmViewModel.Data.Email)"
+                  Immediate="true"
+                  Required="true"
+                  RequiredError="Enter Email"
+                  Label="Email" 
+                  Placeholder="Enter Email"/>
+    <MudTextField @bind-Value="_mvvmViewModel.Data.Password"                              
+                  For="@(() => _mvvmViewModel.Data.Password)"
+                  Immediate="true"
+                  Label="Password"
+                  Required="true"
+                  RequiredError="Enter Password"
+                  Placeholder="Enter Password"
+                  InputType="InputType.Password"/>
+    <div class="d-flex align-center justify-space-between">
+        <MudCheckBox T="bool" Required="true" RequiredError="You must agree" Label="I agree!"/>
+        <MudButton OnClick="async () => await  OnValidSubmit()" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Login</MudButton>
+    </div>
+</MudForm>
+<NavLink href="account/register" class="btn btn-link">Register</NavLink>

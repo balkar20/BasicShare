@@ -1,0 +1,23 @@
+
+@using ClientLibrary.Enums
+@inherits MudDialog;
+@typeparam TModel
+@* <BaseDialog> *@
+    @if (ViewModel.StatusType == StatusTypes.Error)
+            {
+                <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(async () => await Close())">Error saving</MudAlert>
+            }
+            @if (ViewModel.StatusType == StatusTypes.Success)
+            {
+                <MudAlert Severity="Severity.Success" ContentAlignment="HorizontalAlignment.Right" ShowCloseIcon="true" CloseIconClicked="(async () => await Close())">Saved!</MudAlert>
+            }
+    <MudForm Model="@Model" OnInvalidSubmit="@HandleValidSubmit">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+        @ChildContent
+        <div class="d-flex justify-content-end">
+            <MudButton ButtonType="ButtonType.Submit" Color="Color.Primary" Variant="Variant.Filled" Type="ButtonType.Submit">Submit</MudButton>
+            <MudButton Color="Color.Secondary" Variant="Variant.Outlined" OnClick="@(async () => await Close())">Cancel</MudButton>
+        </div>
+    </MudForm>
+@* </BaseDialog> *@
