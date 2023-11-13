@@ -1,5 +1,6 @@
 using Apps.ProductWebAPI.Extensions;
 using Apps.EndpointDefinitions.ProductWebAPI;
+using Microsoft.EntityFrameworkCore;
 using Storage.AppStorage;
 using Mod.Product.Root;
 using ProductWebApi.Middlewares;
@@ -25,7 +26,7 @@ public class StartupHelper
         startupConfigurator.Configure();
     }
     
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    public async Task Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if (env.IsDevelopment())
         {
@@ -36,11 +37,13 @@ public class StartupHelper
 
         app.UseMiddleware<ErrorHandlerMiddleware>();
 
-        using (var serviceScope = app.ApplicationServices?.CreateScope())
-        {
-            var context = serviceScope?.ServiceProvider.GetRequiredService<ApiDbContext>();
-            context?.Database.EnsureCreated();
-        }
+        // using (var serviceScope = app.ApplicationServices?.CreateScope())
+        // {
+        //     var context = serviceScope?.ServiceProvider.GetRequiredService<ApiDbContext>();
+        //     
+        //     context?.Database.EnsureCreated();
+        //     // await context?.Database?.MigrateAsync();
+        // }
         //to log Requests
         app.UseSerilogRequestLogging();
 
