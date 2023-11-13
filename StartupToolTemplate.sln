@@ -151,6 +151,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SlnEnv", "SlnEnv", "{D7871F
 		Directory.Build.props = Directory.Build.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModGenerator", "Apps\ModGenerator\ModGenerator.csproj", "{D02EF94E-CFE7-4418-A8F8-709B4B7FA7DB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -321,6 +323,10 @@ Global
 		{DF13E321-C963-404A-AC33-7047EDBB5AC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DF13E321-C963-404A-AC33-7047EDBB5AC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DF13E321-C963-404A-AC33-7047EDBB5AC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D02EF94E-CFE7-4418-A8F8-709B4B7FA7DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D02EF94E-CFE7-4418-A8F8-709B4B7FA7DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D02EF94E-CFE7-4418-A8F8-709B4B7FA7DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D02EF94E-CFE7-4418-A8F8-709B4B7FA7DB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -384,6 +390,7 @@ Global
 		{7C35777D-9CF4-4B2D-8B2F-3EF3D6D63876} = {E3E0D070-D623-4D83-B8A1-D78402B40F5F}
 		{8E3B91FB-0761-4923-8911-7E119C77E5B9} = {E3E0D070-D623-4D83-B8A1-D78402B40F5F}
 		{0726C80A-F9D5-412D-85AE-FDEFB90E80C4} = {3C70DCF3-DA64-486F-A562-A8617CC66EFD}
+		{D02EF94E-CFE7-4418-A8F8-709B4B7FA7DB} = {5F28A828-E427-4F6E-BF99-7B42746B0051}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EEF22E60-9505-4791-B3FA-697E4DB2FE75}

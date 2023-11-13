@@ -66,3 +66,7 @@ docker push balkar20/productwebapi:latest
 
 jenkins_home/backups
 Front -- left stick navbar ====>Drawer mudblazor
+
+Generate mods based on templates:
+1.Generate template based on template.json files:
+dotnet new modproductroot -o "Mod.Shipment.Root" -c Shipment
