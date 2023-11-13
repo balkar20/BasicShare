@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "Vlad Balkarov",
+    "name": "Mods For BasicShare",
+    "description": "A project for creating a ModsSevices in BasicShare.",
+    "identity": "Mod.Product.Sevices",
+    "shortName": "modproductsevices",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "symbols":{
+        "copyrightName": {
+          "type": "parameter",
+          "defaultValue": "NewItem",
+          "fileRename": "Product",
+          "replaces":"Product"
+        },
+        "title": {
+          "type": "parameter",
+          "defaultValue": "Hello Web",
+          "replaces":"Sayed Web"
+        }
+    },
+    "sourceName": "Mod.Product.Sevices",
+    "preferNameDirectory": true
+  }
