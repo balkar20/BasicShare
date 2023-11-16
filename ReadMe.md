@@ -72,4 +72,7 @@ Generate mods based on templates:
 dotnet new modproductroot -o "Mod.Shipment.Root" -c Shipment
 
 
-C:\Code\BasicShare\Mods Mod.Noty
+C:\Code\BasicShare\Mods Noty
+
+When you generated folders you can add them to sln folders using for example:
+dotnet sln add Mods/Noty/Mods.Noty.Base/Mods.Noty.Base.csproj

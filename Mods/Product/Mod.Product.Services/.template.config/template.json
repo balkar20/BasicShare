@@ -2,9 +2,9 @@
     "$schema": "https://json.schemastore.org/template",
     "author": "Vlad Balkarov",
     "name": "Mods For BasicShare",
-    "description": "A project for creating a ModsSevices in BasicShare.",
-    "identity": "Mod.Product.Sevices",
-    "shortName": "modproductsevices",
+    "description": "A project for creating a ModsServices in BasicShare.",
+    "identity": "Mod.Product.Services",
+    "shortName": "modproductservices",
     "tags": {
       "language": "C#",
       "type": "project"
@@ -22,6 +22,6 @@
           "replaces":"Sayed Web"
         }
     },
-    "sourceName": "Mod.Product.Sevices",
+    "sourceName": "Mod.Product.Services",
     "preferNameDirectory": true
   }
