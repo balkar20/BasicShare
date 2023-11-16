@@ -13,3 +13,23 @@ p1.WaitForExit();
 var p2 = Process.Start("generate.cmd", $"{path} {mod}");
 p2.WaitForExit();
 Console.ReadLine();
+
+var coreBasePath = $"{path}\\Core\\Core.Base\\";
+var coreConfigInterfacesFolder = $"{coreBasePath}ConfigurationInterfaces";
+
+// Raname(mod, coreConfigInterfacesFolder, "IProductApiConfiguration.cs");
+// Raname(mod, coreConfigInterfacesFolder);
+
+
+static void Raname(string mod, string coreConfigFolder, string fileName )
+{
+    
+    var coreConfigInterfacesProductInterface = $"{coreConfigFolder}\\IProductApiConfiguration.cs";
+    var coreConfigInterfacesNewInterface = coreConfigInterfacesProductInterface.Replace("Product", mod);
+
+
+    var  coreConfigInterfacesProductInterfaceText = File.ReadAllText(coreConfigInterfacesProductInterface);
+    var newText = coreConfigInterfacesProductInterfaceText.Replace("Product", mod);
+
+    File.WriteAllText(coreConfigInterfacesNewInterface, newText);
+}

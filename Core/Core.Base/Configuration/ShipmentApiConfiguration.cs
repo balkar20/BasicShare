@@ -1,6 +1,8 @@
+using Core.Base.ConfigurationInterfaces;
+
 namespace Core.Base.Configuration;
 
-public class ShipmentApiConfiguration
+public class ShipmentApiConfiguration:BaseConfiguration, IShipmentApiConfiguration
 {
     public const string AuthConfiguration = "AuthConfiguration";
     
@@ -23,4 +25,8 @@ public class ShipmentApiConfiguration
     public bool CorsAllowAnyOrigin { get; set; }
 
     public string[]? CorsAllowOrigins { get; set; }
+
+    public ShipmentApiConfiguration(Func<string, string> getConfigFunc) : base(getConfigFunc)
+    {
+    }
 }
