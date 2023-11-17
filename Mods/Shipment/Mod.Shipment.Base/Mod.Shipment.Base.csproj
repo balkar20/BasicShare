@@ -4,18 +4,17 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Mod.Product</RootNamespace>
+        <RootNamespace>Mod.Shipment</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="$(ProjectRootDir)\Core\Core.Transfer\Core.Transfer.csproj" />
       <ProjectReference Include="$(ProjectRootDir)\Infrastructure\Interfaces\Interfaces.csproj" />
-      <ProjectReference Include="..\Mod.Product.Interfaces\Mod.Product.Interfaces.csproj" />
+      <ProjectReference Include="..\Mod.Shipment.Interfaces\Mod.Shipment.Interfaces.csproj" />
     </ItemGroup>
 
-    <ItemGroup><!--      <PackageReference Include="Serilog" Version="3.0.0-dev-01939" />-->
-    
-      <Content Include=".template.config\template.json" />
+    <ItemGroup>
+<!--      <PackageReference Include="Serilog" Version="3.0.0-dev-01939" />-->
     </ItemGroup>
 
 </Project>

@@ -16,8 +16,9 @@
       <ProjectReference Include="..\Mod.Order.Models\Mod.Order.Models.csproj" />
     </ItemGroup>
 
+
     <ItemGroup>
-      <Folder Include="Listeners\" />
+      <Content Include=".template.config\template.json" />
     </ItemGroup>
 
 </Project>

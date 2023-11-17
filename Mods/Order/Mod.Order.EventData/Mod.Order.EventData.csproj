@@ -9,6 +9,10 @@
     <ItemGroup>
         <ProjectReference Include="$(ProjectCoreDir)\Core.Base\Core.Base.csproj"/>
         <ProjectReference Include="$(ProjectDataDir)\Objects\Objects.csproj"/>
+    <ItemGroup>
+      <Content Include=".template.config\template.json" />
+    </ItemGroup>
+
     </ItemGroup>
 
 

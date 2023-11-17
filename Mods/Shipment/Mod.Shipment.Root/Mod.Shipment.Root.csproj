@@ -4,21 +4,17 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <RootNamespace>Mod.Order.Root</RootNamespace>
+        <RootNamespace>Mod.Shipment.Root</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Mod.Order.Base\Mod.Order.Base.csproj" />
-      <ProjectReference Include="..\Mod.Order.Services\Mod.Order.Services.csproj" />
+      <ProjectReference Include="..\Mod.Shipment.Base\Mod.Shipment.Base.csproj" />
+      <ProjectReference Include="..\Mod.Shipment.Services\Mod.Shipment.Services.csproj" />
     </ItemGroup>
 
     <ItemGroup><!--      <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />-->
     
       <PackageReference Include="MassTransit.RabbitMQ" Version="8.1.1-develop.1544" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Include=".template.config\template.json" />
     </ItemGroup>
 
 </Project>

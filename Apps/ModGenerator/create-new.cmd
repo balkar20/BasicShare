@@ -1,12 +1,12 @@
 cd "%1/Mods/Product"
 
-cd "./Mod.Product.Models"
+cd "./Mod.%2.Models"
 dotnet new install .\ --force
-cd "../Mod.Product.Interfaces"
+cd "../Mod.%2.Interfaces"
 dotnet new install .\ --force
-cd "../Mod.Product.Services"
+cd "../Mod.%2.Services"
 dotnet new install .\ --force
-cd "../Mod.Product.Root"
+cd "../Mod.%2.Root"
 dotnet new install .\ --force
-cd "../Mod.Product.Base"
+cd "../Mod.%2.Base"
 dotnet new install .\ --force

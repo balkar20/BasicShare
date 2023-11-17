@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "Vlad Balkarov",
+    "name": "Mods For BasicShare",
+    "description": "A project for creating a ModsInterfaces in BasicShare.",
+    "identity": "Mod.Order.Interfaces",
+    "shortName": "modorderinterfaces",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "symbols":{
+        "copyrightName": {
+          "type": "parameter",
+          "defaultValue": "NewItem",
+          "fileRename": "Order",
+          "replaces":"Order"
+        },
+        "title": {
+          "type": "parameter",
+          "defaultValue": "Hello Web",
+          "replaces":"Sayed Web"
+        }
+    },
+    "sourceName": "Mod.Order.Interfaces",
+    "preferNameDirectory": true
+  }
