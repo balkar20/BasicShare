@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.7" />
+      <PackageReference Include="MongoDB.Driver" Version="2.22.0" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="Serilog.AspNetCore" Version="6.1.1-dev-00295" />
+      <PackageReference Include="StackExchange.Redis" Version="2.6.96" />
+    </ItemGroup>
+
+    <ItemGroup>
+<!--      <ProjectReference Include="$(ProjectStorageDir)\RedisCache\RedisCache.csproj" />-->
+<!--      <ProjectReference Include="$(ProjecRootDir)\EventBus\EventBus.csproj" />-->
+      <ProjectReference Include="..\..\EventBus\EventBus.csproj" />
+      <ProjectReference Include="..\DataServices\MongoDataServices\MongoDataServices.csproj" />
+      <ProjectReference Include="..\Interfaces\Interfaces.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="EventSourcing\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="RedisCache">
+        <HintPath>..\..\Storage\RedisCache\bin\Debug\net7.0\RedisCache.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="RedisCache">
+        <HintPath>..\..\Storage\RedisCache\bin\Debug\net7.0\RedisCache.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>

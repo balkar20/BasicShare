@@ -1,0 +1,22 @@
+﻿@using ClientLibrary.Interfaces.Particular
+@using IdentityProvider.Shared
+<h3>OrderCreationForm</h3>
+<h3>@OrderCreationMessage</h3>
+
+@code {
+    [Inject]
+    public CreateOrder.CreateOrderClient OrderCreationService { get; set; }
+
+    private string OrderCreationMessage;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await OrderCreationService.SayDozeAsync(new ()
+        {
+            Name = "Joe"
+        });
+
+        OrderCreationMessage = response.Message;
+        base.OnInitialized();
+    }
+}

@@ -1,0 +1,98 @@
+﻿@inherits LayoutComponentBase
+
+@using Blazored.LocalStorage
+@using ClientLibrary.Components;
+@using ClientLibrary.Components.Forms;
+@using ClientLibrary.Resources
+@inject ILocalStorageService _localStorage
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+<MudThemeProvider Theme="_theme"/>
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        @if (!openLeft)
+        {
+            <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleLeftDrawer"/>
+        }
+        <MudSpacer/>
+        <MudButton IconColor="Color.Surface" OnClick="@(async () => await CreateProduct())" Color="Color.Surface" StartIcon="@Icons.Material.Filled.Create" Variant="Variant.Outlined">@Localizer.GetString(ClientResourceConstants.CreateProduct).Value</MudButton>
+        <MudButton IconColor="Color.Surface" OnClick="@(async () => await CreateService())" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Create" Variant="Variant.Outlined">@Localizer.GetString(ClientResourceConstants.CreateService).Value</MudButton>
+        <MudButton IconColor="Color.Surface" OnClick="@(async () => await CreateCommunity())" Color="Color.Success" StartIcon="@Icons.Material.Filled.Create" Variant="Variant.Outlined">@Localizer.GetString(ClientResourceConstants.CreateCommunity).Value</MudButton>
+        <MudButton IconColor="Color.Surface" OnClick="@(async () => await CreateBusiness())" Color="Color.Primary" StartIcon="@Icons.Material.Filled.Create" Variant="Variant.Outlined">@Localizer.GetString(ClientResourceConstants.CreateBusiness).Value</MudButton>
+        <MudSpacer/>
+        <AuthorizeView>
+            <Authorized>
+                @* <MudText>@AuthenticationService.UserName</MudText> *@
+                @* <MudText>@AuthenticationService.UserRole</MudText> *@
+                @* <MudMenu > *@
+                @*     <ActivatorContent> *@
+                @*         <MudAvatar Image="Pritty.png" Color="Color.Secondary"></MudAvatar> *@
+                @*     </ActivatorContent> *@
+                @*     <ChildContent> *@
+                @*         <MudMenuItem>@AuthenticationService.UserName</MudMenuItem> *@
+                @*         <MudMenuItem>@AuthenticationService.UserRole</MudMenuItem> *@
+                @*         <MudMenuItem> *@
+                @*             <MudButton IconColor="Color.Dark" StartIcon="@Icons.Material.Filled.Logout" OnClick="@(async () => await Logout())" Color="Color.Warning" Variant="Variant.Outlined">Sign Out</MudButton> *@
+                @*         </MudMenuItem> *@
+                @*     </ChildContent> *@
+                @* </MudMenu> *@
+            </Authorized>
+            <NotAuthorized>
+                <MudButton IconColor="Color.Surface" OnClick="@(async () => await Login())" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.Login" Variant="Variant.Outlined">@Localizer.GetString(ClientResourceConstants.Login)</MudButton>
+                <MudButton IconColor="Color.Tertiary" OnClick="Register" Color="Color.Secondary" StartIcon="@Icons.Material.Filled.AppRegistration" Variant="Variant.Outlined">@Localizer.GetString(ClientResourceConstants.Register)</MudButton>
+            </NotAuthorized>
+        </AuthorizeView>
+        @if (!openRight)
+        {
+            <MudIconButton Color="Color.Inherit" Edge="Edge.End" OnClick="@ToggleRightDrawer">
+                <MudAvatar Image="Pritty.png" Color="Color.Secondary"/>
+            </MudIconButton>
+        }
+    </MudAppBar>
+    <MudDrawer @bind-Open="@openLeft" Breakpoint="@breakpoint" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState">
+        <MudDrawerHeader Style="@($"background:{_theme.PaletteDark.DrawerBackground};")">
+            <MudPaper Class="d-flex flex-grow-1 gap-4" Style="@($"color:{Colors.LightGreen.Accent3}; background:{_theme.PaletteDark.DrawerBackground};")">
+                <MudText Class="py-4 flex-1 nav-caption" Typo="Typo.h6">BasicShare</MudText>
+                <MudIconButton Class="py-4 flex-1" Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleLeftDrawer"/>
+            </MudPaper>
+
+        </MudDrawerHeader>
+        <MudNavMenu>
+            <MudNavLink Match="NavLinkMatch.All">@Localizer.GetString(ClientResourceConstants.Services)</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All">@Localizer.GetString(ClientResourceConstants.Products)</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All">@Localizer.GetString(ClientResourceConstants.Communities)</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All">@Localizer.GetString(ClientResourceConstants.Businesses)</MudNavLink>
+        </MudNavMenu>
+    </MudDrawer>
+    <MudDrawer Anchor="Anchor.Right" @bind-Open="@openRight" Breakpoint="@breakpoint2" Elevation="1" Variant="@DrawerVariant.Responsive" PreserveOpenState="@preserveOpenState">
+        <MudDrawerHeader>
+            <MudPaper Class="d-flex flex-grow-1 gap-4" Style="@($"color:{Colors.LightGreen.Accent3}; background:{_theme.PaletteDark.DrawerBackground};")">
+                <MudIconButton Class="py-4 flex-1" Color="Color.Inherit" Edge="Edge.Start" OnClick="@ToggleRightDrawer" Target="_blank">
+                    <MudAvatar Image="Pritty.png" Color="Color.Secondary"></MudAvatar>
+                </MudIconButton>
+                <MudText Class="py-4 flex-1 nav-caption" Typo="Typo.h6">@Localizer.GetString(ClientResourceConstants.Settings)</MudText>
+            </MudPaper>
+        </MudDrawerHeader>
+        <MudNavMenu>
+            <MudSelect T="string" Style="width: 4em; z-index: 1000;" MultiSelection="false" @bind-Value="@SelectedLanguageValue">
+                @foreach (var language in _languagesDictionary)
+                {
+                    <MudSelectItem T="string" Value="language.Value">@language.Key</MudSelectItem>
+                }
+            </MudSelect>
+            
+            <MudNavLink Match="NavLinkMatch.All">Account</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All">My Items</MudNavLink>
+            <MudNavLink Match="NavLinkMatch.All">History</MudNavLink>
+            
+        </MudNavMenu>
+    </MudDrawer>
+    <MudMainContent Class="pt-16 px-16">
+        <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
+        <PoopCarousel></PoopCarousel>
+        <OrderCreationForm></OrderCreationForm>
+        <MudDivider DividerType="DividerType.Middle" Class="my-6"/>
+        @Body
+    </MudMainContent>
+</MudLayout>

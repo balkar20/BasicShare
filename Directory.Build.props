@@ -1,0 +1,17 @@
+<Project>
+  <PropertyGroup>
+    <ProjectRootDir>C:\BasicShare\</ProjectRootDir>
+    <ProjectStorageDir>$(ProjectRootDir)\Storage\</ProjectStorageDir>
+    <ProjectModsDir>$(ProjectRootDir)\Mods\</ProjectModsDir>
+    <ProjectCoreDir>$(ProjectRootDir)\Core\</ProjectCoreDir>
+    <ProjectInfrastructureDir>$(ProjectRootDir)\Infrastructure\</ProjectInfrastructureDir>
+    <ProjectDataDir>$(ProjectRootDir)\Data\</ProjectDataDir>
+    <ProjectAppsDir>$(ProjectRootDir)\Apps\</ProjectAppsDir>
+    <ProjectStateMachinesDir>$(ProjectRootDir)\StateMachines\</ProjectStateMachinesDir>
+    <ProjectDeploymentDir>$(ProjectRootDir)\Deployment\</ProjectDeploymentDir>
+    <ProjectDeploymentKubDir>$(ProjectDeploymentDir)\Kub\</ProjectDeploymentKubDir>
+    <ProjectDeploymentJenkinsDir>$(ProjectDeploymentDir)\Jenkins\</ProjectDeploymentJenkinsDir>
+    <ProjectDeploymentTeamCityDir>$(ProjectDeploymentDir)\TeamCity\</ProjectDeploymentTeamCityDir>
+    <ProjectDeploymentDockerDir>$(ProjectDeploymentDir)\Docker\</ProjectDeploymentDockerDir>
+  </PropertyGroup>
+</Project>

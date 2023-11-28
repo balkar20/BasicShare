@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="$(ProjectCoreDir)\Core.Base\Core.Base.csproj" />
+      <ProjectReference Include="$(ProjectCoreDir)\Core.Transfer\Core.Transfer.csproj" />
+      <ProjectReference Include="$(ProjectDataDir)\MassTransitBase\MassTransitBase.csproj" />
+      <ProjectReference Include="$(ProjectRootDir)\EventBus\EventBus.csproj" />
+      <ProjectReference Include="..\Mod.Order.EventData\Mod.Order.EventData.csproj" />
+      <ProjectReference Include="..\Mod.Order.Interfaces\Mod.Order.Interfaces.csproj" />
+      <ProjectReference Include="..\Mod.Order.Models\Mod.Order.Models.csproj" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <Content Include=".template.config\template.json" />
+    </ItemGroup>
+
+</Project>

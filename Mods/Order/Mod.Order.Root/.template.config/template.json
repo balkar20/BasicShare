@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "Vlad Balkarov",
+    "name": "Mods For BasicShare",
+    "description": "A project for creating a ModsRoot in BasicShare.",
+    "identity": "Mod.Order.Root",
+    "shortName": "modorderroot",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "symbols":{
+        "copyrightName": {
+          "type": "parameter",
+          "defaultValue": "NewItem",
+          "fileRename": "Order",
+          "replaces":"Order"
+        },
+        "title": {
+          "type": "parameter",
+          "defaultValue": "Hello Web",
+          "replaces":"Sayed Web"
+        }
+    },
+    "sourceName": "Mod.Order.Root",
+    "preferNameDirectory": true
+  }
