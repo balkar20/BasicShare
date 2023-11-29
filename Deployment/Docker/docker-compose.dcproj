@@ -14,6 +14,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="docker-compose-base.yml" />
+    <Content Include="docker-compose-kafka.yml" />
     <Content Include="docker-compose-rabbit.yml" />
   </ItemGroup>
 </Project>

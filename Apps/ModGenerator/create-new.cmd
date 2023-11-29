@@ -1,12 +1,7 @@
-cd "%1/Mods/Product"
+cd "%1/Mods/%2"
 
-cd "./Mod.%2.Models"
-dotnet new install .\ --force
-cd "../Mod.%2.Interfaces"
-dotnet new install .\ --force
-cd "../Mod.%2.Services"
-dotnet new install .\ --force
-cd "../Mod.%2.Root"
-dotnet new install .\ --force
-cd "../Mod.%2.Base"
-dotnet new install .\ --force
+for /d %F in (*) do (
+    cd %F
+    dotnet new install .\ --force
+    cd ../
+)
