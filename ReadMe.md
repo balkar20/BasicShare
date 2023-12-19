@@ -67,6 +67,9 @@ docker push balkar20/productwebapi:latest
 jenkins_home/backups
 Front -- left stick navbar ====>Drawer mudblazor
 
+
+
+
 Generate mods based on templates:
 1.Generate template based on template.json files:
 dotnet new modproductroot -o "Mod.Shipment.Root" -c Shipment
@@ -76,3 +79,6 @@ C:\Code\BasicShare\Mods Noty
 
 When you generated folders you can add them to sln folders using for example:
 dotnet sln add Mods/Noty/Mods.Noty.Base/Mods.Noty.Base.csproj
+
+- to exec ps1 flies  from file system we need to write:
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned

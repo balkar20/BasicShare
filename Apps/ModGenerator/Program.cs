@@ -18,12 +18,11 @@ var defaultModificationArray = config.GetSection("ModModifications:Default").Get
 
 var chosenModification = config.GetSection("ChosenModification").Value;
 var modModificationTemplates = defaultModificationArray.Concat(config.GetSection($"ModModifications:{chosenModification}").GetChildren().Select(c => c.Value));
-var echoVar =         Environment.CurrentDirectory;
-var f = AppDomain.CurrentDomain.BaseDirectory;
-var path = echoVar.Substring(0, echoVar.IndexOf($"\\Apps\\ModGenerator\\bin\\Debug\\net{Environment.Version.Major}.{Environment.Version.Minor}"));
+var envCurrentDir = Environment.CurrentDirectory;
+var path = envCurrentDir.Substring(0, envCurrentDir.IndexOf($"\\Apps\\ModGenerator\\bin\\Debug\\net{Environment.Version.Major}.{Environment.Version.Minor}"));
 
-var fromMod = args[1];
-var mod = args[0];
+var fromModName = config.GetSection("FromModeName").Value;
+var newModName = config.GetSection("NewModeName").Value;
 
 var coreBasePath = $"{path}\\Core\\Core.Base\\";
 var coreConfigInterfacesFolder = $"{coreBasePath}ConfigurationInterfaces";
@@ -31,8 +30,8 @@ var coreConfigClassesFolder = $"{coreBasePath}Configuration";
 
 try
 {
-    await Raname("Product", mod, coreConfigInterfacesFolder, "IProductApiConfiguration.cs");
-    await Raname("Product", mod, coreConfigClassesFolder, "ProductApiConfiguration.cs");
+    await Raname(fromModName, newModName, coreConfigInterfacesFolder, $"I{fromModName}ApiConfiguration.cs");
+    await Raname(fromModName, newModName, coreConfigClassesFolder, $"{fromModName}ApiConfiguration.cs");
 }
 catch (Exception e)
 {
@@ -41,7 +40,15 @@ catch (Exception e)
 }
 
 
-var p1 = Process.Start("create-new.cmd", $"{path} {fromMod}");
+var createNewStartInfo = new ProcessStartInfo()
+{
+    FileName = "powershell.exe",
+    Arguments = $"-NoProfile -ExecutionPolicy ByPass -File create-new-template.ps1 -path {path} -name {fromModName}",
+    UseShellExecute = false
+};
+
+var p1 = Process.Start(createNewStartInfo);
+// var p1 = Process.Start("create-new.cmd", $"{path} {fromMod}");
 p1.WaitForExit();
 
 var startInfo = new ProcessStartInfo()
@@ -50,7 +57,8 @@ var startInfo = new ProcessStartInfo()
     Arguments = $"-NoProfile -ExecutionPolicy ByPass -File generate.cmd",
     UseShellExecute = false
 };
-var p2 = Process.Start("generate.cmd", $"{path} {mod} {fromMod.ToLower()}");
+
+var p2 = Process.Start(startInfo);
 // PowerShell.Create().AddScript("").AddParameters()
 p2.WaitForExit();
 Console.ReadLine();
