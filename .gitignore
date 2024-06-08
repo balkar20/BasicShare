@@ -318,3 +318,4 @@ __pycache__/
 appsettings.*.json
 
 /shared/nginx/certs/
+/Apps/IdentityProvider/IdentityProvider.Server/logs
