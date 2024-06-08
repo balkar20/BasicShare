@@ -29,7 +29,7 @@
         "DB_CONNECTION": "Host=localhost;Database=sadb;Port=5432;User Id=postgres;Password=postgres",
         "RABBIT_HOST_NAME": "localhost",
         "RABBIT_QUE_NAME": "order",
-        "EXPIRY_IN_MINUTES": 60,
+        "EXPIRY_IN_MINUTES": "60",
         "VALID_ISSUER": "IdentityProviderAPI",
         "VALID_AUDIENCE": "https://localhost:5011",
         "SECURITY_KEY": "IdentityProviderSecretKey",
@@ -54,7 +54,7 @@
         "RABBIT_HOST_NAME": "localhost",
         "RABBIT_QUE_NAME": "order",
         "RABBIT_EXCHANGE_NAME": "",
-        "EXPIRY_IN_MINUTES": 60,
+        "EXPIRY_IN_MINUTES": "60",
         "VALID_ISSUER": "IdentityProviderAPI",
         "VALID_AUDIENCE": "https://localhost:5011",
         "SECURITY_KEY": "IdentityProviderSecretKey"

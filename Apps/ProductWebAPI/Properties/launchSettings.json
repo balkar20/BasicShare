@@ -23,7 +23,7 @@
         "VALID_ISSUER": "order",
         "EXPIRY_IN_MINUTES": 60
       },
-      "applicationUrl": "https://localhost:63246;http://localhost:63247"
+      "applicationUrl": "https://localhost:63248;http://localhost:63249"
     }
   }
 }

@@ -1,6 +1,6 @@
 namespace Mod.CameraModule.Models
 {
-    public class MainProperty
+    public class MainPropertyModel
     {
         public string Name { get; set; }
 

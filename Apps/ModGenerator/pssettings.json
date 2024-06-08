@@ -1,0 +1,18 @@
+{
+    "ChosenModification": "Default",
+    "ModModifications": {
+        "Default": [
+        "services",
+        "root",
+        "base",
+        "interfaces",
+        "models"
+        ],
+        "MongoEvent": [
+        ]
+    },
+    "NewModName": "PowerSupply",
+    "FromModName": "product",
+    "ApiTemplate": "productwebapi",
+    "ApiName": "PowerSupplyWebApi"
+}

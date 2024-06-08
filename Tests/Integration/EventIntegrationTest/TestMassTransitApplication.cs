@@ -23,35 +23,35 @@ internal class TestMassTransitApplication: WebApplicationFactory<Program>
     {
         builder.ConfigureServices((hostContext, services) =>
         {
-            // services.AddMassTransit(cfg =>
-            // {
-            //     cfg.AddSagaStateMachine<OrderStateMachine, OrderStateInstance>().EntityFrameworkRepository(opt =>
-            //     {
-            //         opt.AddDbContext<DbContext, StateMachineDbContext>((provider, builder) =>
-            //         {
-            //             builder.UseNpgsql(hostContext.Configuration.GetConnectionString("DefaultConnection"),
-            //                 m => { m.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name); });
-            //         });
-            //
-            //         opt.ConcurrencyMode = ConcurrencyMode.Optimistic;
-            //     });
-            //
-            //     cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(configure =>
-            //     {
-            //         configure.Host("localhost", host =>
-            //         {
-            //             host.Username("guest");
-            //             host.Password("guest");
-            //         });
-            //
-            //         configure.ReceiveEndpoint(QueuesConsts.CreateOrderMessageQueueName, e => { e.ConfigureSaga<OrderStateInstance>(provider); });
-            //     }));
-            // });
+            services.AddMassTransit(cfg =>
+            {
+                cfg.AddSagaStateMachine<OrderStateMachine, OrderStateInstance>().EntityFrameworkRepository(opt =>
+                {
+                    opt.AddDbContext<DbContext, StateMachineDbContext>((provider, builder) =>
+                    {
+                        builder.UseNpgsql(hostContext.Configuration.GetConnectionString("DefaultConnection"),
+                            m => { m.MigrationsAssembly(Assembly.GetExecutingAssembly().GetName().Name); });
+                    });
 
-            // services.AddDbContext<StateMachineDbContext>(options =>
-            //     options.UseNpgsql(hostContext.Configuration.GetConnectionString("DefaultConnection")));
+                    opt.ConcurrencyMode = ConcurrencyMode.Optimistic;
+                });
 
-            // services.AddHostedService<Worker>();
+                cfg.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(configure =>
+                {
+                    configure.Host("localhost", host =>
+                    {
+                        host.Username("guest");
+                        host.Password("guest");
+                    });
+
+                    configure.ReceiveEndpoint(QueuesConsts.CreateOrderMessageQueueName, e => { e.ConfigureSaga<OrderStateInstance>(provider); });
+                }));
+            });
+
+            services.AddDbContext<StateMachineDbContext>(options =>
+                options.UseNpgsql(hostContext.Configuration.GetConnectionString("DefaultConnection")));
+
+            //services.AddHostedService<Worker>();
         });
 
 

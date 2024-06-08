@@ -8,6 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\NetMqLogic\NetMqLogic.csproj" />
+      <ProjectReference Include="..\..\..\OpenSleightGeneral\OpenSleightGeneral.csproj" />
       <ProjectReference Include="..\Mod.Order.Base\Mod.Order.Base.csproj" />
       <ProjectReference Include="..\Mod.Order.Services\Mod.Order.Services.csproj" />
     </ItemGroup>

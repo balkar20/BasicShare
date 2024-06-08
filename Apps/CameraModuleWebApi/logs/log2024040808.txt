@@ -1,0 +1,1136 @@
+2024-04-08 08:14:26.851 +03:00 [DBG] Hosting starting
+2024-04-08 08:14:27.116 +03:00 [INF] Configured endpoint order-creation, Consumer: Mod.CameraModule.Services.Consumers.OrderCreationConsumer
+2024-04-08 08:14:27.235 +03:00 [DBG] Starting bus instances: IBus
+2024-04-08 08:14:27.239 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2024-04-08 08:14:27.381 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:14:27.547 +03:00 [INF] Now listening on: https://localhost:63246
+2024-04-08 08:14:27.547 +03:00 [INF] Now listening on: http://localhost:63247
+2024-04-08 08:14:27.547 +03:00 [DBG] Loaded hosting startup assembly CameraModuleWebAPI
+2024-04-08 08:14:27.548 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-08 08:14:27.548 +03:00 [INF] Hosting environment: Development
+2024-04-08 08:14:27.548 +03:00 [INF] Content root path: C:\Dev\BasicShare\Apps\CameraModuleWebApi
+2024-04-08 08:14:27.548 +03:00 [DBG] Hosting started
+2024-04-08 08:14:28.131 +03:00 [DBG] Connection id "0HN2NHB1S95KC" accepted.
+2024-04-08 08:14:28.133 +03:00 [DBG] Connection id "0HN2NHB1S95KC" started.
+2024-04-08 08:14:28.133 +03:00 [DBG] Connection id "0HN2NHB1S95KD" accepted.
+2024-04-08 08:14:28.133 +03:00 [DBG] Connection id "0HN2NHB1S95KD" started.
+2024-04-08 08:14:28.289 +03:00 [DBG] Connection id "0HN2NHB1S95KC" received FIN.
+2024-04-08 08:14:28.309 +03:00 [DBG] Connection 0HN2NHB1S95KD established using the following protocol: "Tls13"
+2024-04-08 08:14:28.309 +03:00 [DBG] Connection 0HN2NHB1S95KC established using the following protocol: "Tls13"
+2024-04-08 08:14:28.333 +03:00 [DBG] Connection id "0HN2NHB1S95KC" is closed. The last processed stream ID was 0.
+2024-04-08 08:14:28.336 +03:00 [VRB] Connection id "0HN2NHB1S95KD" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2024-04-08 08:14:28.336 +03:00 [DBG] Connection id "0HN2NHB1S95KC" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 08:14:28.344 +03:00 [VRB] Connection id "0HN2NHB1S95KD" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-04-08 08:14:28.345 +03:00 [VRB] Connection id "0HN2NHB1S95KD" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2024-04-08 08:14:28.346 +03:00 [DBG] The connection queue processing loop for 0HN2NHB1S95KC completed.
+2024-04-08 08:14:28.346 +03:00 [VRB] Connection id "0HN2NHB1S95KD" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-04-08 08:14:28.347 +03:00 [VRB] Connection id "0HN2NHB1S95KD" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-04-08 08:14:28.347 +03:00 [VRB] Connection id "0HN2NHB1S95KD" received "HEADERS" frame for stream ID 1 with length 466 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-04-08 08:14:28.352 +03:00 [DBG] Connection id "0HN2NHB1S95KC" stopped.
+2024-04-08 08:14:28.363 +03:00 [VRB] Connection id "0HN2NHB1S95KD" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-04-08 08:14:28.422 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63246/ - -
+2024-04-08 08:14:28.426 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-04-08 08:14:28.426 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:14:28.824 +03:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-04-08 08:14:28.825 +03:00 [DBG] Request matched endpoint 'HTTP: GET /'
+2024-04-08 08:14:28.857 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2024-04-08 08:14:28.861 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2024-04-08 08:14:28.862 +03:00 [VRB] Connection id "0HN2NHB1S95KD" sending "HEADERS" frame for stream ID 1 with length 68 and flags "END_HEADERS".
+2024-04-08 08:14:28.863 +03:00 [VRB] Connection id "0HN2NHB1S95KD" sending "DATA" frame for stream ID 1 with length 21 and flags "NONE".
+2024-04-08 08:14:28.864 +03:00 [INF] HTTP GET / responded 200 in 431.6087 ms
+2024-04-08 08:14:28.867 +03:00 [VRB] Connection id "0HN2NHB1S95KD" sending "DATA" frame for stream ID 1 with length 0 and flags "END_STREAM".
+2024-04-08 08:14:28.867 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63246/ - - - 200 - text/plain;+charset=utf-8 449.2137ms
+2024-04-08 08:14:29.247 +03:00 [VRB] Connection id "0HN2NHB1S95KD" received "HEADERS" frame for stream ID 3 with length 121 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-04-08 08:14:29.251 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63246/favicon.ico - -
+2024-04-08 08:14:29.252 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:14:29.252 +03:00 [DBG] No candidates found for the request path '/favicon.ico'
+2024-04-08 08:14:29.253 +03:00 [DBG] Request did not match any endpoints
+2024-04-08 08:14:29.253 +03:00 [INF] HTTP GET /favicon.ico responded 404 in 1.2877 ms
+2024-04-08 08:14:29.254 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63246/favicon.ico - - - 404 0 - 1.9584ms
+2024-04-08 08:14:29.254 +03:00 [VRB] Connection id "0HN2NHB1S95KD" sending "HEADERS" frame for stream ID 3 with length 7 and flags "END_STREAM, END_HEADERS".
+2024-04-08 08:14:31.640 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:14:32.579 +03:00 [DBG] Endpoint Faulted: "rabbitmq://localhost/BALKAR_CameraModuleWebAPI_bus_ybfoyynixtagpeaebdqfxnsdy3?temporary=true"
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 112
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 58
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 192
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ModelContextFactory.CreateSharedModel(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ModelContextFactory.cs:line 50
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 195
+2024-04-08 08:14:32.580 +03:00 [DBG] Endpoint Faulted: "rabbitmq://localhost/order-creation"
+MassTransit.RabbitMqConnectionException: Broker unreachable: guest@localhost:5672/
+ ---> RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+   --- End of inner exception stack trace ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 112
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateSharedConnection(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 58
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.TransportStartExtensions.OnTransportStartup[T](ReceiveEndpointContext context, ITransportSupervisor`1 supervisor, CancellationToken cancellationToken) in /_/src/MassTransit/Transports/TransportStartExtensions.cs:line 19
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 192
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.Internals.TaskExtensions.<>c__DisplayClass2_0`1.<<OrCanceled>g__WaitAsync|0>d.MoveNext() in /_/src/MassTransit.Abstractions/Internals/Extensions/TaskExtensions.cs:line 72
+--- End of stack trace from previous location ---
+   at MassTransit.RabbitMqTransport.ModelContextFactory.CreateSharedModel(Task`1 context, CancellationToken cancellationToken) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ModelContextFactory.cs:line 50
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 51
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 61
+   at MassTransit.Agents.PipeContextSupervisor`1.Send(IPipe`1 pipe, CancellationToken cancellationToken) in /_/src/MassTransit/Agents/PipeContextSupervisor.cs:line 67
+   at MassTransit.Transports.ReceiveTransport`1.ReceiveTransportAgent.RunTransport() in /_/src/MassTransit/Transports/ReceiveTransport.cs:line 195
+2024-04-08 08:14:39.194 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:14:43.309 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:14:53.999 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:14:58.092 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:15:13.065 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:15:17.171 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:15:41.269 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:15:45.375 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:16:16.760 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:16:20.876 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:16:52.292 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:16:56.378 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:17:27.755 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:17:31.863 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:18:00.531 +03:00 [DBG] Connection id "0HN2NHB1S95KE" accepted.
+2024-04-08 08:18:00.532 +03:00 [DBG] Connection id "0HN2NHB1S95KE" started.
+2024-04-08 08:18:00.533 +03:00 [DBG] Connection id "0HN2NHB1S95KF" accepted.
+2024-04-08 08:18:00.533 +03:00 [DBG] Connection id "0HN2NHB1S95KE" received FIN.
+2024-04-08 08:18:00.534 +03:00 [DBG] Connection id "0HN2NHB1S95KF" started.
+2024-04-08 08:18:00.544 +03:00 [DBG] Connection 0HN2NHB1S95KF established using the following protocol: "Tls13"
+2024-04-08 08:18:00.546 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-04-08 08:18:00.547 +03:00 [DBG] Connection id "0HN2NHB1S95KE" stopped.
+2024-04-08 08:18:00.548 +03:00 [DBG] Connection id "0HN2NHB1S95KE" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 08:18:00.554 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63246/api/products application/json 93
+2024-04-08 08:18:00.554 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:18:00.556 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:18:00.557 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/products'
+2024-04-08 08:18:00.557 +03:00 [INF] Executing endpoint 'HTTP: POST api/products'
+2024-04-08 08:18:00.579 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000001": started reading request body.
+2024-04-08 08:18:00.580 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000001": done reading request body.
+2024-04-08 08:18:00.624 +03:00 [INF] Executed endpoint 'HTTP: POST api/products'
+2024-04-08 08:18:00.624 +03:00 [ERR] HTTP POST /api/products responded 500 in 69.9072 ms
+Microsoft.AspNetCore.Http.BadHttpRequestException: Failed to read parameter "CameraModuleModel product" from the request body as JSON.
+ ---> System.Text.Json.JsonException: The JSON value could not be converted to System.Guid. Path: $.Id | LineNumber: 1 | BytePositionInLine: 15.
+ ---> System.InvalidOperationException: Cannot get the value of a token type 'Number' as a string.
+   at System.Text.Json.ThrowHelper.ThrowInvalidOperationException_ExpectedString(JsonTokenType tokenType)
+   at System.Text.Json.Utf8JsonReader.TryGetGuid(Guid& value)
+   at System.Text.Json.Utf8JsonReader.GetGuid()
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCoreAsObject(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](Utf8JsonReader& reader, JsonTypeInfo jsonTypeInfo, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ContinueDeserialize[TValue](ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, JsonTypeInfo jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.Log.InvalidJsonRequestBody(HttpContext httpContext, String parameterTypeName, String parameterName, Exception exception, Boolean shouldThrow)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass90_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2024-04-08 08:18:00.979 +03:00 [DBG] Connection id "0HN2NHB1S95KF" completed keep alive response.
+2024-04-08 08:18:00.981 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63246/api/products application/json 93 - 500 - application/json 426.9363ms
+2024-04-08 08:18:03.235 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:18:07.312 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:18:38.692 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:18:42.774 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:18:57.536 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63246/api/products application/json 106
+2024-04-08 08:18:57.536 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:18:57.537 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:18:57.537 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/products'
+2024-04-08 08:18:57.537 +03:00 [INF] Executing endpoint 'HTTP: POST api/products'
+2024-04-08 08:18:57.537 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000002": started reading request body.
+2024-04-08 08:18:57.537 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000002": done reading request body.
+2024-04-08 08:18:57.539 +03:00 [INF] Executed endpoint 'HTTP: POST api/products'
+2024-04-08 08:18:57.539 +03:00 [ERR] HTTP POST /api/products responded 500 in 2.9400 ms
+Microsoft.AspNetCore.Http.BadHttpRequestException: Failed to read parameter "CameraModuleModel product" from the request body as JSON.
+ ---> System.Text.Json.JsonException: The JSON value could not be converted to System.Guid. Path: $.Id | LineNumber: 1 | BytePositionInLine: 28.
+ ---> System.FormatException: The JSON value is not in a supported Guid format.
+   at System.Text.Json.ThrowHelper.ThrowFormatException(DataType dataType)
+   at System.Text.Json.Utf8JsonReader.GetGuid()
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCoreAsObject(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](Utf8JsonReader& reader, JsonTypeInfo jsonTypeInfo, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ContinueDeserialize[TValue](ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, JsonTypeInfo jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.Log.InvalidJsonRequestBody(HttpContext httpContext, String parameterTypeName, String parameterName, Exception exception, Boolean shouldThrow)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass90_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2024-04-08 08:18:57.573 +03:00 [DBG] Connection id "0HN2NHB1S95KF" completed keep alive response.
+2024-04-08 08:18:57.574 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63246/api/products application/json 106 - 500 - application/json 37.6899ms
+2024-04-08 08:19:14.155 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:19:18.264 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:19:49.669 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:19:53.760 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:19:55.541 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63246/api/products application/json 106
+2024-04-08 08:19:55.541 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:19:55.541 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:19:55.541 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/products'
+2024-04-08 08:19:55.541 +03:00 [INF] Executing endpoint 'HTTP: POST api/products'
+2024-04-08 08:19:55.541 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000003": started reading request body.
+2024-04-08 08:19:55.541 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000003": done reading request body.
+2024-04-08 08:19:55.543 +03:00 [INF] Executed endpoint 'HTTP: POST api/products'
+2024-04-08 08:19:55.544 +03:00 [ERR] HTTP POST /api/products responded 500 in 2.4048 ms
+Microsoft.AspNetCore.Http.BadHttpRequestException: Failed to read parameter "CameraModuleModel product" from the request body as JSON.
+ ---> System.Text.Json.JsonException: The JSON value could not be converted to System.Guid. Path: $.Id | LineNumber: 1 | BytePositionInLine: 28.
+ ---> System.FormatException: The JSON value is not in a supported Guid format.
+   at System.Text.Json.ThrowHelper.ThrowFormatException(DataType dataType)
+   at System.Text.Json.Utf8JsonReader.GetGuid()
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCoreAsObject(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](Utf8JsonReader& reader, JsonTypeInfo jsonTypeInfo, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ContinueDeserialize[TValue](ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, JsonTypeInfo jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.Log.InvalidJsonRequestBody(HttpContext httpContext, String parameterTypeName, String parameterName, Exception exception, Boolean shouldThrow)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass90_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2024-04-08 08:19:55.571 +03:00 [DBG] Connection id "0HN2NHB1S95KF" completed keep alive response.
+2024-04-08 08:19:55.572 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63246/api/products application/json 106 - 500 - application/json 30.6971ms
+2024-04-08 08:20:25.173 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:20:29.285 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:20:37.076 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63246/api/products application/json 102
+2024-04-08 08:20:37.076 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:20:37.076 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:20:37.076 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/products'
+2024-04-08 08:20:37.076 +03:00 [INF] Executing endpoint 'HTTP: POST api/products'
+2024-04-08 08:20:37.076 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000004": started reading request body.
+2024-04-08 08:20:37.076 +03:00 [DBG] Connection id "0HN2NHB1S95KF", Request id "0HN2NHB1S95KF:00000004": done reading request body.
+2024-04-08 08:20:37.078 +03:00 [INF] Executed endpoint 'HTTP: POST api/products'
+2024-04-08 08:20:37.079 +03:00 [ERR] HTTP POST /api/products responded 500 in 2.5667 ms
+Microsoft.AspNetCore.Http.BadHttpRequestException: Failed to read parameter "CameraModuleModel product" from the request body as JSON.
+ ---> System.Text.Json.JsonException: The JSON value could not be converted to System.Guid. Path: $.Id | LineNumber: 1 | BytePositionInLine: 28.
+ ---> System.FormatException: The JSON value is not in a supported Guid format.
+   at System.Text.Json.ThrowHelper.ThrowFormatException(DataType dataType)
+   at System.Text.Json.Utf8JsonReader.GetGuid()
+   at System.Text.Json.Serialization.Metadata.JsonPropertyInfo`1.ReadJsonAndSetMember(Object obj, ReadStack& state, Utf8JsonReader& reader)
+   at System.Text.Json.Serialization.Converters.ObjectDefaultConverter`1.OnTryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.TryRead(Utf8JsonReader& reader, Type typeToConvert, JsonSerializerOptions options, ReadStack& state, T& value)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   --- End of inner exception stack trace ---
+   at System.Text.Json.ThrowHelper.ReThrowWithPath(ReadStack& state, Utf8JsonReader& reader, Exception ex)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCore(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.Serialization.JsonConverter`1.ReadCoreAsObject(Utf8JsonReader& reader, JsonSerializerOptions options, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ReadCore[TValue](Utf8JsonReader& reader, JsonTypeInfo jsonTypeInfo, ReadStack& state)
+   at System.Text.Json.JsonSerializer.ContinueDeserialize[TValue](ReadBufferState& bufferState, JsonReaderState& jsonReaderState, ReadStack& readStack, JsonTypeInfo jsonTypeInfo)
+   at System.Text.Json.JsonSerializer.ReadFromStreamAsync[TValue](Stream utf8Json, JsonTypeInfo jsonTypeInfo, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.HttpRequestJsonExtensions.ReadFromJsonAsync(HttpRequest request, Type type, JsonSerializerOptions options, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.Log.InvalidJsonRequestBody(HttpContext httpContext, String parameterTypeName, String parameterName, Exception exception, Boolean shouldThrow)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<HandleRequestBodyAndCompileRequestDelegateForJson>g__TryReadBodyAsync|90_0(HttpContext httpContext, Type bodyType, String parameterTypeName, String parameterName, Boolean allowEmptyRequestBody, Boolean throwOnBadRequest)
+   at Microsoft.AspNetCore.Http.RequestDelegateFactory.<>c__DisplayClass90_2.<<HandleRequestBodyAndCompileRequestDelegateForJson>b__2>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Serilog.AspNetCore.RequestLoggingMiddleware.Invoke(HttpContext httpContext)
+2024-04-08 08:20:37.107 +03:00 [DBG] Connection id "0HN2NHB1S95KF" completed keep alive response.
+2024-04-08 08:20:37.107 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63246/api/products application/json 102 - 500 - application/json 31.1975ms
+2024-04-08 08:21:00.714 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:21:04.842 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:21:36.227 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:21:40.333 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:22:11.728 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:22:15.850 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:22:47.271 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:22:48.789 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:63246/api/products application/json 102
+2024-04-08 08:22:48.790 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:22:48.790 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:22:48.790 +03:00 [DBG] Request matched endpoint 'HTTP: GET api/products'
+2024-04-08 08:22:48.790 +03:00 [INF] Executing endpoint 'HTTP: GET api/products'
+2024-04-08 08:22:49.432 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-04-08 08:22:50.513 +03:00 [DBG] Entity Framework Core 7.0.7 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:7.0.4+96806371445869d20be357993820cd4be366e145' with options: None
+2024-04-08 08:22:51.393 +03:00 [WRN] Connection Failed: "rabbitmq://localhost/"
+RabbitMQ.Client.Exceptions.BrokerUnreachableException: None of the specified endpoints were reachable
+ ---> System.AggregateException: One or more errors occurred. (Connection failed)
+ ---> RabbitMQ.Client.Exceptions.ConnectFailureException: Connection failed
+ ---> System.Net.Sockets.SocketException (10061): No connection could be made because the target machine actively refused it.
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.ThrowException(SocketError error, CancellationToken cancellationToken)
+   at System.Net.Sockets.Socket.AwaitableSocketAsyncEventArgs.System.Threading.Tasks.Sources.IValueTaskSource.GetResult(Int16 token)
+   at System.Threading.Tasks.ValueTask.ValueTaskSourceAsTask.<>c.<.cctor>b__4_0(Object state)
+--- End of stack trace from previous location ---
+   at RabbitMQ.Client.Impl.TcpClientAdapter.ConnectAsync(String host, Int32 port)
+   at RabbitMQ.Client.Impl.TaskExtensions.TimeoutAfter(Task task, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectOrFail(ITcpClient socket, AmqpTcpEndpoint endpoint, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingAddressFamily(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout, AddressFamily family)
+   at RabbitMQ.Client.Impl.SocketFrameHandler.ConnectUsingIPv4(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan timeout)
+   at RabbitMQ.Client.Impl.SocketFrameHandler..ctor(AmqpTcpEndpoint endpoint, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.Framing.Impl.IProtocolExtensions.CreateFrameHandler(IProtocol protocol, AmqpTcpEndpoint endpoint, ArrayPool`1 pool, Func`2 socketFactory, TimeSpan connectionTimeout, TimeSpan readTimeout, TimeSpan writeTimeout)
+   at RabbitMQ.Client.ConnectionFactory.CreateFrameHandler(AmqpTcpEndpoint endpoint)
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.EndpointResolverExtensions.SelectOne[T](IEndpointResolver resolver, Func`2 selector)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   --- End of inner exception stack trace ---
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IEndpointResolver endpointResolver, String clientProvidedName)
+   at RabbitMQ.Client.ConnectionFactory.CreateConnection(IList`1 hostnames, String clientProvidedName)
+   at MassTransit.RabbitMqTransport.ConnectionContextFactory.CreateConnection(ISupervisor supervisor) in /_/src/Transports/MassTransit.RabbitMqTransport/RabbitMqTransport/ConnectionContextFactory.cs:line 86
+2024-04-08 08:23:58.517 +03:00 [DBG] Hosting starting
+2024-04-08 08:23:58.750 +03:00 [INF] Configured endpoint order-creation, Consumer: Mod.CameraModule.Services.Consumers.OrderCreationConsumer
+2024-04-08 08:23:58.896 +03:00 [DBG] Starting bus instances: IBus
+2024-04-08 08:23:58.901 +03:00 [DBG] Starting bus: "rabbitmq://localhost/"
+2024-04-08 08:23:59.041 +03:00 [DBG] Connect: guest@localhost:5672/
+2024-04-08 08:23:59.136 +03:00 [INF] Now listening on: https://localhost:63246
+2024-04-08 08:23:59.136 +03:00 [INF] Now listening on: http://localhost:63247
+2024-04-08 08:23:59.136 +03:00 [DBG] Loaded hosting startup assembly CameraModuleWebAPI
+2024-04-08 08:23:59.137 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-04-08 08:23:59.137 +03:00 [INF] Hosting environment: Development
+2024-04-08 08:23:59.137 +03:00 [INF] Content root path: C:\Dev\BasicShare\Apps\CameraModuleWebApi
+2024-04-08 08:23:59.137 +03:00 [DBG] Hosting started
+2024-04-08 08:23:59.240 +03:00 [DBG] Connected: guest@localhost:5672/ (address: amqp://localhost:5672, local: 56538)
+2024-04-08 08:23:59.288 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/BALKAR_CameraModuleWebAPI_bus_pbpoyynixtagcksfbdqfxdyzg1?temporary=true"
+2024-04-08 08:23:59.327 +03:00 [DBG] Declare queue: name: order-creation, durable, consumer-count: 0 message-count: 0
+2024-04-08 08:23:59.349 +03:00 [DBG] Declare exchange: name: order-creation, type: fanout, durable
+2024-04-08 08:23:59.360 +03:00 [DBG] Declare exchange: name: EventBus.Events:OrderCreatedEvent, type: fanout, durable
+2024-04-08 08:23:59.384 +03:00 [DBG] Bind queue: source: order-creation, destination: order-creation
+2024-04-08 08:23:59.411 +03:00 [DBG] Bind exchange: source: EventBus.Events:OrderCreatedEvent, destination: order-creation
+2024-04-08 08:23:59.482 +03:00 [DBG] Connection id "0HN2NHGC53KBL" received FIN.
+2024-04-08 08:23:59.495 +03:00 [DBG] Connection id "0HN2NHGC53KBL" accepted.
+2024-04-08 08:23:59.497 +03:00 [DBG] Connection id "0HN2NHGC53KBL" started.
+2024-04-08 08:23:59.552 +03:00 [DBG] Consumer Ok: "rabbitmq://localhost/order-creation" - amq.ctag-RW7P0Qup7clZKtcyIogYwA
+2024-04-08 08:23:59.549 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-04-08 08:23:59.554 +03:00 [DBG] Endpoint Ready: "rabbitmq://localhost/order-creation"
+2024-04-08 08:23:59.614 +03:00 [INF] Bus started: "rabbitmq://localhost/"
+2024-04-08 08:23:59.642 +03:00 [DBG] Connection id "0HN2NHGC53KBL" stopped.
+2024-04-08 08:23:59.649 +03:00 [DBG] Connection id "0HN2NHGC53KBL" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 08:23:59.672 +03:00 [DBG] Connection id "0HN2NHGC53KBM" accepted.
+2024-04-08 08:23:59.672 +03:00 [DBG] Connection id "0HN2NHGC53KBM" started.
+2024-04-08 08:23:59.774 +03:00 [DBG] Connection 0HN2NHGC53KBM established using the following protocol: "Tls13"
+2024-04-08 08:23:59.809 +03:00 [VRB] Connection id "0HN2NHGC53KBM" sending "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2024-04-08 08:23:59.817 +03:00 [VRB] Connection id "0HN2NHGC53KBM" sending "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-04-08 08:23:59.818 +03:00 [VRB] Connection id "0HN2NHGC53KBM" received "SETTINGS" frame for stream ID 0 with length 24 and flags "NONE".
+2024-04-08 08:23:59.819 +03:00 [VRB] Connection id "0HN2NHGC53KBM" sending "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-04-08 08:23:59.820 +03:00 [VRB] Connection id "0HN2NHGC53KBM" received "WINDOW_UPDATE" frame for stream ID 0 with length 4 and flags 0x0.
+2024-04-08 08:23:59.820 +03:00 [VRB] Connection id "0HN2NHGC53KBM" received "HEADERS" frame for stream ID 1 with length 457 and flags "END_STREAM, END_HEADERS, PRIORITY".
+2024-04-08 08:23:59.837 +03:00 [VRB] Connection id "0HN2NHGC53KBM" received "SETTINGS" frame for stream ID 0 with length 0 and flags "ACK".
+2024-04-08 08:23:59.869 +03:00 [INF] Request starting HTTP/2 GET https://localhost:63246/ - -
+2024-04-08 08:23:59.871 +03:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2024-04-08 08:23:59.871 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:24:00.018 +03:00 [DBG] 1 candidate(s) found for the request path '/'
+2024-04-08 08:24:00.019 +03:00 [DBG] Request matched endpoint 'HTTP: GET /'
+2024-04-08 08:24:00.029 +03:00 [INF] Executing endpoint 'HTTP: GET /'
+2024-04-08 08:24:00.033 +03:00 [INF] Executed endpoint 'HTTP: GET /'
+2024-04-08 08:24:00.037 +03:00 [VRB] Connection id "0HN2NHGC53KBM" sending "HEADERS" frame for stream ID 1 with length 68 and flags "END_HEADERS".
+2024-04-08 08:24:00.037 +03:00 [VRB] Connection id "0HN2NHGC53KBM" sending "DATA" frame for stream ID 1 with length 21 and flags "NONE".
+2024-04-08 08:24:00.037 +03:00 [INF] HTTP GET / responded 200 in 159.1416 ms
+2024-04-08 08:24:00.039 +03:00 [VRB] Connection id "0HN2NHGC53KBM" sending "DATA" frame for stream ID 1 with length 0 and flags "END_STREAM".
+2024-04-08 08:24:00.040 +03:00 [INF] Request finished HTTP/2 GET https://localhost:63246/ - - - 200 - text/plain;+charset=utf-8 174.5184ms
+2024-04-08 08:24:11.193 +03:00 [DBG] Connection id "0HN2NHGC53KBN" accepted.
+2024-04-08 08:24:11.193 +03:00 [DBG] Connection id "0HN2NHGC53KBN" started.
+2024-04-08 08:24:11.193 +03:00 [DBG] Connection id "0HN2NHGC53KBN" received FIN.
+2024-04-08 08:24:11.194 +03:00 [DBG] Connection id "0HN2NHGC53KBO" accepted.
+2024-04-08 08:24:11.194 +03:00 [DBG] Connection id "0HN2NHGC53KBO" started.
+2024-04-08 08:24:11.194 +03:00 [DBG] Failed to authenticate HTTPS connection.
+System.IO.IOException:  Received an unexpected EOF or 0 bytes from the transport stream.
+   at System.Net.Security.SslStream.ReceiveBlobAsync[TIOAdapter](CancellationToken cancellationToken)
+   at System.Net.Security.SslStream.ForceAuthenticationAsync[TIOAdapter](Boolean receiveFirst, Byte[] reAuthenticationData, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Https.Internal.HttpsConnectionMiddleware.OnConnectionAsync(ConnectionContext context)
+2024-04-08 08:24:11.195 +03:00 [DBG] Connection id "0HN2NHGC53KBN" stopped.
+2024-04-08 08:24:11.195 +03:00 [DBG] Connection id "0HN2NHGC53KBN" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 08:24:11.199 +03:00 [DBG] Connection 0HN2NHGC53KBO established using the following protocol: "Tls13"
+2024-04-08 08:24:11.209 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:63246/api/products application/json 102
+2024-04-08 08:24:11.209 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:24:11.211 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:24:11.211 +03:00 [DBG] Request matched endpoint 'HTTP: GET api/products'
+2024-04-08 08:24:11.211 +03:00 [INF] Executing endpoint 'HTTP: GET api/products'
+2024-04-08 08:24:11.545 +03:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2024-04-08 08:24:12.290 +03:00 [DBG] Entity Framework Core 7.0.7 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:7.0.4+96806371445869d20be357993820cd4be366e145' with options: None
+2024-04-08 08:24:17.074 +03:00 [DBG] Compiling query expression: 
+'DbSet<CameraModuleEntity>()
+    .OrderBy(j => j.Description)'
+2024-04-08 08:24:17.295 +03:00 [DBG] Generated query execution expression: 
+'queryContext => new SingleQueryingEnumerable<CameraModuleEntity>(
+    (RelationalQueryContext)queryContext, 
+    RelationalCommandCache.QueryExpression(
+        Projection Mapping:
+            EmptyProjectionMember -> Dictionary<IProperty, int> { [Property: CameraModuleEntity.Id (Guid) Required PK AfterSave:Throw ValueGenerated.OnAdd, 0], [Property: CameraModuleEntity.Description (string), 1], [Property: CameraModuleEntity.Name (string), 2] }
+        SELECT c.Id, c.Description, c.Name
+        FROM CameraModules AS c
+        ORDER BY c.Description ASC), 
+    null, 
+    Func<QueryContext, DbDataReader, ResultContext, SingleQueryResultCoordinator, CameraModuleEntity>, 
+    Storage.AppStorage.ApiDbContext, 
+    False, 
+    False, 
+    True
+)'
+2024-04-08 08:24:17.339 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-08 08:24:17.344 +03:00 [DBG] Creating DbConnection.
+2024-04-08 08:24:17.404 +03:00 [DBG] Created DbConnection. (54ms).
+2024-04-08 08:24:17.414 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (72ms).
+2024-04-08 08:24:17.416 +03:00 [DBG] Initialized DbCommand for 'ExecuteReader' (80ms).
+2024-04-08 08:24:17.425 +03:00 [DBG] Opening connection to database 'sadb' on server ''.
+2024-04-08 08:24:17.546 +03:00 [ERR] An error occurred using the connection to database 'sadb' on server ''.
+2024-04-08 08:24:17.566 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Storage.AppStorage.ApiDbContext'.
+Npgsql.PostgresException (0x80004005): 3D000: database "sadb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|216_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|28_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|45_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "sadb" does not exist
+    File: postinit.c
+    Line: 1019
+    Routine: InitPostgres
+Npgsql.PostgresException (0x80004005): 3D000: database "sadb" does not exist
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.Internal.NpgsqlConnector.<Open>g__OpenCore|216_1(NpgsqlConnector conn, SslMode sslMode, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken, Boolean isFirstAttempt)
+   at Npgsql.Internal.NpgsqlConnector.Open(NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.OpenNewConnector(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.PoolingDataSource.<Get>g__RentAsync|28_0(NpgsqlConnection conn, NpgsqlTimeout timeout, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlConnection.<Open>g__OpenAsync|45_0(Boolean async, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenInternalAsync(Boolean errorsExpected, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenAsync(CancellationToken cancellationToken, Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: FATAL
+    SqlState: 3D000
+    MessageText: database "sadb" does not exist
+    File: postinit.c
+    Line: 1019
+    Routine: InitPostgres
+2024-04-08 08:24:17.988 +03:00 [ERR] 3D000: database "sadb" does not exist
+2024-04-08 08:24:18.030 +03:00 [INF] Executed endpoint 'HTTP: GET api/products'
+2024-04-08 08:24:18.031 +03:00 [INF] HTTP GET /api/products responded 200 in 6822.1631 ms
+2024-04-08 08:24:18.034 +03:00 [DBG] Connection id "0HN2NHGC53KBO" completed keep alive response.
+2024-04-08 08:24:18.039 +03:00 [DBG] 'ApiDbContext' disposed.
+2024-04-08 08:24:18.043 +03:00 [DBG] Disposing connection to database 'sadb' on server ''.
+2024-04-08 08:24:18.049 +03:00 [DBG] Disposed connection to database 'sadb' on server '' (1ms).
+2024-04-08 08:24:18.051 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:63246/api/products application/json 102 - 200 - application/json;+charset=utf-8 6841.6455ms
+2024-04-08 08:24:18.052 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000001": started reading request body.
+2024-04-08 08:24:18.053 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000001": done reading request body.
+2024-04-08 08:32:48.960 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:63246/api/products application/json 102
+2024-04-08 08:32:48.960 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:32:48.960 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:32:48.960 +03:00 [DBG] Request matched endpoint 'HTTP: GET api/products'
+2024-04-08 08:32:48.960 +03:00 [INF] Executing endpoint 'HTTP: GET api/products'
+2024-04-08 08:32:48.987 +03:00 [DBG] Entity Framework Core 7.0.7 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:7.0.4+96806371445869d20be357993820cd4be366e145' with options: None
+2024-04-08 08:32:52.550 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-08 08:32:52.550 +03:00 [DBG] Creating DbConnection.
+2024-04-08 08:32:52.550 +03:00 [DBG] Created DbConnection. (0ms).
+2024-04-08 08:32:52.550 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-04-08 08:32:52.550 +03:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-04-08 08:32:52.551 +03:00 [DBG] Opening connection to database 'sadb' on server ''.
+2024-04-08 08:32:52.618 +03:00 [DBG] Opened connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:32:52.635 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "CameraModules" AS c
+ORDER BY c."Description"
+2024-04-08 08:32:52.668 +03:00 [ERR] Failed executing DbCommand (36ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "CameraModules" AS c
+ORDER BY c."Description"
+2024-04-08 08:32:52.672 +03:00 [DBG] Closing connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:32:52.678 +03:00 [DBG] Closed connection to database 'sadb' on server '' (4ms).
+2024-04-08 08:32:52.682 +03:00 [ERR] An exception occurred while iterating over the results of a query for context type 'Storage.AppStorage.ApiDbContext'.
+Npgsql.PostgresException (0x80004005): 42P01: relation "CameraModules" does not exist
+
+POSITION: 48
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "CameraModules" does not exist
+    Position: 48
+    File: parse_relation.c
+    Line: 1449
+    Routine: parserOpenTable
+Npgsql.PostgresException (0x80004005): 42P01: relation "CameraModules" does not exist
+
+POSITION: 48
+   at Npgsql.Internal.NpgsqlConnector.<ReadMessage>g__ReadMessageLong|234_0(NpgsqlConnector connector, Boolean async, DataRowLoadingMode dataRowLoadingMode, Boolean readingNotifications, Boolean isReadingPrependedMessage)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken)
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReaderAsync(CommandBehavior behavior, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.InitializeReaderAsync(AsyncEnumerator enumerator, CancellationToken cancellationToken)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Query.Internal.SingleQueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+  Exception data:
+    Severity: ERROR
+    SqlState: 42P01
+    MessageText: relation "CameraModules" does not exist
+    Position: 48
+    File: parse_relation.c
+    Line: 1449
+    Routine: parserOpenTable
+2024-04-08 08:32:52.982 +03:00 [ERR] 42P01: relation "CameraModules" does not exist
+
+POSITION: 48
+2024-04-08 08:32:52.983 +03:00 [INF] Executed endpoint 'HTTP: GET api/products'
+2024-04-08 08:32:52.983 +03:00 [INF] HTTP GET /api/products responded 200 in 4023.5141 ms
+2024-04-08 08:32:52.984 +03:00 [DBG] Connection id "0HN2NHGC53KBO" completed keep alive response.
+2024-04-08 08:32:52.984 +03:00 [DBG] 'ApiDbContext' disposed.
+2024-04-08 08:32:52.984 +03:00 [DBG] Disposing connection to database 'sadb' on server ''.
+2024-04-08 08:32:52.984 +03:00 [DBG] Disposed connection to database 'sadb' on server '' (0ms).
+2024-04-08 08:32:52.984 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:63246/api/products application/json 102 - 200 - application/json;+charset=utf-8 4024.4642ms
+2024-04-08 08:32:52.984 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000002": started reading request body.
+2024-04-08 08:32:52.984 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000002": done reading request body.
+2024-04-08 08:34:07.212 +03:00 [DBG] Connection id "0HN2NHGC53KBM" received FIN.
+2024-04-08 08:34:07.214 +03:00 [DBG] Connection id "0HN2NHGC53KBM" is closed. The last processed stream ID was 1.
+2024-04-08 08:34:07.214 +03:00 [DBG] Connection id "0HN2NHGC53KBM" sending FIN because: "The Socket transport's send loop completed gracefully."
+2024-04-08 08:34:07.227 +03:00 [DBG] The connection queue processing loop for 0HN2NHGC53KBM completed.
+2024-04-08 08:34:07.235 +03:00 [DBG] Connection id "0HN2NHGC53KBM" stopped.
+2024-04-08 08:48:44.738 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:63246/api/products application/json 102
+2024-04-08 08:48:44.738 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:48:44.738 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:48:44.738 +03:00 [DBG] Request matched endpoint 'HTTP: GET api/products'
+2024-04-08 08:48:44.738 +03:00 [INF] Executing endpoint 'HTTP: GET api/products'
+2024-04-08 08:48:44.743 +03:00 [DBG] Entity Framework Core 7.0.7 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:7.0.4+96806371445869d20be357993820cd4be366e145' with options: None
+2024-04-08 08:48:47.513 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-08 08:48:47.513 +03:00 [DBG] Creating DbConnection.
+2024-04-08 08:48:47.513 +03:00 [DBG] Created DbConnection. (0ms).
+2024-04-08 08:48:47.513 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-04-08 08:48:47.514 +03:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-04-08 08:48:47.514 +03:00 [DBG] Opening connection to database 'sadb' on server ''.
+2024-04-08 08:48:47.531 +03:00 [DBG] Opened connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:48:47.531 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "CameraModules" AS c
+ORDER BY c."Description"
+2024-04-08 08:48:47.543 +03:00 [INF] Executed DbCommand (11ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "CameraModules" AS c
+ORDER BY c."Description"
+2024-04-08 08:48:47.551 +03:00 [DBG] Closing data reader to 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:48:47.555 +03:00 [DBG] A data reader for 'sadb' on server 'tcp://localhost:5432' is being disposed after spending 7ms reading results.
+2024-04-08 08:48:47.558 +03:00 [DBG] Closing connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:48:47.558 +03:00 [DBG] Closed connection to database 'sadb' on server '' (0ms).
+2024-04-08 08:48:47.559 +03:00 [INF] Executed endpoint 'HTTP: GET api/products'
+2024-04-08 08:48:47.559 +03:00 [INF] HTTP GET /api/products responded 200 in 2820.9163 ms
+2024-04-08 08:48:47.559 +03:00 [DBG] Connection id "0HN2NHGC53KBO" completed keep alive response.
+2024-04-08 08:48:47.559 +03:00 [DBG] 'ApiDbContext' disposed.
+2024-04-08 08:48:47.559 +03:00 [DBG] Disposing connection to database 'sadb' on server ''.
+2024-04-08 08:48:47.559 +03:00 [DBG] Disposed connection to database 'sadb' on server '' (0ms).
+2024-04-08 08:48:47.559 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:63246/api/products application/json 102 - 200 - application/json;+charset=utf-8 2821.4015ms
+2024-04-08 08:48:47.559 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000003": started reading request body.
+2024-04-08 08:48:47.559 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000003": done reading request body.
+2024-04-08 08:50:09.900 +03:00 [INF] Request starting HTTP/1.1 POST https://localhost:63246/api/products application/json 71
+2024-04-08 08:50:09.900 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:50:09.900 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:50:09.900 +03:00 [DBG] Request matched endpoint 'HTTP: POST api/products'
+2024-04-08 08:50:09.901 +03:00 [INF] Executing endpoint 'HTTP: POST api/products'
+2024-04-08 08:50:09.922 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000004": started reading request body.
+2024-04-08 08:50:09.922 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000004": done reading request body.
+2024-04-08 08:50:09.931 +03:00 [DBG] Entity Framework Core 7.0.7 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:7.0.4+96806371445869d20be357993820cd4be366e145' with options: None
+2024-04-08 08:50:25.838 +03:00 [DBG] Context 'ApiDbContext' started tracking 'CameraModuleEntity' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-04-08 08:50:25.842 +03:00 [DBG] SaveChanges starting for 'ApiDbContext'.
+2024-04-08 08:50:25.845 +03:00 [DBG] DetectChanges starting for 'ApiDbContext'.
+2024-04-08 08:50:25.856 +03:00 [DBG] DetectChanges completed for 'ApiDbContext'.
+2024-04-08 08:50:25.916 +03:00 [DBG] Creating DbConnection.
+2024-04-08 08:50:25.916 +03:00 [DBG] Created DbConnection. (0ms).
+2024-04-08 08:50:25.916 +03:00 [DBG] Opening connection to database 'sadb' on server ''.
+2024-04-08 08:50:25.917 +03:00 [DBG] Opened connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:50:25.919 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-08 08:50:25.919 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-04-08 08:50:25.922 +03:00 [DBG] Initialized DbCommand for 'ExecuteReader' (3ms).
+2024-04-08 08:50:25.926 +03:00 [DBG] Executing DbCommand [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "CameraModules" ("Id", "Description", "Name")
+VALUES (@p0, @p1, @p2);
+2024-04-08 08:50:25.942 +03:00 [INF] Executed DbCommand (20ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?', @p2='?'], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO "CameraModules" ("Id", "Description", "Name")
+VALUES (@p0, @p1, @p2);
+2024-04-08 08:50:25.948 +03:00 [DBG] Closing data reader to 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:50:25.948 +03:00 [DBG] A data reader for 'sadb' on server 'tcp://localhost:5432' is being disposed after spending 5ms reading results.
+2024-04-08 08:50:25.949 +03:00 [DBG] Closing connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:50:25.949 +03:00 [DBG] Closed connection to database 'sadb' on server '' (0ms).
+2024-04-08 08:50:25.958 +03:00 [DBG] An entity of type 'CameraModuleEntity' tracked by 'ApiDbContext' changed state from '"Added"' to '"Unchanged"'. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-04-08 08:50:25.960 +03:00 [DBG] SaveChanges completed for 'ApiDbContext' with 1 entities written to the database.
+2024-04-08 08:50:25.962 +03:00 [INF] Executed endpoint 'HTTP: POST api/products'
+2024-04-08 08:50:25.962 +03:00 [INF] HTTP POST /api/products responded 200 in 16062.1266 ms
+2024-04-08 08:50:25.962 +03:00 [DBG] Connection id "0HN2NHGC53KBO" completed keep alive response.
+2024-04-08 08:50:25.963 +03:00 [DBG] 'ApiDbContext' disposed.
+2024-04-08 08:50:25.963 +03:00 [DBG] Disposing connection to database 'sadb' on server ''.
+2024-04-08 08:50:25.963 +03:00 [DBG] Disposed connection to database 'sadb' on server '' (0ms).
+2024-04-08 08:50:25.963 +03:00 [INF] Request finished HTTP/1.1 POST https://localhost:63246/api/products application/json 71 - 200 - application/json;+charset=utf-8 16062.8570ms
+2024-04-08 08:50:33.536 +03:00 [INF] Request starting HTTP/1.1 GET https://localhost:63246/api/products application/json 71
+2024-04-08 08:50:33.536 +03:00 [VRB] All hosts are allowed.
+2024-04-08 08:50:33.536 +03:00 [DBG] 1 candidate(s) found for the request path '/api/products'
+2024-04-08 08:50:33.536 +03:00 [DBG] Request matched endpoint 'HTTP: GET api/products'
+2024-04-08 08:50:33.536 +03:00 [INF] Executing endpoint 'HTTP: GET api/products'
+2024-04-08 08:50:33.537 +03:00 [DBG] Entity Framework Core 7.0.7 initialized 'ApiDbContext' using provider 'Npgsql.EntityFrameworkCore.PostgreSQL:7.0.4+96806371445869d20be357993820cd4be366e145' with options: None
+2024-04-08 08:50:39.578 +03:00 [DBG] Creating DbCommand for 'ExecuteReader'.
+2024-04-08 08:50:39.578 +03:00 [DBG] Creating DbConnection.
+2024-04-08 08:50:39.578 +03:00 [DBG] Created DbConnection. (0ms).
+2024-04-08 08:50:39.578 +03:00 [DBG] Created DbCommand for 'ExecuteReader' (0ms).
+2024-04-08 08:50:39.578 +03:00 [DBG] Initialized DbCommand for 'ExecuteReader' (0ms).
+2024-04-08 08:50:39.578 +03:00 [DBG] Opening connection to database 'sadb' on server ''.
+2024-04-08 08:50:39.578 +03:00 [DBG] Opened connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:50:39.579 +03:00 [DBG] Executing DbCommand [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "CameraModules" AS c
+ORDER BY c."Description"
+2024-04-08 08:50:39.583 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT c."Id", c."Description", c."Name"
+FROM "CameraModules" AS c
+ORDER BY c."Description"
+2024-04-08 08:50:39.591 +03:00 [DBG] Context 'ApiDbContext' started tracking 'CameraModuleEntity' entity. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see key values.
+2024-04-08 08:50:39.593 +03:00 [DBG] Closing data reader to 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:50:39.593 +03:00 [DBG] A data reader for 'sadb' on server 'tcp://localhost:5432' is being disposed after spending 10ms reading results.
+2024-04-08 08:50:39.593 +03:00 [DBG] Closing connection to database 'sadb' on server 'tcp://localhost:5432'.
+2024-04-08 08:50:39.593 +03:00 [DBG] Closed connection to database 'sadb' on server '' (0ms).
+2024-04-08 08:50:39.599 +03:00 [INF] Some products exists in DataBase
+2024-04-08 08:50:39.601 +03:00 [INF] Executed endpoint 'HTTP: GET api/products'
+2024-04-08 08:50:39.601 +03:00 [INF] HTTP GET /api/products responded 200 in 6065.1555 ms
+2024-04-08 08:50:39.601 +03:00 [DBG] Connection id "0HN2NHGC53KBO" completed keep alive response.
+2024-04-08 08:50:39.601 +03:00 [DBG] 'ApiDbContext' disposed.
+2024-04-08 08:50:39.602 +03:00 [DBG] Disposing connection to database 'sadb' on server ''.
+2024-04-08 08:50:39.602 +03:00 [DBG] Disposed connection to database 'sadb' on server '' (0ms).
+2024-04-08 08:50:39.602 +03:00 [INF] Request finished HTTP/1.1 GET https://localhost:63246/api/products application/json 71 - 200 - application/json;+charset=utf-8 6065.6192ms
+2024-04-08 08:50:39.602 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000005": started reading request body.
+2024-04-08 08:50:39.602 +03:00 [DBG] Connection id "0HN2NHGC53KBO", Request id "0HN2NHGC53KBO:00000005": done reading request body.

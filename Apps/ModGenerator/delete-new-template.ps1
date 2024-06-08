@@ -26,7 +26,11 @@ Foreach($SubFolder in $SubFolders)
 { 
     $libPath = "$($SubFolder.FullName)\"
     cd $libPath
+    Write-Host The libPath is: $libPath
+    
     dotnet new uninstall .
 }
+
+
 
 cd $currentPath

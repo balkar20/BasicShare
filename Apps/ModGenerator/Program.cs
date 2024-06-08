@@ -21,8 +21,8 @@ var modModificationTemplates = defaultModificationArray.Concat(config.GetSection
 var envCurrentDir = Environment.CurrentDirectory;
 var path = envCurrentDir.Substring(0, envCurrentDir.IndexOf($"\\Apps\\ModGenerator\\bin\\Debug\\net{Environment.Version.Major}.{Environment.Version.Minor}"));
 
-var fromModName = config.GetSection("FromModeName").Value;
-var newModName = config.GetSection("NewModeName").Value;
+var fromModName = config.GetSection("FromModName").Value;
+var newModName = config.GetSection("NewModName").Value;
 
 var coreBasePath = $"{path}\\Core\\Core.Base\\";
 var coreConfigInterfacesFolder = $"{coreBasePath}ConfigurationInterfaces";

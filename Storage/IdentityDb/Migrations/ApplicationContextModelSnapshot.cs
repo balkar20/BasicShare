@@ -104,653 +104,624 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "91529783-f59f-46e6-a909-e7019b5c7008",
+                            Id = "b3023d3d-0a25-43ac-ba10-3815be222227",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "50e20e45-e130-4654-a631-f64dfd3d174c",
+                            ConcurrencyStamp = "aab87d16-a9bb-4d75-979d-ef7bebc6a914",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "NastyaBocharnikova-020@mail.ru",
+                            Email = "SanchoLeaver-020@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "NASTYABOCHARNIKOVA-020@MAIL.RU",
-                            NormalizedUserName = "NASTYABOCHARNIKOVA-0",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPjoTfNd/m9NeX+P3+S1nIAGXyvQOmbTW5RqMMeuvjMFlnjB9ZShlDbarlNXDgbMxQ==",
+                            NormalizedEmail = "SANCHOLEAVER-020@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-0",
+                            PasswordHash = "AQAAAAIAAYagAAAAELbhvlfiafcTOIVJlIdJoe6WLWPX/Cr1vySS7ULwIduQwT//dFjbqpniULn86Yecjw==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "3949a3ca-624f-4d47-81b6-62fa6ef917e8",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "d2e15602-19d7-48ad-9789-b24ee89a29d7",
                             TwoFactorEnabled = false,
-                            UserName = "NastyaBocharnikova-0"
+                            UserName = "SanchoLeaver-0"
                         },
                         new
                         {
-                            Id = "763379f8-0e23-4ce5-b43a-cec33eac5a32",
+                            Id = "775134f4-446d-4393-a01d-8e52bd08ff78",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "779695b8-d8e3-4b4b-80e2-bca934e4b5dc",
+                            ConcurrencyStamp = "7904308f-a49f-413e-8027-fd42904c7df0",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "VladBlack-120@mail.ru",
+                            Email = "NastyaBocharnikova-120@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "VLADBLACK-120@MAIL.RU",
-                            NormalizedUserName = "VLADBLACK-1",
-                            PasswordHash = "AQAAAAIAAYagAAAAEB8qJ1cNNGCp4UsTHp0IfCwtH1OK12Ny2Eo5mwAvH0wX/EFXgFu5fFY6shV4OQIgSw==",
+                            NormalizedEmail = "NASTYABOCHARNIKOVA-120@MAIL.RU",
+                            NormalizedUserName = "NASTYABOCHARNIKOVA-1",
+                            PasswordHash = "AQAAAAIAAYagAAAAEB0aV205JlCYXfEodx+DCXYlsBPgxuVQUpy04BdPQ2YuYD28PiGW5GTf+I+rGh4g2Q==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "b21e3721-c4ab-49fa-ad8e-f0e1d1fb2d50",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "b4182e9d-770b-4b24-b134-fbf9f563064e",
                             TwoFactorEnabled = false,
-                            UserName = "VladBlack-1"
+                            UserName = "NastyaBocharnikova-1"
                         },
                         new
                         {
-                            Id = "df55044b-3e70-4914-9b12-a789938eb7d9",
+                            Id = "906f6fc5-68ee-431b-be2e-2545682da6bd",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "515672b7-3eb8-4770-976c-27a0d14cb3ec",
+                            ConcurrencyStamp = "8c5064f0-6dce-423f-a73e-f6fcb0fd5cf8",
                             Description = "I am a pooper! Poo poo poo!!!",
                             Email = "VladBlack-220@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "VLADBLACK-220@MAIL.RU",
                             NormalizedUserName = "VLADBLACK-2",
-                            PasswordHash = "AQAAAAIAAYagAAAAEAgV5Fcua9CTutvnY94kI6xSNgmaCUreE7dzC+Sv1NNwrUx0YpTwxVRpR6N1zQGnwQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKi63qS8xVFquS+MPaEtciG0IkPQYHK/CS4ptzMTWJ67oIaIHpq7tchiPrAJpGt6ZA==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "be46f58b-3b56-457b-8ece-8dc16d6a0843",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "7d2e5590-23bc-4878-aa02-e3bf8a3d7ed4",
                             TwoFactorEnabled = false,
                             UserName = "VladBlack-2"
                         },
                         new
                         {
-                            Id = "5b5fd5c5-f70d-4eb7-97bb-7012f5239636",
+                            Id = "c9af9594-c82f-4069-84eb-4d3793d987b9",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "c632c02a-400f-4878-bd8a-c5e15a3c14f5",
+                            ConcurrencyStamp = "d2a50c9a-efdb-460d-9c16-6db2b8a02725",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "NastyaKareva-320@mail.ru",
+                            Email = "VladBlack-320@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "NASTYAKAREVA-320@MAIL.RU",
-                            NormalizedUserName = "NASTYAKAREVA-3",
-                            PasswordHash = "AQAAAAIAAYagAAAAEDoOMdyQifwZ+wvF6/XH/E2XfsBzeCidhEIZTD6iVy8LKCgE05rNpJe/PkUmp95VXw==",
+                            NormalizedEmail = "VLADBLACK-320@MAIL.RU",
+                            NormalizedUserName = "VLADBLACK-3",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMN53fZD+jSaF+wvkcgk+yKKCh+B+5Nc2BzzFGz3+HUYWMTfChXxvMcMOA7xiopfwA==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "a4d9e2c0-6d41-4590-a5ad-ec5227c464cb",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "94d0d49e-35af-4002-84b5-d5b50fc919f1",
                             TwoFactorEnabled = false,
-                            UserName = "NastyaKareva-3"
+                            UserName = "VladBlack-3"
                         },
                         new
                         {
-                            Id = "b745f30f-098c-4fc4-80ed-350c9e86e281",
+                            Id = "d23163db-be3e-4fd5-a5da-2f72c768c05a",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "ad8469bd-5ed0-4c80-bb42-6fcdfbcbf0ce",
+                            ConcurrencyStamp = "4c007207-8ad5-4776-8275-49b195a73e53",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "AdrewRojer-420@mail.ru",
+                            Email = "GregorPiha-420@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADREWROJER-420@MAIL.RU",
-                            NormalizedUserName = "ADREWROJER-4",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFH2C0mdMejXFBo0JwNDFUqfjdOGTHYziwV5ZXWOecWcKL0esUtEA1r4zBFV9bhfmQ==",
+                            NormalizedEmail = "GREGORPIHA-420@MAIL.RU",
+                            NormalizedUserName = "GREGORPIHA-4",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOCyeSbGD83XYfYmHxU2+Y6fJ+OsVGnqhSJv3n+U5Q9JecqTWT8uW15EjZEr7vTSFw==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "b242c69f-f801-4ec7-9862-fb3bfeae0c21",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "3e912ec5-263b-4994-b233-40783930ac85",
                             TwoFactorEnabled = false,
-                            UserName = "AdrewRojer-4"
+                            UserName = "GregorPiha-4"
                         },
                         new
                         {
-                            Id = "14ac3876-cdfe-421e-87f5-7e25049290a7",
+                            Id = "dba21b20-7551-488a-bb08-40f034e0b475",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "8ceec6f2-c53e-41d0-8d26-487d201cbf49",
+                            ConcurrencyStamp = "3aa8c73a-6479-4d4f-89d0-48c75e4b6642",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "GregorPiha-520@mail.ru",
+                            Email = "AdrewRojer-520@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "GREGORPIHA-520@MAIL.RU",
-                            NormalizedUserName = "GREGORPIHA-5",
-                            PasswordHash = "AQAAAAIAAYagAAAAEBqGnNrfLtJoezWEWgbs0mET7rRESUlD4v075ahphpfPAYj028AlqB2AHAOTOtWKnQ==",
+                            NormalizedEmail = "ADREWROJER-520@MAIL.RU",
+                            NormalizedUserName = "ADREWROJER-5",
+                            PasswordHash = "AQAAAAIAAYagAAAAEJ4S5zEVQvfIwuMNRH6mRdfBH/kpTZugtBN2FUQz+OkezyWkmsdwn5WkS2n+GDakHg==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "eefb0c4a-385f-4fb0-81ba-457c8c6c1144",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "f50778a5-4300-4df3-8eac-90700254470c",
                             TwoFactorEnabled = false,
-                            UserName = "GregorPiha-5"
+                            UserName = "AdrewRojer-5"
                         },
                         new
                         {
-                            Id = "fa85c792-8b69-4d03-ade7-1800fcf5aa55",
+                            Id = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "29e50205-6b98-4b4e-98a7-d99da5f1793d",
+                            ConcurrencyStamp = "bb735063-0a6d-4571-903f-614d6125ac84",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "AdrewRojer-620@mail.ru",
+                            Email = "SanchoLeaver-620@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADREWROJER-620@MAIL.RU",
-                            NormalizedUserName = "ADREWROJER-6",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKgcL5zjBeu6RHwyRJfDrKOR2yzOZZ2OixymYKSP/OEinYu6AVRECKKgSo4Og9W7mg==",
+                            NormalizedEmail = "SANCHOLEAVER-620@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-6",
+                            PasswordHash = "AQAAAAIAAYagAAAAEFlA1ZhJV/sx1RXgn6mYmpiZlD0QhJnTe1F/IgBk4jwBBsSf7q9ugUQTswxPxPb9eQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "1adcd8fb-c11b-44ab-97c4-d45e21438bc4",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "1800b893-1b12-4aeb-8c94-7f470d34e6a6",
                             TwoFactorEnabled = false,
-                            UserName = "AdrewRojer-6"
+                            UserName = "SanchoLeaver-6"
                         },
                         new
                         {
-                            Id = "74fc2a57-1944-46e3-888f-916c50ea5a47",
+                            Id = "67b764c8-35e7-462a-95e6-b39f2291c4fe",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "a40d6852-ce26-44b5-bf56-cbb926cd42b5",
+                            ConcurrencyStamp = "0db5944b-4d44-42d0-ad33-8da94c1b9aff",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "GregorPiha-720@mail.ru",
+                            Email = "AdrewRojer-720@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "GREGORPIHA-720@MAIL.RU",
-                            NormalizedUserName = "GREGORPIHA-7",
-                            PasswordHash = "AQAAAAIAAYagAAAAEF7jdHBO9YYNtL7DJha/L0scAFieblvxfJQQcXtSR5DkEiWropT0i6HvVRL98WkqSA==",
+                            NormalizedEmail = "ADREWROJER-720@MAIL.RU",
+                            NormalizedUserName = "ADREWROJER-7",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGyHgBQOlq2THuSEe99uaRBuKyqxUe3nuoan+1SDqbxReII2x/gNQeQE0Ew/zdtS2w==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "52af036b-1fa7-49d3-a633-393663b28674",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "08df3d38-e66f-46fc-92b2-7f47b869fb69",
                             TwoFactorEnabled = false,
-                            UserName = "GregorPiha-7"
+                            UserName = "AdrewRojer-7"
                         },
                         new
                         {
-                            Id = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1",
+                            Id = "40dee089-43c6-4781-b39c-b320375a0f10",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "2f371f38-cf51-4895-a3f3-4b9d33bfccee",
+                            ConcurrencyStamp = "582c92da-d1b0-4c4b-ac0e-8c8ee70a71e4",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "NastyaKareva-820@mail.ru",
+                            Email = "GregorPiha-820@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "NASTYAKAREVA-820@MAIL.RU",
-                            NormalizedUserName = "NASTYAKAREVA-8",
-                            PasswordHash = "AQAAAAIAAYagAAAAEIONuwk6bYj2UbBg+D2BxLjKUOBd0GxnUyQghGZHPExZPmBiY/1/lTWP8EOWZXSiPw==",
+                            NormalizedEmail = "GREGORPIHA-820@MAIL.RU",
+                            NormalizedUserName = "GREGORPIHA-8",
+                            PasswordHash = "AQAAAAIAAYagAAAAEA8kb9OXME/U7fdLPPhIdD4ImcxsYIsIe5Kyhk9KEy/ohylUNMrjPlVezkaNmEHDeA==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "2ab71807-bb39-447d-a283-88985475a85f",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "cb045dbe-1069-444f-aee8-021e12473488",
                             TwoFactorEnabled = false,
-                            UserName = "NastyaKareva-8"
+                            UserName = "GregorPiha-8"
                         },
                         new
                         {
-                            Id = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af",
+                            Id = "97d4c05f-c0a0-475a-9ba5-7d027d193c60",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "eeb055ac-aa14-490d-8764-9bc0acea0545",
+                            ConcurrencyStamp = "40865ac6-566a-44a6-a70e-38451e90f1c3",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "GregorPiha-920@mail.ru",
+                            Email = "AdrewRojer-920@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "GREGORPIHA-920@MAIL.RU",
-                            NormalizedUserName = "GREGORPIHA-9",
-                            PasswordHash = "AQAAAAIAAYagAAAAEI09FoEE1IP1iDUfdh2VtzML4ApRXBRr4uTpjaYzjOBA/5+ydK8TPsnWSHkhT0Bw9Q==",
+                            NormalizedEmail = "ADREWROJER-920@MAIL.RU",
+                            NormalizedUserName = "ADREWROJER-9",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE0Xf9n8q8GX4g8k+FhipxCiizt/BFQ9zvqCOxhWdB1KAfslFXwMkX2AXPsPQ9dAWg==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "9e9d08a4-866e-440c-827c-488ddcfde151",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "2fc6960b-cc3a-419c-9b30-4440d2947dc5",
                             TwoFactorEnabled = false,
-                            UserName = "GregorPiha-9"
+                            UserName = "AdrewRojer-9"
                         },
                         new
                         {
-                            Id = "0f71294b-6eed-4555-a993-17ec66922612",
+                            Id = "c1713cd1-099d-4de3-bd55-11192ec724ad",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "b7c78510-4a68-4492-8231-7150349be61d",
+                            ConcurrencyStamp = "67e0672c-fd8e-4fb1-9250-2fc0f6d2217b",
                             Description = "I am a pooper! Poo poo poo!!!",
                             Email = "SanchoLeaver-1020@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SANCHOLEAVER-1020@MAIL.RU",
                             NormalizedUserName = "SANCHOLEAVER-10",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGeSj+DB0wGc3AO+HfgIs4HbxJA5mK/ta4uJ67naTE4y+vbRfJ+u2gLolPTD72FlsQ==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGHkSJo/0Ej2xLBd4RUkRQzOeT9MFw76eiAzd/UmtpBhk4IH/WD5+UWzcczsppx/uQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "98b2bc09-cccf-4702-96e7-7877bff5642b",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "6a7c48e8-e16c-49d8-aa74-77a4e517082d",
                             TwoFactorEnabled = false,
                             UserName = "SanchoLeaver-10"
                         },
                         new
                         {
-                            Id = "7b56b797-10e7-4642-8c56-7d00fa89f265",
+                            Id = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "2feb0619-5727-48e7-94a1-4828822b69f6",
+                            ConcurrencyStamp = "61ad0ef0-34fa-48a5-b8fb-4d4312ec1a38",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "VladBlack-1120@mail.ru",
+                            Email = "AdrewRojer-1120@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "VLADBLACK-1120@MAIL.RU",
-                            NormalizedUserName = "VLADBLACK-11",
-                            PasswordHash = "AQAAAAIAAYagAAAAEENlE/Yj7VIEUeo4W+VriWKDrTsLhM950XlvAhfntOwrUGqWBrxwFNvH5AzfLW1g6w==",
+                            NormalizedEmail = "ADREWROJER-1120@MAIL.RU",
+                            NormalizedUserName = "ADREWROJER-11",
+                            PasswordHash = "AQAAAAIAAYagAAAAECEcMyIhoGwLI/6HW4ImyBmvkko++Nw+eUXcmThS5TuHBple6OTA7wmYPEewtGwL4g==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "6b867312-86dc-40ce-b3c9-c471c6c65d7a",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "dfd043f1-a08d-4cbb-8620-df7a78f8fca8",
                             TwoFactorEnabled = false,
-                            UserName = "VladBlack-11"
+                            UserName = "AdrewRojer-11"
                         },
                         new
                         {
-                            Id = "b20de05d-fd8b-4215-9f59-909ab9bf653b",
+                            Id = "8021b9a7-dca8-4940-b587-3fb85064c8a1",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "e0f0bb1d-59c1-4c50-a121-986819a096c8",
+                            ConcurrencyStamp = "88a8ad62-3a21-49bc-a5aa-977ad7673f93",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "VladBlack-1220@mail.ru",
+                            Email = "SanchoLeaver-1220@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "VLADBLACK-1220@MAIL.RU",
-                            NormalizedUserName = "VLADBLACK-12",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGbxsNlfAtMKWBUo2Se1SzxM6AKikSKpWOGhjsbwrKjQItmIh2mjzo/Ky36fDDBAaw==",
+                            NormalizedEmail = "SANCHOLEAVER-1220@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-12",
+                            PasswordHash = "AQAAAAIAAYagAAAAEI7EYo/0ZTRr6ecT7cTsRfcdDAl8MWMBNUanc/bV0gf7fmaTtmVIswpf20EZvoYAzQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "bc254010-3469-49b4-8943-f784d399b98b",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "addced64-0274-49de-8f90-b4dd75e1eb2c",
                             TwoFactorEnabled = false,
-                            UserName = "VladBlack-12"
+                            UserName = "SanchoLeaver-12"
                         },
                         new
                         {
-                            Id = "fef98756-111e-4405-b117-4d39fce23d0a",
+                            Id = "aef95f03-48d8-4397-b0c3-3b5b09f8375f",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "c9be83f9-d011-46f9-b3a9-88f290822081",
+                            ConcurrencyStamp = "d51587f7-9c67-4167-ac24-c04b9d0a2636",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "AdrewRojer-1320@mail.ru",
+                            Email = "NastyaKareva-1320@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADREWROJER-1320@MAIL.RU",
-                            NormalizedUserName = "ADREWROJER-13",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMdaKNc9gwwpA9ROfdNoTBBnxBMNPEkiyEFbpE6tSu3LAZXrgiMD8vdkvF9AmTSnpA==",
+                            NormalizedEmail = "NASTYAKAREVA-1320@MAIL.RU",
+                            NormalizedUserName = "NASTYAKAREVA-13",
+                            PasswordHash = "AQAAAAIAAYagAAAAEAOitqXH8QzM4EmwNrVU4gZ+tyDqKVdQT/uTu5miNSkpovukID8TWy2Ls9dEY0thlg==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "572f4d6b-b79a-49f9-a389-8b55a3f8629f",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "4cab2cb5-0148-4037-8552-2ffae42f228e",
                             TwoFactorEnabled = false,
-                            UserName = "AdrewRojer-13"
+                            UserName = "NastyaKareva-13"
                         },
                         new
                         {
-                            Id = "5e4676c9-5751-46a8-9194-1d5411648228",
+                            Id = "8e39a8f9-830a-4cfc-bbc1-462b84c85b71",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "042e02f3-2047-465f-ab6d-66207c1979c5",
+                            ConcurrencyStamp = "2cb0863b-c0a3-481f-bbc0-62ab0b9daa4f",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "NastyaBocharnikova-1420@mail.ru",
+                            Email = "VladBlack-1420@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "NASTYABOCHARNIKOVA-1420@MAIL.RU",
-                            NormalizedUserName = "NASTYABOCHARNIKOVA-14",
-                            PasswordHash = "AQAAAAIAAYagAAAAELVpVlSv0H3jj+u0xM5WP5h3Qut/BROFgkmM4Se0ewVJRbe25P/MDDucdCCiDJ3rHA==",
+                            NormalizedEmail = "VLADBLACK-1420@MAIL.RU",
+                            NormalizedUserName = "VLADBLACK-14",
+                            PasswordHash = "AQAAAAIAAYagAAAAEP3BXTcBiyTdUdFOdj6JPhKNZOXnM/PLctPgh83W7/bo+aJdI2vcYp5IGSHTymlt6g==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "ffd74e00-398b-4563-a71f-0e59647da65e",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "a67433c3-6dee-444c-a3f4-f52c88dcb306",
                             TwoFactorEnabled = false,
-                            UserName = "NastyaBocharnikova-14"
+                            UserName = "VladBlack-14"
                         },
                         new
                         {
-                            Id = "52ab31cf-0a12-46e8-8e76-dceb4e314ed8",
+                            Id = "569e6ec9-987b-484d-bfde-b393fed2b933",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "ca982971-cddc-46e7-8f49-0e5d0ab0ba79",
+                            ConcurrencyStamp = "36291a61-2485-4ec2-bd0f-fdf1a866a038",
                             Description = "I am a pooper! Poo poo poo!!!",
                             Email = "AdrewRojer-1520@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADREWROJER-1520@MAIL.RU",
                             NormalizedUserName = "ADREWROJER-15",
-                            PasswordHash = "AQAAAAIAAYagAAAAEPV5vK2woMpz2DOcK2rDeRrfI7EXc1KfgPl2bAfprbGvxjniqs2h9ko96h0wJqBk/g==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEGTenJ/Omy0cEhqXLcf4CpKVXxVRhiR7HVSUL29vCdYvHrqwOOza2OgDZQ53BqSOFQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "ee06167c-d728-408d-ac8d-298147d5350c",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "1bf538b1-8f95-4c54-993d-b1e9c319e4c4",
                             TwoFactorEnabled = false,
                             UserName = "AdrewRojer-15"
                         },
                         new
                         {
-                            Id = "e152e4c7-cec2-4160-9103-d0622d4b5ab5",
+                            Id = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "a621b009-7bcc-41e5-8c24-6cb802cabd1d",
+                            ConcurrencyStamp = "70a652e7-f9f3-448f-87e2-f5c2f690d810",
                             Description = "I am a pooper! Poo poo poo!!!",
                             Email = "SanchoLeaver-1620@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SANCHOLEAVER-1620@MAIL.RU",
                             NormalizedUserName = "SANCHOLEAVER-16",
-                            PasswordHash = "AQAAAAIAAYagAAAAENmonczxItGWJLPX4VIs5m5jLKDbKX1TZEw3MaHr8WYb4ia+flRKfewQoz3tUdbFtw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDIB7EMNQ5+Dc5GnlppuIuWMZM+vSNWolGb6vTafwGlZDMejyLmpDEUZgcEGxszGuA==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "008b2a03-b13c-47fd-9928-941f81732270",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "1572cc96-cc31-4811-ad03-e9bcdfa8fc21",
                             TwoFactorEnabled = false,
                             UserName = "SanchoLeaver-16"
                         },
                         new
                         {
-                            Id = "4067d998-9b4f-4941-97c4-7cc3984731fe",
+                            Id = "149a9b6c-a589-4a22-82f0-e655a84210ee",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "66df3360-1ea4-4821-a72b-a5c222e41a82",
+                            ConcurrencyStamp = "7fcb1222-411c-4621-a4a2-6b857267b671",
                             Description = "I am a pooper! Poo poo poo!!!",
                             Email = "AdrewRojer-1720@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADREWROJER-1720@MAIL.RU",
                             NormalizedUserName = "ADREWROJER-17",
-                            PasswordHash = "AQAAAAIAAYagAAAAEJVq2RzwtNk+r+2JMLCJpSBxupPm0WgmcK8ElaAb3gke2pomuGx/pvWNhhylUOIyHA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEE9JcoNt3YY0hAwMBdTlc+mJiM/DDnLgzDqVUhgfj/rxJLuTxfxSjm2JJT8a5YOODQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "330b26ff-8526-497e-b660-bea45206f1e5",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "cc9b6f19-e394-48ef-aad6-0170ef2e0604",
                             TwoFactorEnabled = false,
                             UserName = "AdrewRojer-17"
                         },
                         new
                         {
-                            Id = "d51c0cb1-016f-4573-93bb-9e4a25a51042",
+                            Id = "71827788-34d5-458b-b030-99c0fa21dd42",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "cbb4929e-71b7-4ac0-9b4c-5eb49baf579e",
+                            ConcurrencyStamp = "b97efea8-acbe-4436-8931-20e2aa8d8b38",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "VladBlack-1820@mail.ru",
+                            Email = "SanchoLeaver-1820@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "VLADBLACK-1820@MAIL.RU",
-                            NormalizedUserName = "VLADBLACK-18",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMpufXoRVSvVG4SmzMtnUKvtYh5T/xCvM47Nk4i+XFhTrUVhhl/e6SEsdVlbQ7/wbQ==",
+                            NormalizedEmail = "SANCHOLEAVER-1820@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-18",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDmC55W2LE+6dcVV/cWv2C6ep1ECQzQnWt0iZXo/hRIRTX34AijfZMSP2YLpGPHLCQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "6c8ca6e8-429a-456b-8594-78afba846ad3",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "83397ea2-1a79-4d59-acaf-9bbb5dc7772a",
                             TwoFactorEnabled = false,
-                            UserName = "VladBlack-18"
+                            UserName = "SanchoLeaver-18"
                         },
                         new
                         {
-                            Id = "8678ad5a-b93d-4220-8914-2958a96fe643",
+                            Id = "52c7c03e-6b9c-43c8-93cd-6d0c38af2520",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "c05ac265-79d4-4a7e-91fd-d9dd779c2386",
+                            ConcurrencyStamp = "a0d7c3bc-9f9a-43be-a381-b486f1b33c95",
                             Description = "I am a pooper! Poo poo poo!!!",
                             Email = "SanchoLeaver-1920@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "SANCHOLEAVER-1920@MAIL.RU",
                             NormalizedUserName = "SANCHOLEAVER-19",
-                            PasswordHash = "AQAAAAIAAYagAAAAEEgNcUR0SuVinvQgauy3MW9r/DUgYpytts6gqj/dmEVW6OhANwyawbzChmKpSkgPCA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEOLVWXnpVcH217ikfFDLqpbxNyvzQuM0Z48BmQmU4OTC8jX6kByA8x4c1AQsgJXZGg==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "c43f9d5f-72e8-4650-8a1a-013e3033632c",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "231ebf6e-56f3-4ac0-908b-8f0c26ae58b9",
                             TwoFactorEnabled = false,
                             UserName = "SanchoLeaver-19"
                         },
                         new
                         {
-                            Id = "cb428034-74ac-489f-a6d1-62c48e6328a7",
+                            Id = "2506ad74-1604-4a0e-bfff-d434b16344ae",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "28c0830e-0b77-4426-9a3b-53cb2f80d382",
+                            ConcurrencyStamp = "c36508de-2286-415c-ad4d-0f58e1274bd6",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "GregorPiha-2020@mail.ru",
+                            Email = "NastyaKareva-2020@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "GREGORPIHA-2020@MAIL.RU",
-                            NormalizedUserName = "GREGORPIHA-20",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOZ1zGh45zRBvdWWV+ihQ2BVPt7EIvicS+XuHRdBHh2iCTjb9PZelB9dPsSxURXIeQ==",
+                            NormalizedEmail = "NASTYAKAREVA-2020@MAIL.RU",
+                            NormalizedUserName = "NASTYAKAREVA-20",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPS5Rlw5y6W4rHgNoPBCl5h+VUdA6dZMQ4uZFK6jTt5WtRLli5cpDQ9+hhZhcwFlsw==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "080c8f67-42f4-4fe3-bfa9-eaca88928c31",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "fa51c59c-82f2-428a-b9cf-09dbf11c65d1",
                             TwoFactorEnabled = false,
-                            UserName = "GregorPiha-20"
+                            UserName = "NastyaKareva-20"
                         },
                         new
                         {
-                            Id = "0c1df73d-271f-4785-9a9a-ce8534d96dc1",
+                            Id = "ed1e6df8-af68-44cc-80ff-e32937583545",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "7bc574dd-9b97-4014-a370-4e8d10306640",
+                            ConcurrencyStamp = "3d267db2-1267-4515-97dd-b048eb017f73",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "VladBlack-2120@mail.ru",
+                            Email = "SanchoLeaver-2120@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "VLADBLACK-2120@MAIL.RU",
-                            NormalizedUserName = "VLADBLACK-21",
-                            PasswordHash = "AQAAAAIAAYagAAAAEMp4NbJ5SE0mkKfqAhediyfwaH47LFzKAHwHf4Wm9TnztAMzoWGa0ws6lsGowqFWug==",
+                            NormalizedEmail = "SANCHOLEAVER-2120@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-21",
+                            PasswordHash = "AQAAAAIAAYagAAAAECn+M2iaVSWEZqKiHauRPxU3kE153400HFXbEi8XLxe638y5Fi6Y/e4rkhkvpOlgKQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "1bef70bc-e5c1-4666-b158-66ea808e8e3a",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "3cb8913c-ab60-4fde-bb0e-9d072185d30f",
                             TwoFactorEnabled = false,
-                            UserName = "VladBlack-21"
+                            UserName = "SanchoLeaver-21"
                         },
                         new
                         {
-                            Id = "60b78d95-67f6-43ea-958c-ba3acf3f9267",
+                            Id = "0034b642-85f5-4c06-bb37-a500e288c187",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "f959d1e9-f226-4b53-854b-98ca565e68ba",
+                            ConcurrencyStamp = "b8909bce-52c5-4c61-9c16-ec798a5b2bac",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "AdrewRojer-2220@mail.ru",
+                            Email = "NastyaKareva-2220@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADREWROJER-2220@MAIL.RU",
-                            NormalizedUserName = "ADREWROJER-22",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFv2E3VzP91qSeDYBofIWEeNRoKmjlbXc+fBOklu7X4sDM+jhoVxy5pmqUnuTbLKhQ==",
+                            NormalizedEmail = "NASTYAKAREVA-2220@MAIL.RU",
+                            NormalizedUserName = "NASTYAKAREVA-22",
+                            PasswordHash = "AQAAAAIAAYagAAAAEH2XGLtp3wLYacxSkcVsF6lQKcW0OzmaRdhJ97kKsu4KS/tegpJjLhXRgdYXL+cilQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "3378d89e-6688-4588-9dfc-d3d5dd8fc5be",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "f1ddbd45-8fe4-4845-9504-9d6f4bc5225b",
                             TwoFactorEnabled = false,
-                            UserName = "AdrewRojer-22"
+                            UserName = "NastyaKareva-22"
                         },
                         new
                         {
-                            Id = "78ab86e4-ff9d-41ca-ab0a-94867253bffd",
+                            Id = "1f809152-0401-4ab0-b80d-e61d046e7e30",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "a94c2891-a0f0-4031-91dc-567b24795396",
+                            ConcurrencyStamp = "1dde0fe7-c656-41e4-821c-d54217d29cbb",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "SanchoLeaver-2320@mail.ru",
+                            Email = "VladBlack-2320@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "SANCHOLEAVER-2320@MAIL.RU",
-                            NormalizedUserName = "SANCHOLEAVER-23",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKem9XbEfoTOZ+9LhpiGBkrL7xoc5AS5DEoFNvhX1xzLs0vHuRvmRqzx3KxK0WyE7g==",
+                            NormalizedEmail = "VLADBLACK-2320@MAIL.RU",
+                            NormalizedUserName = "VLADBLACK-23",
+                            PasswordHash = "AQAAAAIAAYagAAAAEC85P8yjKup6ScJoNXTUITTE5yM6L+U3tSZ6S1YMPu93uFAW+FLtYFKVnfc15DZAIw==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "c8b8ea71-2c90-40aa-a6f5-fda4793cb0b0",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "8be09681-aabc-4518-8ca5-5120aad84f1d",
                             TwoFactorEnabled = false,
-                            UserName = "SanchoLeaver-23"
+                            UserName = "VladBlack-23"
                         },
                         new
                         {
-                            Id = "a95a9af9-1f67-4c79-b559-c87ec054ff60",
+                            Id = "bd552e5c-2adb-4974-aecc-43bfaf14fed9",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "bb8b1f41-d4d0-4874-8c67-3937ce36c034",
+                            ConcurrencyStamp = "209c6bac-4a04-4725-9632-12eed76f1c3b",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "SanchoLeaver-2420@mail.ru",
+                            Email = "VladBlack-2420@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "SANCHOLEAVER-2420@MAIL.RU",
-                            NormalizedUserName = "SANCHOLEAVER-24",
-                            PasswordHash = "AQAAAAIAAYagAAAAENwZ1bAWfNbQ0Lner+oZLeD6IjAPSl+LOBn3CB9qNJZpbQ5fwJ3mbqKQjHFrGq5H6A==",
+                            NormalizedEmail = "VLADBLACK-2420@MAIL.RU",
+                            NormalizedUserName = "VLADBLACK-24",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDbvcLnQ+Ua4+5z899jgUecHTK9muhb6MpGXzeo8c0Ys6azpcQSAf7v1SrY7fjk+Hg==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "760b0f97-5526-4ce7-b3b2-c2e3f243ad40",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "34e9e35d-6c51-4b9c-9711-7b6574c557a4",
                             TwoFactorEnabled = false,
-                            UserName = "SanchoLeaver-24"
+                            UserName = "VladBlack-24"
                         },
                         new
                         {
-                            Id = "31213f3b-9ff2-46ab-a055-c1b10c0ab680",
+                            Id = "05d4176e-5516-4263-9561-750e6d07a75b",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "bbdaea35-7da8-4dbc-9bee-db282743f3e5",
+                            ConcurrencyStamp = "31a37648-9f76-42c8-92eb-76bac3248538",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "GregorPiha-2520@mail.ru",
+                            Email = "SanchoLeaver-2520@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "GREGORPIHA-2520@MAIL.RU",
-                            NormalizedUserName = "GREGORPIHA-25",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKJIy96vZZm+47M5ym8o+O5BSdCK8/VBhRaaYJum6572m/9aqMh7zaFgBvmg+hLH4Q==",
+                            NormalizedEmail = "SANCHOLEAVER-2520@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-25",
+                            PasswordHash = "AQAAAAIAAYagAAAAEHjUFWE561vV4liYt+Fh7s927hecylvtCASJPSKyjCgQR+WEdD67cm83mAaEcCKFyg==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "f7c90aae-5cef-4de2-a11d-d94a5bb984c7",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "36aaf59e-de76-4bf6-8b86-9838a25f3150",
                             TwoFactorEnabled = false,
-                            UserName = "GregorPiha-25"
+                            UserName = "SanchoLeaver-25"
                         },
                         new
                         {
-                            Id = "c7a156dc-7994-4782-91b7-4eb67587fe6f",
+                            Id = "7265999d-da9d-461c-a372-a1090a8a62ec",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "3e7d9ef2-6174-4e42-9262-783be1a12e12",
+                            ConcurrencyStamp = "fabe3f08-65cc-4a30-8e43-74aa0a5b1ed8",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "NastyaKareva-2620@mail.ru",
+                            Email = "SanchoLeaver-2620@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "NASTYAKAREVA-2620@MAIL.RU",
-                            NormalizedUserName = "NASTYAKAREVA-26",
-                            PasswordHash = "AQAAAAIAAYagAAAAEOu8lf7B/VDX95eUrKivgbdirR6HWo2iTTjL/2Ea41ClDyoxIavlGbgkhZ2irGBwGg==",
+                            NormalizedEmail = "SANCHOLEAVER-2620@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-26",
+                            PasswordHash = "AQAAAAIAAYagAAAAEEfe/LYagVty/ynbrGy80dJ8w3b9RxQYMjdfpUB6JH2oLHogdT7uElQMnPxA7C1ACQ==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "2d9f1f72-d086-439b-9c7c-3ac917993439",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "a759e3da-591b-4a26-8d7f-b28f9f5d1591",
                             TwoFactorEnabled = false,
-                            UserName = "NastyaKareva-26"
+                            UserName = "SanchoLeaver-26"
                         },
                         new
                         {
-                            Id = "73231bcc-029a-403e-933d-d13277a16ce7",
+                            Id = "b44a894a-7a09-4543-9f02-cbcfd40cbb8d",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "220ae0f6-9b50-4e37-80d8-4c647408f3f7",
+                            ConcurrencyStamp = "970253c9-8d2c-4c43-8877-a3bede038ae9",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "NastyaBocharnikova-2720@mail.ru",
+                            Email = "VladBlack-2720@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "NASTYABOCHARNIKOVA-2720@MAIL.RU",
-                            NormalizedUserName = "NASTYABOCHARNIKOVA-27",
-                            PasswordHash = "AQAAAAIAAYagAAAAECbajo5eSlyjEjHP4x0WEQMyTLVGKht2tNFnrS47P6AiPBNUU1hPia35x7hpfDC0WA==",
+                            NormalizedEmail = "VLADBLACK-2720@MAIL.RU",
+                            NormalizedUserName = "VLADBLACK-27",
+                            PasswordHash = "AQAAAAIAAYagAAAAEDr8PcaEFVoEpeB/Lc1y3E1BR3o6IddC+fbioFSTMKqfTfasyr59b9UIlI/I1nwQaA==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "7dc8df43-84f7-4520-ae92-8c786e065673",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "c5ae7eea-d2ad-462d-a0eb-c942be25cbf4",
                             TwoFactorEnabled = false,
-                            UserName = "NastyaBocharnikova-27"
+                            UserName = "VladBlack-27"
                         },
                         new
                         {
-                            Id = "6eae61a9-18c4-4fa7-83e1-98c2bfb5c0b1",
+                            Id = "8de033fe-d7c2-4375-9e49-d7387fe86153",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "637f8732-89a8-496a-a01d-ddef5a665ecb",
+                            ConcurrencyStamp = "f8c07008-e8ed-4085-8aec-5d8193996bed",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "AdrewRojer-2820@mail.ru",
+                            Email = "SanchoLeaver-2820@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "ADREWROJER-2820@MAIL.RU",
-                            NormalizedUserName = "ADREWROJER-28",
-                            PasswordHash = "AQAAAAIAAYagAAAAEGJ9yH5T7rPi+7NjP5+nWnyJ/HoBLAsN3M2Rs3T4NQWE1UakEZeC3Zv9pLcVAXXI/w==",
+                            NormalizedEmail = "SANCHOLEAVER-2820@MAIL.RU",
+                            NormalizedUserName = "SANCHOLEAVER-28",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKTg/EfkwFwUmNUq5WnOLJrcZz/atfuxGCJDk2QVutEZkZ3u47BIDkZ2YMf2RQB0ww==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "6b18fef7-6ae5-4b1d-84a8-398b9dc49ea2",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "cd2ab6e5-5dc5-4cb7-9f25-710f89f866d7",
                             TwoFactorEnabled = false,
-                            UserName = "AdrewRojer-28"
+                            UserName = "SanchoLeaver-28"
                         },
                         new
                         {
-                            Id = "17904617-974d-42ec-acb7-8bbf97fc0b93",
+                            Id = "2ae52980-9c9e-4391-adf6-0390a3f82084",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "68a5dfbc-c9c3-4e8c-b66b-9bfe31e4e0f5",
+                            ConcurrencyStamp = "1abd7542-11cf-4eb8-8dda-7a70e38cf89b",
                             Description = "I am a pooper! Poo poo poo!!!",
-                            Email = "SanchoLeaver-2920@mail.ru",
+                            Email = "GregorPiha-2920@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            NormalizedEmail = "SANCHOLEAVER-2920@MAIL.RU",
-                            NormalizedUserName = "SANCHOLEAVER-29",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHFVuUmO9BFwwEUcNWiVxzmrDnfa5Z3yID31ZYbcE2odm8aOe9Lh5UWNZp/vW02ZAw==",
+                            NormalizedEmail = "GREGORPIHA-2920@MAIL.RU",
+                            NormalizedUserName = "GREGORPIHA-29",
+                            PasswordHash = "AQAAAAIAAYagAAAAEM1te70waCZOzjGYmkA4SdHku3Sl0F6699Lxm9NIZehLdJ5leODMwaCqHogbCMBZ1w==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c",
-                            SecurityStamp = "ce70e521-b371-4a2c-8d5a-258449f093e2",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487",
+                            SecurityStamp = "f41258f1-308b-4f4e-ac39-088014563d6e",
                             TwoFactorEnabled = false,
-                            UserName = "SanchoLeaver-29"
+                            UserName = "GregorPiha-29"
                         },
                         new
                         {
-                            Id = "79277431-92a5-4134-80dc-5dcdb7e4d969",
+                            Id = "eda12e6b-c0da-4b5c-b5df-accdc0d91847",
                             AccessFailedCount = 0,
                             AmountOfPoints = 0,
-                            ConcurrencyStamp = "13ba7c5b-9801-44a7-8535-cc438776e557",
+                            ConcurrencyStamp = "d69e64c0-a01b-4de4-aeb2-0d072e793dc3",
                             Description = "I am the admin! Call me the Boss!!!",
                             Email = "VladBalkar20@mail.ru",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "VLADBALKAR20@MAIL.RU",
                             NormalizedUserName = "VLADBALKAR",
-                            PasswordHash = "AQAAAAIAAYagAAAAEKJ8WpcvkLWG1R1lrtwLfKy7jFDL7Y8pL0B1xinFWD6THsHCVNfGVfvzTxsZjAsiJA==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEMxshkAdnsDvEEhC1Iz7mQRrnRNm9V1Pgx6l7AoEMGElXngwuOHGFP7iKcQew16X4Q==",
                             PhoneNumber = "",
                             PhoneNumberConfirmed = true,
-                            RoleId = "ede0e41a-7e0c-4eb8-aaba-85bb2872dd63",
-                            SecurityStamp = "930c655b-2eba-4dc3-917a-b0365ebe6ff9",
+                            RoleId = "f6ed4a0d-9d62-43dd-8b22-004a142bc227",
+                            SecurityStamp = "fd8b6237-b249-457d-aa1e-1b361e7c671e",
                             TwoFactorEnabled = false,
                             UserName = "VladBalkar"
                         });
-                });
-
-            modelBuilder.Entity("Core.Base.DataBase.Entities.PooperEntity", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uuid");
-
-                    b.Property<int?>("AmountOfPoops")
-                        .HasColumnType("integer");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Image")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserEntityId")
-                        .HasColumnType("text");
-
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserEntityId");
-
-                    b.ToTable("Poopers", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<string>", b =>
@@ -839,906 +810,871 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 639298895,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "91529783-f59f-46e6-a909-e7019b5c7008"
-                        },
-                        new
-                        {
-                            Id = 863353732,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "91529783-f59f-46e6-a909-e7019b5c7008"
-                        },
-                        new
-                        {
-                            Id = 1863288295,
+                            Id = 969461130,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "91529783-f59f-46e6-a909-e7019b5c7008"
+                            UserId = "b3023d3d-0a25-43ac-ba10-3815be222227"
                         },
                         new
                         {
-                            Id = 1878142988,
+                            Id = 1267591420,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dba",
-                            UserId = "91529783-f59f-46e6-a909-e7019b5c7008"
+                            UserId = "b3023d3d-0a25-43ac-ba10-3815be222227"
                         },
                         new
                         {
-                            Id = 1072440820,
+                            Id = 1135499982,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "b3023d3d-0a25-43ac-ba10-3815be222227"
+                        },
+                        new
+                        {
+                            Id = 1346341151,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "91529783-f59f-46e6-a909-e7019b5c7008"
+                            UserId = "b3023d3d-0a25-43ac-ba10-3815be222227"
                         },
                         new
                         {
-                            Id = 1879190156,
+                            Id = 1672618307,
                             ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "763379f8-0e23-4ce5-b43a-cec33eac5a32"
+                            ClaimValue = "Lead",
+                            UserId = "775134f4-446d-4393-a01d-8e52bd08ff78"
                         },
                         new
                         {
-                            Id = 493361568,
+                            Id = 656095921,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dba",
-                            UserId = "763379f8-0e23-4ce5-b43a-cec33eac5a32"
+                            UserId = "775134f4-446d-4393-a01d-8e52bd08ff78"
                         },
                         new
                         {
-                            Id = 460319820,
+                            Id = 87921071,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "775134f4-446d-4393-a01d-8e52bd08ff78"
+                        },
+                        new
+                        {
+                            Id = 177452456,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dev",
-                            UserId = "df55044b-3e70-4914-9b12-a789938eb7d9"
+                            UserId = "775134f4-446d-4393-a01d-8e52bd08ff78"
                         },
                         new
                         {
-                            Id = 1777956039,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "df55044b-3e70-4914-9b12-a789938eb7d9"
-                        },
-                        new
-                        {
-                            Id = 1508281739,
+                            Id = 1382469265,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "df55044b-3e70-4914-9b12-a789938eb7d9"
+                            UserId = "775134f4-446d-4393-a01d-8e52bd08ff78"
                         },
                         new
                         {
-                            Id = 1136414074,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "df55044b-3e70-4914-9b12-a789938eb7d9"
-                        },
-                        new
-                        {
-                            Id = 1114354845,
+                            Id = 2099268837,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lol",
-                            UserId = "5b5fd5c5-f70d-4eb7-97bb-7012f5239636"
+                            UserId = "775134f4-446d-4393-a01d-8e52bd08ff78"
                         },
                         new
                         {
-                            Id = 924208317,
+                            Id = 74115542,
                             ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "5b5fd5c5-f70d-4eb7-97bb-7012f5239636"
+                            ClaimValue = "Front",
+                            UserId = "906f6fc5-68ee-431b-be2e-2545682da6bd"
                         },
                         new
                         {
-                            Id = 56732682,
+                            Id = 1029139120,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dev",
-                            UserId = "5b5fd5c5-f70d-4eb7-97bb-7012f5239636"
+                            UserId = "906f6fc5-68ee-431b-be2e-2545682da6bd"
                         },
                         new
                         {
-                            Id = 1052781288,
+                            Id = 1381567465,
                             ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "5b5fd5c5-f70d-4eb7-97bb-7012f5239636"
+                            ClaimValue = "Lol",
+                            UserId = "906f6fc5-68ee-431b-be2e-2545682da6bd"
                         },
                         new
                         {
-                            Id = 287040200,
+                            Id = 1695967758,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "906f6fc5-68ee-431b-be2e-2545682da6bd"
+                        },
+                        new
+                        {
+                            Id = 398947107,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "5b5fd5c5-f70d-4eb7-97bb-7012f5239636"
+                            UserId = "c9af9594-c82f-4069-84eb-4d3793d987b9"
                         },
                         new
                         {
-                            Id = 1071981067,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "b745f30f-098c-4fc4-80ed-350c9e86e281"
-                        },
-                        new
-                        {
-                            Id = 1519554160,
+                            Id = 1664487711,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lol",
-                            UserId = "b745f30f-098c-4fc4-80ed-350c9e86e281"
+                            UserId = "c9af9594-c82f-4069-84eb-4d3793d987b9"
                         },
                         new
                         {
-                            Id = 1649631468,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "b745f30f-098c-4fc4-80ed-350c9e86e281"
-                        },
-                        new
-                        {
-                            Id = 2115245597,
+                            Id = 1884352274,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Stinky",
-                            UserId = "14ac3876-cdfe-421e-87f5-7e25049290a7"
+                            UserId = "d23163db-be3e-4fd5-a5da-2f72c768c05a"
                         },
                         new
                         {
-                            Id = 977441889,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "14ac3876-cdfe-421e-87f5-7e25049290a7"
-                        },
-                        new
-                        {
-                            Id = 35959751,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "14ac3876-cdfe-421e-87f5-7e25049290a7"
-                        },
-                        new
-                        {
-                            Id = 678219776,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "14ac3876-cdfe-421e-87f5-7e25049290a7"
-                        },
-                        new
-                        {
-                            Id = 763827891,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "fa85c792-8b69-4d03-ade7-1800fcf5aa55"
-                        },
-                        new
-                        {
-                            Id = 1951422034,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "fa85c792-8b69-4d03-ade7-1800fcf5aa55"
-                        },
-                        new
-                        {
-                            Id = 2032718909,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "fa85c792-8b69-4d03-ade7-1800fcf5aa55"
-                        },
-                        new
-                        {
-                            Id = 2069931733,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "fa85c792-8b69-4d03-ade7-1800fcf5aa55"
-                        },
-                        new
-                        {
-                            Id = 1225004237,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "fa85c792-8b69-4d03-ade7-1800fcf5aa55"
-                        },
-                        new
-                        {
-                            Id = 1785933454,
+                            Id = 734446896,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "fa85c792-8b69-4d03-ade7-1800fcf5aa55"
+                            UserId = "d23163db-be3e-4fd5-a5da-2f72c768c05a"
                         },
                         new
                         {
-                            Id = 1581011563,
+                            Id = 931760445,
                             ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "74fc2a57-1944-46e3-888f-916c50ea5a47"
+                            ClaimValue = "Dba",
+                            UserId = "d23163db-be3e-4fd5-a5da-2f72c768c05a"
                         },
                         new
                         {
-                            Id = 337426543,
+                            Id = 1796228221,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lol",
-                            UserId = "74fc2a57-1944-46e3-888f-916c50ea5a47"
+                            UserId = "d23163db-be3e-4fd5-a5da-2f72c768c05a"
                         },
                         new
                         {
-                            Id = 658819874,
+                            Id = 387021760,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "dba21b20-7551-488a-bb08-40f034e0b475"
+                        },
+                        new
+                        {
+                            Id = 1685028985,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dev",
-                            UserId = "74fc2a57-1944-46e3-888f-916c50ea5a47"
+                            UserId = "dba21b20-7551-488a-bb08-40f034e0b475"
                         },
                         new
                         {
-                            Id = 1475130206,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "74fc2a57-1944-46e3-888f-916c50ea5a47"
-                        },
-                        new
-                        {
-                            Id = 1077780533,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1"
-                        },
-                        new
-                        {
-                            Id = 1410894884,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1"
-                        },
-                        new
-                        {
-                            Id = 298528646,
+                            Id = 2011242017,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1"
+                            UserId = "dba21b20-7551-488a-bb08-40f034e0b475"
                         },
                         new
                         {
-                            Id = 221733946,
+                            Id = 509122057,
                             ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1"
+                            ClaimValue = "Front",
+                            UserId = "dba21b20-7551-488a-bb08-40f034e0b475"
                         },
                         new
                         {
-                            Id = 1787781713,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1"
-                        },
-                        new
-                        {
-                            Id = 1081868784,
+                            Id = 1854720387,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Stinky",
-                            UserId = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1"
+                            UserId = "dba21b20-7551-488a-bb08-40f034e0b475"
                         },
                         new
                         {
-                            Id = 1409977444,
+                            Id = 1543335612,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a"
+                        },
+                        new
+                        {
+                            Id = 723473254,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a"
+                        },
+                        new
+                        {
+                            Id = 1707261684,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a"
+                        },
+                        new
+                        {
+                            Id = 1494175272,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a"
+                        },
+                        new
+                        {
+                            Id = 831056663,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a"
+                        },
+                        new
+                        {
+                            Id = 1623499305,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a"
+                        },
+                        new
+                        {
+                            Id = 836720500,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "67b764c8-35e7-462a-95e6-b39f2291c4fe"
+                        },
+                        new
+                        {
+                            Id = 1074980351,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "67b764c8-35e7-462a-95e6-b39f2291c4fe"
+                        },
+                        new
+                        {
+                            Id = 297144103,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "67b764c8-35e7-462a-95e6-b39f2291c4fe"
+                        },
+                        new
+                        {
+                            Id = 1584059505,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af"
+                            UserId = "67b764c8-35e7-462a-95e6-b39f2291c4fe"
                         },
                         new
                         {
-                            Id = 1396078129,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af"
-                        },
-                        new
-                        {
-                            Id = 2039971813,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af"
-                        },
-                        new
-                        {
-                            Id = 1188009155,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af"
-                        },
-                        new
-                        {
-                            Id = 951977103,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af"
-                        },
-                        new
-                        {
-                            Id = 1053484248,
+                            Id = 324593259,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lol",
-                            UserId = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af"
+                            UserId = "67b764c8-35e7-462a-95e6-b39f2291c4fe"
                         },
                         new
                         {
-                            Id = 780428214,
+                            Id = 719022104,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "40dee089-43c6-4781-b39c-b320375a0f10"
+                        },
+                        new
+                        {
+                            Id = 408382374,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "40dee089-43c6-4781-b39c-b320375a0f10"
+                        },
+                        new
+                        {
+                            Id = 1483670485,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "40dee089-43c6-4781-b39c-b320375a0f10"
+                        },
+                        new
+                        {
+                            Id = 1985990734,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "40dee089-43c6-4781-b39c-b320375a0f10"
+                        },
+                        new
+                        {
+                            Id = 2146327657,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "40dee089-43c6-4781-b39c-b320375a0f10"
+                        },
+                        new
+                        {
+                            Id = 603514995,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "0f71294b-6eed-4555-a993-17ec66922612"
+                            UserId = "40dee089-43c6-4781-b39c-b320375a0f10"
                         },
                         new
                         {
-                            Id = 675636236,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "0f71294b-6eed-4555-a993-17ec66922612"
-                        },
-                        new
-                        {
-                            Id = 1843385702,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "0f71294b-6eed-4555-a993-17ec66922612"
-                        },
-                        new
-                        {
-                            Id = 1709567218,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "0f71294b-6eed-4555-a993-17ec66922612"
-                        },
-                        new
-                        {
-                            Id = 1108320132,
+                            Id = 156896491,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "0f71294b-6eed-4555-a993-17ec66922612"
+                            UserId = "97d4c05f-c0a0-475a-9ba5-7d027d193c60"
                         },
                         new
                         {
-                            Id = 2951150,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "7b56b797-10e7-4642-8c56-7d00fa89f265"
-                        },
-                        new
-                        {
-                            Id = 28092540,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "7b56b797-10e7-4642-8c56-7d00fa89f265"
-                        },
-                        new
-                        {
-                            Id = 1913763672,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "b20de05d-fd8b-4215-9f59-909ab9bf653b"
-                        },
-                        new
-                        {
-                            Id = 1751906625,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "b20de05d-fd8b-4215-9f59-909ab9bf653b"
-                        },
-                        new
-                        {
-                            Id = 283851094,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "b20de05d-fd8b-4215-9f59-909ab9bf653b"
-                        },
-                        new
-                        {
-                            Id = 1275438208,
+                            Id = 1092087515,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dev",
-                            UserId = "fef98756-111e-4405-b117-4d39fce23d0a"
+                            UserId = "97d4c05f-c0a0-475a-9ba5-7d027d193c60"
                         },
                         new
                         {
-                            Id = 356832734,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "fef98756-111e-4405-b117-4d39fce23d0a"
-                        },
-                        new
-                        {
-                            Id = 1537633819,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "fef98756-111e-4405-b117-4d39fce23d0a"
-                        },
-                        new
-                        {
-                            Id = 1269278859,
+                            Id = 118938034,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lead",
-                            UserId = "fef98756-111e-4405-b117-4d39fce23d0a"
+                            UserId = "c1713cd1-099d-4de3-bd55-11192ec724ad"
                         },
                         new
                         {
-                            Id = 55888542,
+                            Id = 627245840,
                             ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "5e4676c9-5751-46a8-9194-1d5411648228"
+                            ClaimValue = "Front",
+                            UserId = "c1713cd1-099d-4de3-bd55-11192ec724ad"
                         },
                         new
                         {
-                            Id = 1214045480,
+                            Id = 785581740,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lol",
-                            UserId = "5e4676c9-5751-46a8-9194-1d5411648228"
+                            UserId = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc"
                         },
                         new
                         {
-                            Id = 998515681,
+                            Id = 648276513,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "5e4676c9-5751-46a8-9194-1d5411648228"
+                            UserId = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc"
                         },
                         new
                         {
-                            Id = 489030695,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "5e4676c9-5751-46a8-9194-1d5411648228"
-                        },
-                        new
-                        {
-                            Id = 1656952277,
+                            Id = 346700899,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "5e4676c9-5751-46a8-9194-1d5411648228"
+                            UserId = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc"
                         },
                         new
                         {
-                            Id = 1661539475,
+                            Id = 1419443854,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lead",
-                            UserId = "5e4676c9-5751-46a8-9194-1d5411648228"
+                            UserId = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc"
                         },
                         new
                         {
-                            Id = 1675213763,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "52ab31cf-0a12-46e8-8e76-dceb4e314ed8"
-                        },
-                        new
-                        {
-                            Id = 1591382127,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "52ab31cf-0a12-46e8-8e76-dceb4e314ed8"
-                        },
-                        new
-                        {
-                            Id = 165542149,
+                            Id = 971969300,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dba",
-                            UserId = "52ab31cf-0a12-46e8-8e76-dceb4e314ed8"
+                            UserId = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc"
                         },
                         new
                         {
-                            Id = 1241273842,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Back",
-                            UserId = "52ab31cf-0a12-46e8-8e76-dceb4e314ed8"
-                        },
-                        new
-                        {
-                            Id = 1140129437,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "52ab31cf-0a12-46e8-8e76-dceb4e314ed8"
-                        },
-                        new
-                        {
-                            Id = 159488245,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "e152e4c7-cec2-4160-9103-d0622d4b5ab5"
-                        },
-                        new
-                        {
-                            Id = 1533929501,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "e152e4c7-cec2-4160-9103-d0622d4b5ab5"
-                        },
-                        new
-                        {
-                            Id = 678754087,
+                            Id = 94213098,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dev",
-                            UserId = "e152e4c7-cec2-4160-9103-d0622d4b5ab5"
+                            UserId = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc"
                         },
                         new
                         {
-                            Id = 1153635371,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "e152e4c7-cec2-4160-9103-d0622d4b5ab5"
-                        },
-                        new
-                        {
-                            Id = 329027892,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "e152e4c7-cec2-4160-9103-d0622d4b5ab5"
-                        },
-                        new
-                        {
-                            Id = 1052346715,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "4067d998-9b4f-4941-97c4-7cc3984731fe"
-                        },
-                        new
-                        {
-                            Id = 829634256,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "4067d998-9b4f-4941-97c4-7cc3984731fe"
-                        },
-                        new
-                        {
-                            Id = 518038319,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "4067d998-9b4f-4941-97c4-7cc3984731fe"
-                        },
-                        new
-                        {
-                            Id = 672190182,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "4067d998-9b4f-4941-97c4-7cc3984731fe"
-                        },
-                        new
-                        {
-                            Id = 66443067,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "4067d998-9b4f-4941-97c4-7cc3984731fe"
-                        },
-                        new
-                        {
-                            Id = 92369021,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "d51c0cb1-016f-4573-93bb-9e4a25a51042"
-                        },
-                        new
-                        {
-                            Id = 57688462,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "d51c0cb1-016f-4573-93bb-9e4a25a51042"
-                        },
-                        new
-                        {
-                            Id = 799583,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Back",
-                            UserId = "d51c0cb1-016f-4573-93bb-9e4a25a51042"
-                        },
-                        new
-                        {
-                            Id = 2005939682,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "d51c0cb1-016f-4573-93bb-9e4a25a51042"
-                        },
-                        new
-                        {
-                            Id = 518746848,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "8678ad5a-b93d-4220-8914-2958a96fe643"
-                        },
-                        new
-                        {
-                            Id = 1990055372,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "cb428034-74ac-489f-a6d1-62c48e6328a7"
-                        },
-                        new
-                        {
-                            Id = 1227787672,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "cb428034-74ac-489f-a6d1-62c48e6328a7"
-                        },
-                        new
-                        {
-                            Id = 420847719,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Front",
-                            UserId = "0c1df73d-271f-4785-9a9a-ce8534d96dc1"
-                        },
-                        new
-                        {
-                            Id = 1869681260,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "0c1df73d-271f-4785-9a9a-ce8534d96dc1"
-                        },
-                        new
-                        {
-                            Id = 1334859437,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "0c1df73d-271f-4785-9a9a-ce8534d96dc1"
-                        },
-                        new
-                        {
-                            Id = 483033475,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Back",
-                            UserId = "60b78d95-67f6-43ea-958c-ba3acf3f9267"
-                        },
-                        new
-                        {
-                            Id = 901439219,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "60b78d95-67f6-43ea-958c-ba3acf3f9267"
-                        },
-                        new
-                        {
-                            Id = 1997342579,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "60b78d95-67f6-43ea-958c-ba3acf3f9267"
-                        },
-                        new
-                        {
-                            Id = 78062952,
+                            Id = 1924669843,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lol",
-                            UserId = "60b78d95-67f6-43ea-958c-ba3acf3f9267"
+                            UserId = "8021b9a7-dca8-4940-b587-3fb85064c8a1"
                         },
                         new
                         {
-                            Id = 795873939,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "78ab86e4-ff9d-41ca-ab0a-94867253bffd"
-                        },
-                        new
-                        {
-                            Id = 2010922972,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "78ab86e4-ff9d-41ca-ab0a-94867253bffd"
-                        },
-                        new
-                        {
-                            Id = 465842678,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Back",
-                            UserId = "78ab86e4-ff9d-41ca-ab0a-94867253bffd"
-                        },
-                        new
-                        {
-                            Id = 1117231971,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "78ab86e4-ff9d-41ca-ab0a-94867253bffd"
-                        },
-                        new
-                        {
-                            Id = 1626784383,
+                            Id = 973165427,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "78ab86e4-ff9d-41ca-ab0a-94867253bffd"
+                            UserId = "8021b9a7-dca8-4940-b587-3fb85064c8a1"
                         },
                         new
                         {
-                            Id = 41823720,
+                            Id = 80319825,
                             ClaimType = "SharerClaim",
-                            ClaimValue = "Back",
-                            UserId = "a95a9af9-1f67-4c79-b559-c87ec054ff60"
+                            ClaimValue = "Lol",
+                            UserId = "aef95f03-48d8-4397-b0c3-3b5b09f8375f"
                         },
                         new
                         {
-                            Id = 131332613,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "a95a9af9-1f67-4c79-b559-c87ec054ff60"
-                        },
-                        new
-                        {
-                            Id = 1460432596,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "a95a9af9-1f67-4c79-b559-c87ec054ff60"
-                        },
-                        new
-                        {
-                            Id = 299806558,
+                            Id = 1556886131,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Stinky",
-                            UserId = "a95a9af9-1f67-4c79-b559-c87ec054ff60"
+                            UserId = "aef95f03-48d8-4397-b0c3-3b5b09f8375f"
                         },
                         new
                         {
-                            Id = 408252702,
+                            Id = 1488795376,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "aef95f03-48d8-4397-b0c3-3b5b09f8375f"
+                        },
+                        new
+                        {
+                            Id = 2025765925,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "a95a9af9-1f67-4c79-b559-c87ec054ff60"
+                            UserId = "aef95f03-48d8-4397-b0c3-3b5b09f8375f"
                         },
                         new
                         {
-                            Id = 1293413404,
+                            Id = 926531527,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Lol",
-                            UserId = "31213f3b-9ff2-46ab-a055-c1b10c0ab680"
+                            UserId = "8e39a8f9-830a-4cfc-bbc1-462b84c85b71"
                         },
                         new
                         {
-                            Id = 2024970530,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "31213f3b-9ff2-46ab-a055-c1b10c0ab680"
-                        },
-                        new
-                        {
-                            Id = 210120708,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "31213f3b-9ff2-46ab-a055-c1b10c0ab680"
-                        },
-                        new
-                        {
-                            Id = 588757362,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "31213f3b-9ff2-46ab-a055-c1b10c0ab680"
-                        },
-                        new
-                        {
-                            Id = 825907669,
+                            Id = 263197977,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dba",
-                            UserId = "31213f3b-9ff2-46ab-a055-c1b10c0ab680"
+                            UserId = "8e39a8f9-830a-4cfc-bbc1-462b84c85b71"
                         },
                         new
                         {
-                            Id = 1887565804,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Back",
-                            UserId = "31213f3b-9ff2-46ab-a055-c1b10c0ab680"
-                        },
-                        new
-                        {
-                            Id = 1871744435,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "c7a156dc-7994-4782-91b7-4eb67587fe6f"
-                        },
-                        new
-                        {
-                            Id = 298020144,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "c7a156dc-7994-4782-91b7-4eb67587fe6f"
-                        },
-                        new
-                        {
-                            Id = 1623712431,
+                            Id = 1604088658,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "c7a156dc-7994-4782-91b7-4eb67587fe6f"
+                            UserId = "8e39a8f9-830a-4cfc-bbc1-462b84c85b71"
                         },
                         new
                         {
-                            Id = 1787481124,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dba",
-                            UserId = "c7a156dc-7994-4782-91b7-4eb67587fe6f"
-                        },
-                        new
-                        {
-                            Id = 304008610,
+                            Id = 1258981171,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dev",
-                            UserId = "c7a156dc-7994-4782-91b7-4eb67587fe6f"
+                            UserId = "569e6ec9-987b-484d-bfde-b393fed2b933"
                         },
                         new
                         {
-                            Id = 1058339145,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "c7a156dc-7994-4782-91b7-4eb67587fe6f"
-                        },
-                        new
-                        {
-                            Id = 2098895574,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "73231bcc-029a-403e-933d-d13277a16ce7"
-                        },
-                        new
-                        {
-                            Id = 1031210755,
+                            Id = 1832508832,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dba",
-                            UserId = "73231bcc-029a-403e-933d-d13277a16ce7"
+                            UserId = "569e6ec9-987b-484d-bfde-b393fed2b933"
                         },
                         new
                         {
-                            Id = 1626049072,
+                            Id = 186461090,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "569e6ec9-987b-484d-bfde-b393fed2b933"
+                        },
+                        new
+                        {
+                            Id = 1757094260,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2"
+                        },
+                        new
+                        {
+                            Id = 1440606044,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2"
+                        },
+                        new
+                        {
+                            Id = 1802908134,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Front",
-                            UserId = "73231bcc-029a-403e-933d-d13277a16ce7"
+                            UserId = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2"
                         },
                         new
                         {
-                            Id = 861744320,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "73231bcc-029a-403e-933d-d13277a16ce7"
-                        },
-                        new
-                        {
-                            Id = 1185580400,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "6eae61a9-18c4-4fa7-83e1-98c2bfb5c0b1"
-                        },
-                        new
-                        {
-                            Id = 1237514953,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Dev",
-                            UserId = "6eae61a9-18c4-4fa7-83e1-98c2bfb5c0b1"
-                        },
-                        new
-                        {
-                            Id = 1964216306,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lead",
-                            UserId = "6eae61a9-18c4-4fa7-83e1-98c2bfb5c0b1"
-                        },
-                        new
-                        {
-                            Id = 1916608198,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Stinky",
-                            UserId = "17904617-974d-42ec-acb7-8bbf97fc0b93"
-                        },
-                        new
-                        {
-                            Id = 493886181,
+                            Id = 230328325,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Back",
-                            UserId = "17904617-974d-42ec-acb7-8bbf97fc0b93"
+                            UserId = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2"
                         },
                         new
                         {
-                            Id = 927060055,
-                            ClaimType = "SharerClaim",
-                            ClaimValue = "Lol",
-                            UserId = "17904617-974d-42ec-acb7-8bbf97fc0b93"
-                        },
-                        new
-                        {
-                            Id = 704618941,
+                            Id = 933042901,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dev",
-                            UserId = "17904617-974d-42ec-acb7-8bbf97fc0b93"
+                            UserId = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2"
                         },
                         new
                         {
-                            Id = 197992319,
+                            Id = 1113314316,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2"
+                        },
+                        new
+                        {
+                            Id = 1904438428,
                             ClaimType = "SharerClaim",
                             ClaimValue = "Dba",
-                            UserId = "17904617-974d-42ec-acb7-8bbf97fc0b93"
+                            UserId = "149a9b6c-a589-4a22-82f0-e655a84210ee"
                         },
                         new
                         {
-                            Id = 602634309,
+                            Id = 1660809167,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "149a9b6c-a589-4a22-82f0-e655a84210ee"
+                        },
+                        new
+                        {
+                            Id = 1607538593,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "149a9b6c-a589-4a22-82f0-e655a84210ee"
+                        },
+                        new
+                        {
+                            Id = 737894017,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "149a9b6c-a589-4a22-82f0-e655a84210ee"
+                        },
+                        new
+                        {
+                            Id = 1094355230,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "149a9b6c-a589-4a22-82f0-e655a84210ee"
+                        },
+                        new
+                        {
+                            Id = 263686423,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "71827788-34d5-458b-b030-99c0fa21dd42"
+                        },
+                        new
+                        {
+                            Id = 2113021204,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "71827788-34d5-458b-b030-99c0fa21dd42"
+                        },
+                        new
+                        {
+                            Id = 1700253994,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "71827788-34d5-458b-b030-99c0fa21dd42"
+                        },
+                        new
+                        {
+                            Id = 934105501,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "71827788-34d5-458b-b030-99c0fa21dd42"
+                        },
+                        new
+                        {
+                            Id = 324913620,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "71827788-34d5-458b-b030-99c0fa21dd42"
+                        },
+                        new
+                        {
+                            Id = 360875772,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "71827788-34d5-458b-b030-99c0fa21dd42"
+                        },
+                        new
+                        {
+                            Id = 1108121292,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "52c7c03e-6b9c-43c8-93cd-6d0c38af2520"
+                        },
+                        new
+                        {
+                            Id = 740841528,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "52c7c03e-6b9c-43c8-93cd-6d0c38af2520"
+                        },
+                        new
+                        {
+                            Id = 1724662366,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "52c7c03e-6b9c-43c8-93cd-6d0c38af2520"
+                        },
+                        new
+                        {
+                            Id = 892603135,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "52c7c03e-6b9c-43c8-93cd-6d0c38af2520"
+                        },
+                        new
+                        {
+                            Id = 1377329691,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "2506ad74-1604-4a0e-bfff-d434b16344ae"
+                        },
+                        new
+                        {
+                            Id = 1146553954,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "ed1e6df8-af68-44cc-80ff-e32937583545"
+                        },
+                        new
+                        {
+                            Id = 960736301,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "ed1e6df8-af68-44cc-80ff-e32937583545"
+                        },
+                        new
+                        {
+                            Id = 169645470,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "ed1e6df8-af68-44cc-80ff-e32937583545"
+                        },
+                        new
+                        {
+                            Id = 1010093174,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "ed1e6df8-af68-44cc-80ff-e32937583545"
+                        },
+                        new
+                        {
+                            Id = 935943092,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "ed1e6df8-af68-44cc-80ff-e32937583545"
+                        },
+                        new
+                        {
+                            Id = 397427697,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "0034b642-85f5-4c06-bb37-a500e288c187"
+                        },
+                        new
+                        {
+                            Id = 2044549006,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "0034b642-85f5-4c06-bb37-a500e288c187"
+                        },
+                        new
+                        {
+                            Id = 542798954,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "1f809152-0401-4ab0-b80d-e61d046e7e30"
+                        },
+                        new
+                        {
+                            Id = 1513763553,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "1f809152-0401-4ab0-b80d-e61d046e7e30"
+                        },
+                        new
+                        {
+                            Id = 2092754607,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "1f809152-0401-4ab0-b80d-e61d046e7e30"
+                        },
+                        new
+                        {
+                            Id = 1850720950,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "1f809152-0401-4ab0-b80d-e61d046e7e30"
+                        },
+                        new
+                        {
+                            Id = 1206697884,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "1f809152-0401-4ab0-b80d-e61d046e7e30"
+                        },
+                        new
+                        {
+                            Id = 1613162362,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "bd552e5c-2adb-4974-aecc-43bfaf14fed9"
+                        },
+                        new
+                        {
+                            Id = 1202895920,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "bd552e5c-2adb-4974-aecc-43bfaf14fed9"
+                        },
+                        new
+                        {
+                            Id = 1753332339,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "bd552e5c-2adb-4974-aecc-43bfaf14fed9"
+                        },
+                        new
+                        {
+                            Id = 2143496566,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "bd552e5c-2adb-4974-aecc-43bfaf14fed9"
+                        },
+                        new
+                        {
+                            Id = 1840160016,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "bd552e5c-2adb-4974-aecc-43bfaf14fed9"
+                        },
+                        new
+                        {
+                            Id = 441226546,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "bd552e5c-2adb-4974-aecc-43bfaf14fed9"
+                        },
+                        new
+                        {
+                            Id = 1337468595,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "05d4176e-5516-4263-9561-750e6d07a75b"
+                        },
+                        new
+                        {
+                            Id = 303348558,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "05d4176e-5516-4263-9561-750e6d07a75b"
+                        },
+                        new
+                        {
+                            Id = 899302995,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "7265999d-da9d-461c-a372-a1090a8a62ec"
+                        },
+                        new
+                        {
+                            Id = 320226043,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "7265999d-da9d-461c-a372-a1090a8a62ec"
+                        },
+                        new
+                        {
+                            Id = 1930583941,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "7265999d-da9d-461c-a372-a1090a8a62ec"
+                        },
+                        new
+                        {
+                            Id = 882298038,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "7265999d-da9d-461c-a372-a1090a8a62ec"
+                        },
+                        new
+                        {
+                            Id = 621192772,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "b44a894a-7a09-4543-9f02-cbcfd40cbb8d"
+                        },
+                        new
+                        {
+                            Id = 588645552,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "b44a894a-7a09-4543-9f02-cbcfd40cbb8d"
+                        },
+                        new
+                        {
+                            Id = 399835112,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Stinky",
+                            UserId = "8de033fe-d7c2-4375-9e49-d7387fe86153"
+                        },
+                        new
+                        {
+                            Id = 259075146,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "8de033fe-d7c2-4375-9e49-d7387fe86153"
+                        },
+                        new
+                        {
+                            Id = 351971416,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "8de033fe-d7c2-4375-9e49-d7387fe86153"
+                        },
+                        new
+                        {
+                            Id = 2114494684,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "8de033fe-d7c2-4375-9e49-d7387fe86153"
+                        },
+                        new
+                        {
+                            Id = 15717488,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "8de033fe-d7c2-4375-9e49-d7387fe86153"
+                        },
+                        new
+                        {
+                            Id = 1131251016,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dba",
+                            UserId = "2ae52980-9c9e-4391-adf6-0390a3f82084"
+                        },
+                        new
+                        {
+                            Id = 1357111178,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lol",
+                            UserId = "2ae52980-9c9e-4391-adf6-0390a3f82084"
+                        },
+                        new
+                        {
+                            Id = 1452189078,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Dev",
+                            UserId = "2ae52980-9c9e-4391-adf6-0390a3f82084"
+                        },
+                        new
+                        {
+                            Id = 557503203,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Lead",
+                            UserId = "2ae52980-9c9e-4391-adf6-0390a3f82084"
+                        },
+                        new
+                        {
+                            Id = 1702615242,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Front",
+                            UserId = "2ae52980-9c9e-4391-adf6-0390a3f82084"
+                        },
+                        new
+                        {
+                            Id = 1714360514,
+                            ClaimType = "SharerClaim",
+                            ClaimValue = "Back",
+                            UserId = "2ae52980-9c9e-4391-adf6-0390a3f82084"
+                        },
+                        new
+                        {
+                            Id = 2081992517,
                             ClaimType = "BossClaim",
                             ClaimValue = "BossClaim",
-                            UserId = "79277431-92a5-4134-80dc-5dcdb7e4d969"
+                            UserId = "eda12e6b-c0da-4b5c-b5df-accdc0d91847"
                         });
                 });
 
@@ -1786,158 +1722,158 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "91529783-f59f-46e6-a909-e7019b5c7008",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "b3023d3d-0a25-43ac-ba10-3815be222227",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "763379f8-0e23-4ce5-b43a-cec33eac5a32",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "775134f4-446d-4393-a01d-8e52bd08ff78",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "df55044b-3e70-4914-9b12-a789938eb7d9",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "906f6fc5-68ee-431b-be2e-2545682da6bd",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "5b5fd5c5-f70d-4eb7-97bb-7012f5239636",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "c9af9594-c82f-4069-84eb-4d3793d987b9",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "b745f30f-098c-4fc4-80ed-350c9e86e281",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "d23163db-be3e-4fd5-a5da-2f72c768c05a",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "14ac3876-cdfe-421e-87f5-7e25049290a7",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "dba21b20-7551-488a-bb08-40f034e0b475",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "fa85c792-8b69-4d03-ade7-1800fcf5aa55",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "3f6a3f23-4c49-4fc9-9c5c-1ec226cf3a4a",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "74fc2a57-1944-46e3-888f-916c50ea5a47",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "67b764c8-35e7-462a-95e6-b39f2291c4fe",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "dd68aa51-d250-4c9d-9b3f-ec857abfefb1",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "40dee089-43c6-4781-b39c-b320375a0f10",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "ad9178c0-e81b-49d4-98f9-b51cfeb6c2af",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "97d4c05f-c0a0-475a-9ba5-7d027d193c60",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "0f71294b-6eed-4555-a993-17ec66922612",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "c1713cd1-099d-4de3-bd55-11192ec724ad",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "7b56b797-10e7-4642-8c56-7d00fa89f265",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "8cef2ae9-c0d2-4ab5-8646-429c68e7cdfc",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "b20de05d-fd8b-4215-9f59-909ab9bf653b",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "8021b9a7-dca8-4940-b587-3fb85064c8a1",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "fef98756-111e-4405-b117-4d39fce23d0a",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "aef95f03-48d8-4397-b0c3-3b5b09f8375f",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "5e4676c9-5751-46a8-9194-1d5411648228",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "8e39a8f9-830a-4cfc-bbc1-462b84c85b71",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "52ab31cf-0a12-46e8-8e76-dceb4e314ed8",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "569e6ec9-987b-484d-bfde-b393fed2b933",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "e152e4c7-cec2-4160-9103-d0622d4b5ab5",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "ca54a240-4d1e-4a8a-ac34-3fad5c5c5fc2",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "4067d998-9b4f-4941-97c4-7cc3984731fe",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "149a9b6c-a589-4a22-82f0-e655a84210ee",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "d51c0cb1-016f-4573-93bb-9e4a25a51042",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "71827788-34d5-458b-b030-99c0fa21dd42",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "8678ad5a-b93d-4220-8914-2958a96fe643",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "52c7c03e-6b9c-43c8-93cd-6d0c38af2520",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "cb428034-74ac-489f-a6d1-62c48e6328a7",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "2506ad74-1604-4a0e-bfff-d434b16344ae",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "0c1df73d-271f-4785-9a9a-ce8534d96dc1",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "ed1e6df8-af68-44cc-80ff-e32937583545",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "60b78d95-67f6-43ea-958c-ba3acf3f9267",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "0034b642-85f5-4c06-bb37-a500e288c187",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "78ab86e4-ff9d-41ca-ab0a-94867253bffd",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "1f809152-0401-4ab0-b80d-e61d046e7e30",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "a95a9af9-1f67-4c79-b559-c87ec054ff60",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "bd552e5c-2adb-4974-aecc-43bfaf14fed9",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "31213f3b-9ff2-46ab-a055-c1b10c0ab680",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "05d4176e-5516-4263-9561-750e6d07a75b",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "c7a156dc-7994-4782-91b7-4eb67587fe6f",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "7265999d-da9d-461c-a372-a1090a8a62ec",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "73231bcc-029a-403e-933d-d13277a16ce7",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "b44a894a-7a09-4543-9f02-cbcfd40cbb8d",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "6eae61a9-18c4-4fa7-83e1-98c2bfb5c0b1",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "8de033fe-d7c2-4375-9e49-d7387fe86153",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "17904617-974d-42ec-acb7-8bbf97fc0b93",
-                            RoleId = "141e0978-3c9e-4074-92e5-abecffe0d99c"
+                            UserId = "2ae52980-9c9e-4391-adf6-0390a3f82084",
+                            RoleId = "509e6302-eac5-42e3-8ed7-f542f6579487"
                         },
                         new
                         {
-                            UserId = "79277431-92a5-4134-80dc-5dcdb7e4d969",
-                            RoleId = "ede0e41a-7e0c-4eb8-aaba-85bb2872dd63"
+                            UserId = "eda12e6b-c0da-4b5c-b5df-accdc0d91847",
+                            RoleId = "f6ed4a0d-9d62-43dd-8b22-004a142bc227"
                         });
                 });
 
@@ -1974,41 +1910,34 @@ namespace IdentityDb.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ede0e41a-7e0c-4eb8-aaba-85bb2872dd63",
+                            Id = "f6ed4a0d-9d62-43dd-8b22-004a142bc227",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
-                            Id = "45775a85-8a62-48d0-a79a-d396f82cc551",
+                            Id = "e08fdc8a-076a-4498-a86c-eb26bf127458",
                             Name = "Viewer",
                             NormalizedName = "VIEWER"
                         },
                         new
                         {
-                            Id = "141e0978-3c9e-4074-92e5-abecffe0d99c",
+                            Id = "509e6302-eac5-42e3-8ed7-f542f6579487",
                             Name = "Pooper",
                             NormalizedName = "POOPER"
                         },
                         new
                         {
-                            Id = "a96bf07e-3a0f-4599-985e-5040d3e0c974",
+                            Id = "39eb544e-2aa1-447c-8c2f-157fef66f532",
                             Name = "Reviwer",
                             NormalizedName = "REVIWER"
                         },
                         new
                         {
-                            Id = "69b07d0b-8b37-43c8-91de-7a487def5118",
+                            Id = "82d36c38-b206-4709-b2e4-434599768621",
                             Name = "Maker",
                             NormalizedName = "MAKER"
                         });
-                });
-
-            modelBuilder.Entity("Core.Base.DataBase.Entities.PooperEntity", b =>
-                {
-                    b.HasOne("Core.Auh.Entities.UserEntity", null)
-                        .WithMany()
-                        .HasForeignKey("UserEntityId");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

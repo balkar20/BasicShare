@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>Mod.CameraModule</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="$(ProjectRootDir)\Core\Core.Transfer\Core.Transfer.csproj" />
+      <ProjectReference Include="$(ProjectRootDir)\Infrastructure\Interfaces\Interfaces.csproj" />
+      <ProjectReference Include="..\Mod.CameraModule.Interfaces\Mod.CameraModule.Interfaces.csproj" />
+    </ItemGroup>
+
+    <ItemGroup><!--      <PackageReference Include="Serilog" Version="3.0.0-dev-01939" />-->
+    
+      <Content Include=".template.config\template.json" />
+    </ItemGroup>
+
+</Project>

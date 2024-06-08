@@ -6,5 +6,4 @@ public static class LogBufferDataUtility
     public static string RedisConnectionStringFromJsonConfig;
     public static string LokiConnectionUrl;
     
-    
 }

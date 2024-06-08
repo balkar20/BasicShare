@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "Vlad Balkarov",
+    "name": "WebApi For BasicShare",
+    "description": "A project for creating a WebApiBase in BasicShare.",
+    "identity": "ProductWebApi",
+    "shortName": "productwebapi",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "symbols":{
+        "copyrightName": {
+          "type": "parameter",
+          "defaultValue": "NewItem",
+          "fileRename": "Product",
+          "replaces":"Product"
+        },
+        "title": {
+          "type": "parameter",
+          "defaultValue": "Hello WebApi",
+          "replaces":"Sayed Web"
+        }
+    },
+    "sourceName": "ProductWebApi",
+    "preferNameDirectory": true
+  }

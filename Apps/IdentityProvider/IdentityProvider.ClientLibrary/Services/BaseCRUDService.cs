@@ -58,6 +58,8 @@ public class BaseCrudService<TModel, TResponseViewModel, TData> : IBaseCrudServi
 
         var url = dataListPagingModel.GetRoutingUrl(MvvmViewModel.DataListApiString);
         var response = await _httpClient.GetFromJsonAsync<ResponseResultWithData<List<TModel>>>(url);
+        Console.WriteLine($"OOOOOMGGGGGGGGGGGGG \n" +
+                          $"{response.Message}");
         if (response != null) HandleResponseResult(response, dataListPagingModel);
     }
 

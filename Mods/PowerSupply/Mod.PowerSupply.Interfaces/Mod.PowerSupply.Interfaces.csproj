@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="$(ProjectCoreDir)\Core.Base\Core.Base.csproj" />
+      <ProjectReference Include="$(ProjectInfrastructureDir)\Interfaces\Interfaces.csproj" />
+      <ProjectReference Include="..\Mod.PowerSupply.Models\Mod.PowerSupply.Models.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="Interfaces">
+        <HintPath>..\..\..\EventIntegrationTest\bin\Debug\net7.0\Interfaces.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
+</Project>
