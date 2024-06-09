@@ -71,7 +71,7 @@ public class ModAuthExternalServicesConfigurator
         
         _services.AddDbContext<DbContext, ApplicationContext>(options =>
         {
-            options.UseNpgsql(_authEnvironmentContext.AppConfiguration.DbConnection);
+            options.UseMySql(_authEnvironmentContext.AppConfiguration.DbConnection, new MySqlServerVersion(new Version(8, 0, 11)));
         });
         _services.AddIdentity<UserEntity, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationContext>();

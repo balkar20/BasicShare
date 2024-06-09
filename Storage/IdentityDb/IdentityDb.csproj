@@ -17,6 +17,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
       <PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="7.0.0" />
+      <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
     <!--<PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />-->
     <PackageReference Include="Turner.Infrastructure.Crud.EntityFrameworkCore" Version="2.2.0-alpha5" />
   </ItemGroup>
