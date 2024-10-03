@@ -8,8 +8,7 @@ try
 {
     var builder = WebApplication.CreateBuilder(args);
     // builder.Logging.AddSerilog(Log.Logger);
-    // builder.Host.UseSerilog(Log.Logger);
-
+    // builder.Host.UseSerilog(Log.Logger); 
     var startUp = new StartupHelper(builder.Configuration);
     startUp.ConfigureServices(builder);
     var app = builder.Build();

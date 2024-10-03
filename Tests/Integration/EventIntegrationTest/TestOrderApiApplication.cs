@@ -28,7 +28,6 @@ internal class TestOrderApiApplication: WebApplicationFactory<OrderWebAPI.Progra
                 {
                     services.Remove(service);
                 }
-
                 
                 TypeImplementaitionDictionary.Add(interfaceType, serviceMock);
             }
@@ -39,6 +38,7 @@ internal class TestOrderApiApplication: WebApplicationFactory<OrderWebAPI.Progra
                 services.AddSingleton(keyValuePair.Key, o => keyValuePair.Value);
             }
         });
+        
         return base.CreateHost(builder);
             
     }

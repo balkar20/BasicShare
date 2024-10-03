@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <ProjectRootDir>C:\Dev\BasicShare\</ProjectRootDir>
+    <ProjectRootDir>/Users/balkar/newdev/BasicShare/</ProjectRootDir>
     <ProjectStorageDir>$(ProjectRootDir)\Storage\</ProjectStorageDir>
     <ProjectModsDir>$(ProjectRootDir)\Mods\</ProjectModsDir>
     <ProjectCoreDir>$(ProjectRootDir)\Core\</ProjectCoreDir>

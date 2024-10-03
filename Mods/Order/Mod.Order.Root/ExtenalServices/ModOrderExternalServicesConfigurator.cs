@@ -55,14 +55,14 @@ public class ModOrderExternalServicesConfigurator
     private void ConfigureMessaging()
     {
         ///1.OpenSleigh saga vs MassTransit saga
-        _services.AddOpenSleigh(cfg =>
-        {
-            cfg.UseInMemoryTransport()
-               .UseInMemoryPersistence()
-               .AddSaga<SagaWithoutState>()
-               .AddSaga<SagaWithState, MySagaState>();
-        });
-
+        // _services.AddOpenSleigh(cfg =>
+        // {
+        //     cfg.UseInMemoryTransport()
+        //        .UseInMemoryPersistence()
+        //        .AddSaga<SagaWithoutState>()
+        //        .AddSaga<SagaWithState, MySagaState>();
+        // });
+        
         _services.AddMassTransit(x =>
         {
             x.SetKebabCaseEndpointNameFormatter();

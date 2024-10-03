@@ -42,8 +42,10 @@ namespace EventIntegrationTest.Tests
             var content = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await _productApiClient.PostAsync("api/products", content);
             var jsonResult =
-                await response.Content.ReadFromJsonAsync<BaseResponseResult>();
+                await response.Content.ReadFromJsonAsync<BaseResponseResult>().ConfigureAwait(false);
             Assert.True(jsonResult?.IsSuccess);
+
+            
         }
 
         [Fact]
@@ -55,7 +57,7 @@ namespace EventIntegrationTest.Tests
                 BuildRabbitMqProvider("guest", "guest", QueuesConsts.CreateOrderMessageQueueName);
             var harness = provider.GetRequiredService<ITestHarness>();
             await harness.Start();
-
+            
             var orderPostDataModel = Randomizer.CreateRandomOrderModel();
             var json = JsonSerializer.Serialize(orderPostDataModel);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
