@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
@@ -133,6 +133,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{3C70DCF3-DA64-486F-A562-A8617CC66EFD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "docker-compose", "Deployment\Docker\docker-compose.dcproj", "{0726C80A-F9D5-412D-85AE-FDEFB90E80C4}"
+//EndProject
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TeamCity", "TeamCity", "{138BD994-9DE1-4E88-806F-E200F7A6270A}"
 EndProject
