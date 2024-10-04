@@ -14,7 +14,7 @@
 
     <ItemGroup>
       <Reference Include="Interfaces">
-        <HintPath>..\..\..\EventIntegrationTest\bin\Debug\net7.0\Interfaces.dll</HintPath>
+        <HintPath>..\..\..\EventIntegrationTest\bin\Debug\net8.0\Interfaces.dll</HintPath>
       </Reference>
     </ItemGroup>
 
