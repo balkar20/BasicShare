@@ -7,10 +7,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="MongoDB.Bson" Version="2.22.0" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <ProjectReference Include="..\Objects\Objects.csproj" />
     </ItemGroup>
-
 
 
 </Project>

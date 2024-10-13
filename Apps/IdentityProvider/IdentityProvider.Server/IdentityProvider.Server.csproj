@@ -8,12 +8,13 @@
 
     <ItemGroup>
         <PackageReference Include="Grpc.AspNetCore.Web" Version="2.55.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.7" />
-        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.7" />
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.8" />
+        <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="8.0.8" />
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="$(ProjectModsDir)\Auth\Mod.Auth.Root\Mod.Auth.Root.csproj" />
+        <ProjectReference Include="$(ProjectModsDir)\Track\Mod.Track.Root\Mod.Track.Root.csproj" />
         <ProjectReference Include="..\IdentityProvider.Client\IdentityProvider.Client.csproj" />
     </ItemGroup>
 

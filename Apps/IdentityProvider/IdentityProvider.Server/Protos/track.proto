@@ -1,0 +1,21 @@
+//syntax = "proto3";
+//
+//option csharp_namespace = "IdentityProvider.Server";
+//
+//package track;
+//
+//// The greeting service definition.
+//service CreateTrack {
+//  // Sends a greeting
+//  rpc SayDoze (CreateTrackRequest) returns (CreateTrackReply);
+//}
+//
+//// The request message containing the user's name.
+//message CreateTrackRequest {
+//  string name = 1;
+//}
+//
+//// The response message containing the greetings.
+//message CreateTrackReply {
+//  string message = 1;
+//}

@@ -1,0 +1,27 @@
+{
+    "$schema": "https://json.schemastore.org/template",
+    "author": "Vlad Balkarov",
+    "name": "Mods For BasicShare",
+    "description": "A project for creating a ModsServices in BasicShare.",
+    "identity": "Mod.Track.Services",
+    "shortName": "modorderservices",
+    "tags": {
+      "language": "C#",
+      "type": "project"
+    },
+    "symbols":{
+        "copyrightName": {
+          "type": "parameter",
+          "defaultValue": "NewItem",
+          "fileRename": "Track",
+          "replaces":"Track"
+        },
+        "title": {
+          "type": "parameter",
+          "defaultValue": "Hello Web",
+          "replaces":"Sayed Web"
+        }
+    },
+    "sourceName": "Mod.Track.Services",
+    "preferNameDirectory": true
+  }

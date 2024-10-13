@@ -32,6 +32,9 @@
       <None Update="delete-new-template.ps1">
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </None>
+      <None Update="generate-mod-projects.sh">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
     <ItemGroup>
         <Content Include="appsettings.json">

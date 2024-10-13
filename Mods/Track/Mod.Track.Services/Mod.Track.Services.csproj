@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="$(ProjectInfrastructureDir)\Services\Services.csproj" />
+      <ProjectReference Include="..\Mod.Track.EventData\Mod.Track.EventData.csproj" />
+      <ProjectReference Include="..\Mod.Track.Interfaces\Mod.Track.Interfaces.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include=".template.config\template.json" />
+    </ItemGroup>
+
+</Project>

@@ -1,3 +1,4 @@
+using Data.Base.Objects;
 using Infrastructure.Interfaces;
 using Infrastructure.Services;
 using Microsoft.Extensions.DependencyInjection;

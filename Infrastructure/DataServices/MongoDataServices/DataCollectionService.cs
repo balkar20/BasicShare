@@ -1,5 +1,6 @@
 ﻿
 using Core.Base.ConfigurationInterfaces;
+using Data.Base.Objects;
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MongoObjects;

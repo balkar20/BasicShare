@@ -1,5 +1,6 @@
 using System.Formats.Tar;
 using System.Reflection;
+using Data.Base.Objects;
 using Storage.AppStorage;
 using Infrastructure.Interfaces;
 using Infrastructure.Interfaces.MassTransit;

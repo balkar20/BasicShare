@@ -6,8 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+
     <ItemGroup>
-      <ProjectReference Include="..\MongoObjects\MongoObjects.csproj" />
+        <PackageReference Include="MongoDB.Bson" Version="2.22.0" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
 
