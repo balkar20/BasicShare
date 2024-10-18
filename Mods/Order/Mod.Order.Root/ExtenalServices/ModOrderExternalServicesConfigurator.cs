@@ -1,6 +1,7 @@
 using System.Formats.Tar;
 using System.Reflection;
 using Data.Base.Objects;
+using EventBus.Constants;
 using Storage.AppStorage;
 using Infrastructure.Interfaces;
 using Infrastructure.Interfaces.MassTransit;
@@ -73,29 +74,23 @@ public class ModOrderExternalServicesConfigurator
             var entryAssembly = Assembly.GetEntryAssembly();
             x.AddSagaStateMachines(entryAssembly);
             x.AddSagas(entryAssembly);
-            x.AddActivities(entryAssembly);
-
+            x.AddActivities(entryAssembly); 
+            x.AddConsumer<OrderCreationConsumer>();
             // x.AddConsumers(typeof(OrderCreationConsumer).Assembly);
-
+            
             x.UsingRabbitMq((context, configurator) =>
             {
-                // configurator.UseBind(o =>
-                // {
-                //     
-                // });
                 configurator.Host("localhost", h =>
                 {
                     h.Password("guest");
                     h.Username("guest");
                 });
-                // configurator.OverrideDefaultBusEndpointQueueName("ordering");
-                // configurator.ReceiveEndpoint("product-service", endpointConfigurator =>
-                // {
-                //     endpointConfigurator.Lazy = true;
-                //     endpointConfigurator.PrefetchCount = 20;
-                // });
-
+                
                 configurator.ConfigureEndpoints(context);
+                // configurator.ReceiveEndpoint(QueuesConsts.CreateOrderMessageQueueName, e =>
+                // {
+                //     e.ConfigureConsumer<OrderCreationConsumer>(context);
+                // });
             });
         });
         _services.AddScoped<IMassTransitService, MassTransitService>();
@@ -129,10 +124,10 @@ public class ModOrderExternalServicesConfigurator
 
     private void ConfigureDataBase()
     {
-        // _services.AddDbContext<ApiDbContext>(options =>
-        //     options.UseNpgsql(
-        //         _OrderEnvironmentContext.AppConfiguration.DbConnection
-        //     ));
+        _services.AddDbContext<ApiDbContext>(options =>
+            options.UseNpgsql(
+                _OrderEnvironmentContext.AppConfiguration.DbConnection
+            ));
         _services.AddSingleton<IDataCollectionService<EventDocument>, DataCollectionService<EventDocument>>();
     }
 

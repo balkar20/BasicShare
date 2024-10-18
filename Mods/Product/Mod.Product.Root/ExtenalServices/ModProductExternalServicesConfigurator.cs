@@ -4,6 +4,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Mod.Product.Base.Listeners;
 using Mod.Product.Base.Queries;
 using Mod.Product.Root.Configuration;
 using Mod.Product.Services.Consumers;

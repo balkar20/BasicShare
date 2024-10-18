@@ -76,6 +76,7 @@ public class OrderAggregate: AggregateRoot
     
     public OrderAggregate(OrderCreationDataModel state)
     {
+        _id = Guid.NewGuid();
         ApplyChange(new OrderCreatedEvent(state.Description, state.OrderType, state.OrderPayloadId, state.OrderPaymentInfoEventModel, state.NotificationEventModel, state.CustomerId));
     }
     

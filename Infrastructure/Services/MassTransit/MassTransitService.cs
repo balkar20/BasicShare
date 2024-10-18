@@ -22,7 +22,7 @@ public class MassTransitService : IMassTransitService
         // var mty = message.GetType().GetInterfaces()[0];
         dynamic newm = message;
         // var seri = JsonSerializer.Serialize(mty);
-        await sendEndpoint.Send(newm);
+        await sendEndpoint.Send(message);
     }
     
     public async Task Publish<T>(T message) where T : class

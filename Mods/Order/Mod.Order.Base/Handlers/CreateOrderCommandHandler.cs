@@ -25,6 +25,11 @@ public class CreateOrderCommandHandler: IRequestHandler<CreateOrderCommand, Resp
             IsSuccess = false,
         };
         
+        if (request.Order.Id == Guid.Empty)
+        {
+            request.Order.Id = Guid.NewGuid();
+        }
+        
         result.Data = await _orderService.CreateOrder(request.Order);
         result.IsSuccess = true;
         

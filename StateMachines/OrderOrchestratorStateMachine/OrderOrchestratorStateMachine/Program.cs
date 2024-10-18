@@ -14,7 +14,9 @@ using SagaOrchestrationStateMachine.StateMachines;
 
 [assembly:InternalsVisibleTo("EventIntegrationTest")]
 var defaultBuilder = Host.CreateDefaultBuilder(args);
-defaultBuilder.ConfigureServices((hostContext, services) =>
+try
+{
+    defaultBuilder.ConfigureServices((hostContext, services) =>
     {
         services.AddMassTransit(cfg =>
         {
@@ -46,14 +48,21 @@ defaultBuilder.ConfigureServices((hostContext, services) =>
 
         // services.AddHostedService<Worker>();
     });
-defaultBuilder.UseSerilog();
-IHost host = defaultBuilder.Build();
+    defaultBuilder.UseSerilog();
+    IHost host = defaultBuilder.Build();
 
-using (var scope = host.Services.CreateScope())
-{
-    var serviceProvider = scope.ServiceProvider;
-    var orderDbContext = serviceProvider.GetRequiredService<StateMachineDbContext>();
-    orderDbContext.Database.Migrate();
+    using (var scope = host.Services.CreateScope())
+    {
+        var serviceProvider = scope.ServiceProvider;
+        var orderDbContext = serviceProvider.GetRequiredService<StateMachineDbContext>();
+        // orderDbContext.Database.Migrate();
+    }
+
+    host.Run();
+
 }
-
-host.Run();
+catch (Exception e)
+{
+    Console.WriteLine(e);
+    throw;
+}

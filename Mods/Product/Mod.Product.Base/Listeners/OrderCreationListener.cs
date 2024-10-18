@@ -1,12 +1,14 @@
 using Core.Transfer.Mods.Order;
 using Infrastructure.Interfaces;
+using MassTransit;
+using Mod.Order.EventData.Events;
 using Mod.Product.Base.Listeners.Interfaces;
 using Mod.Product.Interfaces;
 using Mod.Product.Models;
 
 namespace Mod.Product.Base.Listeners;
 
-public class OrderCreationListener: IOrderCreationListener
+public class OrderCreationListener: IConsumer<OrderCreatedEvent>
 {
     private readonly IMessageBusReader _messageBusReader;
     private readonly IProductRepository _productRepository;
@@ -34,5 +36,10 @@ public class OrderCreationListener: IOrderCreationListener
             Name = orderModel.Description,
             Description = orderModel.Description
         });
+    }
+
+    public Task Consume(ConsumeContext<OrderCreatedEvent> context)
+    {
+        throw new NotImplementedException();
     }
 }

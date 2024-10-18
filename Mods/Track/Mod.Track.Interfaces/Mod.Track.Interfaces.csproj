@@ -13,6 +13,7 @@
     <ItemGroup>
         <ProjectReference Include="$(ProjectStorageDir)\AppStorage\AppStorage.csproj"/>
         <ProjectReference Include="$(ProjectInfrastructureDir)\Interfaces\Interfaces.csproj"/>
+        <ProjectReference Include="..\..\..\data\TrackingObjects\TrackingObjects.csproj" />
         <ProjectReference Include="..\Mod.Track.Models\Mod.Track.Models.csproj"/>
     </ItemGroup>
 

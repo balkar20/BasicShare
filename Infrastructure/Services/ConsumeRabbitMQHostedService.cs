@@ -48,7 +48,7 @@ public class ConsumeRabbitMQHostedService<TDataModel>: BackgroundService
         var connection = factory.CreateConnection();
 
         _channel = connection.CreateModel();
-        _channel.QueueDeclare(_configuration.QueName, exclusive: false);
+        _channel.QueueDeclare(_configuration.QueName, exclusive: false, durable:true, autoDelete:false);
         
 
         // _channel.ExchangeDeclare(_configuration.ExchangeName, ExchangeType.Topic);  

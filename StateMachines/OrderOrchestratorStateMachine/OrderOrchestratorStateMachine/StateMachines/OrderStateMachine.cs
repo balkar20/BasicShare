@@ -34,9 +34,10 @@ public class OrderStateMachine : MassTransitStateMachine<OrderStateInstance>
     {
         _logger = Serilog.Log.Logger;
         InstanceState(x => x.CurrentState);
-
-        Event(() => CreateOrderMessage, y => y.CorrelateBy<Guid>(x => x.OrderId, z => z.Message.OrderId)
-            .SelectId(context => Guid.NewGuid()));
+        // Event Correlation
+        Event(() => CreateOrderMessage, x =>
+            x.CorrelateById(m => m.Message.OrderId)
+                .SelectId(m => m.Message.OrderId));
         Event(() => StockReservedEvent, x => x.CorrelateById(y => y.Message.CorrelationId));
         Event(() => StockReservationFailedEvent, x => x.CorrelateById(y => y.Message.CorrelationId));
         Event(() => PaymentCompletedEvent, x => x.CorrelateById(y => y.Message.CorrelationId));

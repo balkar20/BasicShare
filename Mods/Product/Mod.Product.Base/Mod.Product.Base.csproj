@@ -10,6 +10,7 @@
     <ItemGroup>
       <ProjectReference Include="$(ProjectRootDir)\Core\Core.Transfer\Core.Transfer.csproj" />
       <ProjectReference Include="$(ProjectRootDir)\Infrastructure\Interfaces\Interfaces.csproj" />
+      <ProjectReference Include="..\..\Mod.Shared.EventData\Mod.Shared.EventData.csproj" />
       <ProjectReference Include="..\Mod.Product.Interfaces\Mod.Product.Interfaces.csproj" />
     </ItemGroup>
 

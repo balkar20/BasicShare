@@ -5,7 +5,7 @@ namespace Mod.Auth.Interfaces;
 
 public interface IAuthService
 {
-    Task<UserDataListResult> GetPaginatedUsers(DataListPagingModel dataListPagingModel);
+    Task<UserDataListResult> @GetPaginatedUsers(DataListPagingModel dataListPagingModel);
     
     Task<LoginResponseModel> LogIn(LoginModel userForAuthentication);
 

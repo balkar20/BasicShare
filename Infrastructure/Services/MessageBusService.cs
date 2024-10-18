@@ -33,11 +33,11 @@ public class MessageBusService : IMessageBusService
     {
         if (message != null)
         {
-            dynamic mapped = _mapper.Map<IBaseSagaMessage>(message);
+            var mapped = _mapper.Map<IBaseSagaMessage>(message);
                 var queName = $"queue:{QueuesConsts.CreateOrderMessageQueueName}";
-                var sep = await _bus.GetSendEndpoint(new Uri($"queue:{QueuesConsts.CreateOrderMessageQueueName}"));
-                // dynamic msg = mapped;
-                await sep.Send<ICreateOrderMessage>(mapped);
+                var sep = await _bus.GetSendEndpoint(new Uri(queName));
+                dynamic msg = mapped;
+                await sep.Send<ICreateOrderMessage>(msg);
         }
     }
 }

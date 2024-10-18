@@ -6,4 +6,19 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="$(ProjectCoreDir)\Core.Base\Core.Base.csproj" />
+        <ProjectReference Include="$(ProjectCoreDir)\Core.Transfer\Core.Transfer.csproj" />
+        <ProjectReference Include="$(ProjectDataDir)\MassTransitBase\MassTransitBase.csproj" />
+        <ProjectReference Include="$(ProjectRootDir)\EventBus\EventBus.csproj" />
+        <ProjectReference Include="..\Mod.Track.EventData\Mod.Track.EventData.csproj" />
+        <ProjectReference Include="..\Mod.Track.Interfaces\Mod.Track.Interfaces.csproj" />
+        <ProjectReference Include="..\Mod.Track.Models\Mod.Track.Models.csproj" />
+        <ProjectReference Include="..\Mod.Track.Services\Mod.Track.Services.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include=".template.config\template.json" />
+    </ItemGroup>
+
 </Project>
