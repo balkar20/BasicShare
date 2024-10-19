@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using OrderOrchestratorStateMachine;
-using SagaOrchestrationStateMachine.DbContext;
+using OrderOrchestratorStateMachine.DbContext;
 using SagaOrchestrationStateMachine.StateInstances;
 using SagaOrchestrationStateMachine.StateMachines;
 
@@ -16,6 +16,13 @@ using SagaOrchestrationStateMachine.StateMachines;
 var defaultBuilder = Host.CreateDefaultBuilder(args);
 try
 {
+    var configuration = new ConfigurationBuilder()
+        .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+        .Build();
+
+    Log.Logger = new LoggerConfiguration()
+        .ReadFrom.Configuration(configuration)
+        .CreateLogger();
     defaultBuilder.ConfigureServices((hostContext, services) =>
     {
         services.AddMassTransit(cfg =>
@@ -42,11 +49,8 @@ try
                 configure.ReceiveEndpoint(QueuesConsts.CreateOrderMessageQueueName, e => { e.ConfigureSaga<OrderStateInstance>(provider); });
             }));
         });
-
         services.AddDbContext<StateMachineDbContext>(options =>
-            options.UseNpgsql(hostContext.Configuration.GetConnectionString("DefaultConnection")));
-
-        // services.AddHostedService<Worker>();
+            options.UseNpgsql(hostContext.Configuration.GetConnectionString("DefaultConnection")).EnableSensitiveDataLogging().LogTo(Log.Logger.Debug));
     });
     defaultBuilder.UseSerilog();
     IHost host = defaultBuilder.Build();
@@ -56,6 +60,7 @@ try
         var serviceProvider = scope.ServiceProvider;
         var orderDbContext = serviceProvider.GetRequiredService<StateMachineDbContext>();
         // orderDbContext.Database.Migrate();
+        orderDbContext.Database.EnsureCreated();
     }
 
     host.Run();

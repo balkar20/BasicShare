@@ -6,7 +6,7 @@ namespace Mod.Order.EventData.Events.Models;
 public class OrderCreationDataModel
 {
     // public OrderCreationDataModel(string Description, OrderType OrderType, long OrderPayloadId, OrderPaymentInfoEventModel OrderPaymentInfoEventModel,
-    //     OrderNotificationEventModel NotificationEventModel, string CustomerId)
+    //     OrderNotificationEventModel NotificationEventModel, Guid CustomerId)
     // {
     //     this.Description = Description;
     //     this.OrderType = OrderType;
@@ -18,12 +18,12 @@ public class OrderCreationDataModel
 
     public string Description { get; set; }
     public OrderType OrderType { get; set; }
-    public long OrderPayloadId { get; set; }
+    public Guid OrderPayloadId { get; set; }
     public OrderPaymentInfoEventModel OrderPaymentInfoEventModel { get; set; }
     public OrderNotificationEventModel NotificationEventModel { get; set; }
-    public string CustomerId { get; set; }
+    public Guid CustomerId { get; set; }
 
-    public void Deconstruct(out string Description, out OrderType OrderType, out long OrderPayloadId, out OrderPaymentInfoEventModel orderPaymentInfoEventModel, out OrderNotificationEventModel notificationEventModel, out string CustomerId)
+    public void Deconstruct(out string Description, out OrderType OrderType, out Guid OrderPayloadId, out OrderPaymentInfoEventModel orderPaymentInfoEventModel, out OrderNotificationEventModel notificationEventModel, out Guid CustomerId)
     {
         Description = this.Description;
         OrderType = this.OrderType;

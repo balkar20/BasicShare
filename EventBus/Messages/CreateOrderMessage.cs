@@ -12,8 +12,8 @@ public class CreateOrderMessage : ICreateOrderMessage
     }
 
     public Guid OrderId { get; set; }
-    public string CustomerId { get; set; }
-    public string PaymentAccountId { get; set; }
+    public Guid CustomerId { get; set; }
+    public Guid PaymentAccountId { get; set; }
     public decimal TotalPrice { get; set; }
 
     public List<OrderItem> OrderItemList { get; set; }

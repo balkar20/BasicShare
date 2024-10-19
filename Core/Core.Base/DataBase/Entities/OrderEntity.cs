@@ -11,7 +11,7 @@ public class OrderEntity: IEntity
     
     public OrderType OrderType { get; set; }
 
-    public long OrderPayloadId { get; set; }
+    public Guid OrderPayloadId { get; set; }
     
     // public IPaymentInfo PaymentInfo { get; set; }
     //        
@@ -22,7 +22,7 @@ public class OrderEntity: IEntity
 
 public interface ICustomerInfo
 {
-    public string UserId { get; set; }
+    public Guid UserId { get; set; }
 }
 
 public interface IPaymentInfo

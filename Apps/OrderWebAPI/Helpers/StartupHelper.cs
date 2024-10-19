@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using Apps.OrderWebAPI.Extensions;
 using Apps.EndpointDefinitions.OrderWebAPI;
 using Storage.AppStorage;
@@ -18,9 +19,14 @@ public class StartupHelper
     
     public void ConfigureServices(WebApplicationBuilder builder)
     {
-        
+        // Configure JSON options to handle enums and other serialization settings
+        builder.Services.Configure<Microsoft.AspNetCore.Http.Json.JsonOptions>(options =>
+        {
+            options.SerializerOptions.Converters.Add(new System.Text.Json.Serialization.JsonStringEnumConverter());
+            options.SerializerOptions.PropertyNamingPolicy = null; // To preserve property names as defined in the model
+        });
         builder.Services.AddEndpointDefinitions(typeof(OrderEndpointDefinition));
-            
+
         var startupConfigurator = new StartupConfigurator(Configuration, builder);
         startupConfigurator.Configure();
     }

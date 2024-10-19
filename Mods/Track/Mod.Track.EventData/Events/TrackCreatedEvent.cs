@@ -10,7 +10,7 @@ namespace Mod.Track.EventData.Events;
 
 public class TrackCreatedEvent : EventObject
 {
-    public TrackCreatedEvent(string Description, TrackType TrackType, long paymentAccountId, TrackPaymentInfoEventModel trackPaymentInfoEventModel, TrackNotificationEventModel notificationEventModel, string customerId): base(Guid.NewGuid())
+    public TrackCreatedEvent(string Description, TrackType TrackType, long paymentAccountId, TrackPaymentInfoEventModel trackPaymentInfoEventModel, TrackNotificationEventModel notificationEventModel, Guid customerId): base(Guid.NewGuid())
     {
         this.Description = Description;
         this.TrackType = TrackType;
@@ -30,9 +30,9 @@ public class TrackCreatedEvent : EventObject
     public long PaymentAccountId { get; init; }
     public TrackPaymentInfoEventModel TrackPaymentInfoEventModel { get; init; }
     public TrackNotificationEventModel NotificationEventModel { get; init; }
-    public string CustomerId { get; init; }
+    public Guid CustomerId { get; init; }
 
-    public void Deconstruct(out string Description, out TrackType TrackType, out long TrackProductId, out TrackPaymentInfoEventModel trackPaymentInfoEventModel, out TrackNotificationEventModel notificationEventModel, out string CustomerId)
+    public void Deconstruct(out string Description, out TrackType TrackType, out long TrackProductId, out TrackPaymentInfoEventModel trackPaymentInfoEventModel, out TrackNotificationEventModel notificationEventModel, out Guid CustomerId)
     {
         Description = this.Description;
         TrackType = this.TrackType;

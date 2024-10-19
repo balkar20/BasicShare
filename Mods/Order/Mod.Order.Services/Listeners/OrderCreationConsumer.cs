@@ -21,6 +21,6 @@ public class OrderCreationConsumer : IConsumer<ICreateOrderMessage>
 
     public async Task Consume(ConsumeContext<ICreateOrderMessage> context)
     {
-        _logger.LogInformation(context.Message.CustomerId);
+        _logger.LogInformation(context.Message.CustomerId.ToString());
     }
 }

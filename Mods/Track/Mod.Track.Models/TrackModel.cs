@@ -18,7 +18,7 @@ public class TrackModel
            
     public TrackNotificationModel NotificationModel { get; set; }
            
-    public string CustomerId { get; set; }
+    public Guid CustomerId { get; set; }
     
     public List<TrackItemModel> TrackItemList { get; set; }
 }

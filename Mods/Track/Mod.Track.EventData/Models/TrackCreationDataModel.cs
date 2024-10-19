@@ -6,7 +6,7 @@ namespace Mod.Track.EventData.Events.Models;
 public class TrackCreationDataModel
 {
     // public TrackCreationDataModel(string Description, TrackType TrackType, long TrackPayloadId, TrackPaymentInfoEventModel TrackPaymentInfoEventModel,
-    //     TrackNotificationEventModel NotificationEventModel, string CustomerId)
+    //     TrackNotificationEventModel NotificationEventModel, Guid CustomerId)
     // {
     //     this.Description = Description;
     //     this.TrackType = TrackType;
@@ -21,9 +21,9 @@ public class TrackCreationDataModel
     public long TrackPayloadId { get; set; }
     public TrackPaymentInfoEventModel TrackPaymentInfoEventModel { get; set; }
     public TrackNotificationEventModel NotificationEventModel { get; set; }
-    public string CustomerId { get; set; }
+    public Guid CustomerId { get; set; }
 
-    public void Deconstruct(out string Description, out TrackType TrackType, out long TrackPayloadId, out TrackPaymentInfoEventModel trackPaymentInfoEventModel, out TrackNotificationEventModel notificationEventModel, out string CustomerId)
+    public void Deconstruct(out string Description, out TrackType TrackType, out long TrackPayloadId, out TrackPaymentInfoEventModel trackPaymentInfoEventModel, out TrackNotificationEventModel notificationEventModel, out Guid CustomerId)
     {
         Description = this.Description;
         TrackType = this.TrackType;

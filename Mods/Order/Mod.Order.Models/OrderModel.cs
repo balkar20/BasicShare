@@ -12,13 +12,13 @@ public class OrderModel
     
     public OrderStatus OrderStatus { get; set; }
 
-    public long OrderPayloadId { get; set; }
+    public Guid OrderPayloadId { get; set; }
     
     public OrderPaymentInfoModel OrderPaymentInfoModel { get; set; }
            
     public OrderNotificationModel NotificationModel { get; set; }
            
-    public string CustomerId { get; set; }
+    public Guid CustomerId { get; set; }
     
     public List<OrderItemModel> OrderItemList { get; set; }
 }

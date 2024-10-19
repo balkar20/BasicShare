@@ -5,6 +5,7 @@ using EventBus.Events.Interfaces;
 using EventBus.Messages;
 using EventBus.Messages.Interfaces;
 using MassTransit;
+using OrderOrchestratorStateMachine.DbContext;
 using SagaOrchestrationStateMachine.StateInstances;
 using Serilog;
 
@@ -53,9 +54,9 @@ public class OrderStateMachine : MassTransitStateMachine<OrderStateInstance>
                 {
                     context.Saga.CustomerId = context.Message.CustomerId;
                     context.Saga.OrderId = context.Message.OrderId;
-                    context.Saga.CreatedDate = DateTime.UtcNow;
                     context.Saga.PaymentAccountId = context.Message.PaymentAccountId;
-                    context.Saga.TotalPrice = context.Message.TotalPrice;
+                    _logger.ForContext("CorrelationId", context.Saga.CorrelationId).Information(
+                        "CreateOrderMessage received in OrderStateMachine: {ContextSaga} ", context.Saga);
                 })
                 .Publish(
                     context => new OrderCreatedEvent

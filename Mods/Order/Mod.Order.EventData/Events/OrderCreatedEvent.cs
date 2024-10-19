@@ -10,7 +10,7 @@ namespace Mod.Order.EventData.Events;
 
 public class OrderCreatedEvent : EventObject
 {
-    public OrderCreatedEvent(string Description, OrderType OrderType, long paymentAccountId, OrderPaymentInfoEventModel orderPaymentInfoEventModel, OrderNotificationEventModel notificationEventModel, string customerId): base(Guid.NewGuid())
+    public OrderCreatedEvent(string Description, OrderType OrderType, Guid paymentAccountId, OrderPaymentInfoEventModel orderPaymentInfoEventModel, OrderNotificationEventModel notificationEventModel, Guid customerId): base(Guid.NewGuid())
     {
         this.Description = Description;
         this.OrderType = OrderType;
@@ -25,20 +25,23 @@ public class OrderCreatedEvent : EventObject
         
     }
 
+    public Guid OrderProductId { get; set; }
     public string Description { get; init; }
     public OrderType OrderType { get; init; }
-    public long PaymentAccountId { get; init; }
+    public Guid PaymentAccountId { get; init; }
     public OrderPaymentInfoEventModel OrderPaymentInfoEventModel { get; init; }
     public OrderNotificationEventModel NotificationEventModel { get; init; }
-    public string CustomerId { get; init; }
+    public Guid CustomerId { get; init; }
 
-    public void Deconstruct(out string Description, out OrderType OrderType, out long OrderProductId, out OrderPaymentInfoEventModel orderPaymentInfoEventModel, out OrderNotificationEventModel notificationEventModel, out string CustomerId)
+    public void Deconstruct(out string Description, out OrderType OrderType, out Guid OrderProductId, out OrderPaymentInfoEventModel orderPaymentInfoEventModel, out OrderNotificationEventModel notificationEventModel, out Guid CustomerId, out Guid PaymentAccountId)
     {
         Description = this.Description;
         OrderType = this.OrderType;
-        OrderProductId = this.PaymentAccountId;
+        OrderProductId = this.OrderProductId;
+        PaymentAccountId = this.PaymentAccountId;
         orderPaymentInfoEventModel = this.OrderPaymentInfoEventModel;
         notificationEventModel = this.NotificationEventModel;
         CustomerId = this.CustomerId;
     }
+
 } 

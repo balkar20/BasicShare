@@ -29,10 +29,10 @@ public class Randomizer
             Description = Guid.NewGuid().ToString(),
             OrderType = (OrderType)random.Next(3),
             OrderStatus = (OrderStatus)random.Next(4),
-            OrderPayloadId = random.Next(1000000),
+            OrderPayloadId = Guid.NewGuid(),
             OrderPaymentInfoModel = new OrderPaymentInfoModel() { Price = 50 },
             NotificationModel = new OrderNotificationModel() { NotificationType = (NotificationType)random.Next(4) },
-            CustomerId = Guid.NewGuid().ToString()
+            CustomerId = Guid.NewGuid()
         };
     }
     public static ProductModel CreateRandomProductModel()

@@ -67,8 +67,8 @@ namespace AppStorage.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<long>("OrderPayloadId")
-                        .HasColumnType("bigint");
+                    b.Property<Guid>("OrderPayloadId")
+                        .HasColumnType("uuid");
 
                     b.Property<int>("OrderType")
                         .HasColumnType("integer");
@@ -114,43 +114,43 @@ namespace AppStorage.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("afcb1ffd-152e-4695-8d29-01e042ebdb45"),
+                            Id = new Guid("0db6f79c-cdca-4323-8a05-4cc8067a1899"),
                             Description = "Description of BestStuff",
                             Name = "BestStuff"
                         },
                         new
                         {
-                            Id = new Guid("09a5372e-3df1-4365-9b04-b00fb039b21f"),
+                            Id = new Guid("0fee95cd-34f2-47ad-81ea-f3482088a417"),
                             Description = "Description of Lolly",
                             Name = "Lolly"
                         },
                         new
                         {
-                            Id = new Guid("3bf3b92e-69b6-400f-8781-ffe15611c3ba"),
+                            Id = new Guid("fd654977-2f29-4e46-b78d-9142b6adf878"),
                             Description = "Description of Candy",
                             Name = "Candy"
                         },
                         new
                         {
-                            Id = new Guid("1f2a493d-27e0-4ab0-aa69-aaf0140ae3b4"),
+                            Id = new Guid("cc7c1ac1-40f9-45fa-80e1-b143a0711da9"),
                             Description = "Description of PicksSexoMGLofty",
                             Name = "PicksSexoMGLofty"
                         },
                         new
                         {
-                            Id = new Guid("2d12f82b-e62f-41bb-b586-d84355dd80d1"),
+                            Id = new Guid("9c365c3e-c057-4692-ba66-0a6a50e30db7"),
                             Description = "Description of Toffy",
                             Name = "Toffy"
                         },
                         new
                         {
-                            Id = new Guid("99842e80-ad8f-49eb-9f99-53e2a92664fb"),
+                            Id = new Guid("e883f377-6a66-4ef1-951e-d11c4e8d47cb"),
                             Description = "Description of Fuckas",
                             Name = "Fuckas"
                         },
                         new
                         {
-                            Id = new Guid("b59a2283-1d97-4f34-b813-ee2b58ca178c"),
+                            Id = new Guid("7f56c411-a56b-46b4-9d6b-61273883cf8a"),
                             Description = "Description of Grep",
                             Name = "Grep"
                         });

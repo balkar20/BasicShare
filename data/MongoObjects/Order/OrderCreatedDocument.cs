@@ -5,7 +5,7 @@ namespace MongoObjects.Order;
 
 public class OrderCreatedDocument: EventDocument
 {
-        public OrderCreatedDocument(string Description, OrderType OrderType, long OrderProductId, PaymentInfo PaymentInfo, OrderNotification Notification, CustomerInfo CustomerInfo)
+        public OrderCreatedDocument(string Description, OrderType OrderType, Guid OrderProductId, PaymentInfo PaymentInfo, OrderNotification Notification, CustomerInfo CustomerInfo)
         {
             Id = Guid.NewGuid();
             this.Description = Description;
@@ -25,12 +25,12 @@ public class OrderCreatedDocument: EventDocument
         public OrderType OrderType { get; init; }
         
         public OrderStatus OrderStatus { get; init; }
-        public long OrderProductId { get; init; }
+        public Guid OrderProductId { get; init; }
         public PaymentInfo PaymentInfo { get; init; }
         public OrderNotification Notification { get; init; }
         public CustomerInfo CustomerInfo { get; init; }
 
-        public void Deconstruct(out string Description, out OrderType OrderType, out long OrderProductId, out PaymentInfo PaymentInfo, out OrderNotification Notification, out CustomerInfo CustomerInfo)
+        public void Deconstruct(out string Description, out OrderType OrderType, out Guid OrderProductId, out PaymentInfo PaymentInfo, out OrderNotification Notification, out CustomerInfo CustomerInfo)
         {
             Description = this.Description;
             OrderType = this.OrderType;

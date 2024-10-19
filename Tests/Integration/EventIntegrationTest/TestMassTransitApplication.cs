@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SagaOrchestrationStateMachine.DbContext;
+using OrderOrchestratorStateMachine.DbContext;
 using SagaOrchestrationStateMachine.StateInstances;
 using SagaOrchestrationStateMachine.StateMachines;
 using Serilog;

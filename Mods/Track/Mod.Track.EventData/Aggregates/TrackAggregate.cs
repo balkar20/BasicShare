@@ -99,7 +99,7 @@ public class TrackAggregate: AggregateRoot
            
     public TrackNotificationEventModel NotificationEventModel { get; set; }
            
-    public string CustomerId { get; set; }
+    public Guid CustomerId { get; set; }
 
     public string Track { get; set; }
 

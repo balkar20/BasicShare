@@ -25,7 +25,7 @@ public class OrderAggregate: AggregateRoot
         var orderCreatedEvent = new OrderCreatedEvent(
             model.Description,
             model.OrderType,
-            model.OrderPayloadId,
+            model.OrderPaymentInfoEventModel.PaymentAccountId,
             model.OrderPaymentInfoEventModel,
             model.NotificationEventModel,
             model.CustomerId
@@ -94,13 +94,13 @@ public class OrderAggregate: AggregateRoot
     
     public OrderType OrderType { get; set; }
 
-    public long OrderPayloadId { get; set; }
+    public Guid OrderPayloadId { get; set; }
     
     public OrderPaymentInfoEventModel OrderPaymentInfoEventModel { get; set; }
            
     public OrderNotificationEventModel NotificationEventModel { get; set; }
            
-    public string CustomerId { get; set; }
+    public Guid CustomerId { get; set; }
 
     public string Order { get; set; }
 

@@ -21,6 +21,9 @@ public class OrderEndpointDefinition : IEndpointDefinition
         app.MapPost("api/orders",
             ([FromServices] IMediator _mediator, [FromBody] OrderModel Order) =>
                 _mediator.Send(new CreateOrderCommand(Order)));
+        app.MapPost("api/dumps",
+            ([FromServices] IMediator _mediator, [FromBody] DumpModel Order) =>
+                _mediator.Send(new CreateDumbCommand(Order)));
         app.MapPost("api/orders/update-notification",
             ([FromServices] IMediator _mediator, [FromBody] OrderNotificationModel Order) =>
                 _mediator.Send(new UpdateOrderNotificationCommand(Order)));

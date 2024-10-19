@@ -1,5 +1,6 @@
 using System.Formats.Tar;
 using System.Reflection;
+using System.Text.Json.Serialization;
 using Data.Base.Objects;
 using EventBus.Constants;
 using Storage.AppStorage;
@@ -45,6 +46,7 @@ public class ModOrderExternalServicesConfigurator
     {
         _services.AddOptions();
         _services.AddAutoMapper(typeof(GetAllOrdersQuery).Assembly);
+        
         // _services.AddMediatR(typeof(GetAllOrdersQuery).Assembly);
         _services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllOrdersQuery).Assembly));
 
